@@ -28,7 +28,7 @@
 }
 
 .font-gilroy-bold {
-  font-family: "Gilroy-Black", sans-serif;
+  font-family: "Gilroy-Bold", sans-serif;
 }
 
 .font-gilroy-medium {
@@ -42,5 +42,5 @@
 body {
   background-color: #000;
   color: #fff;
-  font-family: "Gilroy-Bold", sans-serif;
+  font-family: "Gilroy", sans-serif;
 }
