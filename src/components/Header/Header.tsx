@@ -1,4 +1,3 @@
-import React from "react";
 import { GoChevronDown } from "react-icons/go";
 
 export const Header = () => {
