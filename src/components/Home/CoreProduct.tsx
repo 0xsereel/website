@@ -1,6 +1,6 @@
 export const CoreProduct = () => {
   return (
-    <section className="w-full flex items-center justify-center py-10">
+    <section className="w-full flex items-center justify-center py-20">
       <div className="w-[95%] mx-auto">
         {/* Title */}
 
