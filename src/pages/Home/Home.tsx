@@ -1,4 +1,5 @@
 import { CoreProduct } from "../../components/Home/CoreProduct";
+import { FAQ } from "../../components/Home/FAQ";
 import { Hero } from "../../components/Home/Hero";
 import { IGS } from "../../components/Home/IGS";
 import { RecentArticles } from "../../components/Home/RecentArticles";
@@ -10,6 +11,7 @@ export const Home = () => {
       <CoreProduct />
       <IGS />
       <RecentArticles />
+      <FAQ />
     </div>
   );
 };
