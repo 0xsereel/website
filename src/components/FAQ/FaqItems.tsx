@@ -61,7 +61,7 @@ export default function FAQItems(): ReactNode {
         >
           <button
             onClick={() => toggleFAQ(index)}
-            className="w-full flex justify-between items-center text-left text-white text-lg font-medium"
+            className="w-full flex justify-between items-center text-left text-white text-lg font-medium cursor-pointer"
           >
             {faq.question}
             <span className="text-green-500">

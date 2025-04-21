@@ -3,7 +3,7 @@ import { GoChevronDown } from "react-icons/go";
 export const Header = () => {
   const logoPath = "/images/header/logo.png";
   return (
-    <div className="w-full items-center justify-between flex p-4">
+    <header className="w-full items-center justify-between flex p-4">
       <div className="flex gap-4 items-center">
         {/* Logo */}
 
@@ -43,6 +43,6 @@ export const Header = () => {
 
         <button className="w-[150px] h-[50px] border-2 border-[#3A3A45] rounded-full">Contact Us</button>
       </div>
-    </div>
+    </header>
   );
 };
