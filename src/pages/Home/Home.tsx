@@ -1,6 +1,7 @@
 import { CoreProduct } from "../../components/Home/CoreProduct";
 import { Hero } from "../../components/Home/Hero";
 import { IGS } from "../../components/Home/IGS";
+import { RecentArticles } from "../../components/Home/RecentArticles";
 
 export const Home = () => {
   return (
@@ -8,6 +9,7 @@ export const Home = () => {
       <Hero />
       <CoreProduct />
       <IGS />
+      <RecentArticles />
     </div>
   );
 };
