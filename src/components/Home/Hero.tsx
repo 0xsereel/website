@@ -5,11 +5,11 @@ export const Hero = () => {
   const glowingSereeLogoPath = "/images/Hero/glowing-seree-logo.png";
 
   return (
-    <section className="w-full flex items-center  flex-col h-screen">
+    <section className="w-full flex items-center  flex-col  lg:h-screen">
         <Header />
-      <div className="w-[95%] mx-auto flex items-center justify-between mt-10">
-        <div className="w-[50%]">
-          <h3 className="text-7xl">
+      <div className="w-[95%] mx-auto flex items-center justify-between mt-10 lg:flex-row flex-col-reverse">
+        <div className="lg:w-[50%] w-full lg:mt-0">
+          <h3 className="lg:text-7xl text-5xl">
             Unlock the <br /> future of finance
           </h3>
 
@@ -23,8 +23,8 @@ export const Hero = () => {
           </div>
         </div>
 
-        <div className="w-[50%]">
-          <img src={glowingSereeLogoPath} alt="" />
+        <div className="lg:w-[50%] w-full lg:flex items-center justify-center overflow-hidden">
+          <img src={glowingSereeLogoPath} className="lg:w-[120%] -ml-[10%] glowing-logo" alt="" />
         </div>
       </div>
     </section>

@@ -10,16 +10,16 @@ export const IGS = () => {
       <div className="w-[90%] mx-auto">
         {/* Title */}
 
-        <div className="w-[95%] flex  items-center justify-between mx-auto">
-          <div className="flex  flex-col">
-            <h3 className="text-5xl">Institutional-Grade Software</h3>
+        <div className="lg:w-[95%] w-full flex  lg:items-center justify-between mx-auto lg:flex-row flex-col">
+          <div className="flex  flex-col lg:w-fit w-full">
+            <h3 className="lg:text-5xl text-3xl">Institutional-Grade Software</h3>
             <p className="mt-2">
               The solutions our product offers are seamless, secure and
               accessible .
             </p>
           </div>
 
-          <div>
+          <div className="lg:mt-0 mt-10">
             {/* contact us button */}
 
             <button className="w-[150px] h-[50px] border-2 border-[#3A3A45] rounded-full">
@@ -28,10 +28,10 @@ export const IGS = () => {
           </div>
         </div>
 
-        <div className="w-[95%] h-[490px] border border-[#202026] mt-10 mx-auto rounded-xl flex">
+        <div className="lg:w-[95%] w-full lg:h-[490px] h-fit border border-[#202026] mt-10 mx-auto rounded-xl flex lg:flex-row flex-col">
           {/* Security */}
 
-          <div className="w-[33%] rounded-tl-xl rounded-bl-xl h-full border-r border-r-[#202026] p-4 bg-black bg-gradient-to-br from-[#1CA36E]/20  to-black">
+          <div className="lg:w-[33%] w-full rounded-tl-xl rounded-bl-xl h-full lg:border-r border-r-[#202026] p-4 bg-black bg-gradient-to-br from-[#1CA36E]/20  to-black">
             <div className="w-full">
               <div className="w-[64px] h-[64px] border border-[#5F5F7138] rounded-full bg-white/5 flex items-center justify-center">
                 <h3>1</h3>
@@ -53,7 +53,7 @@ export const IGS = () => {
 
           {/* Fiancial Practices */}
 
-          <div className="w-[33%]  h-full border-r border-r-[#202026] p-4 bg-black bg-gradient-to-br from-[#1CA36E]/20  to-black">
+          <div className="lg:w-[33%] w-full h-full lg:border-r border-r-[#202026] p-4 bg-black bg-gradient-to-br from-[#1CA36E]/20  to-black">
             <div className="w-full">
               <div className="w-[64px] h-[64px] border border-[#5F5F7138] rounded-full bg-white/5 flex items-center justify-center">
                 <h3>2</h3>
@@ -79,7 +79,7 @@ export const IGS = () => {
             </div>
           </div>
 
-          <div className="w-[33%]  h-full  p-4 bg-black bg-gradient-to-br from-[#1CA36E]/20  to-black">
+          <div className="lg:w-[33%] w-full h-full  p-4 bg-black bg-gradient-to-br from-[#1CA36E]/20  to-black">
             <div className="w-full">
               <div className="w-[64px] h-[64px] border border-[#5F5F7138] rounded-full bg-white/5 flex items-center justify-center">
                 <h3>3</h3>

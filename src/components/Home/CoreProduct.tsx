@@ -5,7 +5,7 @@ export const CoreProduct = () => {
         {/* Title */}
 
         <div className="w-full flex items-center justify-center flex-col">
-          <h3 className="text-5xl">Our Core Product</h3>
+          <h3 className="lg:text-5xl text-3xl">Our Core Product</h3>
           <p className="mt-2 text-center">
             The solutions our product offers are seamless, secure and accessible{" "}
           </p>
@@ -13,8 +13,8 @@ export const CoreProduct = () => {
 
         {/* Cards */}
 
-        <div className="flex items-center justify-center gap-4 mt-10">
-          <div className="w-[400px] h-[290px] border border-[#202026] rounded-xl p-4">
+        <div className="flex items-center justify-center gap-4 mt-10 lg:flex-row flex-col">
+          <div className="lg:w-[400px] w-full h-[290px] border border-[#202026] rounded-xl p-4">
             <div className="w-full">
               <div className="w-[64px] h-[64px] border border-[#5F5F7138] rounded-full bg-white/5 flex items-center justify-center">
                 <svg
@@ -47,7 +47,7 @@ export const CoreProduct = () => {
             </div>
           </div>
 
-          <div className="w-[400px] h-[290px] border border-[#202026] rounded-xl p-4">
+          <div className="lg:w-[400px] w-full h-[290px] border border-[#202026] rounded-xl p-4">
             <div className="w-full">
               <div className="w-[64px] h-[64px] border border-[#5F5F7138] rounded-full bg-white/5 flex items-center justify-center">
                 <svg
@@ -79,7 +79,7 @@ export const CoreProduct = () => {
             </div>
           </div>
 
-          <div className="w-[400px] h-[290px] border border-[#202026] rounded-xl p-4">
+          <div className="lg:w-[400px] w-full h-[290px] border border-[#202026] rounded-xl p-4">
             <div className="w-full">
               <div className="w-[64px] h-[64px] border border-[#5F5F7138] rounded-full bg-white/5 flex items-center justify-center">
                 <svg

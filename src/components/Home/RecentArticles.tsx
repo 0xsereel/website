@@ -9,19 +9,19 @@ export const RecentArticles = () => {
         {/* Title */}
 
         <div className="w-full flex items-center justify-center flex-col">
-          <h3 className="text-5xl">Recent Articles</h3>
+          <h3 className="lg:text-5xl text-3xl">Recent Articles</h3>
           <p className="mt-2 text-center">
             The solutions our product offers are seamless, secure and accessible{" "}
           </p>
         </div>
 
-        <div className="w-full flex items-center justify-center mt-10 gap-5">
+        <div className="w-full flex items-center justify-center mt-10 gap-5 lg:flex-row flex-col">
           {/* blog 1 */}
 
-          <div className="w-[400px] h-[280px] rounded-xl">
+          <div className="lg:w-[400px] w-full h-[280px] rounded-xl">
             <div className="w-full rounded-xl h-[180px] bg-green-600 relative">
               <img
-                className="w-full h-full rounded-xl object-cover"
+                className="w-full h-full rounded-xl object-cover object-[20%_50%]"
                 src={firstBlogImagePath}
                 alt=""
               />
@@ -32,7 +32,7 @@ export const RecentArticles = () => {
 
             <div className="w-full mt-3 text-xl text-left">
               <p>
-                How Rwanda’s Banks Can Leverage Tokenized sFRW for Cross-Border
+                How Rwanda's Banks Can Leverage Tokenized sFRW for Cross-Border
                 Efficiency
               </p>
             </div>
@@ -40,10 +40,10 @@ export const RecentArticles = () => {
 
           {/* blog 2 */}
 
-          <div className="w-[400px] h-[280px] rounded-xl">
+          <div className="lg:w-[400px] w-full h-[280px] rounded-xl">
             <div className="w-full rounded-xl h-[180px] bg-green-600 relative">
               <img
-                className="w-full h-full rounded-xl object-cover"
+                className="w-full h-full rounded-xl object-cover object-[20%_50%]"
                 src={secondBlogImagePath}
                 alt=""
               />
@@ -59,10 +59,10 @@ export const RecentArticles = () => {
 
           {/* blog 3 */}
 
-          <div className="w-[400px] h-[280px] rounded-xl">
+          <div className="lg:w-[400px] w-full  h-[280px] rounded-xl">
             <div className="w-full rounded-xl h-[180px] bg-green-600 relative">
               <img
-                className="w-full h-full rounded-xl object-cover"
+                className="w-full h-full rounded-xl object-cover object-[20%_50%]"
                 src={thrirdBlogImagePath}
                 alt=""
               />

@@ -2,9 +2,9 @@ export const Footer = () => {
   const logoPath = "/images/header/logo.png";
 
   return (
-    <footer className="w-full flex items-center justify-center py-20">
-      <div className="w-[90%] mx-auto">
-        <div className="w-full flex justify-between items-start">
+    <footer className="w-full flex items-center justify-center py-20 px-5">
+      <div className="lg:w-[90%] w-full mx-auto">
+        <div className="w-full flex justify-between items-start lg:flex-row flex-col">
           <div className="flex items-center gap-3">
             <img className="w-[50px] h-[50px]" src={logoPath} alt="" />
 
@@ -37,7 +37,7 @@ export const Footer = () => {
         </div>
 
         <div className="w-full mt-10">
-          <p className="text-center text-[#D5D5D5]">
+          <p className="text-center text-[#D5D5D5] lg:text-md text-sm">
             Seree 2025, All Rights Reserved. Seree Technologies, Inc.
           </p>
         </div>

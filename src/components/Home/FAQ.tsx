@@ -9,7 +9,7 @@ export const FAQ = () => {
         {/* Title */}
 
         <div className="w-full flex items-center justify-center flex-col">
-          <h3 className="text-5xl">Frequently Asked Questions</h3>
+          <h3 className="lg:text-5xl text-3xl text-center">Frequently Asked Questions</h3>
           <p className="mt-2 text-center">
             The solutions our product offers are seamless, secure and accessible
           </p>

@@ -1,4 +1,5 @@
 import { GoChevronDown } from "react-icons/go";
+import { FaBars } from "react-icons/fa";
 
 export const Header = () => {
   const logoPath = "/images/header/logo.png";
@@ -15,7 +16,7 @@ export const Header = () => {
 
         {/* Menu Buttons  */}
 
-        <div className="font-gilroy-medium flex gap-5 ml-3 text-md">
+        <div className="font-gilroy-medium lg:flex gap-5 ml-3 text-md hidden">
           <div>
             <button className="flex gap-2 items-center cursor-pointer">
               <p>Solutions</p>
@@ -37,11 +38,16 @@ export const Header = () => {
             </button>
           </div>
         </div>
+
       </div>
 
       <div>{/* contact us button */}
 
-        <button className="w-[150px] h-[50px] border-2 border-[#3A3A45] rounded-full">Contact Us</button>
+        <button className="w-[150px] h-[50px] border-2 border-[#3A3A45] rounded-full hidden lg:block">Contact Us</button>
+
+        <div className="lg:hidden">
+          <FaBars size={30} />
+        </div>
       </div>
     </header>
   );
