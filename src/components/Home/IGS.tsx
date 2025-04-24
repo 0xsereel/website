@@ -90,7 +90,7 @@ export const IGS = () => {
               <img src={iso20022IconPath} className="w-[150px]" alt="" />
             </div>
 
-            <div className="mt-[50px]">
+            <div className="mt-[80px]">
               <h3 className="font-gilroy-medium text-xl">
                 ISO20022 Compliance
               </h3>
