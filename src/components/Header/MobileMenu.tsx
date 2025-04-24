@@ -3,29 +3,35 @@ import { GoChevronDown, GoChevronUp } from "react-icons/go";
 import { useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import { useGlobal } from "../../contexts/globals";
+import { Link } from "react-router-dom";
 
 export const MobileMenu = () => {
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
   const { isMobileMenuOpen, setIsMobileMenuOpen } = useGlobal();
 
- 
-
   return (
-    <div className={`w-full h-full fixed top-0 left-0 bg-black mobile-menu lg:hidden block z-20 p-4 overflow-y-auto ${isMobileMenuOpen ? "open" : "closed"}`}>
+    <div
+      className={`w-full h-full fixed top-0 left-0 bg-black mobile-menu lg:hidden block z-20 p-4 overflow-y-auto ${
+        isMobileMenuOpen ? "open" : "closed"
+      }`}
+    >
       <div className="w-full justify-between items-center flex-col overflow-y-auto">
         <div className="flex items-center justify-between w-full">
           {/* Logo */}
 
-          <div className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-3">
             <img className="w-[50px] h-[50px]" src={logoPath} alt="" />
 
             <h3 className="text-2xl font-gilroy-bold">Seree</h3>
-          </div>
+          </Link>
 
           <div>
             {/* contact us button */}
 
-            <div onClick={() => setIsMobileMenuOpen(false)} className="lg:hidden">
+            <div
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="lg:hidden"
+            >
               <IoMdClose size={30} />
             </div>
           </div>
@@ -144,36 +150,28 @@ export const MobileMenu = () => {
                     </div>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
 
-
           {/* ?== Resources */}
 
           <div className="w-full mt-5">
-            <button
+            <Link
+              to="/about"
               className="flex gap-2 items-center cursor-pointer text-5xl"
             >
               <p className="">About</p>
-            </button>
+            </Link>
           </div>
 
           <div className="w-full mt-5">
-            <button
-              className="flex gap-2 items-center cursor-pointer text-5xl"
-            >
-              <p className="">Resources</p>
-            </button>
-          </div>
-
-          <div className="w-full mt-5">
-            <button
+            <Link
+              to="/blog"
               className="flex gap-2 items-center cursor-pointer text-5xl"
             >
               <p className="">Blog</p>
-            </button>
+            </Link>
           </div>
         </div>
       </div>

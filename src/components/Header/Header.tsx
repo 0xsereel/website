@@ -3,6 +3,7 @@ import { FaBars } from "react-icons/fa";
 import { MenuOptions } from "./MenuOptions";
 import { useState } from "react";
 import { useGlobal } from "../../contexts/globals";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   const logoPath = "/images/header/logo.png";
@@ -21,11 +22,11 @@ export const Header = () => {
         <div className="flex gap-4 items-center">
           {/* Logo */}
 
-          <div className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-3">
             <img className="w-[50px] h-[50px]" src={logoPath} alt="" />
 
             <h3 className="text-2xl font-gilroy-bold">Seree</h3>
-          </div>
+          </Link>
 
           {/* Menu Buttons  */}
 
@@ -41,17 +42,23 @@ export const Header = () => {
             </div>
 
             <div>
-              <button className="flex gap-2 items-center cursor-pointer">
+              <Link
+                to="/about"
+                className="flex gap-2 items-center cursor-pointer"
+              >
                 <p>About Us</p>
                 {/* <GoChevronDown /> */}
-              </button>
+              </Link>
             </div>
 
             <div>
-              <button className="flex gap-2 items-center cursor-pointer">
-                <p>Resources</p>
+              <Link
+                to="/blog"
+                className="flex gap-2 items-center cursor-pointer"
+              >
+                <p>Blog</p>
                 {/* <GoChevronDown /> */}
-              </button>
+              </Link>
             </div>
           </div>
         </div>
