@@ -2,7 +2,7 @@ import { Button } from "../Button/Button";
 import { Header } from "../Header/Header";
 
 export const Hero = () => {
-  const glowingSereeLogoPath = "/images/Hero/glowing-seree-logo.png";
+  const glowingSereeLogoPath = "/images/Hero/glowing-seree-logo.webp";
 
   return (
     <section className="w-full flex items-center  flex-col  lg:h-screen">
