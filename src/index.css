@@ -66,3 +66,33 @@ body {
   animation: glowingLogo 3s ease-in-out infinite;
 }
 
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+.mobile-menu {
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.mobile-menu.open {
+  animation: slideDown 0.3s ease-in-out forwards;
+}
+
+.mobile-menu.closed {
+  animation: slideUp 0.3s ease-in-out forwards;
+}
+

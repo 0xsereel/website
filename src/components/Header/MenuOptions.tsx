@@ -1,8 +1,8 @@
 export const MenuOptions = ({ isOpen }: { isOpen: boolean }) => {
   return (
-    <div className="w-full h-[300px] absolute top-0 left-0 mt-20 z-10 ">
+    <div className="w-full h-[300px] absolute top-0 left-0 mt-20 z-20 lg:block hidden">
       <div
-        className={`w-[700px] h-[250px] border border-[#202026] bg-black ml-40 rounded-b-xl flex items-center justify-between p-5 ${
+        className={`w-[700px] h-[250px] border border-[#202026] bg-black ml-40 rounded-b-xl flex  items-center justify-between p-5 ${
           isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
       >
@@ -49,7 +49,7 @@ export const MenuOptions = ({ isOpen }: { isOpen: boolean }) => {
               </svg>
             </div>
             <div>
-              <p className="text-md">Noncustodial Wallet Service</p>
+              <p className="text-md">Tokenization</p>
             </div>
           </div>
 
@@ -72,7 +72,7 @@ export const MenuOptions = ({ isOpen }: { isOpen: boolean }) => {
               </svg>
             </div>
             <div>
-              <p className="text-md">Noncustodial Wallet Service</p>
+              <p className="text-md">Identity</p>
             </div>
           </div>
         </div>
@@ -97,11 +97,11 @@ export const MenuOptions = ({ isOpen }: { isOpen: boolean }) => {
               </svg>
             </div>
             <div>
-              <p className="text-md">Noncustodial Wallet Service</p>
+              <p className="text-md">Private Blockchain</p>
             </div>
           </div>
 
-          <div className="w-full flex items-center gap-2 mt-5">
+          {/* <div className="w-full flex items-center gap-2 mt-5">
             <div className="w-[50px] h-[50px] border border-[#5F5F7138] rounded-full bg-white/5 flex items-center justify-center">
               <svg
                 width="24"
@@ -122,9 +122,9 @@ export const MenuOptions = ({ isOpen }: { isOpen: boolean }) => {
             <div>
               <p className="text-md">Noncustodial Wallet Service</p>
             </div>
-          </div>
+          </div> */}
 
-          <div className="w-full flex items-center gap-2 mt-5">
+          {/* <div className="w-full flex items-center gap-2 mt-5">
             <div className="w-[50px] h-[50px] border border-[#5F5F7138] rounded-full bg-white/5 flex items-center justify-center">
               <svg
                 width="24"
@@ -145,7 +145,7 @@ export const MenuOptions = ({ isOpen }: { isOpen: boolean }) => {
             <div>
               <p className="text-md">Noncustodial Wallet Service</p>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

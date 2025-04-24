@@ -1,4 +1,5 @@
 import { Footer } from "../../components/Footer/Footer";
+import { MobileMenu } from "../../components/Header/MobileMenu";
 import { CoreProduct } from "../../components/Home/CoreProduct";
 import { FAQ } from "../../components/Home/FAQ";
 import { Hero } from "../../components/Home/Hero";
@@ -9,6 +10,7 @@ import { RecentArticles } from "../../components/Home/RecentArticles";
 export const Home = () => {
   return (
     <div className="w-full">
+      <MobileMenu />
       <Hero />
       <CoreProduct />
       <IGS />

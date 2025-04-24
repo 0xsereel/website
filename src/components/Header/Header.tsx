@@ -1,10 +1,13 @@
-import { GoChevronDown } from "react-icons/go";
+import { GoChevronDown, GoChevronUp } from "react-icons/go";
 import { FaBars } from "react-icons/fa";
 import { MenuOptions } from "./MenuOptions";
 import { useState } from "react";
+import { useGlobal } from "../../contexts/globals";
 
 export const Header = () => {
   const logoPath = "/images/header/logo.png";
+
+  const { setIsMobileMenuOpen } = useGlobal();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -33,7 +36,7 @@ export const Header = () => {
                 onClick={handleOpenMenu}
               >
                 <p>Solutions</p>
-                <GoChevronDown />
+                {isOpen ? <GoChevronUp /> : <GoChevronDown />}
               </button>
             </div>
 
@@ -60,7 +63,7 @@ export const Header = () => {
             Contact Us
           </button>
 
-          <div className="lg:hidden">
+          <div onClick={() => setIsMobileMenuOpen(true)} className="lg:hidden">
             <FaBars size={30} />
           </div>
         </div>
