@@ -165,14 +165,6 @@ export const MobileMenu = () => {
             </Link>
           </div>
 
-          <div className="w-full mt-5">
-            <Link
-              to="/blog"
-              className="flex gap-2 items-center cursor-pointer text-5xl"
-            >
-              <p className="">Blog</p>
-            </Link>
-          </div>
         </div>
       </div>
     </div>

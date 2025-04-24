@@ -7,7 +7,7 @@ export const CoreProduct = () => {
         <div className="w-full flex items-center justify-center flex-col">
           <h3 className="lg:text-5xl text-3xl">Our Core Product</h3>
           <p className="mt-2 text-center">
-            The solutions our product offers are seamless, secure and accessible{" "}
+            The solutions we offer are seamless, secure and accessible
           </p>
         </div>
 
@@ -42,7 +42,7 @@ export const CoreProduct = () => {
               <p className="mt-4 text-[#D5D5D5]">
                 Your assets are protected with cutting-edge ERC-4337 Smart
                 Accounts with Multi-Factor Authentication (Email, Passkeys).
-                Secure, self-custodied, and enterprise-ready.security protocols.
+                Secure, self-custodied, and enterprise-ready.
               </p>
             </div>
           </div>
@@ -74,7 +74,7 @@ export const CoreProduct = () => {
               </h3>
               <p className="mt-4 text-[#D5D5D5]">
                 zkTLS-Powered Tokenization: Convert fiat (e.g., Rwandan Francs →
-                sFRW) and real-world assets into liquid, tradable tokens.
+                sFRW) and other assets into liquid, tradable tokens.
               </p>
             </div>
           </div>

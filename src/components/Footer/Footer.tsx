@@ -21,8 +21,13 @@ export const Footer = () => {
             </div>
 
             <div>
-              <h3 className="font-gilroy-bold my-5">About Us</h3>
-              <p className="my-3">About</p>
+                <h3 className="font-gilroy-bold my-5">About Us</h3>
+                <p
+                  className="my-3 cursor-pointer"
+                  onClick={() => window.location.href = '/about'}
+                >
+                  About
+                </p>
               <p className="my-3">Entities</p>
               <p className="my-3">Partnerships</p>
             </div>
@@ -31,7 +36,7 @@ export const Footer = () => {
               <h3 className="font-gilroy-bold my-5">Resources</h3>
               <p className="my-3">Blog</p>
               <p className="my-3">Case Studies</p>
-              <p className="my-3">White Paper</p>
+              <p className="my-3">Research Repository</p>
             </div>
           </div>
         </div>

@@ -4,11 +4,13 @@ import { MenuOptions } from "./MenuOptions";
 import { useState } from "react";
 import { useGlobal } from "../../contexts/globals";
 import { Link } from "react-router-dom";
+import { ContactUs } from "../Home/ContactUs";
 
 export const Header = () => {
   const logoPath = "/images/header/logo.png";
 
   const { setIsMobileMenuOpen } = useGlobal();
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -64,11 +66,19 @@ export const Header = () => {
         </div>
 
         <div>
-          {/* contact us button */}
+            {/* contact us button */}
 
-          <button className="w-[150px] h-[50px] border-2 border-[#3A3A45] rounded-full hidden lg:block">
+            <button
+            className="w-[150px] h-[50px] border-2 border-[#3A3A45] rounded-full hidden lg:block"
+            onClick={() => setIsContactModalOpen(true)}
+            >
             Contact Us
-          </button>
+            </button>
+
+            {/* Contact Us Modal */}
+            {isContactModalOpen && (
+            <ContactUs onClose={() => setIsContactModalOpen(false)} />
+            )}
 
           <div onClick={() => setIsMobileMenuOpen(true)} className="lg:hidden">
             <FaBars size={30} />
