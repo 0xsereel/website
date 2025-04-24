@@ -9,19 +9,19 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
   {
-    question: "What is a Blockchain?",
+    question: "What kind of wallets does Seree provide?",
     answer:
-      "A blockchain is a decentralized, distributed ledger technology that records transactions across a network of computers. It ensures data integrity and security through cryptography and consensus mechanisms.",
+      "We provide non-custodial, smart contract-based wallets powered by ERC-4337 . These wallets offer programmable features like spending limits, session keys, and gasless transactions all without sacrificing security.",
   },
   {
-    question: "What is SWIFT?",
+    question: "Who are our solutions for?",
     answer:
-      "SWIFT (Society for Worldwide Interbank Financial Telecommunications) is a global messaging network used by financial institutions to securely exchange financial messages, primarily for international transactions. It does not transfer funds but facilitates communication between banks.",
+      "We serve banks, fintechs, insurance firms, investment platforms, and other regulated financial institutions across Africa looking to adopt secure, compliant, and scalable blockchain technology.",
   },
   {
-    question: "What is Ethereum?",
+    question: "What can Seree tokenize ?",
     answer:
-      "Ethereum is a decentralized, open-source blockchain platform that supports smart contracts and decentralized applications (dApps). It uses Ether (ETH) as its native cryptocurrency and is known for its programmability and versatility.",
+      "Our platform supports tokenization of fiat, bonds, real estate, commodities, invoices, equity, and more, we turn real-world assets into programmable, tradable digital tokens.",
   },
   {
     question: "What is ISO 20022?",
@@ -29,14 +29,14 @@ const faqs: FAQItem[] = [
       "ISO 20022 is a global standard for exchanging electronic data between financial institutions, enabling efficient and standardized communication for financial transactions. It supports rich data formats, enhancing compliance and operational efficiency.",
   },
   {
-    question: "What is Proof of Stake (PoS)?",
+    question: "What is ERC-3643 ?",
     answer:
-      "Proof of Stake is a consensus algorithm used by some blockchain networks where validators are chosen to create new blocks based on the amount of cryptocurrency they hold (stake) rather than computational power. This method is more energy-efficient than Proof of Work.",
+      "ERC-3643 is a security token standard designed for compliant and permissioned digital assets. Seree uses it to help institutions tokenize bonds, equity, and real-world assets while maintaining full compliance with regulatory requirements.",
   },
   {
-    question: "What is a Validator?",
+    question: "What standards do we use for tokenized assets?",
     answer:
-      "A validator is a node on a blockchain network that verifies transactions and creates new blocks. In Proof of Stake systems, validators are chosen based on their stake, while in other systems, they may be chosen based on different criteria. Seree runs Ethereum PoS validators.",
+      "We support ERC-1400 and ERC-3643 standards for regulated asset tokens, as well as custom structures where needed.",
   },
   {
     question: "What is Restaking?",
