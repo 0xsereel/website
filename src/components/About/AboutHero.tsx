@@ -2,7 +2,7 @@ import { Button } from "../Button/Button";
 import { Header } from "../Header/Header";
 
 export const AboutHero = () => {
-  const peopleImagePath = "/images/about/about_people.jpg";
+  const peopleImagePath = "/images/about/about_image.jpeg";
 
   return (
     <div className="w-full">
@@ -16,7 +16,7 @@ export const AboutHero = () => {
       </div>
       <div className="w-full bg-black py-20 p-5">
         <div className="w-full flex items-center justify-center">
-          <img src={peopleImagePath} className="w-[800px] rounded-xl" alt="" />
+          <img src={peopleImagePath} className="w-[800px] rounded-xl grayscale" alt="" />
         </div>
 
         <div className="w-full flex items-center justify-center mt-20">
