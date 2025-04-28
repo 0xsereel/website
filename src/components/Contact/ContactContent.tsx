@@ -1,8 +1,63 @@
 import { Button } from "../Button/Button";
 import { IoMailOutline, IoLocationSharp } from "react-icons/io5";
+import { useState } from "react";
 
 export const ContactContent = () => {
   const contactImagePath = "/images/contact/contact.jpg";
+
+  const [form, setForm] = useState({
+    fname: "",
+    lname: "",
+    email: "",
+    message: "",
+  });
+  const [result, setResult] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setResult("Sending...");
+
+    const data = {
+      access_key: "563fd04c-e608-49a9-80d5-40151dcd7832",
+      name: form.fname + " " + form.lname,
+      email: form.email,
+      message: form.message,
+    };
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const resultData = await response.json();
+
+      if (resultData.success) {
+        setResult("Thank you for contacting us!");
+        setForm({ fname: "", lname: "", email: "", message: "" });
+      } else {
+        setResult(
+          resultData.message || "Something went wrong. Please try again."
+        );
+      }
+    } catch (error) {
+      setResult("An error occurred. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="w-full ">
@@ -18,15 +73,23 @@ export const ContactContent = () => {
             <div className="w-full">
               <h3 className="text-3xl font-gilroy-bold">Let's Talk</h3>
               <p className="my-3 text-xl">
-                Get in touch with us using the enquiry form or <br className="lg:block hidden" /> contact
-                details below
+                Get in touch with us using the enquiry form or{" "}
+                <br className="lg:block hidden" /> contact details below
               </p>
+            </div>
+
+            <div>
+                {result && (
+                    <div className="w-full mt-5">
+                        <p className="text-xl text-green-500">{result}</p>
+                    </div>
+                )}
             </div>
 
             {/* form */}
 
             <div className="w-full mt-10">
-              <form className="w-full" action="">
+              <form className="w-full" onSubmit={handleSubmit}>
                 <div className="w-full flex items-center justify-between">
                   <div className="w-[45%]">
                     <label
@@ -40,6 +103,8 @@ export const ContactContent = () => {
                       name="fname"
                       id="fname"
                       className="w-full mt-2 border border-[#202026] rounded-lg p-2 outline-none"
+                      value={form.fname}
+                      onChange={handleChange}
                     />
                   </div>
 
@@ -55,6 +120,8 @@ export const ContactContent = () => {
                       name="lname"
                       id="lname"
                       className="w-full mt-2 border border-[#202026] rounded-lg p-2 outline-none"
+                      value={form.lname}
+                      onChange={handleChange}
                     />
                   </div>
                 </div>
@@ -72,6 +139,8 @@ export const ContactContent = () => {
                       name="email"
                       id="email"
                       className="w-full mt-2 border border-[#202026] rounded-lg p-2 outline-none"
+                      value={form.email}
+                      onChange={handleChange}
                     />
                   </div>
                 </div>
@@ -88,12 +157,16 @@ export const ContactContent = () => {
                       name="message"
                       id="message"
                       className="w-full mt-2 border border-[#202026] rounded-lg p-2 outline-none resize-none"
+                      value={form.message}
+                      onChange={handleChange}
                     />
                   </div>
                 </div>
 
                 <div className="w-full mt-5">
-                  <Button>Submit</Button>
+                  <Button type="submit" disabled={loading}>
+                    {loading ? "Sending..." : "Submit"}
+                  </Button>
                 </div>
               </form>
             </div>
