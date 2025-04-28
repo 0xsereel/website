@@ -17,7 +17,6 @@ export const Footer = () => {
               <p className="my-3">Wallet</p>
               <p className="my-3">Tokenization</p>
               <p className="my-3">Identity</p>
-              <p className="my-3">Private Blockchains</p>
             </div>
 
             <div>
