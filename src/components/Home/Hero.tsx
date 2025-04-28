@@ -1,8 +1,14 @@
 import { Button } from "../Button/Button";
 import { Header } from "../Header/Header";
+import { useNavigate } from "react-router-dom";
 
 export const Hero = () => {
   const glowingSereeLogoPath = "/images/Hero/glowing_seree_logo.svg"; 
+  const navigate = useNavigate();
+
+  const handleGetStarted = () => {
+    navigate("/contact");
+  };
 
   return (
     <section className="w-full flex items-center  flex-col  lg:h-screen">
@@ -19,7 +25,7 @@ export const Hero = () => {
           </p>
 
           <div className="mt-5">
-            <Button onClick={() => {}}>Get Started</Button>
+            <Button onClick={handleGetStarted}>Get Started</Button>
           </div>
         </div>
 
