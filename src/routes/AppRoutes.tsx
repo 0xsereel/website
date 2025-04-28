@@ -3,6 +3,7 @@ import { Home } from "../pages/Home/Home";
 import { About } from "../pages/About/About";
 import { Contact } from "../pages/Contact/Contact";
 import { Blog } from "../pages/Blog/Blog";
+import { SingleBlog } from "../pages/Blog/SingleBlog";
 const AppRoutes = () => {
   return (
     <Router>
@@ -11,6 +12,7 @@ const AppRoutes = () => {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:id" element={<SingleBlog />} />
       </Routes>
     </Router>
   );
