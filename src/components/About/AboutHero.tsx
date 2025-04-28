@@ -8,12 +8,13 @@ export const AboutHero = () => {
     <div className="w-full">
       <Header />
       <div className="w-full h-[400px] bg-black flex items-center  flex-col  bg-gradient-to-bl from-[#1CA36E]/30 via-black to-[#1CA36E]/30    ">
-        <div className=" flex text-center flex-col mt-20 text-5xl font-bold gap-5">
+        <div className=" flex text-center flex-col mt-20 lg:text-5xl text-3xl font-bold gap-5">
             <h3>We Are on a Mission to Maximize</h3>
             <h3>The Efficiency of the</h3>
             <h3>Global Financial Ecosystem</h3>
         </div>
       </div>
+
       <div className="w-full bg-black py-20 p-5">
         <div className="w-full flex items-center justify-center">
           <img
@@ -27,7 +28,7 @@ export const AboutHero = () => {
           <div className="w-[95%] mx-auto">
             {/* Title */}
 
-            <div className="w-full h-[400px] bg-black flex items-center justify-center flex-col bg-gradient-to-br from-[#1CA36E]/30 via-black to-[#1CA36E]/30">
+            <div className="w-full lg:h-[400px] p-4 lg:p-0 lg:my-0 my-10 bg-black flex items-center justify-center flex-col bg-gradient-to-br from-[#1CA36E]/30 via-black to-[#1CA36E]/30">
               <div className="w-[95%] text-center">
                 <p className="text-[#D5D5D5]">
                   {" "}
@@ -220,7 +221,7 @@ export const AboutHero = () => {
             {/* Cards */}
 
             <div className="flex items-center justify-center gap-4 mt-10 lg:flex-row flex-col">
-              <div className="lg:w-[500px] w-full h-[420px] border border-[#202026] rounded-xl p-4">
+              <div className="lg:w-[500px] w-full lg:h-[420px] h-fit border border-[#202026] rounded-xl p-4">
                 <div className="w-full">
                   <div className="w-[64px] h-[64px] border border-[#5F5F7138] rounded-full bg-white/5 flex items-center justify-center">
                     <svg
@@ -275,7 +276,7 @@ export const AboutHero = () => {
                 </div>
               </div>
 
-              <div className="lg:w-[500px] w-full h-[420px] border border-[#202026] rounded-xl p-4">
+              <div className="lg:w-[500px] w-full lg:h-[420px] h-fit border border-[#202026] rounded-xl p-4">
                 <div className="w-full">
                   <div className="w-[64px] h-[64px] border border-[#5F5F7138] rounded-full bg-white/5 flex items-center justify-center">
                     <svg

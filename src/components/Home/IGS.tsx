@@ -1,10 +1,8 @@
 // Instititutional Grade Software (section)
-import { ContactUs } from "./ContactUs";
 
-import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export const IGS = () => {
-  const [showModal, setShowModal] = useState(false);
   const securityIconPath = "/images/solutions/security.png";
   const financialPracticeIconPath = "/images/solutions/financial-practices.png";
   const iso20022IconPath = "/images/solutions/ISO20022.png";
@@ -16,35 +14,21 @@ export const IGS = () => {
 
         <div className="lg:w-[95%] w-full flex  lg:items-center justify-between mx-auto lg:flex-row flex-col">
           <div className="flex  flex-col lg:w-fit w-full">
-            <h3 className="lg:text-5xl text-3xl">Institutional-Grade Software</h3>
-            <p className="mt-2">
-              Built secure for high-stakes activity
-            </p>
+            <h3 className="lg:text-5xl text-3xl">
+              Institutional-Grade Software
+            </h3>
+            <p className="mt-2">Built secure for high-stakes activity</p>
           </div>
 
           <div className="lg:mt-0 mt-10">
             {/* contact us button */}
 
-            <button
+            <Link
+              to="/contact"
               className="w-[150px] h-[50px] border-2 border-[#3A3A45] rounded-full flex items-center justify-center"
-              onClick={() => setShowModal(true)}
             >
               Contact Us
-            </button>
-
-            {showModal && (
-              <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-              <div className="bg-white w-[90%] lg:w-[50%] p-5 rounded-lg relative">
-                <button
-                className="absolute top-3 right-3 text-black"
-                onClick={() => setShowModal(false)}
-                >
-                ✕
-                </button>
-                <ContactUs onClose={() => setShowModal(false)} />
-              </div>
-              </div>
-            )}
+            </Link>
           </div>
         </div>
 
@@ -65,8 +49,8 @@ export const IGS = () => {
             <div className="mt-[50px]">
               <h3 className="font-gilroy-medium text-xl">Security</h3>
               <p className="mt-4 text-[#969696]">
-                High-Grade Noncustodial Wallets: Multi-sig, MPC, and audited smart
-                contracts. Your assets are protected at every layer
+                High-Grade Noncustodial Wallets: Multi-sig, MPC, and audited
+                smart contracts. Your assets are protected at every layer
               </p>
             </div>
           </div>
