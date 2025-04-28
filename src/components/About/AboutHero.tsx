@@ -52,7 +52,7 @@ export const AboutHero = () => {
                   world. These inefficiencies drive us to build.
                 </p>
                 <p className="text-[#D5D5D5] mt-4">
-                  Seree is the first open tokenization service in Rwanda,
+                  Seree is,
                   binding traditional and{" "}
                   <a
                   href="https://www.investopedia.com/decentralized-finance-defi-5113835"
@@ -71,8 +71,7 @@ export const AboutHero = () => {
                 <p className="text-[#D5D5D5] mt-4">
                   Founded by blockchain engineers and financiers,
                   we're pioneers in turning idle capital into programmable,
-                  yield-bearing assets that settle in minutes - not days. From
-                  Rwanda to the world, we're redefining the physics of money.{" "}
+                  yield-bearing assets that settle in minutes - not days. We're redefining the physics of money.{" "}
                   <strong>Join us.</strong>
                 </p>
               </div>
@@ -147,8 +146,7 @@ export const AboutHero = () => {
                     Asset Tokenization Service
                   </h3>
                   <p className="mt-4 text-[#D5D5D5]">
-                    zkTLS-Powered Tokenization: Convert fiat (e.g., Rwandan
-                    Francs → sFRW) and other assets into liquid, tradable
+                    zkTLS-Powered Tokenization: Convert fiat (e.g., fiat currency → stablecoins) and other assets into liquid, tradable
                     tokens.
                   </p>
                 </div>

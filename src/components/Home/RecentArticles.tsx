@@ -32,7 +32,7 @@ export const RecentArticles = () => {
 
             <div className="w-full mt-3 text-xl text-left">
               <p>
-                How Rwanda's Banks Can Leverage Tokenized sFRW for Cross-Border
+                How Banks Can Leverage Stablecoins for Cross-Border
                 Efficiency
               </p>
             </div>

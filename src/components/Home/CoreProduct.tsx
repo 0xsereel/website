@@ -73,8 +73,8 @@ export const CoreProduct = () => {
                 Asset Tokenization Service
               </h3>
               <p className="mt-4 text-[#D5D5D5]">
-                zkTLS-Powered Tokenization: Convert fiat (e.g., Rwandan Francs →
-                sFRW) and other assets into liquid, tradable tokens.
+                zkTLS-Powered Tokenization: Convert fiat (e.g., fiat currency →
+                stablecoins) and other assets into liquid, tradable tokens.
               </p>
             </div>
           </div>
