@@ -15,7 +15,7 @@ export const Hero = () => {
 
           <p className="text-xl mt-5">
             Institutional-grade blockchain solutions for fast settlements, DeFi
-            access, and asset tokenization built for financial institutions.
+            access, and asset tokenization.
           </p>
 
           <div className="mt-5">
