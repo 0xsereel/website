@@ -21,6 +21,16 @@ export const ContactContent = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
+    if (
+      form.fname === "" ||
+      form.lname === "" ||
+      form.email === "" ||
+      form.message === ""
+    ) {
+      setResult("Please fill all the fields");
+      return;
+    }
+
     e.preventDefault();
     setLoading(true);
     setResult("Sending...");
@@ -79,11 +89,11 @@ export const ContactContent = () => {
             </div>
 
             <div>
-                {result && (
-                    <div className="w-full mt-5">
-                        <p className="text-xl text-green-500">{result}</p>
-                    </div>
-                )}
+              {result && (
+                <div className="w-full mt-5">
+                  <p className="text-xl text-green-500">{result}</p>
+                </div>
+              )}
             </div>
 
             {/* form */}
