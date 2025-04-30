@@ -7,6 +7,7 @@ interface Blog {
   title: string;
   image: string;
   content: string;
+  summary: string;
 }
 
 const typedBlogs: Blog[] = blogs as Blog[];
@@ -17,8 +18,8 @@ export const BlogPageContent = () => {
       <div className="w-full lg:h-[400px] bg-black h-[200px] flex items-center  bg-gradient-to-bl from-[#1CA36E]/30 via-black to-[#1CA36E]/30   justify-center ">
         <div className=" text-center px-5 ">
           <h3 className="lg:text-5xl text-3xl">
-            Learn More and get to know <br className="hidden lg:block" /> what's
-            going on{" "}
+            Welcome to Our Blog <br className="hidden lg:block" /> Stay Updated
+            with the Latest Insights
           </h3>
         </div>
       </div>
@@ -27,7 +28,10 @@ export const BlogPageContent = () => {
         <div className="w-full flex items-center justify-center mt-10 gap-5 lg:flex-row flex-col">
           {typedBlogs.length > 0 ? (
             typedBlogs.map((blog) => (
-              <Link to={`/blog/${blog ? blog.id : ""}`} className="lg:w-[400px] w-[95%] h-[280px] rounded-xl bg-black">
+              <Link
+                to={`/blog/${blog ? blog.id : ""}`}
+                className="lg:w-[400px] w-[95%] h-[280px] rounded-xl bg-black"
+              >
                 <div className="w-full rounded-xl h-[180px] bg-green-600 relative">
                   <img
                     className="w-full h-full rounded-xl object-cover object-[20%_50%]"
@@ -40,13 +44,19 @@ export const BlogPageContent = () => {
                 </div>
 
                 <div className="w-full mt-3 text-xl text-left px-2">
-                  <p>{blog.content.substring(0, 100)}...</p>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: blog.summary,
+                    }}
+                  ></p>
                 </div>
               </Link>
             ))
           ) : (
             <div className="w-full flex items-center justify-center">
-              <h3 className="text-white text-4xl">No blogs found at the moment</h3>
+              <h3 className="text-white text-4xl">
+                No blogs found at the moment
+              </h3>
             </div>
           )}
         </div>

@@ -6,6 +6,7 @@ import blogs from "../../Blog Data/Blogs.json";
 
 interface Blog {
   id: number;
+  date: string;
   title: string;
   image: string;
   content: string;
@@ -36,7 +37,7 @@ export const BlogPost = () => {
       <div className="w-[90%] mx-auto flex items-center justify-center flex-col">
         <div>
           <h1 className="text-5xl font-gilroy-bold">{blog.title}</h1>
-          <p className="text-gray-500 my-3">30 November 2024</p>
+          <p className="text-gray-500 my-3">{blog.date}</p>
         </div>
 
         <div className="w-full my-10">
