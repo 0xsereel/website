@@ -42,7 +42,8 @@ export const RecentArticles = () => {
                   </div>
                 </div>
                 <div className="w-full mt-3 text-xl text-left">
-                  <p>{blog.content.substring(0, 100)}...</p>
+               
+                  <p>{blog.content.substring(0, 100).replace(/[^\w\s]/g, "")}...</p>
                 </div>
               </Link>
             ))
