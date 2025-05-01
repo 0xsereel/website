@@ -1,7 +1,6 @@
-import { Button } from "../Button/Button";
 import blogs from "../../Blog Data/Blogs.json";
 import { Link } from "react-router-dom";
-
+import { NewsLetter } from "../Home/NewsLetter";
 interface Blog {
   id: number;
   title: string;
@@ -64,21 +63,7 @@ export const BlogPageContent = () => {
 
       {/* Before footer */}
 
-      <section className="w-full flex items-center justify-center py-20 bg-gradient-to-br from-[#1CA36E]/30 via-black  to-[#1CA36E]/30 h-[550px]">
-        <div className="w-[95%] mx-auto flex justify-center items-center flex-col">
-          {/* Title */}
-          <div className="w-full flex items-center justify-center flex-col">
-            <h3 className="lg:text-5xl text-3xl text-center">
-              Seree, Read about our development
-            </h3>
-            <p className="mt-2 text-center"></p>
-          </div>
-
-          <div className="mt-3">
-            <Button>Read White paper</Button>
-          </div>
-        </div>
-      </section>
+      <NewsLetter />
     </div>
   );
 };
