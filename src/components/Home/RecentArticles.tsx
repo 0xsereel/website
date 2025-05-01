@@ -1,4 +1,5 @@
 import blogs from "../../Blog Data/Blogs.json";
+import { Link } from "react-router-dom";
 
 interface Blog {
   id: number;
