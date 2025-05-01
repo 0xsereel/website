@@ -29,7 +29,7 @@ export const RecentArticles = () => {
 
           {recentBlogs.length > 0 ? (
             recentBlogs.map((blog) => (
-              <div className="lg:w-[400px] w-full h-[280px] rounded-xl">
+              <Link to={`/blog/${blog.id}`} className="lg:w-[400px] w-full h-[280px] rounded-xl">
                 <div className="w-full rounded-xl h-[180px] bg-green-600 relative">
                   <img
                     className="w-full h-full rounded-xl object-cover object-[20%_50%]"
@@ -43,7 +43,7 @@ export const RecentArticles = () => {
                 <div className="w-full mt-3 text-xl text-left">
                   <p>{blog.content.substring(0, 100)}...</p>
                 </div>
-              </div>
+              </Link>
             ))
           ) : (
             <div className=" w-full rounded-xl">
