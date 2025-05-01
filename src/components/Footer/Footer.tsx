@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const Footer = () => {
   const logoPath = "/images/header/logo.png";
 
@@ -5,11 +7,11 @@ export const Footer = () => {
     <footer className="w-full flex items-center justify-center py-20 px-5">
       <div className="lg:w-[90%] w-full mx-auto">
         <div className="w-full flex justify-between items-start lg:flex-row flex-col">
-          <div className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-3">
             <img className="w-[50px] h-[50px]" src={logoPath} alt="" />
 
             <h3 className="text-2xl font-gilroy-bold">Seree</h3>
-          </div>
+          </Link>
 
           <div className="flex items-start gap-10">
             <div>
@@ -33,8 +35,7 @@ export const Footer = () => {
 
             <div>
               <h3 className="font-gilroy-bold my-5">Resources</h3>
-              <p className="my-3">Blog</p>
-              <p className="my-3">Case Studies</p>
+              <Link to="/blog" className="my-3">Blog</Link>
               <p className="my-3">Research Repository</p>
             </div>
           </div>

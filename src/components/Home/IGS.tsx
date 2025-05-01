@@ -72,7 +72,7 @@ export const IGS = () => {
               />
             </div>
 
-            <div className="mt-[50px]">
+            <div className="mt-[60px]">
               <h3 className="font-gilroy-medium text-xl">
                 Seree’s Financial Practices{" "}
               </h3>
@@ -82,6 +82,8 @@ export const IGS = () => {
               </p>
             </div>
           </div>
+
+          {/* ISO 20022 */}
 
           <div className="lg:w-[33%] w-full h-full  p-4 bg-black bg-gradient-to-br from-[#1CA36E]/20  to-black">
             <div className="w-full">
@@ -94,7 +96,7 @@ export const IGS = () => {
               <img src={iso20022IconPath} className="w-[150px]" alt="" />
             </div>
 
-            <div className="mt-[80px]">
+            <div className="mt-[82px]">
               <h3 className="font-gilroy-medium text-xl">
                 ISO20022 Compliance
               </h3>
