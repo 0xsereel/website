@@ -53,6 +53,13 @@ export const BlogPost = () => {
             <ReactMarkdown
               remarkPlugins={[remarkGfm]}
               rehypePlugins={[rehypeRaw]}
+              components={{
+                a: ({ href, children }) => (
+                  <a href={href} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">
+                    {children}
+                  </a>
+                ),
+              }}
             >
               {blog.content}
             </ReactMarkdown>
