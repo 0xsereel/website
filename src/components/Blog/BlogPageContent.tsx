@@ -23,8 +23,8 @@ export const BlogPageContent = () => {
         </div>
       </div>
 
-      <div className="w-full bg-black  flex flex-col items-center  bg-gradient-to-bl from-black via-black to-[#1CA36E]/30   justify-center py-20">
-        <div className="w-full flex items-center justify-center mt-10 gap-5 lg:flex-row flex-col">
+      <div className="w-full bg-black flex-wrap   flex flex-col items-center  bg-gradient-to-bl from-black via-black to-[#1CA36E]/30   justify-center py-20">
+        <div className="w-full flex flex-wrap items-center justify-center mt-10 gap-8 lg:flex-row flex-col">
           {typedBlogs.length > 0 ? (
             typedBlogs.map((blog) => (
               <Link
