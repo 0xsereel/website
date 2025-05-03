@@ -16,9 +16,9 @@ export const Footer = () => {
           <div className="flex items-start gap-10">
             <div>
               <h3 className="font-gilroy-bold my-5">Solutions</h3>
-              <p className="my-3">Wallet</p>
-              <p className="my-3">Tokenization</p>
-              <p className="my-3">Identity</p>
+              <Link to="/solutions/wallet" className="my-3">Wallet</Link> <br />
+              <Link to="/solutions/tokenization" className="my-3">Tokenization</Link> <br />
+              <Link to="/solutions/identity" className="my-3">Identity</Link>
             </div>
 
             <div>

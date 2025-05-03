@@ -10,9 +10,9 @@ export const MobileMenu = () => {
   const { isMobileMenuOpen, setIsMobileMenuOpen } = useGlobal();
 
   const menuItems = [
-    { label: "Noncustodial Wallet Service" },
-    { label: "Tokenization" },
-    { label: "Identity" },
+    { label: "Noncustodial Wallet Service", link: "/solutions/wallet" },
+    { label: "Tokenization", link: "/solutions/tokenization" },
+    { label: "Identity", link: "/solutions/identity" },
   ];
 
   const getIcon = (index: number) => {
@@ -133,8 +133,9 @@ export const MobileMenu = () => {
               >
                 <div className="w-full">
                   {menuItems.map((item, index) => (
-                    <div
+                    <Link
                       key={index}
+                      to={item.link}
                       className="w-full flex items-center gap-2 mt-5 first:mt-0"
                     >
                       <div className="w-[50px] h-[50px] border border-[#5F5F7138] rounded-full bg-white/5 flex items-center justify-center">
@@ -143,7 +144,7 @@ export const MobileMenu = () => {
                       <div>
                         <p className="text-md">{item.label}</p>
                       </div>
-                    </div>
+                    </Link>
                   ))}
 
                   
