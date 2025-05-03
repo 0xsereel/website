@@ -21,7 +21,7 @@ export const NewsLetter = () => {
     setMessage("Submitting...");
 
     const data = {
-      access_key: "563fd04c-e608-49a9-80d5-40151dcd7832",
+      access_key: "4a825a6a-442e-4605-a310-96c8ad3f0854",
       email,
     };
 

@@ -36,7 +36,7 @@ export const ContactContent = () => {
     setResult("Sending...");
 
     const data = {
-      access_key: "563fd04c-e608-49a9-80d5-40151dcd7832",
+      access_key: "4a825a6a-442e-4605-a310-96c8ad3f0854",
       name: form.fname + " " + form.lname,
       email: form.email,
       message: form.message,
@@ -198,9 +198,11 @@ export const ContactContent = () => {
                     <IoMailOutline />
                   </div>
 
-                  <div>
-                    <p>team@seree.xyz</p>
-                  </div>
+                    <div>
+                        <a href="mailto:team@seree.xyz" className="text-green-500">
+                        team@seree.xyz
+                        </a>
+                    </div>
                 </div>
 
                 <div className="w-full flex items-center gap-5 text-xl my-3">
@@ -209,7 +211,7 @@ export const ContactContent = () => {
                   </div>
 
                   <div>
-                    <p>Africa and USA</p>
+                    <p>Kigali, Rwanda</p>
                   </div>
                 </div>
               </div>

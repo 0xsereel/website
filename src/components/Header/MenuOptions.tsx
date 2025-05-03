@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export const MenuOptions = ({ isOpen }: { isOpen: boolean }) => {
   const menuItems = [
-    { label: "Noncustodial Wallet Service", link: "/solutions/wallet" },
+    { label: "Wallet", link: "/solutions/wallet" },
     { label: "Tokenization", link: "/solutions/tokenization" },
     { label: "Identity", link: "/solutions/identity" },
   ];

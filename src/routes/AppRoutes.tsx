@@ -8,7 +8,7 @@ import { Wallet } from "../pages/solutions/Wallet";
 import { Tokenization } from "../pages/solutions/Tokenization";
 import { Identity } from "../pages/solutions/Identity";
 import { Entities } from "../pages/Entities/Entities";
-import { Patnerships } from "../pages/Patnerships/Patnerships";
+import { Partnerships } from "../pages/Partnerships/Partnerships";
 import { Repositories } from "../pages/Repositories/Repositories";
 const AppRoutes = () => {
   return (
@@ -23,7 +23,7 @@ const AppRoutes = () => {
         <Route path="/solutions/tokenization" element={<Tokenization />} />
         <Route path="/solutions/identity" element={<Identity />} />
         <Route path="/entities" element={<Entities />} />
-        <Route path="/patnerships" element={<Patnerships />} />
+        <Route path="/patnerships" element={<Partnerships />} />
         <Route path="/repositories" element={<Repositories />} />
       </Routes>
     </Router>
