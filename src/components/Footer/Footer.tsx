@@ -23,20 +23,20 @@ export const Footer = () => {
 
             <div>
                 <h3 className="font-gilroy-bold my-5">About Us</h3>
-                <p
+                <Link
+                  to="/about"
                   className="my-3 cursor-pointer"
-                  onClick={() => window.location.href = '/about'}
                 >
                   About
-                </p>
-              <p className="my-3">Entities</p>
-              <p className="my-3">Partnerships</p>
+                </Link> <br />
+              <Link to="/entities" className="my-3">Entities</Link> <br />
+              <Link to="/patnerships" className="my-10">Partnerships</Link>
             </div>
 
             <div>
               <h3 className="font-gilroy-bold my-5">Resources</h3>
-              <Link to="/blog" className="my-3">Blog</Link>
-              <p className="my-3">Research Repository</p>
+              <Link to="/blog" className="my-3">Blog</Link> <br />
+              <Link to="/repositories" className="my-3">Research Repository</Link>
             </div>
           </div>
         </div>
