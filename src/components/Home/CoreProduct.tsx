@@ -40,9 +40,8 @@ export const CoreProduct = () => {
                 Noncustodial Wallet Service
               </h3>
               <p className="mt-4 text-[#D5D5D5]">
-                Your assets are protected with Smart
-                Accounts with Multi-Factor Authentication.
-                Secure, self-custodied, and enterprise-ready.
+                Your assets are protected with Smart Accounts with Multi-Factor
+                Authentication. Secure, self-custodied, and enterprise-ready.
               </p>
             </div>
           </div>
@@ -73,8 +72,9 @@ export const CoreProduct = () => {
                 Asset Tokenization Service
               </h3>
               <p className="mt-4 text-[#D5D5D5]">
-              Convert fiat (e.g., fiat currency → stablecoins), bonds (government or privately issued) and other assets into liquid, tradable
-              tokens.
+                Convert fiat (e.g., fiat currency → stablecoins), bonds
+                (government or privately issued) and other assets into liquid,
+                tradable tokens.
               </p>
             </div>
           </div>

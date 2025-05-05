@@ -11,7 +11,7 @@ const faqs: FAQItem[] = [
   {
     question: "What kind of wallets does Seree provide?",
     answer:
-      "We provide non-custodial, smart contract-based wallets powered by ERC-4337 . These wallets offer programmable features like spending limits, session keys, and gasless transactions all without sacrificing security.",
+      "We provide non-custodial, smart contract-based wallets powered by ERC-4337. These wallets offer programmable features like spending limits, session keys, and gasless transactions all without sacrificing security.",
   },
   {
     question: "Who are our solutions for?",
