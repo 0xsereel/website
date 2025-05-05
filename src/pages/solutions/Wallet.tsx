@@ -24,7 +24,7 @@ export const Wallet = () => {
             For institutions who demand both crypto-native features and traditional finance compatibility:
           </h2>
           <ul className="list-disc list-inside mb-6">
-            <li><strong>Non-custodial ERC-4337 smart accounts</strong> with social logins (email) + WebAuthn passkeys</li>
+            <li><strong>Non-custodial smart accounts</strong> with social logins (email) + WebAuthn passkeys</li>
             <li><strong>Enterprise-grade controls:</strong> Multisig, gas abstraction, transaction policies</li>
             <li><strong>Seamless integration</strong> with existing financial reporting systems</li>
             <li><strong>MEV Resistant:</strong> We take advantage of private mempools to make your trades efficient</li>

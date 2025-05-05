@@ -114,8 +114,7 @@ export const AboutHero = () => {
                     Noncustodial Wallet Service
                   </h3>
                   <p className="mt-4 text-[#D5D5D5]">
-                    Your assets are protected with cutting-edge ERC-4337 Smart
-                    Accounts with Multi-Factor Authentication (Email, Passkeys).
+                    Your assets are protected with high-security wallets with Multi-Factor Authentication.
                     Secure, self-custodied, and enterprise-ready.
                   </p>
                 </div>
@@ -147,7 +146,7 @@ export const AboutHero = () => {
                     Asset Tokenization Service
                   </h3>
                   <p className="mt-4 text-[#D5D5D5]">
-                    zkTLS-Powered Tokenization: Convert fiat (e.g., fiat currency → stablecoins) and other assets into liquid, tradable
+                    Convert fiat (e.g., fiat currency → stablecoins), bonds (government or privately issued) and other assets into liquid, tradable
                     tokens.
                   </p>
                 </div>
@@ -244,7 +243,7 @@ export const AboutHero = () => {
 
                 <div className="mt-3">
                   <h3 className="font-gilroy-medium text-xl">
-                    ERC-4337 Smart Accounts
+                    Smart Wallets
                   </h3>
                   <p className="mt-4 text-[#D5D5D5]">
                     Leverages ERC-4337 Account Abstraction to enable
