@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export const IGS = () => {
   const securityIconPath = "/images/solutions/security.png";
   const financialPracticeIconPath = "/images/solutions/financial-practices.png";
-  const iso20022IconPath = "/images/solutions/ISO20022.png";
+  const poRPath = "/images/solutions/PoR.png";
 
   return (
     <section className="w-full flex items-center justify-center pb-10 pt-20">
@@ -93,16 +93,16 @@ export const IGS = () => {
             </div>
 
             <div className="mt-5 w-full flex items-center justify-center">
-              <img src={iso20022IconPath} className="w-[150px]" alt="" />
+              <img src={poRPath} className="w-[200px]" alt="" />
             </div>
 
-            <div className="mt-[82px]">
+            <div className="mt-[30px]">
               <h3 className="font-gilroy-medium text-xl">
-                ISO20022 Compliance
+                Proof Of Reserves
               </h3>
               <p className="mt-4 text-[#969696]">
-                Future-Proof Messaging: Stable coin transfers and wallet actions
-                adhere to global banking standards.
+                PoR powered by ZKTLs ensuring transparent and secure on-chain reserve verification,
+                safeguarding assets and maintaining privacy.
               </p>
             </div>
           </div>
