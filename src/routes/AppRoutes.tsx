@@ -10,7 +10,10 @@ import { Identity } from "../pages/solutions/Identity";
 import { Entities } from "../pages/Entities/Entities";
 import { Partnerships } from "../pages/Partnerships/Partnerships";
 import { Repositories } from "../pages/Repositories/Repositories";
+import { Editor } from "../pages/Editor/Editor";
 const AppRoutes = () => {
+  const isDev = import.meta.env.DEV;
+
   return (
     <Router>
       <Routes>
@@ -25,9 +28,10 @@ const AppRoutes = () => {
         <Route path="/entities" element={<Entities />} />
         <Route path="/patnerships" element={<Partnerships />} />
         <Route path="/repositories" element={<Repositories />} />
+        {isDev && <Route path="/editor" element={<Editor />} />}
       </Routes>
     </Router>
   );
-}; 
+};
 
 export default AppRoutes;
