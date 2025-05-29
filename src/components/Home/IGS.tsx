@@ -101,7 +101,7 @@ export const IGS = () => {
                 Proof Of Reserves
               </h3>
               <p className="mt-4 text-[#969696]">
-                PoR powered by ZKTLs ensuring transparent and secure on-chain reserve verification,
+                PoR powered by zkTLS ensuring transparent and secure on-chain reserve verification,
                 safeguarding assets and maintaining privacy.
               </p>
             </div>
