@@ -10,7 +10,7 @@ export const Footer = () => {
           <Link to="/" className="flex items-center gap-3">
             <img className="w-[50px] h-[50px]" src={logoPath} alt="" />
 
-            <h3 className="text-2xl font-gilroy-bold">Seree</h3>
+            <h3 className="text-2xl font-gilroy-bold">Sereel</h3>
           </Link>
 
           <div className="flex items-start gap-10">
@@ -43,7 +43,7 @@ export const Footer = () => {
 
         <div className="w-full mt-10">
           <p className="text-center text-[#D5D5D5] lg:text-md text-sm">
-            Seree 2025, All Rights Reserved. Seree Technologies, Inc.
+            Sereel 2025, All Rights Reserved. Sereel Technologies, Inc.
           </p>
         </div>
       </div>

@@ -74,7 +74,7 @@ export const IGS = () => {
 
             <div className="mt-[60px]">
               <h3 className="font-gilroy-medium text-xl">
-                Seree’s Financial Practices{" "}
+                Sereel’s Financial Practices{" "}
               </h3>
               <p className="mt-4 text-[#969696]">
                 Designed for Compliance: Transparent ledgers, audit trails, and

@@ -16,7 +16,7 @@ export const Identity = () => {
             <strong>Digital identity is revolutionizing governance—but how do financial institutions comply on public blockchains without exposing sensitive data?</strong>
           </p>
           <p className="mb-6">
-            For example, Rwanda’s <a href="https://www.nida.gov.rw/" target="_blank" rel="noopener noreferrer" className="text-[#1CA36E] hover:underline">National ID Agency (NIDA)</a> and others mandate verified identity for financial access. Yet public blockchains pseudonymize users. <strong>Seree bridges this gap.</strong>
+            For example, Rwanda’s <a href="https://www.nida.gov.rw/" target="_blank" rel="noopener noreferrer" className="text-[#1CA36E] hover:underline">National ID Agency (NIDA)</a> and others mandate verified identity for financial access. Yet public blockchains pseudonymize users. <strong>Sereel bridges this gap.</strong>
           </p>
 
           <h2 className="text-2xl font-bold text-white mb-4">Identity-Verified Wallets</h2>

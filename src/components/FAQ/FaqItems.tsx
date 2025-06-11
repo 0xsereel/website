@@ -9,7 +9,7 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
   {
-    question: "What kind of wallets does Seree provide?",
+    question: "What kind of wallets does Sereel provide?",
     answer:
       "We provide non-custodial, smart contract-based wallets powered by ERC-4337. These wallets offer programmable features like spending limits, session keys, and gasless transactions all without sacrificing security.",
   },
@@ -19,7 +19,7 @@ const faqs: FAQItem[] = [
       "We serve banks, fintechs, insurance firms, investment platforms, and other regulated financial institutions across Africa looking to adopt secure, compliant, and scalable blockchain technology.",
   },
   {
-    question: "What can Seree tokenize ?",
+    question: "What can Sereel tokenize ?",
     answer:
       "Our platform supports tokenization of fiat, bonds, real estate, commodities, invoices, equity, and more, we turn real-world assets into programmable, tradable digital tokens.",
   },
@@ -31,7 +31,7 @@ const faqs: FAQItem[] = [
   {
     question: "What is ERC-3643 ?",
     answer:
-      "ERC-3643 is a security token standard designed for compliant and permissioned digital assets. Seree uses it to help institutions tokenize bonds, equity, and real-world assets while maintaining full compliance with regulatory requirements.",
+      "ERC-3643 is a security token standard designed for compliant and permissioned digital assets. Sereel uses it to help institutions tokenize bonds, equity, and real-world assets while maintaining full compliance with regulatory requirements.",
   },
   {
     question: "What standards do we use for tokenized assets?",
@@ -41,7 +41,7 @@ const faqs: FAQItem[] = [
   {
     question: "What is Restaking?",
     answer:
-      "Restaking refers to the process of using staked assets on a Proof of Stake network to run applications other than the consensus mechanism being run. This enables validators to earn additional fees on top of running blockchains such as Ethereum. Seree participates in restaking by running additional services such as machine learning training and zero knowledge processing.",
+      "Restaking refers to the process of using staked assets on a Proof of Stake network to run applications other than the consensus mechanism being run. This enables validators to earn additional fees on top of running blockchains such as Ethereum. Sereel participates in restaking by running additional services such as machine learning training and zero knowledge processing.",
   },
 ];
 

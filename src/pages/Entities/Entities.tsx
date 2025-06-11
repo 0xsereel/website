@@ -15,7 +15,7 @@ export const Entities = () => {
         <div className="w-full mt-10 flex flex-col items-center gap-8">
           <div className="w-full max-w-[600px] border border-[#202026] rounded-xl p-6 bg-[#1A1A1A]">
             <h3 className="text-2xl font-bold text-white">
-              Seree Technologies, Inc.
+              Sereel Technologies, Inc.
             </h3>
             <p className="mt-2 text-[#D5D5D5]">
               Incorporated in Delaware; responsible for fundraising and
@@ -25,7 +25,7 @@ export const Entities = () => {
 
           <div className="w-full max-w-[600px] border border-[#202026] rounded-xl p-6 bg-[#1A1A1A]">
             <h3 className="text-2xl font-bold text-white">
-              Seree Technologies Rwanda
+              Sereel Technologies Rwanda
             </h3>
             <p className="mt-2 text-[#D5D5D5]">
               Incorporated in Rwanda; responsible for payments and client

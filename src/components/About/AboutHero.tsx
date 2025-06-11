@@ -53,7 +53,7 @@ export const AboutHero = () => {
                   world. These inefficiencies drive us to build.
                 </p>
                 <p className="text-[#D5D5D5] mt-4">
-                  Seree is,
+                  Sereel is,
                   binding traditional and{" "}
                   <a
                   href="https://www.investopedia.com/decentralized-finance-defi-5113835"

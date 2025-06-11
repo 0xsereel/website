@@ -8,7 +8,7 @@ export const Wallet = () => {
     <div className="w-full">
       <Header />
       <div className="w-full h-[400px] bg-black flex items-center justify-center bg-gradient-to-bl from-[#1CA36E]/30 via-black to-[#1CA36E]/30">
-        <h1 className="text-white text-4xl font-bold">Seree Wallet</h1>
+        <h1 className="text-white text-4xl font-bold">Sereel Wallet</h1>
       </div>
 
       <div className="w-full bg-black py-10 px-5">
