@@ -3,7 +3,7 @@ import { Header } from "../Header/Header";
 import { useNavigate } from "react-router-dom";
 
 export const Hero = () => {
-  const glowingSereelLogoPath = "/images/Hero/glowing_Sereel_logo.svg"; 
+  const glowingSereeLogoPath = "/images/Hero/glowing_seree_logo.svg"; 
   const navigate = useNavigate();
 
   const handleGetStarted = () => {
@@ -30,7 +30,7 @@ export const Hero = () => {
         </div>
 
         <div className="lg:w-[50%] w-full lg:flex items-center justify-center overflow-hidden">
-          <img src={glowingSereelLogoPath} className="lg:w-[120%] -ml-[10%] glowing-logo" alt="" />
+          <img src={glowingSereeLogoPath} className="lg:w-[120%] -ml-[10%] glowing-logo" alt="" />
         </div>
       </div>
     </section>
