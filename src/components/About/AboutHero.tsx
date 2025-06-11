@@ -196,11 +196,11 @@ export const AboutHero = () => {
 
                 <div className="mt-3">
                   <h3 className="font-gilroy-medium text-xl">
-                    Digital Identity Solutions
+                    DeFi Solutions
                   </h3>
                   <p className="mt-4 text-[#D5D5D5]">
-                    Zero-Knowledge Proofs & Fully Homomorphic Encryption for
-                    private, on-chain identity management.
+                    Manage asset liquidity, risk, and compliance with our
+                    intuitive window to decentralized finance protocols.
                   </p>
                 </div>
               </div>
