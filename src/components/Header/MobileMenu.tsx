@@ -12,7 +12,7 @@ export const MobileMenu = () => {
   const menuItems = [
     { label: "Noncustodial Wallet Service", link: "/solutions/wallet" },
     { label: "Tokenization", link: "/solutions/tokenization" },
-    { label: "Identity", link: "/solutions/identity" },
+    { label: "DeFi", link: "/solutions/identity" },
   ];
 
   const getIcon = (index: number) => {
