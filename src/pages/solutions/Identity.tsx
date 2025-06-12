@@ -13,28 +13,28 @@ export const Identity = () => {
       <div className="w-full bg-black py-10 px-5">
         <div className="w-full max-w-[800px] mx-auto text-[#D5D5D5]">
           <p className="text-lg mb-6">
-            <strong>Digital identity is revolutionizing governance—but how do financial institutions comply on public blockchains without exposing sensitive data?</strong>
+            <strong>DeFi is revolutionizing capital markets—unlocking unprecedented liquidity, accessibility, and efficiency for traditional assets.</strong>
           </p>
           <p className="mb-6">
-            For example, Rwanda’s <a href="https://www.nida.gov.rw/" target="_blank" rel="noopener noreferrer" className="text-[#1CA36E] hover:underline">National ID Agency (NIDA)</a> and others mandate verified identity for financial access. Yet public blockchains pseudonymize users. <strong>Sereel bridges this gap.</strong>
+            Traditional financial systems are limited by intermediaries, barriers to entry, and operational inefficiencies. <strong>Sereel bridges traditional finance with DeFi infrastructure.</strong>
           </p>
 
-          <h2 className="text-2xl font-bold text-white mb-4">Identity-Verified Wallets</h2>
+          <h2 className="text-2xl font-bold text-white mb-4">Comprehensive DeFi Rails</h2>
           <ul className="list-disc list-inside mb-6">
-            <li><strong>Zero-Knowledge Proofs:</strong> Confirm Rwandan citizenship <strong>without</strong> revealing personal data</li>
-            <li><strong>NIDA-Compliant:</strong> On-chain validation meets regulatory requirements</li>
-            <li><strong>Private by Default:</strong> Operate in DeFi/tokenization without exposing customer IDs</li>
+            <li><strong>Asset Tokenization:</strong> Transform traditional assets into tradable digital tokens</li>
+            <li><strong>Exchange Infrastructure:</strong> Deploy customized trading platforms for tokenized assets</li>
+            <li><strong>Derivatives Markets:</strong> Create options, futures, and other derivative products</li>
           </ul>
 
           <h2 className="text-2xl font-bold text-white mb-4">For Financial Institutions</h2>
           <ul className="list-disc list-inside mb-6">
-            <li><strong>Replace</strong> manual KYC with automated on-chain checks</li>
-            <li><strong>Maintain</strong> full AML compliance across all transactions</li>
-            <li><strong>Enable</strong> seamless digital asset adoption</li>
+            <li><strong>Reduce</strong> operational costs through automated smart contracts</li>
+            <li><strong>Expand</strong> market reach with 24/7 global trading capabilities</li>
+            <li><strong>Unlock</strong> new revenue streams through innovative financial products</li>
           </ul>
 
           <p className="text-lg">
-            Our digital identity integration enables private participation in public networks. <strong>Contact us</strong> to learn more about digital identity integration.
+            At Sereel, we don't just tokenize assets—we build complete DeFi ecosystems around them. <strong>Contact us</strong> to revolutionize your approach to capital markets.
           </p>
         </div>
       </div>
