@@ -45,7 +45,7 @@ useEffect(() => {
         
         console.log("Attempting to load image from paths:", paths);
         
-        const tryNextPath = (index) => {
+        const tryNextPath = (index: number) => {
           if (index >= paths.length) return;
           
           const img = new Image();
