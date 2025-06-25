@@ -21,7 +21,7 @@ export const BlogPost = () => {
     return <div>Blog not found</div>;
   }
 
-  if(typedBlogs.length === 0) {
+  if (typedBlogs.length === 0) {
     return <div>No blogs found</div>;
   }
 
@@ -45,6 +45,10 @@ export const BlogPost = () => {
             src={blog.image}
             alt={blog.title}
             className="w-full h-[500px] object-cover object-center rounded-lg"
+            onError={(e) => {
+              e.currentTarget.src = "images/blog/BitcoinSereel.jpg";
+              e.currentTarget.onerror = null;
+            }}
           />
         </div>
 
@@ -55,7 +59,12 @@ export const BlogPost = () => {
               rehypePlugins={[rehypeRaw]}
               components={{
                 a: ({ href, children }) => (
-                  <a href={href} target="_blank" rel="noopener noreferrer" className="underline">
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline"
+                  >
                     {children}
                   </a>
                 ),
