@@ -30,40 +30,40 @@ export const BlogPost = () => {
     }
   }, [id]);
 
-useEffect(() => {
-  if (blog) {
-    setImageSrc("images/blog/Seree_con_logo.jpg");
-    
-    setTimeout(() => {
-      try {
-        const paths = [
-          blog.image,
-          blog.image.startsWith('/') ? blog.image.substring(1) : blog.image,
-          `../public/${blog.image.replace(/^\//, '')}`,
-          `${window.location.origin}/${blog.image.replace(/^\//, '')}`
-        ];
-        
-        console.log("Attempting to load image from paths:", paths);
-        
-        const tryNextPath = (index: number) => {
-          if (index >= paths.length) return;
-          
-          const img = new Image();
-          img.onload = () => {
-            console.log("Image loaded successfully:", paths[index]);
-            setImageSrc(paths[index]);
+  useEffect(() => {
+    if (blog) {
+      setImageSrc("images/blog/Seree_con_logo.jpg");
+
+      setTimeout(() => {
+        try {
+          const paths = [
+            blog.image,
+            blog.image.startsWith("/") ? blog.image.substring(1) : blog.image,
+            `../public/${blog.image.replace(/^\//, "")}`,
+            `${window.location.origin}/${blog.image.replace(/^\//, "")}`,
+          ];
+
+          console.log("Attempting to load image from paths:", paths);
+
+          const tryNextPath = (index: number) => {
+            if (index >= paths.length) return;
+
+            const img = new Image();
+            img.onload = () => {
+              console.log("Image loaded successfully:", paths[index]);
+              setImageSrc(paths[index]);
+            };
+            img.onerror = () => tryNextPath(index + 1);
+            img.src = paths[index];
           };
-          img.onerror = () => tryNextPath(index + 1);
-          img.src = paths[index];
-        };
-        
-        tryNextPath(0);
-      } catch (error) {
-        console.error("Error in image loading:", error);
-      }
-    }, 200);
-  }
-}, [blog]);
+
+          tryNextPath(0);
+        } catch (error) {
+          console.error("Error in image loading:", error);
+        }
+      }, 200);
+    }
+  }, [blog]);
 
   if (!id || !blog) {
     return <div>Blog not found</div>;
