@@ -3,6 +3,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import blogs from "../../Blog Data/Blogs.json";
+import { useState, useEffect } from "react";
 
 interface Blog {
   id: number;
@@ -16,19 +17,56 @@ const typedBlogs: Blog[] = blogs as Blog[];
 
 export const BlogPost = () => {
   const { id } = useParams();
+  const [imageSrc, setImageSrc] = useState("");
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [blog, setBlog] = useState<Blog | null>(null);
 
-  if (!id) {
-    return <div>Blog not found</div>;
+  // Find blog post on mount or when ID changes
+  useEffect(() => {
+    if (id) {
+      const foundBlog = typedBlogs.find((blog) => blog.id === parseInt(id));
+      if (foundBlog) {
+        setBlog(foundBlog);
+      }
+    }
+  }, [id]);
+
+useEffect(() => {
+  if (blog) {
+    setImageSrc("images/blog/Seree_con_logo.jpg");
+    
+    setTimeout(() => {
+      try {
+        const paths = [
+          blog.image,
+          blog.image.startsWith('/') ? blog.image.substring(1) : blog.image,
+          `../public/${blog.image.replace(/^\//, '')}`,
+          `${window.location.origin}/${blog.image.replace(/^\//, '')}`
+        ];
+        
+        console.log("Attempting to load image from paths:", paths);
+        
+        const tryNextPath = (index) => {
+          if (index >= paths.length) return;
+          
+          const img = new Image();
+          img.onload = () => {
+            console.log("Image loaded successfully:", paths[index]);
+            setImageSrc(paths[index]);
+          };
+          img.onerror = () => tryNextPath(index + 1);
+          img.src = paths[index];
+        };
+        
+        tryNextPath(0);
+      } catch (error) {
+        console.error("Error in image loading:", error);
+      }
+    }, 200);
   }
+}, [blog]);
 
-  if (typedBlogs.length === 0) {
-    return <div>No blogs found</div>;
-  }
-
-  const blog = typedBlogs.find((blog) => blog.id === parseInt(id));
-
-  if (!blog) {
-    console.log("Blog not found for id:", id);
+  if (!id || !blog) {
     return <div>Blog not found</div>;
   }
 
@@ -42,13 +80,9 @@ export const BlogPost = () => {
 
         <div className="w-full my-10">
           <img
-            src={blog.image}
+            src={imageSrc}
             alt={blog.title}
-            className="w-full h-[500px] object-cover object-center rounded-lg"
-            onError={(e) => {
-              e.currentTarget.src = "images/blog/BitcoinSereel.jpg";
-              e.currentTarget.onerror = null;
-            }}
+            className="w-full max-h-[500px] object-contain md:object-cover object-center rounded-lg bg-gray-100"
           />
         </div>
 
