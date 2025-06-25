@@ -18,7 +18,6 @@ const typedBlogs: Blog[] = blogs as Blog[];
 export const BlogPost = () => {
   const { id } = useParams();
   const [imageSrc, setImageSrc] = useState("");
-  const [imageLoaded, setImageLoaded] = useState(false);
   const [blog, setBlog] = useState<Blog | null>(null);
 
   // Find blog post on mount or when ID changes
