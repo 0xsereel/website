@@ -6,9 +6,6 @@ import rehypeRaw from "rehype-raw";
 import blogs from "../../Blog Data/Blogs.json";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { AnimatedSection } from "../Animation/AnimatedSection";
-import { GlowingText } from "../Animation/GlowingText";
-import { useParallax } from "../../hooks/useParallax";
 
 interface Blog {
   id: number;
@@ -25,7 +22,6 @@ export const BlogPost = () => {
   const [imageSrc, setImageSrc] = useState("");
   const [blog, setBlog] = useState<Blog | null>(null);
   const [imageLoaded, setImageLoaded] = useState(false);
-  const { ref, y } = useParallax(0.3);
 
   // Find blog post on mount or when ID changes
   useEffect(() => {
@@ -73,7 +69,7 @@ export const BlogPost = () => {
 
   if (!id || !blog) {
     return (
-      <div className="w-full h-screen flex items-center justify-center">
+      <div className="w-full h-screen flex items-center justify-center bg-black">
         <motion.div
           className="text-center"
           initial={{ opacity: 0, scale: 0.8 }}
@@ -98,9 +94,10 @@ export const BlogPost = () => {
     <div className="w-full bg-black min-h-screen">
       {/* Hero Section */}
       <motion.div
-        ref={ref}
         className="w-full h-[400px] bg-gradient-to-br from-[#1CA36E]/10 via-black to-[#1CA36E]/5 flex items-center justify-center relative overflow-hidden"
-        style={{ y }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
       >
         {/* Animated background */}
         <motion.div
@@ -123,7 +120,7 @@ export const BlogPost = () => {
           transition={{ duration: 0.8 }}
         >
           <motion.h1 
-            className="lg:text-5xl text-3xl font-gilroy-bold mb-4 leading-tight"
+            className="lg:text-5xl text-3xl font-gilroy-bold mb-4 leading-tight text-white"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -146,7 +143,13 @@ export const BlogPost = () => {
         <div className="w-[90%] max-w-4xl mx-auto">
           
           {/* Featured Image */}
-          <AnimatedSection className="mb-12">
+          <motion.div
+            className="mb-12"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
             <motion.div
               className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#1CA36E]/10 to-white/5 border border-[#202026]"
               initial={{ opacity: 0, scale: 0.95 }}
@@ -180,10 +183,16 @@ export const BlogPost = () => {
                 whileHover={{ opacity: 1 }}
               />
             </motion.div>
-          </AnimatedSection>
+          </motion.div>
 
           {/* Article Content */}
-          <AnimatedSection className="blog-content">
+          <motion.div
+            className="blog-content"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
             <motion.div
               className="prose prose-lg max-w-none w-full"
               initial={{ opacity: 0, y: 30 }}
@@ -209,35 +218,47 @@ export const BlogPost = () => {
                   ),
                   h1: ({ children }) => (
                     <motion.h1
-                      className="text-4xl font-gilroy-bold mb-6 mt-8"
+                      className="text-4xl font-gilroy-bold mb-6 mt-8 text-white"
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.8 }}
                       viewport={{ once: true }}
+                      whileHover={{ 
+                        textShadow: "0 0 20px rgba(28, 163, 110, 0.8)",
+                        color: "#1CA36E"
+                      }}
                     >
-                      <GlowingText className="text-[#1CA36E]">{children}</GlowingText>
+                      {children}
                     </motion.h1>
                   ),
                   h2: ({ children }) => (
                     <motion.h2
-                      className="text-3xl font-gilroy-bold mb-4 mt-8"
+                      className="text-3xl font-gilroy-bold mb-4 mt-8 text-white"
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.8 }}
                       viewport={{ once: true }}
+                      whileHover={{ 
+                        textShadow: "0 0 20px rgba(28, 163, 110, 0.8)",
+                        color: "#1CA36E"
+                      }}
                     >
-                      <GlowingText className="text-[#1CA36E]">{children}</GlowingText>
+                      {children}
                     </motion.h2>
                   ),
                   h3: ({ children }) => (
                     <motion.h3
-                      className="text-2xl font-gilroy-bold mb-3 mt-6"
+                      className="text-2xl font-gilroy-bold mb-3 mt-6 text-white"
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.8 }}
                       viewport={{ once: true }}
+                      whileHover={{ 
+                        textShadow: "0 0 20px rgba(28, 163, 110, 0.8)",
+                        color: "#1CA36E"
+                      }}
                     >
-                      <GlowingText className="text-[#1CA36E]">{children}</GlowingText>
+                      {children}
                     </motion.h3>
                   ),
                   p: ({ children }) => (
@@ -331,10 +352,16 @@ export const BlogPost = () => {
                 {blog.content}
               </ReactMarkdown>
             </motion.div>
-          </AnimatedSection>
+          </motion.div>
 
           {/* Back to Blog Button */}
-          <AnimatedSection className="mt-12 text-center">
+          <motion.div
+            className="mt-12 text-center"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
             <motion.a
               href="/blog"
               className="inline-flex items-center gap-2 bg-gradient-to-r from-[#1CA36E] to-[#00FFB2] text-white px-8 py-3 rounded-full font-gilroy-medium hover:from-[#00FFB2] hover:to-[#1CA36E] transition-all duration-300"
@@ -356,9 +383,9 @@ export const BlogPost = () => {
               >
                 <path d="M19 12H5M12 19l-7-7 7-7" />
               </motion.svg>
-              Back to Blog
+              Back to Blogs
             </motion.a>
-          </AnimatedSection>
+          </motion.div>
         </div>
       </div>
     </div>

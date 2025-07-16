@@ -3,7 +3,6 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { AnimatedSection } from "../Animation/AnimatedSection";
 import { GlowingText } from "../Animation/GlowingText";
-import FAQItems from "../FAQ/FaqItems";
 
 interface FAQItem {
   question: string;
@@ -65,7 +64,7 @@ export const FAQ = () => {
         }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       />
-      
+
       {/* Floating elements */}
       <motion.div
         className="absolute top-20 left-20 w-4 h-4 bg-[#1CA36E] rounded-full opacity-40"
@@ -83,35 +82,93 @@ export const FAQ = () => {
           x: [0, -20, 0],
           scale: [1, 1.2, 1],
         }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2,
+        }}
       />
-      
+
       <div className="w-[95%] mx-auto flex justify-center items-center flex-col relative z-10">
         {/* Enhanced Title */}
         <AnimatedSection className="w-full flex items-center justify-center flex-col">
-          <motion.h3 
+          <motion.h3
             className="lg:text-5xl text-3xl text-center font-gilroy-bold mb-4"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <GlowingText className="text-[#1CA36E]">Frequently Asked</GlowingText> Questions
+            <GlowingText className="text-[#1CA36E]">
+              Frequently Asked
+            </GlowingText>{" "}
+            Questions
           </motion.h3>
-          <motion.p 
+          <motion.p
             className="text-center text-[#D5D5D5] text-lg max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Get answers to common questions about institutional DeFi and the Sereel Protocol
+            Get answers to common questions about institutional DeFi and the
+            Sereel Protocol
           </motion.p>
         </AnimatedSection>
 
         {/* Enhanced FAQ Items */}
         <div className="w-full max-w-4xl mt-16">
-          <FAQItems faqs={faqs} openIndex={openIndex} toggleFAQ={toggleFAQ} />
+          <div className="w-full max-w-4xl mt-16 space-y-4">
+            {faqs.map((faq, index) => (
+              <motion.div
+                key={index}
+                className="bg-gradient-to-br from-[#1CA36E]/5 to-white/5 border border-[#202026] rounded-xl overflow-hidden"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <motion.div
+                  className="p-6 flex justify-between items-center cursor-pointer"
+                  onClick={() => toggleFAQ(index)}
+                  whileHover={{ backgroundColor: "rgba(28, 163, 110, 0.05)" }}
+                >
+                  <h3 className="text-xl font-gilroy-medium text-white">
+                    {faq.question}
+                  </h3>
+                  <motion.div
+                    animate={{ rotate: openIndex === index ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="text-[#1CA36E]"
+                  >
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M6 9L12 15L18 9"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </motion.div>
+                </motion.div>
+
+                <motion.div
+                  className="overflow-hidden"
+                  animate={{
+                    height: openIndex === index ? "auto" : 0,
+                    opacity: openIndex === index ? 1 : 0,
+                  }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="p-6 pt-4 text-[#D5D5D5]">
+                    <p>{faq.answer}</p>
+                  </div>
+                </motion.div>
+              </motion.div>
+            ))}
+          </div>{" "}
         </div>
 
         {/* Contact CTA */}
@@ -124,37 +181,35 @@ export const FAQ = () => {
         >
           <motion.div
             className="bg-gradient-to-br from-[#1CA36E]/10 to-white/5 p-8 rounded-2xl border border-[#1CA36E]/20 relative overflow-hidden"
-            whileHover={{ 
+            whileHover={{
               boxShadow: "0 0 40px rgba(28, 163, 110, 0.3)",
-              borderColor: "rgba(28, 163, 110, 0.4)"
+              borderColor: "rgba(28, 163, 110, 0.4)",
             }}
             transition={{ duration: 0.3 }}
           >
-            <motion.h4 
+            <motion.h4
               className="text-2xl font-gilroy-bold mb-4"
-              animate={{ 
+              animate={{
                 textShadow: [
                   "0 0 10px rgba(28, 163, 110, 0.5)",
                   "0 0 20px rgba(28, 163, 110, 0.8)",
-                  "0 0 10px rgba(28, 163, 110, 0.5)"
-                ]
+                  "0 0 10px rgba(28, 163, 110, 0.5)",
+                ],
               }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             >
               Still Have Questions?
             </motion.h4>
             <p className="text-[#D5D5D5] mb-6 max-w-2xl mx-auto">
-              Our team is ready to help you understand how Sereel can transform your institution's approach to DeFi
+              Our team is ready to help you understand how Sereel can transform
+              your institution's approach to DeFi
             </p>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <motion.a
                 href="/contact"
                 className="inline-flex items-center gap-2 bg-gradient-to-r from-[#1CA36E] to-[#00FFB2] text-white px-8 py-3 rounded-full font-gilroy-medium hover:from-[#00FFB2] hover:to-[#1CA36E] transition-all duration-300"
-                whileHover={{ 
-                  boxShadow: "0 0 30px rgba(28, 163, 110, 0.6)"
+                whileHover={{
+                  boxShadow: "0 0 30px rgba(28, 163, 110, 0.6)",
                 }}
               >
                 Contact Our Team
@@ -166,7 +221,11 @@ export const FAQ = () => {
                   stroke="currentColor"
                   strokeWidth="2"
                   animate={{ x: [0, 4, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
                 >
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </motion.svg>

@@ -45,7 +45,7 @@ export const MenuOptions = ({ isOpen }: { isOpen: boolean }) => {
             />
           </svg>
         );
-      case 2: // User icon
+      case 2: // DeFi icon
         return (
           <svg
             width="24"
@@ -55,14 +55,35 @@ export const MenuOptions = ({ isOpen }: { isOpen: boolean }) => {
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M12 12.8C14.2091 12.8 16 11.0092 16 8.80005C16 6.59091 14.2091 4.80005 12 4.80005C9.79086 4.80005 8 6.59091 8 8.80005C8 11.0092 9.79086 12.8 12 12.8Z"
+              d="M6 9.80005H8C9.10457 9.80005 10 10.6955 10 11.8V20.8H6C4.89543 20.8 4 19.9046 4 18.8V11.8C4 10.6955 4.89543 9.80005 6 9.80005Z"
               stroke="white"
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
             />
             <path
-              d="M4 20.8C4 17.6 7.6 14.8 12 14.8C16.4 14.8 20 17.6 20 20.8"
+              d="M14 4.80005H16C17.1046 4.80005 18 5.69548 18 6.80005V20.8H14V4.80005Z"
+              stroke="white"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M20 20.8H22"
+              stroke="white"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M2 20.8H4"
+              stroke="white"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M10 7.80005H12C13.1046 7.80005 14 8.69548 14 9.80005V20.8H10V7.80005Z"
               stroke="white"
               strokeWidth="2"
               strokeLinecap="round"
