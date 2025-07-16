@@ -12,12 +12,12 @@ export const Hero = () => {
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end start"]
+    offset: ["start start", "end start"],
   });
 
   // Parallax transformations
   const logoY = useTransform(scrollYProgress, [0, 1], [0, -200]);
-  const logoRotate = useTransform(scrollYProgress, [0, 1], [0, 360]);
+  // const logoRotate = useTransform(scrollYProgress, [0, 1], [0, 360]);
   const logoScale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1.1, 0.8]);
   const textY = useTransform(scrollYProgress, [0, 1], [0, -100]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
@@ -40,12 +40,15 @@ export const Hero = () => {
   };
 
   return (
-    <section className="w-full flex items-center flex-col lg:h-screen relative overflow-hidden" ref={containerRef}>
+    <section
+      className="w-full flex items-center flex-col lg:h-screen relative overflow-hidden"
+      ref={containerRef}
+    >
       <Header />
-      
-      {/* Background gradient animation */}
+
+      {/* Background gradient animation that covers the entire screen */}
       <motion.div
-        className="absolute inset-0 bg-gradient-to-br from-[#1CA36E]/10 via-black to-[#1CA36E]/5"
+        className="absolute inset-0 w-full h-full bg-gradient-to-br from-[#1CA36E]/10 via-black to-[#1CA36E]/5"
         animate={{
           background: [
             "radial-gradient(circle at 20% 50%, rgba(28, 163, 110, 0.1) 0%, transparent 50%)",
@@ -57,10 +60,11 @@ export const Hero = () => {
         transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
       />
 
-      <div className="w-[95%] mx-auto flex items-center justify-between mt-10 lg:flex-row flex-col-reverse relative z-10">
+      {/* Full screen content container */}
+      <div className="w-full h-full flex items-center justify-center mt-10 lg:flex-row flex-col-reverse relative z-10">
         {/* Left side - Text content */}
         <motion.div
-          className="lg:w-[50%] w-full lg:mt-0"
+          className="lg:w-[50%] w-full lg:mt-0 lg:pl-[5%] px-5"
           style={{ y: textY, opacity: textOpacity }}
         >
           <motion.h1
@@ -69,23 +73,23 @@ export const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Unlock the <br />
-            <motion.span
-              className="relative"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
+            Unlock the{" "}
+            <span className="relative inline-block">
               <motion.span
                 className="absolute inset-0 bg-gradient-to-r from-[#1CA36E] to-white bg-clip-text text-transparent"
                 animate={{
                   backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
                 }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
               >
                 future
               </motion.span>
               <span className="text-transparent">future</span>
-            </motion.span>{" "}
+            </span>{" "}
             of finance
           </motion.h1>
 
@@ -98,21 +102,21 @@ export const Hero = () => {
             Institutional-grade blockchain solutions for{" "}
             <motion.span
               className="text-[#1CA36E] font-semibold"
-              whileHover={{ scale: 1.1, glow: "0 0 10px #1CA36E" }}
+              whileHover={{ scale: 1.1, filter: "0 0 10px #1CA36E" }}
             >
               fast settlements
             </motion.span>
             ,{" "}
             <motion.span
               className="text-[#1CA36E] font-semibold"
-              whileHover={{ scale: 1.1, glow: "0 0 10px #1CA36E" }}
+              whileHover={{ scale: 1.1, filter: "0 0 10px #1CA36E" }}
             >
               DeFi access
             </motion.span>
             , and{" "}
             <motion.span
               className="text-[#1CA36E] font-semibold"
-              whileHover={{ scale: 1.1, glow: "0 0 10px #1CA36E" }}
+              whileHover={{ scale: 1.1, filter: "0 0 10px #1CA36E" }}
             >
               asset tokenization
             </motion.span>
@@ -134,7 +138,7 @@ export const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Animated stats */}
+          {/* Static stats */}
           <motion.div
             className="mt-12 flex gap-8 lg:flex-row flex-col"
             initial={{ opacity: 0, y: 30 }}
@@ -145,53 +149,41 @@ export const Hero = () => {
               className="text-center lg:text-left"
               whileHover={{ scale: 1.05 }}
             >
-              <motion.div
-                className="text-2xl font-gilroy-bold text-[#1CA36E]"
-                animate={{ scale: [1, 1.1, 1] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              >
+              <div className="text-2xl font-gilroy-bold text-[#1CA36E]">
                 18-35%
-              </motion.div>
+              </div>
               <div className="text-sm text-[#969696]">APY Potential*</div>
             </motion.div>
             <motion.div
               className="text-center lg:text-left"
               whileHover={{ scale: 1.05 }}
             >
-              <motion.div
-                className="text-2xl font-gilroy-bold text-[#1CA36E]"
-                animate={{ scale: [1, 1.1, 1] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-              >
+              <div className="text-2xl font-gilroy-bold text-[#1CA36E]">
                 &lt;1min
-              </motion.div>
+              </div>
               <div className="text-sm text-[#969696]">Settlement Time</div>
             </motion.div>
             <motion.div
               className="text-center lg:text-left"
               whileHover={{ scale: 1.05 }}
             >
-              <motion.div
-                className="text-2xl font-gilroy-bold text-[#1CA36E]"
-                animate={{ scale: [1, 1.1, 1] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              >
+              <div className="text-2xl font-gilroy-bold text-[#1CA36E]">
                 90%
-              </motion.div>
+              </div>
               <div className="text-sm text-[#969696]">Cost Reduction</div>
             </motion.div>
           </motion.div>
         </motion.div>
 
-        {/* Right side - Animated logo */}
+        {/* Right side - Full screen logo area */}
         <motion.div
-          className="lg:w-[50%] w-full lg:flex items-center justify-center overflow-hidden relative"
+          className="lg:w-[50%] w-full h-full flex items-center justify-center relative"
           style={{ y: logoY }}
         >
           <motion.div
             className="relative"
             style={{
-              rotate: logoRotate,
+              // Removed rotate: logoRotate,
               scale: logoScale,
               x: mousePosition.x,
               y: mousePosition.y,
@@ -199,25 +191,10 @@ export const Hero = () => {
             whileHover={{ scale: 1.1 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            {/* Outer glow rings */}
-            <motion.div
-              className="absolute inset-0 rounded-full"
-              animate={{
-                boxShadow: [
-                  "0 0 20px rgba(28, 163, 110, 0.3)",
-                  "0 0 40px rgba(28, 163, 110, 0.5)",
-                  "0 0 60px rgba(255, 255, 255, 0.3)",
-                  "0 0 40px rgba(28, 163, 110, 0.5)",
-                  "0 0 20px rgba(28, 163, 110, 0.3)",
-                ],
-              }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            />
-            
             {/* Logo with enhanced glow */}
             <motion.img
               src={glowingSereeLogoPath}
-              className="lg:w-[120%] w-full -ml-[10%] relative z-10"
+              className="lg:w-[650px] w-[480px] relative z-10" // Increased even more
               alt="Sereel Logo"
               animate={{
                 filter: [
@@ -231,14 +208,20 @@ export const Hero = () => {
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             />
 
-            {/* Rotating orbital elements */}
+            {/* Three rotating orbital elements */}
             <motion.div
               className="absolute inset-0 pointer-events-none"
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
             >
-              <div className="absolute top-0 left-1/2 w-2 h-2 bg-[#1CA36E] rounded-full transform -translate-x-1/2 -translate-y-8 opacity-60" />
-              <div className="absolute bottom-0 left-1/2 w-2 h-2 bg-white rounded-full transform -translate-x-1/2 translate-y-8 opacity-60" />
+              {/* Dot 1 - Top */}
+              <div className="absolute top-0 left-1/2 w-3 h-3 bg-[#1CA36E] rounded-full transform -translate-x-1/2 -translate-y-12 opacity-80 shadow-lg shadow-[#1CA36E]/50" />
+
+              {/* Dot 2 - Bottom Right */}
+              <div className="absolute bottom-0 right-0 w-3 h-3 bg-white rounded-full transform translate-x-8 translate-y-8 opacity-80 shadow-lg shadow-white/50" />
+
+              {/* Dot 3 - Bottom Left */}
+              <div className="absolute bottom-0 left-0 w-3 h-3 bg-[#1CA36E] rounded-full transform -translate-x-8 translate-y-8 opacity-80 shadow-lg shadow-[#1CA36E]/50" />
             </motion.div>
           </motion.div>
         </motion.div>
@@ -273,7 +256,8 @@ export const Hero = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 2 }}
       >
-        *APY calculations made in test environment - results not yet proven in production
+        *APY calculations made in test environment - results not yet proven in
+        production
       </motion.div>
     </section>
   );
