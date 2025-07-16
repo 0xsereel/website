@@ -30,7 +30,7 @@ export const Footer = () => {
                   About
                 </Link> <br />
               <Link to="/entities" className="my-3">Entities</Link> <br />
-              <Link to="/patnerships" className="my-10">Partnerships</Link>
+              <Link to="/partnerships" className="my-10">Partnerships</Link>
             </div>
 
             <div>

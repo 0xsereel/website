@@ -4,6 +4,7 @@ import { MenuOptions } from "./MenuOptions";
 import { useState } from "react";
 import { useGlobal } from "../../contexts/globals";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export const Header = () => {
   const logoPath = "/images/header/logo.png";
@@ -17,7 +18,8 @@ export const Header = () => {
   };
 
   return (
-    <header className="w-full items-center justify-between flex flex-col p-4">
+    <header className="w-full fixed top-0 z-50 items-center justify-between flex flex-col p-4 bg-black bg-opacity-80 backdrop-blur-sm">
+      {" "}
       <div className="w-full items-center justify-between flex">
         <div className="flex gap-4 items-center">
           {/* Logo */}
@@ -64,23 +66,26 @@ export const Header = () => {
         </div>
 
         <div>
-            {/* contact us button */}
-
-            <Link 
+          {/* contact us button */}
+          <Link
             to="/contact"
-            className="w-[150px] h-[50px] border-2 border-[#3A3A45] rounded-full hidden lg:flex items-center justify-center"
+            className="w-[150px] h-[50px] border-2 border-[#3A3A45] rounded-full hidden lg:flex items-center justify-center hover:border-[#1CA36E] transition-colors duration-300"
+          >
+            <motion.span
+              whileHover={{
+                textShadow: "0 0 10px rgba(28, 163, 110, 0.8)",
+              }}
+              className="text-white hover:text-[#1CA36E] transition-colors duration-300"
             >
-            Contact Us
-            </Link>
-
-            
+              Contact Us
+            </motion.span>
+          </Link>
 
           <div onClick={() => setIsMobileMenuOpen(true)} className="lg:hidden">
             <FaBars size={30} />
           </div>
         </div>
       </div>
-
       <div>
         <MenuOptions isOpen={isOpen} />
       </div>

@@ -199,8 +199,8 @@ export const ContactContent = () => {
                   </div>
 
                     <div>
-                        <a href="mailto:team@Sereel.xyz" className="text-green-500">
-                        team@Sereel.xyz
+                        <a href="mailto:team@sereel.com" className="text-green-500">
+                        team@sereel.com
                         </a>
                     </div>
                 </div>

@@ -1,4 +1,4 @@
-import { useState, ReactNode } from "react";
+
 import { motion, AnimatePresence } from "framer-motion";
 import { FiPlus, FiMinus } from "react-icons/fi";
 
@@ -7,7 +7,13 @@ interface FAQItem {
   answer: string;
 }
 
-const faqs: FAQItem[] = [
+interface FAQItemsProps {
+  faqs?: FAQItem[];
+  openIndex: number | null;
+  toggleFAQ: (index: number) => void;
+}
+
+const defaultFaqs: FAQItem[] = [
   {
     question: "What kind of wallets does Sereel provide?",
     answer:
@@ -16,10 +22,10 @@ const faqs: FAQItem[] = [
   {
     question: "Who are our solutions for?",
     answer:
-      "We serve banks, fintechs, insurance firms, investment platforms, and other regulated financial institutions across Africa looking to adopt secure, compliant, and scalable blockchain technology.",
+      "We serve banks, fintechs, insurance firms, investment platforms, and other regulated financial institutions looking to adopt secure, compliant, and scalable blockchain technology.",
   },
   {
-    question: "What can Sereel tokenize ?",
+    question: "What can Sereel tokenize?",
     answer:
       "Our platform supports tokenization of fiat, bonds, real estate, commodities, invoices, equity, and more, we turn real-world assets into programmable, tradable digital tokens.",
   },
@@ -29,7 +35,7 @@ const faqs: FAQItem[] = [
       "ISO 20022 is a global standard for exchanging electronic data between financial institutions, enabling efficient and standardized communication for financial transactions. It supports rich data formats, enhancing compliance and operational efficiency.",
   },
   {
-    question: "What is ERC-3643 ?",
+    question: "What is ERC-3643?",
     answer:
       "ERC-3643 is a security token standard designed for compliant and permissioned digital assets. Sereel uses it to help institutions tokenize bonds, equity, and real-world assets while maintaining full compliance with regulatory requirements.",
   },
@@ -45,45 +51,93 @@ const faqs: FAQItem[] = [
   },
 ];
 
-export default function FAQItems(): ReactNode {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const toggleFAQ = (index: number) => {
-    setOpenIndex((prev) => (prev === index ? null : index));
-  };
-
+const FAQItems = ({ faqs = defaultFaqs, openIndex, toggleFAQ }: FAQItemsProps) => {
   return (
-    <div className="max-w-2xl mx-auto p-4 space-y-4">
+    <div className="w-full max-w-4xl mx-auto space-y-4">
       {faqs.map((faq, index) => (
-        <div
+        <motion.div
           key={index}
-          className="bg-[#111] border border-[#222] rounded-xl px-6 py-4"
+          className="group"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: index * 0.1 }}
+          viewport={{ once: true }}
         >
-          <button
-            onClick={() => toggleFAQ(index)}
-            className="w-full flex justify-between items-center text-left text-white text-lg font-medium cursor-pointer"
+          <motion.div
+            className="bg-gradient-to-br from-[#1CA36E]/5 to-white/5 border border-[#202026] rounded-xl overflow-hidden"
+            whileHover={{ 
+              borderColor: "rgba(28, 163, 110, 0.3)",
+              boxShadow: "0 0 20px rgba(28, 163, 110, 0.1)"
+            }}
+            transition={{ duration: 0.3 }}
           >
-            {faq.question}
-            <span className="text-green-500">
-              {openIndex === index ? <FiMinus /> : <FiPlus />}
-            </span>
-          </button>
-
-          <AnimatePresence initial={false}>
-            {openIndex === index && (
+            <motion.button
+              onClick={() => toggleFAQ(index)}
+              className="w-full p-6 text-left flex items-center justify-between hover:bg-[#1CA36E]/5 transition-colors duration-300 group"
+              whileHover={{ scale: 1.01 }}
+              whileTap={{ scale: 0.99 }}
+              transition={{ duration: 0.2 }}
+            >
+              <h4 className="font-gilroy-bold text-lg text-white pr-4 group-hover:text-[#1CA36E] transition-colors duration-300">
+                {faq.question}
+              </h4>
               <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
+                className="flex-shrink-0 text-[#1CA36E] group-hover:text-white transition-colors duration-300"
+                animate={{ rotate: openIndex === index ? 180 : 0 }}
                 transition={{ duration: 0.3 }}
-                className="overflow-hidden text-gray-300 mt-2"
               >
-                <div className="py-2">{faq.answer}</div>
+                {openIndex === index ? (
+                  <motion.div
+                    initial={{ scale: 0.8 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <FiMinus size={20} />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    initial={{ scale: 0.8 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <FiPlus size={20} />
+                  </motion.div>
+                )}
               </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+            </motion.button>
+            
+            <AnimatePresence>
+              {openIndex === index && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                >
+                  <motion.div
+                    className="px-6 pb-6 border-t border-[#202026]"
+                    initial={{ y: -10 }}
+                    animate={{ y: 0 }}
+                    exit={{ y: -10 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <motion.p
+                      className="text-[#D5D5D5] leading-relaxed pt-4"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.3, delay: 0.1 }}
+                    >
+                      {faq.answer}
+                    </motion.p>
+                  </motion.div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
+        </motion.div>
       ))}
     </div>
   );
-}
+};
+
+export default FAQItems;

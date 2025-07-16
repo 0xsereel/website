@@ -92,7 +92,7 @@ export default function DeFi() {
           <ThreeModuleEcosystem />
           
           {/* Allocation Strategies */}
-          <AllocationStrategies />
+          {/* <AllocationStrategies /> */}
           
           {/* ERC-3643 Compliance */}
           <ComplianceSection />
@@ -458,10 +458,10 @@ const ThreeModuleEcosystem = () => {
       {/* Module Details */}
       <motion.div
         className="bg-gradient-to-br from-[#1CA36E]/5 to-white/5 p-8 rounded-2xl border border-[#202026]"
-        key={activeModule}
+        // key={activeModule}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.2 }}
       >
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Module Visualization */}
@@ -470,21 +470,17 @@ const ThreeModuleEcosystem = () => {
               className="relative w-64 h-64 rounded-full bg-gradient-to-br from-[#1CA36E]/20 to-white/10 flex items-center justify-center"
               animate={{ 
                 rotate: [0, 360],
-                scale: [1, 1.1, 1]
               }}
               transition={{ 
                 rotate: { duration: 20, repeat: Infinity, ease: "linear" },
-                scale: { duration: 3, repeat: Infinity, ease: "easeInOut" }
               }}
             >
               <motion.div
                 className="text-8xl"
                 animate={{ 
-                  scale: [1, 1.2, 1],
                   rotate: [0, -360]
                 }}
                 transition={{ 
-                  scale: { duration: 2, repeat: Infinity, ease: "easeInOut" },
                   rotate: { duration: 20, repeat: Infinity, ease: "linear" }
                 }}
               >

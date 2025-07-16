@@ -26,7 +26,7 @@ const AppRoutes = () => {
         <Route path="/solutions/tokenization" element={<Tokenization />} />
         <Route path="/solutions/defi" element={<DeFi />} />
         <Route path="/entities" element={<Entities />} />
-        <Route path="/patnerships" element={<Partnerships />} />
+        <Route path="/partnerships" element={<Partnerships />} />
         <Route path="/repositories" element={<Repositories />} />
         {isDev && <Route path="/editor" element={<Editor />} />}
       </Routes>
