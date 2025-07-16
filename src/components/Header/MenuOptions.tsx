@@ -4,7 +4,7 @@ export const MenuOptions = ({ isOpen }: { isOpen: boolean }) => {
   const menuItems = [
     { label: "Wallet", link: "/solutions/wallet" },
     { label: "Tokenization", link: "/solutions/tokenization" },
-    { label: "DeFi", link: "/solutions/defi" },
+    { label: "Sereel Protocol", link: "/solutions/defi" },
   ];
 
   const getIcon = (index: number) => {

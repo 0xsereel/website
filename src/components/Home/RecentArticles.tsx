@@ -22,13 +22,13 @@ export const RecentArticles = () => {
   return (
     <section className="w-full flex items-center justify-center py-20 relative overflow-hidden">
       {/* Background animation */}
-      <motion.div
+      {/* <motion.div
         className="absolute inset-0 bg-gradient-to-br from-[#1CA36E]/5 via-transparent to-[#1CA36E]/10"
         animate={{
           opacity: [0.3, 0.7, 0.3],
         }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-      />
+      /> */}
       
       <div className="w-[95%] mx-auto flex justify-center items-center flex-col relative z-10">
         {/* Enhanced Title */}

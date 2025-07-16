@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 export const Hero = () => {
-  const glowingSereeLogoPath = "/images/Hero/glowing_seree_logo.svg";
+  const glowingSereeLogoPath = "/images/Hero/glowing_seree_logo_expanded.svg";
   const navigate = useNavigate();
   const containerRef = useRef(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -46,20 +46,6 @@ export const Hero = () => {
       <div className="z-[100] relative w-full">
         <Header />
       </div>
-
-      {/* Background gradient animation that covers the entire screen */}
-      <motion.div
-        className="absolute inset-0 w-full h-full z-0"
-        animate={{
-          background: [
-            "radial-gradient(circle at 20% 50%, rgba(28, 163, 110, 0.1) 0%, transparent 50%)",
-            "radial-gradient(circle at 80% 80%, rgba(28, 163, 110, 0.1) 0%, transparent 50%)",
-            "radial-gradient(circle at 40% 20%, rgba(28, 163, 110, 0.1) 0%, transparent 50%)",
-            "radial-gradient(circle at 20% 50%, rgba(28, 163, 110, 0.1) 0%, transparent 50%)",
-          ],
-        }}
-        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-      />
 
       {/* Full screen content container */}
       <div className="w-full h-full flex items-center justify-center lg:flex-row flex-col-reverse relative z-10">
@@ -188,20 +174,21 @@ export const Hero = () => {
               x: mousePosition.x,
               y: mousePosition.y,
             }}
-            whileHover={{ scale: 1.1 }}
-            transition={{ type: "spring", stiffness: 300 }}
           >
             {/* Logo with enhanced glow */}
-            <motion.div className="relative flex items-center justify-center">
+            <motion.div className="relative flex items-center justify-center overflow-hidden">
               <motion.img
                 src={glowingSereeLogoPath}
-                className="lg:w-[650px] w-[480px] relative z-10"
+                className="lg:w-[9600px] w-[6400px] relative z-10"
                 alt="Sereel Logo"
+                style={{
+                  transformOrigin: "center", // Ensure scaling happens from center
+                }}
                 animate={{
                   filter: [
-                    "brightness(1.1) drop-shadow(0 0 15px rgba(28, 163, 110, 0.6))",
-                    "brightness(1.2) drop-shadow(0 0 25px rgba(28, 163, 110, 0.8))",
-                    "brightness(1.1) drop-shadow(0 0 15px rgba(28, 163, 110, 0.6))",
+                    "brightness(1.1) drop-shadow(0 0 30px rgba(28, 163, 110, 0.6))",
+                    "brightness(1.2) drop-shadow(0 0 50px rgba(28, 163, 110, 0.8))",
+                    "brightness(1.1) drop-shadow(0 0 30px rgba(28, 163, 110, 0.6))",
                   ],
                 }}
                 transition={{
@@ -210,19 +197,18 @@ export const Hero = () => {
                   ease: "easeInOut",
                 }}
               />
-
               {/* Add a pulsing background element */}
               <motion.div
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 w-1 h-1"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 w-2 h-2"
                 style={{
-                  boxShadow: "0 0 100px 50px rgba(28, 163, 110, 0.4)",
+                  boxShadow: "0 0 200px 100px rgba(28, 163, 110, 0.4)",
                   borderRadius: "50%",
                 }}
                 animate={{
                   boxShadow: [
-                    "0 0 100px 50px rgba(28, 163, 110, 0.3)",
-                    "0 0 150px 70px rgba(28, 163, 110, 0.5)",
-                    "0 0 100px 50px rgba(28, 163, 110, 0.3)",
+                    "0 0 200px 100px rgba(28, 163, 110, 0.3)",
+                    "0 0 300px 140px rgba(28, 163, 110, 0.5)",
+                    "0 0 200px 100px rgba(28, 163, 110, 0.3)",
                   ],
                 }}
                 transition={{

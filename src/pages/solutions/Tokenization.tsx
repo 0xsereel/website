@@ -4,6 +4,17 @@ import { Header } from "../../components/Header/Header";
 import { MobileMenu } from "../../components/Header/MobileMenu";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useRef, useState } from "react";
+import { 
+  StockIcon, 
+  LockIcon, 
+  TokenIcon, 
+  CostReductionIcon,
+  LiquidityIcon,
+  GlobalIcon,
+  ComplianceIcon,
+  FireIcon,
+  WithdrawIcon
+} from "../../utils/icons";
 
 export const Tokenization = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -120,7 +131,9 @@ const AssetTransformationFlow = () => {
             boxShadow: "0 0 30px rgba(59, 130, 246, 0.3)"
           }}
         >
-          <div className="text-4xl mb-3">📈</div>
+          <div className="text-4xl mb-3">
+            <StockIcon className="w-12 h-12 text-blue-500 mx-auto" />
+          </div>
           <h3 className="text-lg font-gilroy-bold mb-2">Regulated Stock</h3>
           <p className="text-sm text-[#D5D5D5]">1000 Company Shares</p>
         </motion.div>
@@ -158,7 +171,7 @@ const AssetTransformationFlow = () => {
             animate={{ rotateY: [0, 180, 360] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
           >
-            🔐
+            <LockIcon className="w-12 h-12 text-[#1CA36E] mx-auto" />
           </motion.div>
           <h3 className="text-lg font-gilroy-bold mb-2">zkTLS Proof</h3>
           <p className="text-sm text-[#D5D5D5]">Private Verification</p>
@@ -200,7 +213,7 @@ const AssetTransformationFlow = () => {
             }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           >
-            🪙
+            <TokenIcon className="w-12 h-12 text-yellow-500 mx-auto" />
           </motion.div>
           <h3 className="text-lg font-gilroy-bold mb-2">RWA Token</h3>
           <p className="text-sm text-[#D5D5D5]">1000 Tokens</p>
@@ -306,18 +319,18 @@ const ZkTLSProofSection = () => {
               />
               <div className="absolute inset-8 bg-gradient-to-br from-[#1CA36E]/20 to-white/10 rounded-full flex items-center justify-center">
                 <motion.div
-                  className="text-6xl"
-                  animate={{ 
-                    scale: [1, 1.2, 1],
-                    rotate: [0, 360]
-                  }}
-                  transition={{ 
-                    scale: { duration: 2, repeat: Infinity, ease: "easeInOut" },
-                    rotate: { duration: 20, repeat: Infinity, ease: "linear" }
-                  }}
-                >
-                  🔐
-                </motion.div>
+                className="text-6xl"
+                animate={{ 
+                  scale: [1, 1.2, 1],
+                  rotate: [0, 360]
+                }}
+                transition={{ 
+                  scale: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+                  rotate: { duration: 20, repeat: Infinity, ease: "linear" }
+                }}
+              >
+                <LockIcon className="w-16 h-16 text-[#1CA36E]" />
+              </motion.div>
               </div>
             </motion.div>
           </div>
@@ -374,7 +387,9 @@ const TokenLifecycleSection = () => {
       >
         {activePhase === 0 && (
           <div className="text-center">
-            <div className="text-6xl mb-4">🪙</div>
+            <div className="text-6xl mb-4">
+              <TokenIcon className="w-16 h-16 text-[#1CA36E] mx-auto" />
+            </div>
             <h3 className="text-2xl font-gilroy-bold mb-4">Mint Tokens</h3>
             <p className="text-[#D5D5D5] mb-6">Deposit assets into trust account and mint tokens with one API call</p>
             <div className="grid lg:grid-cols-3 gap-4 text-sm">
@@ -396,7 +411,9 @@ const TokenLifecycleSection = () => {
         
         {activePhase === 1 && (
           <div className="text-center">
-            <div className="text-6xl mb-4">⚡</div>
+            <div className="text-6xl mb-4">
+              <LiquidityIcon className="w-16 h-16 text-[#1CA36E] mx-auto" />
+            </div>
             <h3 className="text-2xl font-gilroy-bold mb-4">Trade Instantly</h3>
             <p className="text-[#D5D5D5] mb-6">24/7 trading with instant settlement and global liquidity</p>
             <div className="grid lg:grid-cols-3 gap-4 text-sm">
@@ -418,7 +435,9 @@ const TokenLifecycleSection = () => {
         
         {activePhase === 2 && (
           <div className="text-center">
-            <div className="text-6xl mb-4">🔥</div>
+            <div className="text-6xl mb-4">
+              <FireIcon className="w-16 h-16 text-[#1CA36E] mx-auto" />
+            </div>
             <h3 className="text-2xl font-gilroy-bold mb-4">Burn Tokens</h3>
             <p className="text-[#D5D5D5] mb-6">Destroy tokens to unlock underlying assets in seconds</p>
             <div className="grid lg:grid-cols-3 gap-4 text-sm">
@@ -440,7 +459,9 @@ const TokenLifecycleSection = () => {
         
         {activePhase === 3 && (
           <div className="text-center">
-            <div className="text-6xl mb-4">💰</div>
+            <div className="text-6xl mb-4">
+              <WithdrawIcon className="w-16 h-16 text-[#1CA36E] mx-auto" />
+            </div>
             <h3 className="text-2xl font-gilroy-bold mb-4">Withdraw Assets</h3>
             <p className="text-[#D5D5D5] mb-6">Instantly access your underlying assets from trust account</p>
             <div className="grid lg:grid-cols-3 gap-4 text-sm">
@@ -518,22 +539,22 @@ const BenefitsSection = () => {
     {
       title: "90% Cost Reduction",
       description: "Eliminate traditional intermediaries and manual processes",
-      icon: "💰"
+      icon: <CostReductionIcon className="w-12 h-12 text-[#1CA36E]" />
     },
     {
       title: "Instant Liquidity",
       description: "Convert illiquid assets into tradable tokens in minutes",
-      icon: "⚡"
+      icon: <LiquidityIcon className="w-12 h-12 text-[#1CA36E]" />
     },
     {
       title: "Global Access",
       description: "24/7 trading with worldwide investor participation",
-      icon: "🌍"
+      icon: <GlobalIcon className="w-12 h-12 text-[#1CA36E]" />
     },
     {
       title: "Regulatory Compliance",
       description: "Built-in ERC-3643 compliance for institutional requirements",
-      icon: "✅"
+      icon: <ComplianceIcon className="w-12 h-12 text-[#1CA36E]" />
     }
   ];
 

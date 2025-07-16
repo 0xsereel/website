@@ -58,7 +58,7 @@ export const NewsLetter = () => {
   return (
     <section className="w-full flex items-center justify-center py-20 relative overflow-hidden">
       {/* Enhanced Background */}
-      <motion.div
+      {/* <motion.div
         className="absolute inset-0"
         animate={{
           background: [
@@ -69,7 +69,7 @@ export const NewsLetter = () => {
           ],
         }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      />
+      /> */}
 
       {/* Floating elements */}
       <motion.div
@@ -227,60 +227,6 @@ export const NewsLetter = () => {
             </motion.p>
           </motion.div>
         )}
-
-        {/* Benefits Section */}
-        <motion.div
-          className="mt-12 grid lg:grid-cols-3 gap-8 w-full max-w-4xl"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          viewport={{ once: true }}
-        >
-          {[
-            {
-              icon: "📊",
-              title: "Market Insights",
-              description: "Weekly analysis of DeFi trends",
-            },
-            {
-              icon: "🔒",
-              title: "Security Updates",
-              description: "Latest in blockchain security",
-            },
-            {
-              icon: "💡",
-              title: "Innovation News",
-              description: "Cutting-edge DeFi developments",
-            },
-          ].map((benefit, index) => (
-            <motion.div
-              key={index}
-              className="text-center p-4 bg-gradient-to-br from-[#1CA36E]/5 to-white/5 rounded-lg border border-[#202026] hover:border-[#1CA36E]/30 transition-all duration-300"
-              whileHover={{ scale: 1.05, y: -5 }}
-              transition={{ duration: 0.3 }}
-            >
-              <motion.div
-                className="text-3xl mb-3"
-                animate={{
-                  scale: [1, 1.1, 1],
-                  rotate: [0, 5, -5, 0],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: index * 0.5,
-                }}
-              >
-                {benefit.icon}
-              </motion.div>
-              <h4 className="font-gilroy-bold text-lg mb-2 text-white">
-                {benefit.title}
-              </h4>
-              <p className="text-[#D5D5D5] text-sm">{benefit.description}</p>
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );

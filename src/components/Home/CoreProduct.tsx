@@ -3,10 +3,10 @@ import { motion } from "framer-motion";
 import { AnimatedSection } from "../Animation/AnimatedSection";
 import { AnimatedCard } from "../Animation/AnimatedCard";
 import { GlowingText } from "../Animation/GlowingText";
-import { useParallax } from "../../hooks/useParallax";
+// import { useParallax } from "../../hooks/useParallax";
 
 export const CoreProduct = () => {
-  const { ref, y } = useParallax(0.3);
+  // const { ref, y } = useParallax(0.3);
 
   const products = [
     {
@@ -109,11 +109,11 @@ export const CoreProduct = () => {
   return (
     <section className="w-full flex items-center justify-center py-20 relative overflow-hidden">
       {/* Parallax Background */}
-      <motion.div
+      {/* <motion.div
         ref={ref}
         className="absolute inset-0 bg-gradient-to-br from-[#1CA36E]/5 via-transparent to-[#1CA36E]/10"
         style={{ y }}
-      />
+      /> */}
 
       <div className="w-[95%] mx-auto relative z-10">
         <AnimatedSection className="w-full flex items-center justify-center flex-col">

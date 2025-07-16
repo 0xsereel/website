@@ -4,6 +4,16 @@ import { Header } from "../../components/Header/Header";
 import { MobileMenu } from "../../components/Header/MobileMenu";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useRef } from "react";
+import { 
+  SmartAccountIcon, 
+  ISO20022Icon, 
+  SecurityIcon, 
+  GasAbstractionIcon,
+  CorporateTreasuryIcon,
+  CrossBorderIcon,
+  AssetCustodyIcon
+} from "../../utils/icons";
+
 
 export const Wallet = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -170,25 +180,25 @@ const TradFiToDeFiAnimation = () => {
 const WalletFeaturesGrid = () => {
   const features = [
     {
-      icon: "🔐",
+      icon: <SmartAccountIcon className="w-12 h-12 text-[#1CA36E]" />,
       title: "ERC-4337 Smart Accounts",
       description: "Account recovery with gas sponsorship and social logins",
       details: ["Email + WebAuthn passkeys", "No seed phrase required", "Biometric authentication"]
     },
     {
-      icon: "📊",
+      icon: <ISO20022Icon className="w-12 h-12 text-[#1CA36E]" />,
       title: "ISO20022 Native",
       description: "Every transaction generates standardized financial messages",
       details: ["SWIFT compatibility", "Automated reporting", "Audit-ready from day one"]
     },
     {
-      icon: "🛡️",
+      icon: <SecurityIcon className="w-12 h-12 text-[#1CA36E]" />,
       title: "Enterprise Security",
       description: "Multi-sig, transaction policies, and MEV protection",
       details: ["Configurable approval flows", "Private mempool access", "Risk management tools"]
     },
     {
-      icon: "⚡",
+      icon: <GasAbstractionIcon className="w-12 h-12 text-[#1CA36E]" />,
       title: "Gas Abstraction",
       description: "Seamless user experience with sponsored transactions",
       details: ["Gasless transactions", "Batched operations", "Optimized fees"]
@@ -240,92 +250,23 @@ const WalletFeaturesGrid = () => {
   );
 };
 
-// Technical Architecture Component
-const TechnicalArchitecture = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true });
-
-  return (
-    <motion.div
-      ref={ref}
-      className="mb-20"
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.8 }}
-    >
-      <div className="text-center mb-12">
-        <h2 className="text-4xl font-gilroy-bold mb-4">Technical Architecture</h2>
-        <p className="text-[#D5D5D5] text-lg">Built on proven blockchain infrastructure</p>
-      </div>
-
-      <div className="grid lg:grid-cols-3 gap-8">
-        <motion.div
-          className="text-center"
-          whileHover={{ scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 300 }}
-        >
-          <div className="w-20 h-20 mx-auto mb-4 bg-[#1CA36E]/20 rounded-full flex items-center justify-center">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z"/>
-            </svg>
-          </div>
-          <h3 className="text-xl font-gilroy-bold mb-2">ERC-4337</h3>
-          <p className="text-[#D5D5D5] text-sm">Account abstraction for programmable wallets</p>
-        </motion.div>
-
-        <motion.div
-          className="text-center"
-          whileHover={{ scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 300 }}
-        >
-          <div className="w-20 h-20 mx-auto mb-4 bg-[#1CA36E]/20 rounded-full flex items-center justify-center">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M9 12.5L11.5 15L16 10.5"/>
-              <circle cx="12" cy="12" r="10"/>
-            </svg>
-          </div>
-          <h3 className="text-xl font-gilroy-bold mb-2">WebAuthn</h3>
-          <p className="text-[#D5D5D5] text-sm">Passwordless authentication via biometrics</p>
-        </motion.div>
-
-        <motion.div
-          className="text-center"
-          whileHover={{ scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 300 }}
-        >
-          <div className="w-20 h-20 mx-auto mb-4 bg-[#1CA36E]/20 rounded-full flex items-center justify-center">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
-              <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
-              <line x1="6" y1="6" x2="6" y2="6"/>
-              <line x1="6" y1="18" x2="6" y2="18"/>
-            </svg>
-          </div>
-          <h3 className="text-xl font-gilroy-bold mb-2">ISO20022</h3>
-          <p className="text-[#D5D5D5] text-sm">Universal financial messaging standard</p>
-        </motion.div>
-      </div>
-    </motion.div>
-  );
-};
-
 // Use Cases Component
 const UseCases = () => {
   const cases = [
     {
       title: "Corporate Treasury",
       description: "Automated capital calls with on-chain audit trails",
-      icon: "🏢"
+      icon: <CorporateTreasuryIcon className="w-12 h-12 text-[#1CA36E]" />
     },
     {
       title: "Cross-Border Payments",
       description: "Compliant stablecoin transfers with instant settlement",
-      icon: "🌍"
+      icon: <CrossBorderIcon className="w-12 h-12 text-[#1CA36E]" />
     },
     {
       title: "Asset Custody",
       description: "Secure tokenized asset storage with institutional controls",
-      icon: "🔒"
+      icon: <AssetCustodyIcon className="w-12 h-12 text-[#1CA36E]" />
     }
   ];
 

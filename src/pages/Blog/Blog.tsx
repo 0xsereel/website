@@ -1,15 +1,16 @@
 import { Header } from "../../components/Header/Header";
-import { MobileMenu } from "../../components/Header/MobileMenu";
-import { Footer } from "../../components/Footer/Footer";
 import { BlogPageContent } from "../../components/Blog/BlogPageContent";
+import { MobileMenu } from "../../components/Header/MobileMenu";
+import { GradientProvider } from "../../utils/gradient";
 
 export const Blog = () => {
   return (
-    <div className="w-full">
-      <Header />
-      <MobileMenu />
-      <BlogPageContent />
-      <Footer />
-    </div>
+    <GradientProvider>
+      <div className="w-full min-h-screen bg-black text-white">
+        <Header />
+        <BlogPageContent />
+        <MobileMenu />
+      </div>
+    </GradientProvider>
   );
 };

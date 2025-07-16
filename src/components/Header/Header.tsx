@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 export const Header = () => {
-  const logoPath = "/images/header/logo.png";
+  const logoPath = "/images/Hero/glowing_seree_logo.svg";
 
   const { setIsMobileMenuOpen } = useGlobal();
 

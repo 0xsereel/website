@@ -78,7 +78,6 @@ export const BlogPost = () => {
         >
           <motion.div
             className="text-6xl mb-4"
-            animate={{ rotate: [0, 360] }}
             transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
           >
             🔍
@@ -99,7 +98,7 @@ export const BlogPost = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
-        {/* Animated background */}
+        {/* Animated background
         <motion.div
           className="absolute inset-0"
           animate={{
@@ -111,7 +110,7 @@ export const BlogPost = () => {
             ],
           }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        />
+        /> */}
 
         <motion.div
           className="text-center px-5 relative z-10 max-w-4xl mx-auto"

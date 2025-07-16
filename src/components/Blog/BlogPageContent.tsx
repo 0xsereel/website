@@ -1,4 +1,3 @@
-// src/components/Blog/BlogPageContent.tsx
 import blogs from "../../Blog Data/Blogs.json";
 import { Link } from "react-router-dom";
 import { NewsLetter } from "../Home/NewsLetter";
@@ -32,21 +31,8 @@ export const BlogPageContent = () => {
         className="w-full lg:h-[500px] h-[300px] bg-black flex items-center justify-center relative overflow-hidden"
         style={{ y: heroY }}
       >
-        {/* Animated background */}
-        <motion.div
-          className="absolute inset-0"
-          animate={{
-            background: [
-              "radial-gradient(circle at 30% 20%, rgba(28, 163, 110, 0.15) 0%, transparent 50%), radial-gradient(circle at 70% 80%, rgba(28, 163, 110, 0.1) 0%, transparent 50%)",
-              "radial-gradient(circle at 80% 30%, rgba(28, 163, 110, 0.15) 0%, transparent 50%), radial-gradient(circle at 20% 70%, rgba(28, 163, 110, 0.1) 0%, transparent 50%)",
-              "radial-gradient(circle at 50% 80%, rgba(28, 163, 110, 0.15) 0%, transparent 50%), radial-gradient(circle at 50% 20%, rgba(28, 163, 110, 0.1) 0%, transparent 50%)",
-              "radial-gradient(circle at 30% 20%, rgba(28, 163, 110, 0.15) 0%, transparent 50%), radial-gradient(circle at 70% 80%, rgba(28, 163, 110, 0.1) 0%, transparent 50%)",
-            ],
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        />
-
-        {/* Floating elements */}
+        {/* Remove the individual animated background */}
+        {/* Floating elements - keep these for visual interest */}
         <motion.div
           className="absolute top-20 left-20 w-4 h-4 bg-[#1CA36E] rounded-full opacity-60"
           animate={{
@@ -98,14 +84,7 @@ export const BlogPageContent = () => {
         className="w-full bg-black py-20 relative overflow-hidden"
         style={{ y: contentY }}
       >
-        {/* Background gradient */}
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-br from-[#1CA36E]/5 via-transparent to-[#1CA36E]/10"
-          animate={{
-            opacity: [0.3, 0.7, 0.3],
-          }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        />
+        {/* Remove the individual background gradient */}
 
         <div className="w-full max-w-[1200px] mx-auto px-5 relative z-10">
           {typedBlogs.length > 0 ? (
@@ -132,7 +111,7 @@ export const BlogPageContent = () => {
                 </motion.p>
               </AnimatedSection>
 
-              {/* Blog Grid */}
+              {/* Blog Grid - keep as is */}
               <AnimatedSection 
                 className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8"
                 variant="stagger"

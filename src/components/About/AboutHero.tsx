@@ -1,5 +1,4 @@
-import { useState, useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { Header } from "../Header/Header";
 import { GlowingText } from "../Animation/GlowingText";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";

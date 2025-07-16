@@ -4,6 +4,9 @@ import { Header } from "../../components/Header/Header";
 import { MobileMenu } from "../../components/Header/MobileMenu";
 import { Footer } from "../../components/Footer/Footer";
 import { Button } from "../../components/Button/Button";
+import { 
+  DeFiSecurityIcon
+} from "../../utils/icons";
 
 export default function DeFi() {
   const containerRef = useRef(null);
@@ -69,7 +72,7 @@ export default function DeFi() {
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-[#1CA36E]">3-Module</div>
-              <div className="text-sm text-[#969696]">Ecosystem</div>
+              <div className="text-sm text-[#969696]">Vaults</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-[#1CA36E]">ERC-3643</div>
@@ -86,7 +89,7 @@ export default function DeFi() {
           <YieldComparisonSection />
           
           {/* SereelVault Architecture */}
-          <SereelVaultArchitecture />
+          {/* <SereelVaultArchitecture /> */}
           
           {/* Three-Module Ecosystem */}
           <ThreeModuleEcosystem />
@@ -187,9 +190,9 @@ const YieldComparisonSection = () => {
           <div className="relative z-10">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-16 h-16 bg-[#1CA36E]/20 rounded-full flex items-center justify-center">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z"/>
-                </svg>
+                <div className="w-16 h-16 bg-[#1CA36E]/20 rounded-full flex items-center justify-center">
+                <DeFiSecurityIcon className="w-8 h-8 text-[#1CA36E]" />
+              </div>
               </div>
               <div>
                 <h3 className="text-2xl font-bold text-[#1CA36E]">Sereel Protocol</h3>
@@ -249,129 +252,6 @@ const YieldComparisonSection = () => {
   );
 };
 
-// SereelVault Architecture
-const SereelVaultArchitecture = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
-  return (
-    <motion.div
-      ref={ref}
-      className="mb-24"
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.8 }}
-    >
-      <div className="text-center mb-16">
-        <h2 className="text-5xl font-bold mb-6">SereelVault Architecture</h2>
-        <p className="text-[#D5D5D5] text-xl">The core smart contract managing user positions and yield distribution</p>
-      </div>
-
-      <div className="bg-gradient-to-br from-[#1CA36E]/5 to-white/5 p-8 rounded-2xl border border-[#202026]">
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* Vault Core */}
-          <motion.div
-            className="text-center"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <motion.div
-              className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-[#1CA36E]/20 to-green-500/20 rounded-full flex items-center justify-center"
-              animate={{ 
-                boxShadow: [
-                  "0 0 20px rgba(28, 163, 110, 0.3)",
-                  "0 0 40px rgba(28, 163, 110, 0.6)",
-                  "0 0 20px rgba(28, 163, 110, 0.3)"
-                ]
-              }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-                <line x1="8" y1="21" x2="16" y2="21"/>
-                <line x1="12" y1="17" x2="12" y2="21"/>
-              </svg>
-            </motion.div>
-            <h3 className="text-xl font-bold mb-4">Vault Core</h3>
-            <ul className="text-[#D5D5D5] space-y-2 text-sm">
-              <li>• User position tracking</li>
-              <li>• Yield calculation</li>
-              <li>• Asset allocation</li>
-              <li>• ERC-3643 compliance</li>
-            </ul>
-          </motion.div>
-
-          {/* Functions */}
-          <motion.div
-            className="text-center"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <motion.div
-              className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-full flex items-center justify-center"
-              animate={{ 
-                rotate: [0, 360],
-                scale: [1, 1.1, 1]
-              }}
-              transition={{ 
-                rotate: { duration: 20, repeat: Infinity, ease: "linear" },
-                scale: { duration: 2, repeat: Infinity, ease: "easeInOut" }
-              }}
-            >
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <circle cx="12" cy="12" r="3"/>
-                <path d="M12 1v6m0 6v6"/>
-                <path d="M21 12h-6m-6 0H3"/>
-              </svg>
-            </motion.div>
-            <h3 className="text-xl font-bold mb-4">Core Functions</h3>
-            <ul className="text-[#D5D5D5] space-y-2 text-sm">
-              <li>• deposit()</li>
-              <li>• withdraw()</li>
-              <li>• calculateYield()</li>
-              <li>• rebalance()</li>
-            </ul>
-          </motion.div>
-
-          {/* Configuration */}
-          <motion.div
-            className="text-center"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <motion.div
-              className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-yellow-500/20 to-orange-500/20 rounded-full flex items-center justify-center"
-              animate={{ 
-                y: [0, -10, 0],
-                rotateY: [0, 180, 360]
-              }}
-              transition={{ 
-                y: { duration: 2, repeat: Infinity, ease: "easeInOut" },
-                rotateY: { duration: 4, repeat: Infinity, ease: "easeInOut" }
-              }}
-            >
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <circle cx="12" cy="12" r="3"/>
-                <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/>
-              </svg>
-            </motion.div>
-            <h3 className="text-xl font-bold mb-4">Configuration</h3>
-            <ul className="text-[#D5D5D5] space-y-2 text-sm">
-              <li>• Allocation ratios</li>
-              <li>• Risk parameters</li>
-              <li>• Fee structures</li>
-              <li>• Governance rules</li>
-            </ul>
-          </motion.div>
-        </div>
-      </div>
-    </motion.div>
-  );
-};
-
 // Three-Module Ecosystem
 const ThreeModuleEcosystem = () => {
   const [activeModule, setActiveModule] = useState(0);
@@ -420,8 +300,8 @@ const ThreeModuleEcosystem = () => {
       viewport={{ once: true }}
     >
       <div className="text-center mb-16">
-        <h2 className="text-5xl font-bold mb-6">Three-Module Ecosystem</h2>
-        <p className="text-[#D5D5D5] text-xl">Diversified yield generation across multiple DeFi protocols</p>
+        <h2 className="text-5xl font-bold mb-6">Three-Module Vaults</h2>
+        <p className="text-[#D5D5D5] text-xl">Efficient liquidity utility across three primitives</p>
       </div>
 
       {/* Module Selector */}
