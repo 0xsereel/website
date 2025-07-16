@@ -54,7 +54,7 @@ export const Wallet = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            The first institutional wallet with native <span className="text-[#1CA36E] font-semibold">ISO20022 compliance</span>
+            An institutional wallet with native <span className="text-[#1CA36E] font-semibold">ISO20022 compliance</span>
           </motion.p>
         </motion.div>
       </motion.div>
@@ -69,7 +69,7 @@ export const Wallet = () => {
           <WalletFeaturesGrid />
           
           {/* Technical Architecture */}
-          <TechnicalArchitecture />
+          {/* <TechnicalArchitecture /> */}
           
           {/* Use Cases */}
           <UseCases />
@@ -172,7 +172,7 @@ const WalletFeaturesGrid = () => {
     {
       icon: "🔐",
       title: "ERC-4337 Smart Accounts",
-      description: "Programmable account recovery with gas sponsorship and social logins",
+      description: "Account recovery with gas sponsorship and social logins",
       details: ["Email + WebAuthn passkeys", "No seed phrase required", "Biometric authentication"]
     },
     {
@@ -384,6 +384,7 @@ const CTASection = () => {
         Join leading financial institutions already leveraging Sereel's institutional-grade DeFi infrastructure.
       </p>
       <motion.div
+        className="flex justify-center"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
