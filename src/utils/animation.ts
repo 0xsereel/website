@@ -1,5 +1,5 @@
 // src/utils/animations.ts
-import { Variants } from "framer-motion";
+import { Transition, Variant, Variants } from "framer-motion";
 
 // Animation variants
 export const fadeInUp: Variants = {
@@ -63,26 +63,19 @@ export const glowHover = {
   }
 };
 
-export const cardHover = {
+export const cardHover: Record<string, Variant> = {
   hover: {
     y: -5,
-    boxShadow: "0 0 25px rgba(28, 163, 110, 0.4)",
-    borderColor: "rgba(28, 163, 110, 0.8)",
-    transition: { duration: 0.3, ease: "easeOut" }
+    boxShadow: "0 5px 15px rgba(0, 0, 0, 0.1)",
+    borderColor: "#3182ce",
+    transition: { duration: 0.2, ease: "easeInOut" } as Transition
   }
 };
 
-// Click blink effect
-export const blinkClick = {
+export const blinkClick: Record<string, Variant> = {
   tap: {
-    boxShadow: [
-      "0 0 0px rgba(28, 163, 110, 0)",
-      "0 0 30px rgba(28, 163, 110, 1)",
-      "0 0 60px rgba(255, 255, 255, 0.8)",
-      "0 0 30px rgba(28, 163, 110, 1)",
-      "0 0 0px rgba(28, 163, 110, 0)"
-    ],
-    transition: { duration: 0.6, ease: "easeInOut" }
+    boxShadow: ["0 0 0 rgba(0, 0, 0, 0.1)", "0 0 8px rgba(49, 130, 206, 0.6)"],
+    transition: { duration: 0.3, ease: "easeInOut" } as Transition
   }
 };
 

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
-import { fadeInUp, staggerContainer } from "../../utils/animations";
+import { fadeInUp, staggerContainer } from "../../utils/animation";
 
 interface AnimatedSectionProps {
   children: ReactNode;

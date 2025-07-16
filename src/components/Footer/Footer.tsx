@@ -18,7 +18,7 @@ export const Footer = () => {
               <h3 className="font-gilroy-bold my-5">Solutions</h3>
               <Link to="/solutions/wallet" className="my-3">Wallet</Link> <br />
               <Link to="/solutions/tokenization" className="my-3">Tokenization</Link> <br />
-              <Link to="/solutions/identity" className="my-3">DeFi</Link>
+              <Link to="/solutions/defi" className="my-3">DeFi</Link>
             </div>
 
             <div>

@@ -1,112 +1,183 @@
-// Instititutional Grade Software (section)
-
+// src/components/Home/IGS.tsx
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { AnimatedSection } from "../Animation/AnimatedSection";
+import { GlowingText } from "../Animation/GlowingText";
+import { useParallax } from "../../hooks/useParallax";
 
 export const IGS = () => {
   const securityIconPath = "/images/solutions/security.png";
   const financialPracticeIconPath = "/images/solutions/financial-practices.png";
   const poRPath = "/images/solutions/PoR.png";
+  
+  const { ref, y } = useParallax(0.2);
+
+  const features = [
+    {
+      number: "1",
+      title: "Security",
+      description: "High-Grade Noncustodial Wallets: Multi-sig, MPC, and audited smart contracts. Your assets are protected at every layer",
+      icon: securityIconPath,
+      color: "from-blue-500/20 to-cyan-500/20"
+    },
+    {
+      number: "2",
+      title: "Sereel's Financial Practices",
+      description: "Designed for Compliance: Transparent ledgers, audit trails, and compliance-first architecture.",
+      icon: financialPracticeIconPath,
+      color: "from-[#1CA36E]/20 to-green-500/20"
+    },
+    {
+      number: "3",
+      title: "Proof Of Reserves",
+      description: "PoR powered by zkTLS ensuring transparent and secure on-chain reserve verification, safeguarding assets and maintaining privacy.",
+      icon: poRPath,
+      color: "from-yellow-500/20 to-orange-500/20"
+    }
+  ];
 
   return (
-    <section className="w-full flex items-center justify-center pb-10 pt-20">
-      <div className="w-[90%] mx-auto">
-        {/* Title */}
-
-        <div className="lg:w-[95%] w-full flex  lg:items-center justify-between mx-auto lg:flex-row flex-col">
-          <div className="flex  flex-col lg:w-fit w-full">
-            <h3 className="lg:text-5xl text-3xl">
-              Institutional-Grade Software
-            </h3>
-            <p className="mt-2">Built secure for high-stakes activity</p>
-          </div>
-
-          <div className="lg:mt-0 mt-10">
-            {/* contact us button */}
-
-            <Link
-              to="/contact"
-              className="w-[150px] h-[50px] border-2 border-[#3A3A45] rounded-full flex items-center justify-center"
+    <section className="w-full flex items-center justify-center pb-10 pt-20 relative overflow-hidden">
+      {/* Parallax Background */}
+      <motion.div
+        ref={ref}
+        className="absolute inset-0 bg-gradient-to-tl from-[#1CA36E]/5 via-transparent to-[#1CA36E]/10"
+        style={{ y }}
+      />
+      
+      <div className="w-[90%] mx-auto relative z-10">
+        <AnimatedSection className="lg:w-[95%] w-full flex lg:items-center justify-between mx-auto lg:flex-row flex-col">
+          <div className="flex flex-col lg:w-fit w-full">
+            <motion.h3 
+              className="lg:text-5xl text-3xl font-gilroy-bold"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
             >
-              Contact Us
-            </Link>
-          </div>
-        </div>
-
-        <div className="lg:w-[95%] w-full lg:h-[490px] h-fit border border-[#202026] mt-10 mx-auto rounded-xl flex lg:flex-row flex-col">
-          {/* Security */}
-
-          <div className="lg:w-[33%] w-full rounded-tl-xl rounded-bl-xl h-full lg:border-r border-r-[#202026] p-4 bg-black bg-gradient-to-br from-[#1CA36E]/20  to-black">
-            <div className="w-full">
-              <div className="w-[64px] h-[64px] border border-[#5F5F7138] rounded-full bg-white/5 flex items-center justify-center">
-                <h3>1</h3>
-              </div>
-            </div>
-
-            <div className="mt-5 w-full flex items-center justify-center pb-8">
-              <img src={securityIconPath} className="w-[150px]" alt="" />
-            </div>
-
-            <div className="mt-[50px]">
-              <h3 className="font-gilroy-medium text-xl">Security</h3>
-              <p className="mt-4 text-[#969696]">
-                High-Grade Noncustodial Wallets: Multi-sig, MPC, and audited
-                smart contracts. Your assets are protected at every layer
-              </p>
-            </div>
+              <GlowingText className="text-[#1CA36E]">Institutional-Grade</GlowingText> Software
+            </motion.h3>
+            <motion.p 
+              className="mt-2 text-[#D5D5D5]"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              Built secure for high-stakes activity
+            </motion.p>
           </div>
 
-          {/* Fiancial Practices */}
+          <motion.div 
+            className="lg:mt-0 mt-10"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Link
+                to="/contact"
+                className="w-[150px] h-[50px] border-2 border-[#3A3A45] rounded-full flex items-center justify-center hover:border-[#1CA36E] hover:bg-[#1CA36E]/10 transition-all duration-300"
+              >
+                <motion.span
+                  whileHover={{ 
+                    textShadow: "0 0 10px rgba(28, 163, 110, 0.8)"
+                  }}
+                >
+                  Contact Us
+                </motion.span>
+              </Link>
+            </motion.div>
+          </motion.div>
+        </AnimatedSection>
 
-          <div className="lg:w-[33%] w-full h-full lg:border-r border-r-[#202026] p-4 bg-black bg-gradient-to-br from-[#1CA36E]/20  to-black">
-            <div className="w-full">
-              <div className="w-[64px] h-[64px] border border-[#5F5F7138] rounded-full bg-white/5 flex items-center justify-center">
-                <h3>2</h3>
-              </div>
-            </div>
-
-            <div className="mt-5 w-full flex items-center justify-center">
-              <img
-                src={financialPracticeIconPath}
-                className="w-[200px]"
-                alt=""
+        <AnimatedSection className="lg:w-[95%] w-full lg:h-fit h-fit border border-[#202026] mt-10 mx-auto rounded-xl flex lg:flex-row flex-col overflow-hidden">
+          {features.map((feature, index) => (
+            <motion.div
+              key={index}
+              className="lg:w-[33%] w-full h-full p-6 bg-gradient-to-br from-[#1CA36E]/5 to-black relative overflow-hidden"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: index * 0.2 }}
+              viewport={{ once: true }}
+              whileHover={{ 
+                backgroundColor: "rgba(28, 163, 110, 0.1)",
+                scale: 1.02
+              }}
+            >
+              {/* Animated background gradient */}
+              <motion.div
+                className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0`}
+                whileHover={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
               />
-            </div>
+              
+              <div className="relative z-10">
+                <motion.div 
+                  className="w-[64px] h-[64px] border border-[#5F5F7138] rounded-full bg-white/5 flex items-center justify-center mb-6"
+                  whileHover={{ 
+                    backgroundColor: "rgba(28, 163, 110, 0.1)",
+                    borderColor: "rgba(28, 163, 110, 0.5)",
+                    scale: 1.1
+                  }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <motion.h3 
+                    className="font-gilroy-bold text-[#1CA36E]"
+                    whileHover={{ scale: 1.2 }}
+                  >
+                    {feature.number}
+                  </motion.h3>
+                </motion.div>
 
-            <div className="mt-[60px]">
-              <h3 className="font-gilroy-medium text-xl">
-                Sereel’s Financial Practices{" "}
-              </h3>
-              <p className="mt-4 text-[#969696]">
-                Designed for Compliance: Transparent ledgers, audit trails, and
-                compliance-first architecture.
-              </p>
-            </div>
-          </div>
+                <motion.div 
+                  className="w-full flex items-center justify-center mb-8"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <motion.img 
+                    src={feature.icon} 
+                    className="w-[150px] object-contain" 
+                    alt={feature.title}
+                    animate={{ 
+                      y: [0, -5, 0],
+                      rotate: [0, 1, -1, 0]
+                    }}
+                    transition={{ 
+                      duration: 4, 
+                      repeat: Infinity, 
+                      ease: "easeInOut",
+                      delay: index * 0.5 
+                    }}
+                  />
+                </motion.div>
 
-          {/* ISO 20022 */}
-
-          <div className="lg:w-[33%] w-full h-full  p-4 bg-black bg-gradient-to-br from-[#1CA36E]/20  to-black">
-            <div className="w-full">
-              <div className="w-[64px] h-[64px] border border-[#5F5F7138] rounded-full bg-white/5 flex items-center justify-center">
-                <h3>3</h3>
+                <div className="mt-8">
+                  <motion.h3 
+                    className="font-gilroy-bold text-xl mb-4 text-white"
+                    whileHover={{ 
+                      color: "#1CA36E",
+                      textShadow: "0 0 10px rgba(28, 163, 110, 0.8)"
+                    }}
+                  >
+                    {feature.title}
+                  </motion.h3>
+                  <motion.p 
+                    className="text-[#969696] leading-relaxed"
+                    whileHover={{ color: "#D5D5D5" }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {feature.description}
+                  </motion.p>
+                </div>
               </div>
-            </div>
-
-            <div className="mt-5 w-full flex items-center justify-center">
-              <img src={poRPath} className="w-[200px]" alt="" />
-            </div>
-
-            <div className="mt-[30px]">
-              <h3 className="font-gilroy-medium text-xl">
-                Proof Of Reserves
-              </h3>
-              <p className="mt-4 text-[#969696]">
-                PoR powered by zkTLS ensuring transparent and secure on-chain reserve verification,
-                safeguarding assets and maintaining privacy.
-              </p>
-            </div>
-          </div>
-        </div>
+            </motion.div>
+          ))}
+        </AnimatedSection>
       </div>
     </section>
   );

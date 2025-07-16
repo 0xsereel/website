@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
-import { cardHover, blinkClick } from "../../utils/animations";
+import { cardHover, blinkClick } from "../../utils/animation";
 
 interface AnimatedCardProps {
   children: ReactNode;

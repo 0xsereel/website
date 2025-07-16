@@ -6,7 +6,7 @@ import { Blog } from "../pages/Blog/Blog";
 import { SingleBlog } from "../pages/Blog/SingleBlog";
 import { Wallet } from "../pages/solutions/Wallet";
 import { Tokenization } from "../pages/solutions/Tokenization";
-import { DeFi } from "../pages/solutions/DeFi";
+import DeFi from "../pages/solutions/DeFi";
 import { Entities } from "../pages/Entities/Entities";
 import { Partnerships } from "../pages/Partnerships/Partnerships";
 import { Repositories } from "../pages/Repositories/Repositories";
