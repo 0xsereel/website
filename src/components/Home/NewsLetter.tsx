@@ -1,5 +1,9 @@
+// src/components/Home/NewsLetter.tsx
 import { useState } from "react";
 import { Button } from "../Button/Button";
+import { motion } from "framer-motion";
+import { AnimatedSection } from "../Animation/AnimatedSection";
+import { GlowingText } from "../Animation/GlowingText";
 
 export const NewsLetter = () => {
   const [email, setEmail] = useState("");
@@ -11,7 +15,7 @@ export const NewsLetter = () => {
     return emailRegex.test(email);
   };
 
-  const handleSubmit = async (e: { preventDefault: () => void; }) => {
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     if (!isValidEmail(email)) {
       setMessage("Please enter a valid email address.");
@@ -43,6 +47,7 @@ export const NewsLetter = () => {
       } else {
         setMessage(result.message || "Something went wrong. Please try again.");
       }
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       setMessage("An error occurred. Please try again.");
     } finally {
@@ -51,42 +56,177 @@ export const NewsLetter = () => {
   };
 
   return (
-    <section className="w-full flex items-center justify-center py-20 bg-gradient-to-bl from-[#1CA36E]/50 via-black  to-[#1CA36E]/50 h-[550px]">
-      <div className="w-[95%] mx-auto flex justify-center items-center flex-col">
-        {/* Title */}
-        <div className="w-full flex items-center justify-center flex-col">
-          <h3 className="lg:text-5xl text-3xl text-center">Newsletter Signup</h3>
-          <p className="mt-2 text-center">
-            The solutions our product offers are seamless, secure and accessible
-          </p>
-        </div>
+    <section className="w-full flex items-center justify-center py-20 relative overflow-hidden">
+      {/* Enhanced Background */}
+      {/* <motion.div
+        className="absolute inset-0"
+        animate={{
+          background: [
+            "radial-gradient(circle at 30% 30%, rgba(28, 163, 110, 0.3) 0%, transparent 50%), radial-gradient(circle at 70% 70%, rgba(28, 163, 110, 0.2) 0%, transparent 50%)",
+            "radial-gradient(circle at 70% 30%, rgba(28, 163, 110, 0.3) 0%, transparent 50%), radial-gradient(circle at 30% 70%, rgba(28, 163, 110, 0.2) 0%, transparent 50%)",
+            "radial-gradient(circle at 50% 50%, rgba(28, 163, 110, 0.3) 0%, transparent 50%), radial-gradient(circle at 50% 50%, rgba(28, 163, 110, 0.2) 0%, transparent 50%)",
+            "radial-gradient(circle at 30% 30%, rgba(28, 163, 110, 0.3) 0%, transparent 50%), radial-gradient(circle at 70% 70%, rgba(28, 163, 110, 0.2) 0%, transparent 50%)",
+          ],
+        }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      /> */}
 
-        <form
-          className="w-full my-20 flex items-center justify-center"
+      {/* Floating elements */}
+      <motion.div
+        className="absolute top-20 left-20 w-6 h-6 bg-[#1CA36E] rounded-full opacity-60"
+        animate={{
+          y: [0, -30, 0],
+          x: [0, 20, 0],
+          scale: [1, 1.3, 1],
+        }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute bottom-20 right-20 w-8 h-8 bg-white rounded-full opacity-40"
+        animate={{
+          y: [0, 25, 0],
+          x: [0, -25, 0],
+          scale: [1, 1.2, 1],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2,
+        }}
+      />
+
+      <div className="w-[95%] mx-auto flex justify-center items-center flex-col relative z-10">
+        {/* Enhanced Title */}
+        <AnimatedSection className="w-full flex items-center justify-center flex-col">
+          <motion.h3
+            className="lg:text-5xl text-3xl text-center font-gilroy-bold mb-4"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <GlowingText className="text-[#1CA36E]">Newsletter</GlowingText>{" "}
+            Signup
+          </motion.h3>
+          <motion.p
+            className="text-center text-[#D5D5D5] text-lg max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            Stay ahead of the curve with exclusive insights into institutional
+            DeFi innovations and market updates
+          </motion.p>
+        </AnimatedSection>
+
+        {/* Enhanced Form */}
+        <motion.form
+          className="w-full my-12 flex items-center justify-center"
           onSubmit={handleSubmit}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          viewport={{ once: true }}
         >
-          <div className="lg:w-[600px] w-full bg-black border border-[#202026] rounded-full flex items-center justify-between p-2">
-            <input
+          <motion.div
+            className="lg:w-[600px] w-full bg-gradient-to-r from-black/90 to-[#1CA36E]/10 border border-[#202026] rounded-full flex items-center justify-between p-2 backdrop-blur-sm"
+            whileHover={{
+              borderColor: "rgba(28, 163, 110, 0.5)",
+              boxShadow: "0 0 30px rgba(28, 163, 110, 0.2)",
+            }}
+            transition={{ duration: 0.3 }}
+          >
+            <motion.input
               type="email"
-              className="outline-none border-none text-xl w-[69%]"
-              placeholder="hello@example.com"
+              className="outline-none border-none text-lg w-[69%] bg-transparent px-4 py-2 text-white placeholder-[#969696] focus:ring-0 focus:outline-none"
+              placeholder="hello@yourcompany.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              style={{ boxShadow: "none" }}
+              whileFocus={{
+                // Custom focus styles that don't include an outline
+                color: "#ffffff",
+                textShadow: "0 0 5px rgba(28, 163, 110, 0.5)",
+              }}
+              transition={{ duration: 0.2 }}
             />
             <div className="hidden lg:block">
-              <Button type="submit" disabled={loading}>
-                {loading ? "Submitting..." : "Get started now"}
-              </Button>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button type="submit" disabled={loading}>
+                  {loading ? "Submitting..." : "Get started now"}
+                </Button>
+              </motion.div>
             </div>
             <div className="lg:hidden">
-              <Button type="submit" disabled={loading}>
-                <></>
-              </Button>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button type="submit" disabled={loading}>
+                  <motion.svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    animate={{ x: [0, 4, 0] }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </motion.svg>
+                </Button>
+              </motion.div>
             </div>
-          </div>
-        </form>
-        {message && <p className="text-center mt-4">{message}</p>}
+          </motion.div>
+        </motion.form>
+
+        {/* Enhanced Message Display */}
+        {message && (
+          <motion.div
+            className="text-center mt-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <motion.p
+              className={`text-lg font-gilroy-medium ${
+                message.includes("Thank you")
+                  ? "text-[#1CA36E]"
+                  : message.includes("error") || message.includes("valid")
+                  ? "text-red-400"
+                  : "text-[#D5D5D5]"
+              }`}
+              animate={
+                message.includes("Thank you")
+                  ? {
+                      textShadow: [
+                        "0 0 5px rgba(28, 163, 110, 0.5)",
+                        "0 0 15px rgba(28, 163, 110, 0.8)",
+                        "0 0 5px rgba(28, 163, 110, 0.5)",
+                      ],
+                    }
+                  : {}
+              }
+              transition={{
+                duration: 1.5,
+                repeat: message.includes("Thank you") ? 3 : 0,
+              }}
+            >
+              {message}
+            </motion.p>
+          </motion.div>
+        )}
       </div>
     </section>
   );
