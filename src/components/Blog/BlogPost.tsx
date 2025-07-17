@@ -35,7 +35,7 @@ export const BlogPost = () => {
 
   useEffect(() => {
     if (blog) {
-      setImageSrc("images/blog/Seree_con_logo.jpg");
+      setImageSrc("images/blog/Sereel_con_logo.jpg");
 
       setTimeout(() => {
         try {
