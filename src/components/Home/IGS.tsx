@@ -17,7 +17,7 @@ export const IGS = () => {
       number: "1",
       title: "Security",
       description:
-        "High-Grade Noncustodial Wallets: Multi-sig, MPC, and audited smart contracts. Your assets are protected at every layer",
+        "High-Grade Noncustodial Wallets: Multi-sig hardware wallets. Your assets are protected at every layer",
       icon: securityIconPath,
       color: "from-blue-500/20 to-cyan-500/20",
     },
