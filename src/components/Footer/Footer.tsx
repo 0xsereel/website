@@ -7,36 +7,42 @@ export const Footer = () => {
     <footer className="w-full flex items-center justify-center py-20 px-5">
       <div className="lg:w-[90%] w-full mx-auto">
         <div className="w-full flex justify-between items-start lg:flex-row flex-col">
-          <Link to="/" className="flex items-center gap-3">
-            <img className="w-[200px] h-[200px]" src={logoPath} alt="" />
+          <Link to="/" className="flex items-center gap-3 min-h-[44px]">
+            <img className="w-[200px] h-[200px]" src={logoPath} alt="Sereel Logo" />
 
             <h3 className="text-2xl font-gilroy-bold">Sereel</h3>
           </Link>
 
-          <div className="flex items-start gap-10">
-            <div>
+          <div className="flex items-start gap-10 lg:flex-row flex-col">
+            <div className="text-center lg:text-left">
               <h3 className="font-gilroy-bold my-5">Solutions</h3>
-              <Link to="/solutions/wallet" className="my-3">Wallet</Link> <br />
-              <Link to="/solutions/tokenization" className="my-3">Tokenization</Link> <br />
-              <Link to="/solutions/defi" className="my-3">DeFi</Link>
+              <div className="flex flex-col space-y-3">
+                <Link to="/solutions/wallet" className="min-h-[44px] flex items-center justify-center lg:justify-start hover:text-[#1CA36E] transition-colors">Wallet</Link>
+                <Link to="/solutions/tokenization" className="min-h-[44px] flex items-center justify-center lg:justify-start hover:text-[#1CA36E] transition-colors">Tokenization</Link>
+                <Link to="/solutions/defi" className="min-h-[44px] flex items-center justify-center lg:justify-start hover:text-[#1CA36E] transition-colors">DeFi</Link>
+              </div>
             </div>
 
-            <div>
+            <div className="text-center lg:text-left">
                 <h3 className="font-gilroy-bold my-5">About Us</h3>
-                <Link
-                  to="/about"
-                  className="my-3 cursor-pointer"
-                >
-                  About
-                </Link> <br />
-              <Link to="/entities" className="my-3">Entities</Link> <br />
-              <Link to="/partnerships" className="my-10">Partnerships</Link>
+                <div className="flex flex-col space-y-3">
+                  <Link
+                    to="/about"
+                    className="min-h-[44px] flex items-center justify-center lg:justify-start hover:text-[#1CA36E] transition-colors"
+                  >
+                    About
+                  </Link>
+                  <Link to="/entities" className="min-h-[44px] flex items-center justify-center lg:justify-start hover:text-[#1CA36E] transition-colors">Entities</Link>
+                  <Link to="/partnerships" className="min-h-[44px] flex items-center justify-center lg:justify-start hover:text-[#1CA36E] transition-colors">Partnerships</Link>
+                </div>
             </div>
 
-            <div>
+            <div className="text-center lg:text-left">
               <h3 className="font-gilroy-bold my-5">Resources</h3>
-              <Link to="/blog" className="my-3">Blog</Link> <br />
-              <Link to="/repositories" className="my-3">Research Repository</Link>
+              <div className="flex flex-col space-y-3">
+                <Link to="/blog" className="min-h-[44px] flex items-center justify-center lg:justify-start hover:text-[#1CA36E] transition-colors">Blog</Link>
+                <Link to="/repositories" className="min-h-[44px] flex items-center justify-center lg:justify-start hover:text-[#1CA36E] transition-colors">Research Repository</Link>
+              </div>
             </div>
           </div>
         </div>

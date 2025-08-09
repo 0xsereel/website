@@ -1,9 +1,18 @@
 import React, { createContext, useContext, useState } from "react";
 
-export const GlobalContext = createContext<any>(null);
+interface GlobalContextType {
+  isMobileMenuOpen: boolean;
+  setIsMobileMenuOpen: (value: boolean) => void;
+}
+
+export const GlobalContext = createContext<GlobalContextType | null>(null);
 
 export function useGlobal() {
-  return useContext(GlobalContext);
+  const context = useContext(GlobalContext);
+  if (!context) {
+    throw new Error('useGlobal must be used within a GlobalProvider');
+  }
+  return context;
 }
 
 export function GlobalProvider({ children }: React.PropsWithChildren) {

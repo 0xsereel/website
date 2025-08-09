@@ -226,9 +226,9 @@ export const ContactContent = () => {
               >
                 <form className="w-full space-y-6" onSubmit={handleSubmit}>
                   {/* Name Fields */}
-                  <div className="w-full flex items-center justify-between gap-4">
+                  <div className="w-full flex items-center justify-between gap-4 lg:flex-row flex-col">
                     <motion.div 
-                      className="w-[48%]"
+                      className="w-full lg:w-[48%]"
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.8, delay: 0.1 }}
@@ -244,7 +244,7 @@ export const ContactContent = () => {
                         type="text"
                         name="fname"
                         id="fname"
-                        className="w-full mt-2 border border-[#202026] rounded-lg p-4 outline-none bg-gradient-to-r from-black/90 to-[#1CA36E]/5 text-white placeholder-[#969696] focus:border-[#1CA36E]/50 transition-all duration-300"
+                        className="w-full mt-2 border border-[#202026] rounded-lg p-4 outline-none bg-gradient-to-r from-black/90 to-[#1CA36E]/5 text-white placeholder-[#969696] focus:border-[#1CA36E]/50 transition-all duration-300 min-h-[48px]"
                         placeholder="John"
                         value={form.fname}
                         onChange={handleChange}
@@ -257,7 +257,7 @@ export const ContactContent = () => {
                     </motion.div>
 
                     <motion.div 
-                      className="w-[48%]"
+                      className="w-full lg:w-[48%]"
                       initial={{ opacity: 0, x: 20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.8, delay: 0.2 }}
@@ -273,7 +273,7 @@ export const ContactContent = () => {
                         type="text"
                         name="lname"
                         id="lname"
-                        className="w-full mt-2 border border-[#202026] rounded-lg p-4 outline-none bg-gradient-to-r from-black/90 to-[#1CA36E]/5 text-white placeholder-[#969696] focus:border-[#1CA36E]/50 transition-all duration-300"
+                        className="w-full mt-2 border border-[#202026] rounded-lg p-4 outline-none bg-gradient-to-r from-black/90 to-[#1CA36E]/5 text-white placeholder-[#969696] focus:border-[#1CA36E]/50 transition-all duration-300 min-h-[48px]"
                         placeholder="Doe"
                         value={form.lname}
                         onChange={handleChange}
@@ -304,7 +304,7 @@ export const ContactContent = () => {
                       type="email"
                       name="email"
                       id="email"
-                      className="w-full mt-2 border border-[#202026] rounded-lg p-4 outline-none bg-gradient-to-r from-black/90 to-[#1CA36E]/5 text-white placeholder-[#969696] focus:border-[#1CA36E]/50 transition-all duration-300"
+                      className="w-full mt-2 border border-[#202026] rounded-lg p-4 outline-none bg-gradient-to-r from-black/90 to-[#1CA36E]/5 text-white placeholder-[#969696] focus:border-[#1CA36E]/50 transition-all duration-300 min-h-[48px]"
                       placeholder="john@yourcompany.com"
                       value={form.email}
                       onChange={handleChange}
@@ -334,7 +334,7 @@ export const ContactContent = () => {
                       name="message"
                       id="message"
                       rows={6}
-                      className="w-full mt-2 border border-[#202026] rounded-lg p-4 outline-none resize-none bg-gradient-to-r from-black/90 to-[#1CA36E]/5 text-white placeholder-[#969696] focus:border-[#1CA36E]/50 transition-all duration-300"
+                      className="w-full mt-2 border border-[#202026] rounded-lg p-4 outline-none resize-none bg-gradient-to-r from-black/90 to-[#1CA36E]/5 text-white placeholder-[#969696] focus:border-[#1CA36E]/50 transition-all duration-300 min-h-[120px]"
                       placeholder="Tell us about your institution's DeFi needs..."
                       value={form.message}
                       onChange={handleChange}

@@ -14,7 +14,7 @@ interface ButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>
 export const Button = ({ children, className, type = "button", disabled = false, ...props }: ButtonProps) => {
   return (
     <motion.button
-      className={`bg-[#1CA36E] text-white px-6 py-3 rounded-full border border-[#00FFB21A] cursor-pointer flex items-center justify-center font-gilroy-medium relative overflow-hidden group ${className || ''} ${disabled ? 'opacity-60 cursor-not-allowed' : ''}`}
+      className={`bg-[#1CA36E] text-white px-6 py-3 rounded-full border border-[#00FFB21A] cursor-pointer flex items-center justify-center font-gilroy-medium relative overflow-hidden group min-h-[44px] min-w-[44px] ${className || ''} ${disabled ? 'opacity-60 cursor-not-allowed' : ''}`}
       whileHover={{
         boxShadow: disabled ? "none" : "0 0 30px rgba(28, 163, 110, 0.6), 0 0 60px rgba(255, 255, 255, 0.3)",
         scale: disabled ? 1 : 1.05,

@@ -93,32 +93,33 @@ export const MobileMenu = () => {
         <div className="flex items-center justify-between w-full">
           {/* Logo */}
 
-          <Link to="/" className="flex items-center gap-3">
-            <img className="w-[50px] h-[50px]" src={logoPath} alt="" />
+          <Link to="/" className="flex items-center gap-3 min-h-[44px]">
+            <img className="w-[50px] h-[50px]" src={logoPath} alt="Sereel Logo" />
 
             <h3 className="text-2xl font-gilroy-bold">Sereel</h3>
           </Link>
 
           <div>
-            {/* contact us button */}
-
-            <div
+            <button
               onClick={() => setIsMobileMenuOpen(false)}
-              className="lg:hidden"
+              className="lg:hidden min-h-[44px] min-w-[44px] flex items-center justify-center"
+              aria-label="Close mobile menu"
             >
-              <IoMdClose size={30} />
-            </div>
+              <IoMdClose size={30} aria-hidden="true" />
+            </button>
           </div>
         </div>
 
         <div className="w-full mt-10">
           <div>
             <button
-              className="flex gap-2 items-center cursor-pointer text-5xl"
+              className="flex gap-2 items-center cursor-pointer text-5xl min-h-[44px] py-2"
               onClick={() => setIsResourcesOpen(!isResourcesOpen)}
+              aria-label="Toggle solutions menu"
+              aria-expanded={isResourcesOpen}
             >
               <p className="">Solutions</p>
-              {isResourcesOpen ? <GoChevronUp /> : <GoChevronDown />}
+              {isResourcesOpen ? <GoChevronUp aria-hidden="true" /> : <GoChevronDown aria-hidden="true" />}
             </button>
           </div>
 
@@ -136,9 +137,10 @@ export const MobileMenu = () => {
                     <Link
                       key={index}
                       to={item.link}
-                      className="w-full flex items-center gap-2 mt-5 first:mt-0"
+                      className="w-full flex items-center gap-2 mt-5 first:mt-0 min-h-[44px] py-2"
+                      onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      <div className="w-[50px] h-[50px] border border-[#5F5F7138] rounded-full bg-white/5 flex items-center justify-center">
+                      <div className="w-[50px] h-[50px] border border-[#5F5F7138] rounded-full bg-white/5 flex items-center justify-center flex-shrink-0">
                         {getIcon(index)}
                       </div>
                       <div>
@@ -158,7 +160,8 @@ export const MobileMenu = () => {
           <div className="w-full mt-5">
             <Link
               to="/about"
-              className="flex gap-2 items-center cursor-pointer text-5xl"
+              className="flex gap-2 items-center cursor-pointer text-5xl min-h-[44px] py-2"
+              onClick={() => setIsMobileMenuOpen(false)}
             >
               <p className="">About</p>
             </Link>
@@ -167,7 +170,8 @@ export const MobileMenu = () => {
           <div className="w-full mt-5">
             <Link
               to="/contact"
-              className="flex gap-2 items-center cursor-pointer text-5xl"
+              className="flex gap-2 items-center cursor-pointer text-5xl min-h-[44px] py-2"
+              onClick={() => setIsMobileMenuOpen(false)}
             >
               <p className="">Contact Us</p>
             </Link>

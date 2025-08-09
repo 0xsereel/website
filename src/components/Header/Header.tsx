@@ -24,8 +24,8 @@ export const Header = () => {
         <div className="flex gap-4 items-center">
           {/* Logo */}
 
-          <Link to="/" className="flex items-center gap-3">
-            <img className="w-[50px] h-[50px]" src={logoPath} alt="" />
+          <Link to="/" className="flex items-center gap-3 min-h-[44px]">
+            <img className="w-[50px] h-[50px]" src={logoPath} alt="Sereel Logo" />
 
             <h3 className="text-2xl font-gilroy-bold">Sereel</h3>
           </Link>
@@ -35,31 +35,32 @@ export const Header = () => {
           <div className="font-gilroy-medium lg:flex gap-5 ml-3 text-md hidden">
             <div>
               <button
-                className="flex gap-2 items-center cursor-pointer"
+                className="flex gap-2 items-center cursor-pointer min-h-[44px] px-3 py-2"
                 onClick={handleOpenMenu}
+                aria-label="Solutions menu"
               >
                 <p>Solutions</p>
-                {isOpen ? <GoChevronUp /> : <GoChevronDown />}
+                {isOpen ? <GoChevronUp aria-hidden="true" /> : <GoChevronDown aria-hidden="true" />}
               </button>
             </div>
 
             <div>
               <Link
                 to="/about"
-                className="flex gap-2 items-center cursor-pointer"
+                className="flex gap-2 items-center cursor-pointer min-h-[44px] px-3 py-2"
+                aria-label="About Us page"
               >
                 <p>About Us</p>
-                {/* <GoChevronDown /> */}
               </Link>
             </div>
 
             <div>
               <Link
                 to="/blog"
-                className="flex gap-2 items-center cursor-pointer"
+                className="flex gap-2 items-center cursor-pointer min-h-[44px] px-3 py-2"
+                aria-label="Blog page"
               >
                 <p>Blog</p>
-                {/* <GoChevronDown /> */}
               </Link>
             </div>
 
@@ -68,7 +69,8 @@ export const Header = () => {
                 href="https://github.com/0xsereel/whitepaper/tree/main"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex gap-2 items-center cursor-pointer"
+                className="flex gap-2 items-center cursor-pointer min-h-[44px] px-3 py-2"
+                aria-label="View Whitepaper on GitHub"
               >
                 <p>Whitepaper</p>
               </a>
@@ -80,7 +82,8 @@ export const Header = () => {
           {/* contact us button */}
           <Link
             to="/contact"
-            className="w-[150px] h-[50px] border-2 border-[#3A3A45] rounded-full hidden lg:flex items-center justify-center hover:border-[#1CA36E] transition-colors duration-300"
+            className="w-[150px] h-[50px] border-2 border-[#3A3A45] rounded-full hidden lg:flex items-center justify-center hover:border-[#1CA36E] transition-colors duration-300 min-h-[44px]"
+            aria-label="Contact Us"
           >
             <motion.span
               whileHover={{
@@ -92,9 +95,13 @@ export const Header = () => {
             </motion.span>
           </Link>
 
-          <div onClick={() => setIsMobileMenuOpen(true)} className="lg:hidden">
-            <FaBars size={30} />
-          </div>
+          <button 
+            onClick={() => setIsMobileMenuOpen(true)} 
+            className="lg:hidden min-h-[44px] min-w-[44px] flex items-center justify-center"
+            aria-label="Open mobile menu"
+          >
+            <FaBars size={24} aria-hidden="true" />
+          </button>
         </div>
       </div>
       <div>
