@@ -51,7 +51,7 @@ export const Hero = () => {
       <div className="w-full h-full flex items-center justify-center lg:flex-row flex-col-reverse relative z-10">
         {/* Left side - Text content */}
         <motion.div
-          className="lg:w-[50%] w-full lg:mt-0 lg:pl-[5%] px-5"
+          className="lg:w-[50%] w-full lg:mt-0 lg:pl-[5%] px-5 py-8 sm:py-12 lg:py-0"
           style={{ y: textY, opacity: textOpacity }}
         >
           <motion.h1
@@ -164,7 +164,7 @@ export const Hero = () => {
 
         {/* Right side - Full screen logo area */}
         <motion.div
-          className="lg:w-[50%] w-full h-full flex items-center justify-center relative"
+          className="lg:w-[50%] w-full lg:h-full h-auto flex items-center justify-center relative lg:py-0 py-8 sm:py-12"
           style={{ y: logoY }}
         >
           <motion.div
