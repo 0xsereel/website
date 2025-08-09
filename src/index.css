@@ -415,6 +415,36 @@ html {
     display: none;
   }
 
+  /* Remove empty div spaces and ensure clean layout */
+  .empty-div {
+    display: none !important;
+  }
+
+  /* Target and remove empty divs that are not essential elements */
+  div:empty:not([class*="orbital"]):not([class*="dot"]):not([class*="background"]):not([role]):not([aria-label]):not([class*="absolute"]):not([class*="glow"]):not([class*="pulse"]) {
+    display: none !important;
+  }
+
+  /* Eliminate unnecessary spacers and zero-height elements */
+  .spacer,
+  div[class*="h-0"]:not([class*="lg:h-full"]):not([class*="overflow"]) {
+    height: 0 !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: none !important;
+  }
+
+  /* Ensure sections below hero don't have empty space gaps */
+  section + section {
+    margin-top: 0 !important;
+  }
+
+  section {
+    padding-top: clamp(2rem, 5vw, 4rem) !important;
+    padding-bottom: clamp(2rem, 5vw, 4rem) !important;
+  }
+
   /* Base mobile optimizations */
   html {
     -webkit-text-size-adjust: 100%;
@@ -648,17 +678,19 @@ html {
     width: 100% !important;
   }
 
-  /* Enhanced logo scaling */
-  .lg\:w-\[9600px\] {
-    width: 90vw !important;
-    max-width: 500px !important;
-    height: auto !important;
+  /* Hide logo containers on mobile/medium screens - no empty space */
+  .lg\:w-\[9600px\],
+  .lg\:w-\[6400px\] {
+    display: none !important;
   }
 
-  .lg\:w-\[6400px\] {
-    width: 80vw !important;
-    max-width: 400px !important;
-    height: auto !important;
+  /* Ensure logo containers don't take up space */
+  .hidden.md\:flex {
+    display: none !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
   }
 
   .w-\[200px\] {
@@ -671,10 +703,22 @@ html {
     height: 44px !important;
   }
 
-  /* Stats section mobile layout */
+  /* Stats section mobile layout - always horizontal */
   .lg\:flex-row.flex-col {
-    gap: 1.5rem;
+    flex-direction: row !important;
+    gap: 1rem;
     text-align: center;
+    justify-content: center;
+  }
+  
+  /* Statistics grid always horizontal */
+  .stats-grid,
+  .flex.flex-row {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
   }
 
   /* Card and content improvements */
@@ -939,12 +983,44 @@ html {
 
 /* Medium tablet portrait (768px - 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
+  /* Remove empty divs and spacers */
+  div:empty:not([class*="orbital"]):not([class*="dot"]):not([class*="background"]):not([role]):not([aria-label]):not([class*="absolute"]):not([class*="glow"]):not([class*="pulse"]) {
+    display: none !important;
+  }
+
+  .spacer,
+  div[class*="h-0"]:not([class*="lg:h-full"]):not([class*="overflow"]) {
+    height: 0 !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: none !important;
+  }
+
+  /* Ensure clean section spacing */
+  section {
+    padding-top: clamp(3rem, 6vw, 5rem) !important;
+    padding-bottom: clamp(3rem, 6vw, 5rem) !important;
+  }
+
   /* Container adjustments */
   .container,
   .max-w-7xl,
   .max-w-6xl {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+
+  /* Hide logo on medium screens too */
+  .lg\:w-\[9600px\],
+  .lg\:w-\[6400px\] {
+    display: none !important;
+  }
+
+  .hidden.md\:flex {
+    display: none !important;
+    height: 0 !important;
+    min-height: 0 !important;
   }
 
   /* Touch targets for tablet */
@@ -970,13 +1046,12 @@ html {
   .text-5xl { font-size: 2.5rem !important; }
   .text-4xl { font-size: 2rem !important; }
 
-  /* Logo scaling for tablet */
-  .lg\:w-\[9600px\] {
-    max-width: 600px !important;
-  }
-
-  .lg\:w-\[6400px\] {
-    max-width: 500px !important;
+  /* Statistics always horizontal on tablets */
+  .lg\:flex-row.flex-col {
+    flex-direction: row !important;
+    gap: 2rem;
+    text-align: center;
+    justify-content: center;
   }
 }
 

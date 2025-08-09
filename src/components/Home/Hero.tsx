@@ -40,7 +40,7 @@ export const Hero = () => {
 
   return (
     <section
-      className="w-full flex items-center flex-col lg:h-screen relative overflow-hidden hero-background"
+      className="w-full flex items-center flex-col min-h-screen relative overflow-hidden hero-background"
       ref={containerRef}
     >
       <div className="z-[100] relative w-full">
@@ -48,14 +48,14 @@ export const Hero = () => {
       </div>
 
       {/* Full screen content container */}
-      <div className="w-full h-full flex items-center justify-center lg:flex-row flex-col-reverse relative z-10">
+      <div className="w-full flex-1 flex items-center justify-center lg:flex-row flex-col relative z-10 pt-20 pb-8 lg:pt-0 lg:pb-0">
         {/* Left side - Text content */}
         <motion.div
-          className="lg:w-[50%] w-full lg:mt-0 lg:pl-[5%] px-5 py-8 sm:py-12 lg:py-0"
+          className="lg:w-[50%] w-full lg:pl-[5%] px-5 py-8 lg:py-0 flex flex-col justify-center"
           style={{ y: textY, opacity: textOpacity }}
         >
           <motion.h1
-            className="lg:text-7xl text-5xl font-gilroy-bold leading-tight"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-gilroy-bold leading-tight text-center lg:text-left"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -81,7 +81,7 @@ export const Hero = () => {
           </motion.h1>
 
           <motion.p
-            className="text-xl mt-5 text-[#D5D5D5] max-w-[600px]"
+            className="text-lg sm:text-xl mt-5 text-[#D5D5D5] max-w-[600px] text-center lg:text-left mx-auto lg:mx-0"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -111,7 +111,7 @@ export const Hero = () => {
           </motion.p>
 
           <motion.div
-            className="mt-8"
+            className="mt-8 flex justify-center lg:justify-start"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -119,52 +119,57 @@ export const Hero = () => {
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="w-fit"
             >
               <Button onClick={handleGetStarted}>Get Started</Button>
             </motion.div>
           </motion.div>
 
-          {/* Static stats */}
+          {/* Enhanced statistics with horizontal layout for all screen sizes */}
           <motion.div
-            className="mt-12 flex flex-row gap-2 sm:gap-4 md:gap-6 lg:gap-8 justify-center lg:justify-start"
+            className="mt-8 sm:mt-12 flex flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 md:gap-8"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
             <motion.div
-              className="text-center lg:text-left flex-1 min-w-0 px-1"
+              className="text-center lg:text-left flex-1 min-w-0"
               whileHover={{ scale: 1.05 }}
             >
-              <div className="text-sm sm:text-lg md:text-xl lg:text-2xl font-gilroy-bold text-[#1CA36E]">
+              <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-gilroy-bold text-[#1CA36E] whitespace-nowrap">
                 18-35%
               </div>
-              <div className="text-xs sm:text-xs md:text-sm text-[#969696] leading-tight">APY Potential*</div>
+              <div className="text-xs sm:text-sm text-[#969696] leading-tight mt-1">
+                APY Potential*
+              </div>
             </motion.div>
             <motion.div
-              className="text-center lg:text-left flex-1 min-w-0 px-1"
+              className="text-center lg:text-left flex-1 min-w-0"
               whileHover={{ scale: 1.05 }}
             >
-              <div className="text-sm sm:text-lg md:text-xl lg:text-2xl font-gilroy-bold text-[#1CA36E]">
+              <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-gilroy-bold text-[#1CA36E] whitespace-nowrap">
                 &lt;1min
               </div>
-              <div className="text-xs sm:text-xs md:text-sm text-[#969696] leading-tight">Settlement Time</div>
+              <div className="text-xs sm:text-sm text-[#969696] leading-tight mt-1">
+                Settlement Time
+              </div>
             </motion.div>
             <motion.div
-              className="text-center lg:text-left flex-1 min-w-0 px-1"
+              className="text-center lg:text-left flex-1 min-w-0"
               whileHover={{ scale: 1.05 }}
             >
-              <div className="text-sm sm:text-lg md:text-xl lg:text-2xl font-gilroy-bold text-[#1CA36E]">
+              <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-gilroy-bold text-[#1CA36E] whitespace-nowrap">
                 90%
               </div>
-              <div className="text-xs sm:text-xs md:text-sm text-[#969696] leading-tight">Cost Reduction</div>
+              <div className="text-xs sm:text-sm text-[#969696] leading-tight mt-1">
+                Cost Reduction
+              </div>
             </motion.div>
           </motion.div>
         </motion.div>
 
-        {/* Right side - Full screen logo area */}
+        {/* Right side - Logo area - properly hidden on mobile/medium */}
         <motion.div
-          className="lg:w-[50%] w-full lg:h-full h-0 sm:h-auto flex items-center justify-center relative lg:py-0 py-0 sm:py-12"
+          className="lg:w-[50%] w-full h-0 lg:h-full hidden md:flex items-center justify-center relative"
           style={{ y: logoY }}
         >
           <motion.div
@@ -179,10 +184,10 @@ export const Hero = () => {
             <motion.div className="relative flex items-center justify-center overflow-hidden">
               <motion.img
                 src={glowingSereeLogoPath}
-                className="lg:w-[9600px] w-[6400px] relative z-10 hidden sm:block"
+                className="w-[400px] md:w-[600px] lg:w-[800px] xl:w-[1000px] relative z-10"
                 alt="Sereel Logo"
                 style={{
-                  transformOrigin: "center", // Ensure scaling happens from center
+                  transformOrigin: "center",
                 }}
                 animate={{
                   filter: [
@@ -197,9 +202,9 @@ export const Hero = () => {
                   ease: "easeInOut",
                 }}
               />
-              {/* Add a pulsing background element */}
+              {/* Pulsing background element */}
               <motion.div
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 w-2 h-2 hidden sm:block"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 w-2 h-2"
                 style={{
                   boxShadow: "0 0 200px 100px rgba(28, 163, 110, 0.4)",
                   borderRadius: "50%",
@@ -221,17 +226,12 @@ export const Hero = () => {
 
             {/* Three rotating orbital elements */}
             <motion.div
-              className="absolute inset-0 pointer-events-none hidden sm:block"
+              className="absolute inset-0 pointer-events-none"
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
             >
-              {/* Dot 1 - Top */}
               <div className="absolute top-0 left-1/2 w-3 h-3 bg-[#1CA36E] rounded-full transform -translate-x-1/2 -translate-y-12 opacity-80 shadow-lg shadow-[#1CA36E]/50" />
-
-              {/* Dot 2 - Bottom Right */}
               <div className="absolute bottom-0 right-0 w-3 h-3 bg-white rounded-full transform translate-x-8 translate-y-8 opacity-80 shadow-lg shadow-white/50" />
-
-              {/* Dot 3 - Bottom Left */}
               <div className="absolute bottom-0 left-0 w-3 h-3 bg-[#1CA36E] rounded-full transform -translate-x-8 translate-y-8 opacity-80 shadow-lg shadow-[#1CA36E]/50" />
             </motion.div>
           </motion.div>
@@ -262,7 +262,7 @@ export const Hero = () => {
 
       {/* Disclaimer */}
       <motion.div
-        className="absolute bottom-4 right-4 text-xs text-[#969696] max-w-[300px] z-20"
+        className="absolute bottom-4 right-4 text-xs text-[#969696] max-w-[300px] z-20 hidden lg:block"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2 }}
