@@ -81,20 +81,6 @@ export const IGS = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Link
-                to="/contact"
-                className="w-[150px] h-[50px] border-2 border-[#3A3A45] rounded-full flex items-center justify-center hover:border-[#1CA36E] hover:bg-[#1CA36E]/10 transition-all duration-300"
-              >
-                <motion.span
-                  whileHover={{
-                    textShadow: "0 0 10px rgba(28, 163, 110, 0.8)",
-                  }}
-                >
-                  Contact Us
-                </motion.span>
-              </Link>
-            </motion.div>
           </motion.div>
         </AnimatedSection>
 
