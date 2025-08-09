@@ -127,34 +127,34 @@ export const Hero = () => {
 
           {/* Static stats */}
           <motion.div
-            className="mt-12 flex flex-row gap-3 sm:gap-4 md:gap-6 lg:gap-8 justify-center lg:justify-start"
+            className="mt-12 flex flex-row gap-2 sm:gap-4 md:gap-6 lg:gap-8 justify-center lg:justify-start"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
             <motion.div
-              className="text-center lg:text-left flex-1 min-w-0"
+              className="text-center lg:text-left flex-1 min-w-0 px-1"
               whileHover={{ scale: 1.05 }}
             >
-              <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-gilroy-bold text-[#1CA36E]">
+              <div className="text-sm sm:text-lg md:text-xl lg:text-2xl font-gilroy-bold text-[#1CA36E]">
                 18-35%
               </div>
               <div className="text-xs sm:text-xs md:text-sm text-[#969696] leading-tight">APY Potential*</div>
             </motion.div>
             <motion.div
-              className="text-center lg:text-left flex-1 min-w-0"
+              className="text-center lg:text-left flex-1 min-w-0 px-1"
               whileHover={{ scale: 1.05 }}
             >
-              <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-gilroy-bold text-[#1CA36E]">
+              <div className="text-sm sm:text-lg md:text-xl lg:text-2xl font-gilroy-bold text-[#1CA36E]">
                 &lt;1min
               </div>
               <div className="text-xs sm:text-xs md:text-sm text-[#969696] leading-tight">Settlement Time</div>
             </motion.div>
             <motion.div
-              className="text-center lg:text-left flex-1 min-w-0"
+              className="text-center lg:text-left flex-1 min-w-0 px-1"
               whileHover={{ scale: 1.05 }}
             >
-              <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-gilroy-bold text-[#1CA36E]">
+              <div className="text-sm sm:text-lg md:text-xl lg:text-2xl font-gilroy-bold text-[#1CA36E]">
                 90%
               </div>
               <div className="text-xs sm:text-xs md:text-sm text-[#969696] leading-tight">Cost Reduction</div>
@@ -179,7 +179,7 @@ export const Hero = () => {
             <motion.div className="relative flex items-center justify-center overflow-hidden">
               <motion.img
                 src={glowingSereeLogoPath}
-                className="lg:w-[9600px] w-[6400px] relative z-10"
+                className="lg:w-[9600px] w-[6400px] relative z-10 hidden sm:block"
                 alt="Sereel Logo"
                 style={{
                   transformOrigin: "center", // Ensure scaling happens from center

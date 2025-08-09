@@ -1,5 +1,4 @@
 // src/components/Home/IGS.tsx
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { AnimatedSection } from "../Animation/AnimatedSection";
 import { GlowingText } from "../Animation/GlowingText";
