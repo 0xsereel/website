@@ -40,7 +40,7 @@ export const Hero = () => {
 
   return (
     <section
-      className="w-full flex items-center flex-col lg:h-screen relative overflow-hidden"
+      className="w-full flex items-center flex-col lg:h-screen relative overflow-hidden hero-background"
       ref={containerRef}
     >
       <div className="z-[100] relative w-full">
@@ -127,37 +127,37 @@ export const Hero = () => {
 
           {/* Static stats */}
           <motion.div
-            className="mt-12 flex gap-8 lg:flex-row flex-col"
+            className="mt-12 flex gap-4 md:gap-8 lg:flex-row flex-row justify-center lg:justify-start"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
             <motion.div
-              className="text-center lg:text-left"
+              className="text-center lg:text-left flex-1 min-w-0"
               whileHover={{ scale: 1.05 }}
             >
-              <div className="text-2xl font-gilroy-bold text-[#1CA36E]">
+              <div className="text-lg md:text-xl lg:text-2xl font-gilroy-bold text-[#1CA36E]">
                 18-35%
               </div>
-              <div className="text-sm text-[#969696]">APY Potential*</div>
+              <div className="text-xs md:text-sm text-[#969696] leading-tight">APY Potential*</div>
             </motion.div>
             <motion.div
-              className="text-center lg:text-left"
+              className="text-center lg:text-left flex-1 min-w-0"
               whileHover={{ scale: 1.05 }}
             >
-              <div className="text-2xl font-gilroy-bold text-[#1CA36E]">
+              <div className="text-lg md:text-xl lg:text-2xl font-gilroy-bold text-[#1CA36E]">
                 &lt;1min
               </div>
-              <div className="text-sm text-[#969696]">Settlement Time</div>
+              <div className="text-xs md:text-sm text-[#969696] leading-tight">Settlement Time</div>
             </motion.div>
             <motion.div
-              className="text-center lg:text-left"
+              className="text-center lg:text-left flex-1 min-w-0"
               whileHover={{ scale: 1.05 }}
             >
-              <div className="text-2xl font-gilroy-bold text-[#1CA36E]">
+              <div className="text-lg md:text-xl lg:text-2xl font-gilroy-bold text-[#1CA36E]">
                 90%
               </div>
-              <div className="text-sm text-[#969696]">Cost Reduction</div>
+              <div className="text-xs md:text-sm text-[#969696] leading-tight">Cost Reduction</div>
             </motion.div>
           </motion.div>
         </motion.div>

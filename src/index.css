@@ -392,8 +392,29 @@ html {
   width: 100%;
 }
 
+/* Hero background image - hidden on mobile */
+.hero-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/images/hero-bg.jpg'); /* Adjust path as needed */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.1;
+  z-index: -1;
+}
+
 /* Enhanced Mobile Responsive Design */
 @media (max-width: 768px) {
+  /* Hide background image on mobile devices */
+  .hero-background::before {
+    display: none;
+  }
+
   /* Base mobile optimizations */
   html {
     -webkit-text-size-adjust: 100%;
