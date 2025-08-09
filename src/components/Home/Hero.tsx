@@ -164,7 +164,7 @@ export const Hero = () => {
 
         {/* Right side - Full screen logo area */}
         <motion.div
-          className="lg:w-[50%] w-full lg:h-full h-auto flex items-center justify-center relative lg:py-0 py-8 sm:py-12"
+          className="lg:w-[50%] w-full lg:h-full h-0 sm:h-auto flex items-center justify-center relative lg:py-0 py-0 sm:py-12"
           style={{ y: logoY }}
         >
           <motion.div
@@ -199,7 +199,7 @@ export const Hero = () => {
               />
               {/* Add a pulsing background element */}
               <motion.div
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 w-2 h-2"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 w-2 h-2 hidden sm:block"
                 style={{
                   boxShadow: "0 0 200px 100px rgba(28, 163, 110, 0.4)",
                   borderRadius: "50%",
@@ -221,7 +221,7 @@ export const Hero = () => {
 
             {/* Three rotating orbital elements */}
             <motion.div
-              className="absolute inset-0 pointer-events-none"
+              className="absolute inset-0 pointer-events-none hidden sm:block"
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
             >
