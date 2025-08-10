@@ -56,7 +56,7 @@ export const NewsLetter = () => {
   };
 
   return (
-    <section className="w-full flex items-center justify-center py-12 sm:py-16 lg:py-20 xl:py-24 relative overflow-hidden safe-area-padding">
+    <section className="w-full flex items-center justify-center py-12 sm:py-16 lg:py-20 xl:py-24 relative overflow-hidden safe-area-padding newsletter-container">
       {/* Enhanced Background */}
       {/* <motion.div
         className="absolute inset-0"
@@ -96,11 +96,11 @@ export const NewsLetter = () => {
         }}
       />
 
-      <div className="w-[95%] max-w-4xl mx-auto flex justify-center items-center flex-col relative z-10 responsive-container">
+      <div className="w-[95%] max-w-4xl mx-auto flex justify-center items-center flex-col relative z-10 responsive-container px-4 sm:px-6">
         {/* Enhanced Title */}
         <AnimatedSection className="w-full flex items-center justify-center flex-col">
           <motion.h3
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-center font-gilroy-bold mb-4 responsive-text"
+            className="newsletter-title text-center font-gilroy-bold mb-4 responsive-text"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -110,7 +110,7 @@ export const NewsLetter = () => {
             Signup
           </motion.h3>
           <motion.p
-            className="text-center text-[#D5D5D5] text-sm sm:text-base lg:text-lg max-w-2xl mx-auto responsive-text"
+            className="newsletter-description text-center text-[#D5D5D5] max-w-2xl mx-auto responsive-text"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -131,7 +131,7 @@ export const NewsLetter = () => {
           viewport={{ once: true }}
         >
           <motion.div
-            className="w-full max-w-[600px] bg-gradient-to-r from-black/90 to-[#1CA36E]/10 border border-[#202026] rounded-full flex flex-col sm:flex-row items-stretch sm:items-center justify-between p-2 backdrop-blur-sm gap-2 sm:gap-0"
+            className="newsletter-form-container w-full max-w-[600px] bg-gradient-to-r from-black/90 to-[#1CA36E]/10 border border-[#202026] rounded-full flex flex-col sm:flex-row items-stretch sm:items-center justify-between p-2 backdrop-blur-sm gap-2 sm:gap-0"
             whileHover={{
               borderColor: "rgba(28, 163, 110, 0.5)",
               boxShadow: "0 0 30px rgba(28, 163, 110, 0.2)",
@@ -158,28 +158,12 @@ export const NewsLetter = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button type="submit" disabled={loading}>
-                  <span className="hidden sm:inline">
-                    {loading ? "Submitting..." : "Get started now"}
-                  </span>
-                  <span className="sm:hidden">
-                    <motion.svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      animate={{ x: [0, 4, 0] }}
-                      transition={{
-                        duration: 1.5,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                      }}
-                    >
-                      <path d="M5 12h14M12 5l7 7-7 7" />
-                    </motion.svg>
-                  </span>
+                <Button 
+                  type="submit" 
+                  disabled={loading}
+                  className="newsletter-button w-full sm:w-auto px-6 sm:px-6 py-3 sm:py-3 text-sm sm:text-base"
+                >
+                  {loading ? "Submitting..." : "Get started now"}
                 </Button>
               </motion.div>
             </div>
