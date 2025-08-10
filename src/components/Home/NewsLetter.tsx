@@ -131,7 +131,7 @@ export const NewsLetter = () => {
           viewport={{ once: true }}
         >
           <motion.div
-            className="newsletter-form-container w-full max-w-[600px] bg-gradient-to-r from-black/90 to-[#1CA36E]/10 border border-[#202026] rounded-full flex flex-col sm:flex-row items-stretch sm:items-center justify-between p-2 backdrop-blur-sm gap-2 sm:gap-0"
+            className="newsletter-form-container w-full max-w-[600px] bg-gradient-to-r from-black/90 to-[#1CA36E]/10 border border-[#202026]  flex flex-col sm:flex-row items-stretch sm:items-center justify-between p-2 backdrop-blur-sm gap-2 sm:gap-0"
             whileHover={{
               borderColor: "rgba(28, 163, 110, 0.5)",
               boxShadow: "0 0 30px rgba(28, 163, 110, 0.2)",
