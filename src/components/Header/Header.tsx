@@ -18,21 +18,25 @@ export const Header = () => {
   };
 
   return (
-    <header className="w-full fixed top-0 z-50 items-center justify-between flex flex-col p-4 bg-black bg-opacity-80 backdrop-blur-sm">
+    <header className="w-full fixed top-0 z-50 items-center justify-between flex flex-col safe-area-padding bg-black bg-opacity-80 backdrop-blur-sm" style={{ padding: 'clamp(0.75rem, 2vw, 1rem)' }}>
       {" "}
       <div className="w-full items-center justify-between flex">
         <div className="flex gap-4 items-center">
           {/* Logo */}
 
           <Link to="/" className="flex items-center gap-3 min-h-[44px]">
-            <img className="w-[50px] h-[50px]" src={logoPath} alt="Sereel Logo" />
+            <img 
+              className="w-[40px] h-[40px] sm:w-[45px] sm:h-[45px] lg:w-[50px] lg:h-[50px]" 
+              src={logoPath} 
+              alt="Sereel Logo" 
+            />
 
-            <h3 className="text-2xl font-gilroy-bold">Sereel</h3>
+            <h3 className="text-lg sm:text-xl lg:text-2xl font-gilroy-bold">Sereel</h3>
           </Link>
 
           {/* Menu Buttons  */}
 
-          <div className="font-gilroy-medium lg:flex gap-5 ml-3 text-md hidden">
+          <div className="font-gilroy-medium lg:flex gap-3 xl:gap-5 ml-2 lg:ml-3 text-sm lg:text-md hidden">
             <div>
               <button
                 className="flex gap-2 items-center cursor-pointer min-h-[44px] px-3 py-2"
@@ -82,7 +86,7 @@ export const Header = () => {
           {/* contact us button */}
           <Link
             to="/contact"
-            className="w-[150px] h-[50px] border-2 border-[#3A3A45] rounded-full hidden lg:flex items-center justify-center hover:border-[#1CA36E] transition-colors duration-300 min-h-[44px]"
+            className="w-[120px] lg:w-[150px] h-[40px] lg:h-[50px] border-2 border-[#3A3A45] rounded-full hidden lg:flex items-center justify-center hover:border-[#1CA36E] transition-colors duration-300 min-h-[44px] text-sm lg:text-base"
             aria-label="Contact Us"
           >
             <motion.span

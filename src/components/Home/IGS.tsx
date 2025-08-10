@@ -39,7 +39,7 @@ export const IGS = () => {
   ];
 
   return (
-    <section className="w-full flex items-center justify-center pb-10 pt-20 relative overflow-hidden">
+    <section className="w-full flex items-center justify-center py-12 sm:py-16 lg:py-20 xl:py-24 relative overflow-hidden safe-area-padding">
       {/* Parallax Background */}
       {/* <motion.div
         ref={ref}
@@ -47,11 +47,11 @@ export const IGS = () => {
         style={{ y }}
       /> */}
 
-      <div className="w-[90%] mx-auto relative z-10">
+      <div className="w-[90%] max-w-7xl mx-auto relative z-10 responsive-container">
         <AnimatedSection className="lg:w-[95%] w-full flex lg:items-center justify-between mx-auto lg:flex-row flex-col">
           <div className="flex flex-col lg:w-fit w-full">
             <motion.h3
-              className="lg:text-5xl text-3xl font-gilroy-bold"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-gilroy-bold responsive-text"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -63,7 +63,7 @@ export const IGS = () => {
               Software
             </motion.h3>
             <motion.p
-              className="mt-2 text-[#D5D5D5]"
+              className="mt-2 text-[#D5D5D5] text-sm sm:text-base lg:text-lg responsive-text"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -83,11 +83,12 @@ export const IGS = () => {
           </motion.div>
         </AnimatedSection>
 
-        <AnimatedSection className="lg:w-[95%] w-full lg:h-fit h-fit border border-[#202026] mt-10 mx-auto rounded-xl flex lg:flex-row flex-col overflow-hidden">
+        <AnimatedSection className="w-full lg:h-fit h-fit border border-[#202026] mt-8 sm:mt-10 lg:mt-12 mx-auto rounded-xl flex flex-col overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              className="lg:w-[33%] w-full h-full p-6 bg-gradient-to-br from-[#1CA36E]/5 to-black relative overflow-hidden flex flex-col" // Added flex flex-col
+              className="w-full h-full p-4 sm:p-6 bg-gradient-to-br from-[#1CA36E]/5 to-black relative overflow-hidden flex flex-col min-h-[300px] sm:min-h-[350px]"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
@@ -148,7 +149,7 @@ export const IGS = () => {
                   {" "}
                   {/* Changed to mt-auto and added flex flex-col */}
                   <motion.h3
-                    className="font-gilroy-bold text-xl mb-4 text-white h-[56px] flex items-center" // Added fixed height
+                    className="font-gilroy-bold text-lg sm:text-xl mb-3 sm:mb-4 text-white responsive-text"
                     whileHover={{
                       color: "#1CA36E",
                       textShadow: "0 0 10px rgba(28, 163, 110, 0.8)",
@@ -157,7 +158,7 @@ export const IGS = () => {
                     {feature.title}
                   </motion.h3>
                   <motion.p
-                    className="text-[#969696] leading-relaxed min-h-[100px]" // Added min-height
+                    className="text-[#969696] leading-relaxed text-sm sm:text-base responsive-text flex-1"
                     whileHover={{ color: "#D5D5D5" }}
                     transition={{ duration: 0.3 }}
                   >
@@ -167,6 +168,7 @@ export const IGS = () => {
               </div>
             </motion.div>
           ))}
+          </div>
         </AnimatedSection>
       </div>
     </section>

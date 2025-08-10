@@ -55,7 +55,7 @@ export const FAQ = () => {
   };
 
   return (
-    <section className="w-full flex items-center justify-center py-20 relative overflow-hidden">
+    <section className="w-full flex items-center justify-center py-12 sm:py-16 lg:py-20 xl:py-24 relative overflow-hidden safe-area-padding">
       {/* Background animation */}
       {/* <motion.div
         className="absolute inset-0 bg-gradient-to-br from-[#1CA36E]/5 via-transparent to-[#1CA36E]/10"
@@ -90,11 +90,11 @@ export const FAQ = () => {
         }}
       />
 
-      <div className="w-[95%] mx-auto flex justify-center items-center flex-col relative z-10">
+      <div className="w-[95%] max-w-4xl mx-auto flex justify-center items-center flex-col relative z-10 responsive-container">
         {/* Enhanced Title */}
         <AnimatedSection className="w-full flex items-center justify-center flex-col">
           <motion.h3
-            className="lg:text-5xl text-3xl text-center font-gilroy-bold mb-4"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-center font-gilroy-bold mb-4 responsive-text"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}

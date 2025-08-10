@@ -40,7 +40,7 @@ export const Hero = () => {
 
   return (
     <section
-      className="w-full flex items-center flex-col min-h-screen relative overflow-hidden hero-background"
+      className="w-full flex items-center flex-col min-h-screen relative overflow-hidden hero-background safe-area-padding"
       ref={containerRef}
     >
       <div className="z-[100] relative w-full">
@@ -51,11 +51,11 @@ export const Hero = () => {
       <div className="w-full flex-1 flex items-center justify-center lg:flex-row flex-col relative z-10 pt-20 pb-8 lg:pt-0 lg:pb-0">
         {/* Left side - Text content */}
         <motion.div
-          className="lg:w-[50%] w-full lg:pl-[5%] px-5 py-8 lg:py-0 flex flex-col justify-center"
+          className="lg:w-[50%] w-full lg:pl-[5%] px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-0 flex flex-col justify-center"
           style={{ y: textY, opacity: textOpacity }}
         >
           <motion.h1
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-gilroy-bold leading-tight text-center lg:text-left"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-gilroy-bold leading-tight text-center lg:text-left"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -81,7 +81,7 @@ export const Hero = () => {
           </motion.h1>
 
           <motion.p
-            className="text-lg sm:text-xl mt-5 text-[#D5D5D5] max-w-[600px] text-center lg:text-left mx-auto lg:mx-0"
+            className="text-base sm:text-lg lg:text-xl mt-4 sm:mt-5 text-[#D5D5D5] max-w-[90%] sm:max-w-[600px] text-center lg:text-left mx-auto lg:mx-0 leading-relaxed"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -126,7 +126,7 @@ export const Hero = () => {
 
           {/* Enhanced statistics with horizontal layout for all screen sizes */}
           <motion.div
-            className="mt-8 sm:mt-12 flex flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 md:gap-8"
+            className="mt-6 sm:mt-8 lg:mt-12 flex flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 md:gap-6 lg:gap-8"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
@@ -135,7 +135,7 @@ export const Hero = () => {
               className="text-center lg:text-left flex-1 min-w-0"
               whileHover={{ scale: 1.05 }}
             >
-              <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-gilroy-bold text-[#1CA36E] whitespace-nowrap">
+              <div className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-gilroy-bold text-[#1CA36E]">
                 18-35%
               </div>
               <div className="text-xs sm:text-sm text-[#969696] leading-tight mt-1">
@@ -146,7 +146,7 @@ export const Hero = () => {
               className="text-center lg:text-left flex-1 min-w-0"
               whileHover={{ scale: 1.05 }}
             >
-              <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-gilroy-bold text-[#1CA36E] whitespace-nowrap">
+              <div className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-gilroy-bold text-[#1CA36E]">
                 &lt;1min
               </div>
               <div className="text-xs sm:text-sm text-[#969696] leading-tight mt-1">
@@ -157,7 +157,7 @@ export const Hero = () => {
               className="text-center lg:text-left flex-1 min-w-0"
               whileHover={{ scale: 1.05 }}
             >
-              <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-gilroy-bold text-[#1CA36E] whitespace-nowrap">
+              <div className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-gilroy-bold text-[#1CA36E]">
                 90%
               </div>
               <div className="text-xs sm:text-sm text-[#969696] leading-tight mt-1">
@@ -169,7 +169,7 @@ export const Hero = () => {
 
         {/* Right side - Logo area - properly hidden on mobile/medium */}
         <motion.div
-          className="lg:w-[50%] w-full h-0 lg:h-full hidden md:flex items-center justify-center relative"
+          className="lg:w-[50%] w-full h-0 lg:h-full hidden lg:flex items-center justify-center relative overflow-hidden"
           style={{ y: logoY }}
         >
           <motion.div
@@ -184,10 +184,12 @@ export const Hero = () => {
             <motion.div className="relative flex items-center justify-center overflow-hidden">
               <motion.img
                 src={glowingSereeLogoPath}
-                className="w-[400px] md:w-[600px] lg:w-[800px] xl:w-[1000px] relative z-10"
+                className="w-[min(80vw,_500px)] lg:w-[min(40vw,_600px)] xl:w-[min(35vw,_800px)] 2xl:w-[1000px] relative z-10 max-w-full"
                 alt="Sereel Logo"
                 style={{
                   transformOrigin: "center",
+                  maxWidth: "100%",
+                  height: "auto"
                 }}
                 animate={{
                   filter: [

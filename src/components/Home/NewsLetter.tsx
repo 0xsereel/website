@@ -56,7 +56,7 @@ export const NewsLetter = () => {
   };
 
   return (
-    <section className="w-full flex items-center justify-center py-20 relative overflow-hidden">
+    <section className="w-full flex items-center justify-center py-12 sm:py-16 lg:py-20 xl:py-24 relative overflow-hidden safe-area-padding">
       {/* Enhanced Background */}
       {/* <motion.div
         className="absolute inset-0"
@@ -96,11 +96,11 @@ export const NewsLetter = () => {
         }}
       />
 
-      <div className="w-[95%] mx-auto flex justify-center items-center flex-col relative z-10">
+      <div className="w-[95%] max-w-4xl mx-auto flex justify-center items-center flex-col relative z-10 responsive-container">
         {/* Enhanced Title */}
         <AnimatedSection className="w-full flex items-center justify-center flex-col">
           <motion.h3
-            className="lg:text-5xl text-3xl text-center font-gilroy-bold mb-4"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-center font-gilroy-bold mb-4 responsive-text"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -110,7 +110,7 @@ export const NewsLetter = () => {
             Signup
           </motion.h3>
           <motion.p
-            className="text-center text-[#D5D5D5] text-lg max-w-2xl mx-auto"
+            className="text-center text-[#D5D5D5] text-sm sm:text-base lg:text-lg max-w-2xl mx-auto responsive-text"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -123,7 +123,7 @@ export const NewsLetter = () => {
 
         {/* Enhanced Form */}
         <motion.form
-          className="w-full my-12 flex items-center justify-center"
+          className="w-full my-8 sm:my-10 lg:my-12 flex items-center justify-center"
           onSubmit={handleSubmit}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -131,7 +131,7 @@ export const NewsLetter = () => {
           viewport={{ once: true }}
         >
           <motion.div
-            className="lg:w-[600px] w-full bg-gradient-to-r from-black/90 to-[#1CA36E]/10 border border-[#202026] rounded-full flex items-center justify-between p-2 backdrop-blur-sm"
+            className="w-full max-w-[600px] bg-gradient-to-r from-black/90 to-[#1CA36E]/10 border border-[#202026] rounded-full flex flex-col sm:flex-row items-stretch sm:items-center justify-between p-2 backdrop-blur-sm gap-2 sm:gap-0"
             whileHover={{
               borderColor: "rgba(28, 163, 110, 0.5)",
               boxShadow: "0 0 30px rgba(28, 163, 110, 0.2)",
@@ -140,7 +140,7 @@ export const NewsLetter = () => {
           >
             <motion.input
               type="email"
-              className="outline-none border-none text-lg w-[69%] bg-transparent px-4 py-2 text-white placeholder-[#969696] focus:ring-0 focus:outline-none"
+              className="outline-none border-none text-base sm:text-lg w-full sm:w-[69%] bg-transparent px-4 py-2 sm:py-3 text-white placeholder-[#969696] focus:ring-0 focus:outline-none min-h-[44px]"
               placeholder="hello@yourcompany.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -153,7 +153,7 @@ export const NewsLetter = () => {
               }}
               transition={{ duration: 0.2 }}
             />
-            <div className="hidden lg:block">
+            <div className="w-full sm:w-auto">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
