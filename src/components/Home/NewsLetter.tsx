@@ -159,32 +159,27 @@ export const NewsLetter = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <Button type="submit" disabled={loading}>
-                  {loading ? "Submitting..." : "Get started now"}
-                </Button>
-              </motion.div>
-            </div>
-            <div className="lg:hidden">
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Button type="submit" disabled={loading}>
-                  <motion.svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    animate={{ x: [0, 4, 0] }}
-                    transition={{
-                      duration: 1.5,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  >
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </motion.svg>
+                  <span className="hidden sm:inline">
+                    {loading ? "Submitting..." : "Get started now"}
+                  </span>
+                  <span className="sm:hidden">
+                    <motion.svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      animate={{ x: [0, 4, 0] }}
+                      transition={{
+                        duration: 1.5,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                    >
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </motion.svg>
+                  </span>
                 </Button>
               </motion.div>
             </div>
