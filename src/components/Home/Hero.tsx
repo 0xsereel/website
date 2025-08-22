@@ -120,7 +120,7 @@ export const Hero = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button onClick={handleGetStarted}>Get Started</Button>
+              <Button onClick={handleGetStarted}className="px-8 py-4">Get Started</Button>
             </motion.div>
           </motion.div>
 
