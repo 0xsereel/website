@@ -97,7 +97,7 @@ export const CoreProduct = () => {
       ),
       title: "Sereel Protocol",
       description:
-        "Institutional DeFi infrastructure with 18-35% APY potential through our three-module ecosystem.",
+        "Institutional DeFi infrastructure with 12% APY potential through our three-module ecosystem.",
       features: [
         "AMM + Lending + Options",
         "ERC-3643 Compliant",

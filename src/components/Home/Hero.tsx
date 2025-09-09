@@ -136,7 +136,7 @@ export const Hero = () => {
               whileHover={{ scale: 1.05 }}
             >
               <div className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-gilroy-bold text-[#1CA36E]">
-                18-35%
+                12%
               </div>
               <div className="text-xs sm:text-sm text-[#969696] leading-tight mt-1">
                 APY Potential*

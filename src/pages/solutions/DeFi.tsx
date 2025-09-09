@@ -89,7 +89,7 @@ export default function DeFi() {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <div className="text-center">
-              <div className="text-3xl font-bold text-[#1CA36E]">18-35%</div>
+              <div className="text-3xl font-bold text-[#1CA36E]">12%</div>
               <div className="text-sm text-[#969696]">APY Potential*</div>
             </div>
             <div className="text-center">
@@ -261,7 +261,7 @@ const YieldComparisonSection = () => {
                     ease: "easeInOut",
                   }}
                 >
-                  18-35%*
+                  12%*
                 </motion.span>
               </div>
               <div className="flex justify-between items-center">
