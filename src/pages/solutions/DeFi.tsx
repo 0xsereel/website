@@ -89,10 +89,6 @@ export default function DeFi() {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <div className="text-center">
-              <div className="text-3xl font-bold text-[#1CA36E]">12%</div>
-              <div className="text-sm text-[#969696]">APY Potential*</div>
-            </div>
-            <div className="text-center">
               <div className="text-3xl font-bold text-[#1CA36E]">3-Module</div>
               <div className="text-sm text-[#969696]">Vaults</div>
             </div>
@@ -186,10 +182,6 @@ const YieldComparisonSection = () => {
 
             <div className="space-y-4">
               <div className="flex justify-between items-center">
-                <span className="text-[#D5D5D5]">Annual Yield</span>
-                <span className="text-2xl font-bold text-red-400">5-8%</span>
-              </div>
-              <div className="flex justify-between items-center">
                 <span className="text-[#D5D5D5]">Settlement Time</span>
                 <span className="text-xl font-bold text-red-400">T+3 Days</span>
               </div>
@@ -245,26 +237,6 @@ const YieldComparisonSection = () => {
 
             <div className="space-y-4">
               <div className="flex justify-between items-center">
-                <span className="text-[#D5D5D5]">Annual Yield</span>
-                <motion.span
-                  className="text-2xl font-bold text-[#1CA36E]"
-                  animate={{
-                    textShadow: [
-                      "0 0 5px rgba(28, 163, 110, 0.5)",
-                      "0 0 20px rgba(28, 163, 110, 0.8)",
-                      "0 0 5px rgba(28, 163, 110, 0.5)",
-                    ],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                >
-                  12%*
-                </motion.span>
-              </div>
-              <div className="flex justify-between items-center">
                 <span className="text-[#D5D5D5]">Settlement Time</span>
                 <span className="text-xl font-bold text-[#1CA36E]">
                   Instant
@@ -292,18 +264,6 @@ const YieldComparisonSection = () => {
           </div>
         </motion.div>
       </div>
-
-      <motion.div
-        className="text-center mt-8"
-        initial={{ opacity: 0, y: 20 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, delay: 0.6 }}
-      >
-        <p className="text-sm text-[#969696]">
-          *APY calculations made in test environment - results not yet proven in
-          production
-        </p>
-      </motion.div>
     </motion.div>
   );
 };
@@ -553,16 +513,6 @@ const CTASection = () => {
               Get Started Today
             </Button>
           </motion.div>
-        </div>
-        <div className="mt-8 text-sm text-[#969696] max-w-2xl mx-auto">
-          <p>
-            *APY calculations made in test environment - results not yet proven
-            in production
-          </p>
-          <p className="mt-2">
-            Risk disclaimer: All investments carry risk. Past performance does
-            not guarantee future results.
-          </p>
         </div>
       </div>
     </motion.div>

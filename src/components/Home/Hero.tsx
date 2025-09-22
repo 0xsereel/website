@@ -136,17 +136,6 @@ export const Hero = () => {
               whileHover={{ scale: 1.05 }}
             >
               <div className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-gilroy-bold text-[#1CA36E]">
-                12%
-              </div>
-              <div className="text-xs sm:text-sm text-[#969696] leading-tight mt-1">
-                APY Potential*
-              </div>
-            </motion.div>
-            <motion.div
-              className="text-center lg:text-left flex-1 min-w-0"
-              whileHover={{ scale: 1.05 }}
-            >
-              <div className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-gilroy-bold text-[#1CA36E]">
                 &lt;4min
               </div>
               <div className="text-xs sm:text-sm text-[#969696] leading-tight mt-1">
@@ -162,6 +151,17 @@ export const Hero = () => {
               </div>
               <div className="text-xs sm:text-sm text-[#969696] leading-tight mt-1">
                 Cost Reduction
+              </div>
+            </motion.div>
+            <motion.div
+              className="text-center lg:text-left flex-1 min-w-0"
+              whileHover={{ scale: 1.05 }}
+            >
+              <div className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-gilroy-bold text-[#1CA36E]">
+                24/7
+              </div>
+              <div className="text-xs sm:text-sm text-[#969696] leading-tight mt-1">
+                Uptime
               </div>
             </motion.div>
           </motion.div>
@@ -260,17 +260,6 @@ export const Hero = () => {
             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
           />
         </motion.div>
-      </motion.div>
-
-      {/* Disclaimer */}
-      <motion.div
-        className="absolute bottom-4 right-4 text-xs text-[#969696] max-w-[300px] z-20 hidden lg:block"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2 }}
-      >
-        *APY calculations made in test environment - results not yet proven in
-        production
       </motion.div>
     </section>
   );

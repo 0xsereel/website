@@ -626,9 +626,6 @@ const CTASection = () => {
           </Button>
         </motion.div>
       </div>
-      <div className="mt-6 text-xs text-[#969696] max-w-lg mx-auto">
-        *APY calculations made in test environment - results not yet proven in production
-      </div>
     </motion.div>
   );
 };
