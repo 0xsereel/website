@@ -15,14 +15,12 @@ export const Entities = () => {
     {
       name: "Seree Technologies, Inc.",
       location: "Delaware, USA",
-      responsibilities: ["Fundraising", "Technology development"],
       icon: "🏢",
       color: "from-blue-500/10 to-cyan-500/10",
     },
     {
-      name: "Sereel Technologies Rwanda",
-      location: "Kigali, Rwanda",
-      responsibilities: ["Rwandan Services", "East Africa Operations"],
+      name: "Sereel Technologies Botswana",
+      location: "Gaborone, Botswana",
       icon: "🌍",
       color: "from-[#1CA36E]/10 to-green-500/10",
     },
@@ -113,38 +111,6 @@ export const Entities = () => {
                   <p className="text-[#969696] mb-6 group-hover:text-[#D5D5D5] transition-colors duration-300">
                     📍 {entity.location}
                   </p>
-
-                  <div>
-                    <h4 className="font-gilroy-bold text-lg mb-4 text-white">
-                      Key Responsibilities
-                    </h4>
-                    <ul className="space-y-2">
-                      {entity.responsibilities.map((responsibility, idx) => (
-                        <motion.li
-                          key={idx}
-                          className="flex items-center gap-2 text-[#D5D5D5]"
-                          initial={{ opacity: 0, x: -20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.5, delay: idx * 0.1 }}
-                          viewport={{ once: true }}
-                        >
-                          <motion.span
-                            className="w-2 h-2 bg-[#1CA36E] rounded-full"
-                            animate={{
-                              scale: [1, 1.3, 1],
-                              opacity: [0.7, 1, 0.7],
-                            }}
-                            transition={{
-                              duration: 2,
-                              repeat: Infinity,
-                              delay: idx * 0.2,
-                            }}
-                          />
-                          {responsibility}
-                        </motion.li>
-                      ))}
-                    </ul>
-                  </div>
                 </div>
               </AnimatedCard>
             ))}

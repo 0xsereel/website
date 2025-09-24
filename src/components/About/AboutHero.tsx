@@ -346,7 +346,7 @@ const SolutionsSection = () => {
         </svg>
       ),
       title: "Sereel Protocol",
-      description: "Institutional DeFi infrastructure with 18-35% APY potential through our three-module ecosystem: AMM, Lending, and Options.",
+      description: "Institutional DeFi infrastructure with three modules: AMM, Lending, and Options.",
       features: ["ERC-3643 compliant", "Risk management", "Yield optimization", "Institutional controls"],
       color: "from-yellow-500/20 to-orange-500/20"
     }
