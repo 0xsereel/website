@@ -133,7 +133,7 @@ const TeamSection = ({ peopleImagePath }: { peopleImagePath: string }) => {
             />
             
             {/* Fallback placeholder */}
-            <div className="w-full h-64 bg-[#202026] rounded-2xl flex items-center justify-center text-[#969696] hidden">
+            <div className="w-full h-64 bg-[#202026] rounded-2xl items-center justify-center text-[#969696] hidden">
               <div className="text-center">
                 <div className="text-4xl mb-2">👥</div>
                 <p>Team Photo</p>
