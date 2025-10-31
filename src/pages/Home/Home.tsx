@@ -5,7 +5,7 @@ import { FAQ } from "../../components/Home/FAQ";
 import { Hero } from "../../components/Home/Hero";
 import { IGS } from "../../components/Home/IGS";
 import { NewsLetter } from "../../components/Home/NewsLetter";
-import { RecentArticles } from "../../components/Home/RecentArticles";
+import RecentArticles from "../../components/Home/RecentArticles/index";
 import { GradientProvider } from "../../utils/gradient";
 
 export const Home = () => {

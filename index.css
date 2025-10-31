@@ -431,9 +431,9 @@ html {
 }
 
 .responsive-grid {
-  display: grid;
+ display: grid;
   gap: clamp(1rem, 3vw, 2rem);
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .responsive-flex {
