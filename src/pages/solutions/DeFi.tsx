@@ -62,26 +62,6 @@ export default function DeFi() {
             </span>{" "}
             for the next generation of finance
           </motion.p>
-            <motion.div
-            className="mb-6 flex justify-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            >
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button
-              onClick={() =>
-                window.open(
-                "https://github.com/0xsereel/whitepaper/tree/main",
-                "_blank"
-                )
-              }
-              className="bg-transparent border-2 border-[#1CA36E] text-[#1CA36E] hover:bg-[#1CA36E] hover:text-white"
-              >
-              📄 Read our Whitepaper
-              </Button>
-            </motion.div>
-            </motion.div>
           <motion.div
             className="flex justify-center gap-8 text-lg"
             initial={{ opacity: 0, y: 30 }}

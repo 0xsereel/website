@@ -67,18 +67,6 @@ export const Header = () => {
                 <p>Blog</p>
               </Link>
             </div>
-
-            <div>
-              <a
-                href="https://github.com/0xsereel/whitepaper/tree/main"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex gap-2 items-center cursor-pointer min-h-[44px] px-3 py-2"
-                aria-label="View Whitepaper on GitHub"
-              >
-                <p>Whitepaper</p>
-              </a>
-            </div>
           </div>
         </div>
 
