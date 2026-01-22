@@ -15,13 +15,11 @@ export const Hero = () => {
     offset: ["start start", "end start"],
   });
 
-  // Parallax transformations
   const logoY = useTransform(scrollYProgress, [0, 1], [0, -200]);
   const logoScale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1.1, 0.8]);
   const textY = useTransform(scrollYProgress, [0, 1], [0, -100]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
-  // Mouse tracking for subtle logo interaction
   useEffect(() => {
     const handleMouseMove = (e: { clientX: number; clientY: number }) => {
       setMousePosition({
@@ -34,8 +32,13 @@ export const Hero = () => {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  const handleGetStarted = () => {
+  const handleScheduleConsultation = () => {
     navigate("/contact");
+  };
+
+  const handleDownloadOverview = () => {
+    // TODO: Implement download functionality
+    console.log("Download Infrastructure Overview");
   };
 
   return (
@@ -47,9 +50,7 @@ export const Hero = () => {
         <Header />
       </div>
 
-      {/* Full screen content container */}
       <div className="w-full flex-1 flex items-center justify-center lg:flex-row flex-col relative z-10 pt-20 pb-8 lg:pt-0 lg:pb-0">
-        {/* Left side - Text content */}
         <motion.div
           className="lg:w-[50%] w-full lg:pl-[5%] px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-0 flex flex-col justify-center"
           style={{ y: textY, opacity: textOpacity }}
@@ -60,24 +61,7 @@ export const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Unlock the{" "}
-            <span className="relative inline-block">
-              <motion.span
-                className="absolute inset-0 bg-gradient-to-r from-[#1CA36E] to-white bg-clip-text text-transparent"
-                animate={{
-                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              >
-                future
-              </motion.span>
-              <span className="text-transparent">future</span>
-            </span>{" "}
-            of finance
+            Institutional-Grade Digital Asset Infrastructure
           </motion.h1>
 
           <motion.p
@@ -86,32 +70,11 @@ export const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Institutional-grade blockchain solutions for{" "}
-            <motion.span
-              className="text-[#1CA36E] font-semibold"
-              whileHover={{ scale: 1.1, filter: "0 0 10px #1CA36E" }}
-            >
-              fast settlements
-            </motion.span>
-            ,{" "}
-            <motion.span
-              className="text-[#1CA36E] font-semibold"
-              whileHover={{ scale: 1.1, filter: "0 0 10px #1CA36E" }}
-            >
-              DeFi access
-            </motion.span>
-            , and{" "}
-            <motion.span
-              className="text-[#1CA36E] font-semibold"
-              whileHover={{ scale: 1.1, filter: "0 0 10px #1CA36E" }}
-            >
-              asset tokenization
-            </motion.span>
-            .
+            End-to-end tokenization, custody, and market infrastructure for asset managers, banks, exchanges, and family offices. Built for regulatory compliance. Designed for scale.
           </motion.p>
 
           <motion.div
-            className="mt-8 flex justify-center lg:justify-start"
+            className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -120,11 +83,16 @@ export const Hero = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button onClick={handleGetStarted}className="px-8 py-4">Get Started</Button>
+              <Button onClick={handleScheduleConsultation} className="px-8 py-4 w-full sm:w-auto">Schedule Consultation</Button>
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Button onClick={handleDownloadOverview} className="px-8 py-4 w-full sm:w-auto bg-transparent border-2 border-[#1CA36E] text-[#1CA36E] hover:bg-[#1CA36E] hover:text-white transition-colors">Download Infrastructure Overview</Button>
             </motion.div>
           </motion.div>
 
-          {/* Enhanced statistics with horizontal layout for all screen sizes */}
           <motion.div
             className="mt-6 sm:mt-8 lg:mt-12 flex flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 md:gap-6 lg:gap-8"
             initial={{ opacity: 0, y: 30 }}
@@ -136,10 +104,10 @@ export const Hero = () => {
               whileHover={{ scale: 1.05 }}
             >
               <div className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-gilroy-bold text-[#1CA36E]">
-                &lt;4min
+                $30B+
               </div>
               <div className="text-xs sm:text-sm text-[#969696] leading-tight mt-1">
-                Settlement Time
+                Tokenized RWA Market
               </div>
             </motion.div>
             <motion.div
@@ -147,10 +115,10 @@ export const Hero = () => {
               whileHover={{ scale: 1.05 }}
             >
               <div className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-gilroy-bold text-[#1CA36E]">
-                90%
+                189%
               </div>
               <div className="text-xs sm:text-sm text-[#969696] leading-tight mt-1">
-                Cost Reduction
+                Projected CAGR to 2030
               </div>
             </motion.div>
             <motion.div
@@ -158,16 +126,15 @@ export const Hero = () => {
               whileHover={{ scale: 1.05 }}
             >
               <div className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-gilroy-bold text-[#1CA36E]">
-                24/7
+                $3T+
               </div>
               <div className="text-xs sm:text-sm text-[#969696] leading-tight mt-1">
-                Uptime
+                Projected Market by 2030
               </div>
             </motion.div>
           </motion.div>
         </motion.div>
 
-        {/* Right side - Logo area - properly hidden on mobile/medium */}
         <motion.div
           className="lg:w-[50%] w-full h-0 lg:h-full hidden lg:flex items-center justify-center relative overflow-hidden"
           style={{ y: logoY }}
@@ -180,7 +147,6 @@ export const Hero = () => {
               y: mousePosition.y,
             }}
           >
-            {/* Logo with enhanced glow */}
             <motion.div className="relative flex items-center justify-center overflow-hidden">
               <motion.img
                 src={glowingSereeLogoPath}
@@ -204,7 +170,6 @@ export const Hero = () => {
                   ease: "easeInOut",
                 }}
               />
-              {/* Pulsing background element */}
               <motion.div
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 w-2 h-2"
                 style={{
@@ -226,7 +191,6 @@ export const Hero = () => {
               />
             </motion.div>
 
-            {/* Three rotating orbital elements */}
             <motion.div
               className="absolute inset-0 pointer-events-none"
               animate={{ rotate: 360 }}
@@ -240,7 +204,6 @@ export const Hero = () => {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
       <motion.div
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
         initial={{ opacity: 0, y: 20 }}
