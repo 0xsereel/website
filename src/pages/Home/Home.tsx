@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { Footer } from "../../components/Footer/Footer";
 import { MobileMenu } from "../../components/Header/MobileMenu";
-import AboutIntro from "../../components/About/AboutIntro";
 import { CoreProduct as PlatformPillars } from "../../components/Home/CoreProduct";
 import { SupportedNetworks } from "../../components/Home/SupportedNetworks";
 import { ClientSegments } from "../../components/Home/ClientSegments";
@@ -40,16 +39,33 @@ export const Home = () => {
       <div className="w-full">
         <MobileMenu />
         <Hero />
-        <AboutIntro />
-        <PlatformPillars />
-        <SupportedNetworks />
-        <ClientSegments />
-        <AdvisoryServices />
-        <WhySereel />
-        <TrustedBy />
-        <FAQ />
-        <FinalCTA />
-        <NewsLetter />
+        <div className="pt-16 sm:pt-20 lg:pt-24">
+          <PlatformPillars />
+        </div>
+        <div className="pt-12 sm:pt-16 lg:pt-20">
+          <SupportedNetworks />
+        </div>
+        <div className="pt-12 sm:pt-16 lg:pt-20">
+          <ClientSegments />
+        </div>
+        <div className="pt-12 sm:pt-16 lg:pt-20">
+          <AdvisoryServices />
+        </div>
+        <div className="pt-12 sm:pt-16 lg:pt-20">
+          <WhySereel />
+        </div>
+        <div className="pt-16 sm:pt-20 lg:pt-24">
+          <TrustedBy />
+        </div>
+        <div className="pt-16 sm:pt-20 lg:pt-24">
+          <FAQ />
+        </div>
+        <div className="pt-12 sm:pt-16 lg:pt-20">
+          <FinalCTA />
+        </div>
+        <div className="pt-12 sm:pt-16 lg:pt-20">
+          <NewsLetter />
+        </div>
         <Footer />
       </div>
     </GradientProvider>
