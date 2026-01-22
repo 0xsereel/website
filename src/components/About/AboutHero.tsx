@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Header } from "../Header/Header";
 import { GlowingText } from "../Animation/GlowingText";
 import TeamSection from "./TeamSection";
+import AboutIntro from "./AboutIntro";
 import MissionStatement from "./MissionStatement";
 import SolutionsSection from "./SolutionsSection";
 import SecuritySection from "./SecuritySection";
@@ -84,6 +85,9 @@ export default function AboutHero() {
       <div className="w-full bg-black py-20 relative overflow-hidden">
         {/* Team Section */}
         <TeamSection peopleImagePath={peopleImagePath} />
+        
+        {/* About Intro */}
+        <AboutIntro />
         
         {/* Mission Statement */}
         <MissionStatement />
