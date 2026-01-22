@@ -3,12 +3,9 @@ import { motion } from "framer-motion";
 import { AnimatedSection } from "../Animation/AnimatedSection";
 import { AnimatedCard } from "../Animation/AnimatedCard";
 import { GlowingText } from "../Animation/GlowingText";
-// import { useParallax } from "../../hooks/useParallax";
 
 export const CoreProduct = () => {
-  // const { ref, y } = useParallax(0.3);
-
-  const products = [
+  const pillars = [
     {
       icon: (
         <svg
@@ -27,13 +24,16 @@ export const CoreProduct = () => {
           />
         </svg>
       ),
-      title: "Noncustodial Wallet Service",
+      title: "Enterprise Wallet Infrastructure",
+      headline: "Institutional-Grade Custody & Key Management",
       description:
-        "Your assets are protected with Smart Accounts with Multi-Factor Authentication. Secure, self-custodied, and enterprise-ready.",
-      features: [
-        "ERC-4337 Smart Accounts",
-        "WebAuthn Integration",
-        "ISO20022 Compliance",
+        "Enterprise EOA wallets and multisignature solutions engineered for institutional security requirements. Purpose-built for fund managers, family offices, and treasury operations requiring granular access controls and compliance-ready audit trails.",
+      capabilities: [
+        "Enterprise EOA wallets with institutional security architecture",
+        "Multi-signature governance with configurable approval workflows",
+        "Shamir Secret Sharing for distributed key recovery",
+        "Complete audit trails and compliance reporting",
+        "Role-based access control for treasury operations",
       ],
     },
     {
@@ -54,19 +54,16 @@ export const CoreProduct = () => {
           />
         </svg>
       ),
-      title: "Asset Tokenization Service",
+      title: "Tokenization Engine",
+      headline: "Multi-Chain Tokenization Built on Open Standards",
       description:
-        "Convert fiat, bonds, and other assets into liquid, tradable tokens with zkTLS-powered verification.",
-      features: [
-        "zkTLS Verification",
-        "Instant Liquidity",
-        "90% Cost Reduction",
-      ],
+        "Deploy compliant security tokens across leading blockchain networks using the CMTA standard—the institutional benchmark adopted by major Swiss banks and recognized by Singapore's Project Guardian. Issue once, distribute everywhere.",
+      capabilities: [],
     },
     {
       icon: (
         <svg
-          width="25"
+          width="24"
           height="25"
           viewBox="0 0 24 25"
           fill="none"
@@ -95,26 +92,75 @@ export const CoreProduct = () => {
           />
         </svg>
       ),
-      title: "Sereel Protocol",
+      title: "Asset Classes & Regulatory Support",
+      headline: "Tokenize Any Asset. Any Jurisdiction.",
       description:
-        "Institutional DeFi infrastructure.",
-      features: [
-        "AMM + Lending + Options",
-        "ERC-3643 Compliant",
-        "Risk Management",
+        "From government treasuries to private credit, from stablecoins to structured products—we provide the technical and legal frameworks to tokenize assets compliantly across global markets.",
+      assetClasses: [
+        "Securities & Equity",
+        "Bonds & Fixed Income",
+        "Private Credit",
+        "Stablecoins",
+        "Utility Tokens",
+        "Structured Products",
+      ],
+      regulatoryFrameworks: [
+        "Regulation S (Non-US Offerings)",
+        "Regulation D (Accredited US Investors)",
+        "MiCA-Ready (European Union)",
+        "Swiss DLT Framework",
+        "Singapore MAS Guidelines",
+        "Custom Jurisdictional Support",
+      ],
+    },
+    {
+      icon: (
+        <svg
+          width="24"
+          height="25"
+          viewBox="0 0 24 25"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M21 16.8V8.80005C20.9996 8.44093 20.9071 8.08763 20.7315 7.77406C20.556 7.46049 20.3037 7.19682 20 7.00505L13 3.00505C12.696 2.81338 12.3511 2.71252 12 2.71252C11.6489 2.71252 11.304 2.81338 11 3.00505L4 7.00505C3.69626 7.19682 3.44398 7.46049 3.26846 7.77406C3.09294 8.08763 3.00036 8.44093 3 8.80005V16.8C3.00036 17.1592 3.09294 17.5125 3.26846 17.826C3.44398 18.1396 3.69626 18.4033 4 18.595L11 22.595C11.304 22.7867 11.6489 22.8876 12 22.8876C12.3511 22.8876 12.696 22.7867 13 22.595L20 18.595C20.3037 18.4033 20.556 18.1396 20.7315 17.826C20.9071 17.5125 20.9996 17.1592 21 16.8Z"
+            stroke="white"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M3.27002 7.72005L12 12.81L20.73 7.72005"
+            stroke="white"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M12 22.88V12.8"
+            stroke="white"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      ),
+      title: "Market Infrastructure",
+      headline: "Trading, Settlement & Distribution Rails",
+      description:
+        "Complete market infrastructure for primary issuance, secondary trading, and institutional settlement. Connect tokenized assets to global liquidity through our exchange and clearing house partnerships.",
+      capabilities: [
+        "Primary issuance and distribution infrastructure",
+        "Secondary market connectivity",
+        "T+0 settlement capabilities",
+        "Institutional custody integrations",
+        "OTC and exchange connectivity",
       ],
     },
   ];
 
   return (
     <section className="w-full flex items-center justify-center py-12 sm:py-16 lg:py-20 xl:py-24 relative overflow-hidden safe-area-padding">
-      {/* Parallax Background */}
-      {/* <motion.div
-        ref={ref}
-        className="absolute inset-0 bg-gradient-to-br from-[#1CA36E]/5 via-transparent to-[#1CA36E]/10"
-        style={{ y }}
-      /> */}
-
       <div className="w-[95%] max-w-7xl mx-auto relative z-10 responsive-container">
         <AnimatedSection className="w-full flex items-center justify-center flex-col">
           <motion.h3
@@ -124,8 +170,7 @@ export const CoreProduct = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            Our{" "}
-            <GlowingText className="text-[#1CA36E]">Core Products</GlowingText>
+            <GlowingText className="text-[#1CA36E]">Platform Pillars</GlowingText>
           </motion.h3>
           <motion.p
             className="mt-2 text-center text-[#D5D5D5] text-sm sm:text-base lg:text-lg max-w-2xl mx-auto"
@@ -134,7 +179,7 @@ export const CoreProduct = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            The solutions we offer are seamless, secure and accessible
+            Enterprise-grade infrastructure for tokenizing and managing digital assets
           </motion.p>
         </AnimatedSection>
 
@@ -142,7 +187,7 @@ export const CoreProduct = () => {
           className="responsive-grid mt-12 sm:mt-16"
           variant="stagger"
         >
-          {products.map((product, index) => (
+          {pillars.map((pillar, index) => (
             <AnimatedCard
               key={index}
               className="w-full min-h-[320px] sm:min-h-[350px] border border-[#202026] rounded-xl p-4 sm:p-6 bg-gradient-to-br from-[#1CA36E]/5 to-white/5 hover:border-[#1CA36E]/50 transition-all duration-300 flex flex-col"
@@ -158,44 +203,113 @@ export const CoreProduct = () => {
                   }}
                   transition={{ duration: 0.3 }}
                 >
-                  {product.icon}
+                  {pillar.icon}
                 </motion.div>
               </div>
 
               <div className="mt-2 sm:mt-3 flex-1 flex flex-col">
-                <h3 className="font-gilroy-bold text-lg sm:text-xl mb-2 sm:mb-3 text-white">
-                  {product.title}
+                <h3 className="font-gilroy-bold text-lg sm:text-xl mb-2 text-white">
+                  {pillar.headline}
                 </h3>
-                <p className="text-[#D5D5D5] mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base flex-1">
-                  {product.description}
+                <p className="text-[#D5D5D5] mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base">
+                  {pillar.description}
                 </p>
 
-                <div className="space-y-2">
-                  {product.features.map((feature, idx) => (
-                    <motion.div
-                      key={idx}
-                      className="flex items-center gap-2 text-sm text-[#969696]"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.5, delay: idx * 0.1 }}
-                      viewport={{ once: true }}
-                    >
-                      <motion.span
-                        className="w-2 h-2 bg-[#1CA36E] rounded-full"
-                        animate={{
-                          scale: [1, 1.2, 1],
-                          opacity: [0.7, 1, 0.7],
-                        }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          delay: idx * 0.3,
-                        }}
-                      />
-                      {feature}
-                    </motion.div>
-                  ))}
-                </div>
+                {pillar.capabilities && pillar.capabilities.length > 0 && (
+                  <div className="space-y-2">
+                    {pillar.capabilities.map((capability, idx) => (
+                      <motion.div
+                        key={idx}
+                        className="flex items-start gap-2 text-sm text-[#969696]"
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: idx * 0.1 }}
+                        viewport={{ once: true }}
+                      >
+                        <motion.span
+                          className="w-2 h-2 bg-[#1CA36E] rounded-full mt-1.5 shrink-0"
+                          animate={{
+                            scale: [1, 1.2, 1],
+                            opacity: [0.7, 1, 0.7],
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            delay: idx * 0.3,
+                          }}
+                        />
+                        <span>{capability}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+                )}
+
+                {pillar.assetClasses && (
+                  <div className="space-y-3">
+                    <div>
+                      <h4 className="font-gilroy-bold text-sm text-white mb-2">
+                        Asset Classes
+                      </h4>
+                      <div className="space-y-2">
+                        {pillar.assetClasses.map((asset, idx) => (
+                          <motion.div
+                            key={idx}
+                            className="flex items-center gap-2 text-sm text-[#969696]"
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.5, delay: idx * 0.1 }}
+                            viewport={{ once: true }}
+                          >
+                            <motion.span
+                              className="w-2 h-2 bg-[#1CA36E] rounded-full"
+                              animate={{
+                                scale: [1, 1.2, 1],
+                                opacity: [0.7, 1, 0.7],
+                              }}
+                              transition={{
+                                duration: 2,
+                                repeat: Infinity,
+                                delay: idx * 0.3,
+                              }}
+                            />
+                            {asset}
+                          </motion.div>
+                        ))}
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="font-gilroy-bold text-sm text-white mb-2">
+                        Regulatory Frameworks
+                      </h4>
+                      <div className="space-y-2">
+                        {pillar.regulatoryFrameworks?.map((framework, idx) => (
+                          <motion.div
+                            key={idx}
+                            className="flex items-center gap-2 text-sm text-[#969696]"
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.5, delay: idx * 0.1 }}
+                            viewport={{ once: true }}
+                          >
+                            <motion.span
+                              className="w-2 h-2 bg-[#1CA36E] rounded-full"
+                              animate={{
+                                scale: [1, 1.2, 1],
+                                opacity: [0.7, 1, 0.7],
+                              }}
+                              transition={{
+                                duration: 2,
+                                repeat: Infinity,
+                                delay: idx * 0.3,
+                              }}
+                            />
+                            {framework}
+                          </motion.div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </AnimatedCard>
           ))}
