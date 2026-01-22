@@ -11,39 +11,64 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
   {
+    question: "What is the CMTA standard and how does Sereel use it?",
+    answer:
+      "The Capital Markets and Technology Association (CMTA) standard is a Swiss framework for tokenizing securities on blockchain. Sereel implements CMTA-compliant token standards to ensure that digital securities meet Swiss regulatory requirements, including the DLT Act. This enables institutions to issue compliant tokenized bonds, equity, and other securities that are legally recognized under Swiss law while maintaining interoperability with global financial systems.",
+  },
+  {
+    question: "What multi-chain tokenization capabilities does Sereel offer?",
+    answer:
+      "Sereel provides comprehensive multi-chain tokenization capabilities across major blockchain networks including Ethereum, Polygon, Avalanche, Arbitrum, and other EVM-compatible chains. Our platform enables institutions to deploy tokenized assets across multiple networks simultaneously, ensuring flexibility, redundancy, and access to different liquidity pools. We support cross-chain asset transfers and maintain consistent compliance controls across all supported networks.",
+  },
+  {
+    question: "What custody solutions does Sereel provide for institutional clients?",
+    answer:
+      "Sereel offers enterprise-grade custody solutions through smart contract-based wallets powered by ERC-4337 account abstraction. Our custody infrastructure includes multi-signature controls, role-based access management, hardware security module (HSM) integration, and programmable features like spending limits and session keys. We partner with leading institutional custodians to provide hybrid custody options that combine self-custody benefits with institutional-grade security and insurance coverage.",
+  },
+  {
+    question: "Which blockchain networks does Sereel support?",
+    answer:
+      "Sereel supports all major EVM-compatible blockchain networks including Ethereum mainnet, Polygon, Avalanche, Arbitrum, Optimism, Base, and private/permissioned networks like Hyperledger Besu and Canton Network. We also provide integration capabilities for non-EVM chains through bridges and cross-chain messaging protocols. Our infrastructure is designed to be blockchain-agnostic, allowing institutions to choose the optimal network for their specific use case while maintaining consistent security and compliance controls.",
+  },
+  {
+    question: "What regulatory frameworks does Sereel support?",
+    answer:
+      "Sereel is built to support multiple regulatory frameworks globally, including Regulation S and Regulation D for U.S. securities offerings, the European Union's Markets in Crypto-Assets (MiCA) regulation, Swiss DLT Act and FINMA guidelines, Singapore's MAS Payment Services Act, and various other jurisdictions. Our compliance infrastructure includes automated KYC/AML checks, transfer restrictions based on jurisdiction, investor accreditation verification, and reporting tools that adapt to each regulatory environment.",
+  },
+  {
+    question: "How does Sereel integrate with Canton Network for privacy?",
+    answer:
+      "Sereel leverages Canton Network, a privacy-enabled interoperable blockchain network, to provide institutional clients with confidential transaction capabilities. Through Canton integration, we enable private settlements where transaction details are visible only to authorized parties, maintain data sovereignty requirements, support confidential multi-party workflows, and ensure regulatory compliance while preserving privacy. This is particularly valuable for institutions handling sensitive financial data that require both transparency to regulators and privacy from competitors.",
+  },
+  {
+    question: "Does Sereel support T+0 settlement?",
+    answer:
+      "Yes, Sereel enables instant T+0 settlement for tokenized securities and digital assets. Unlike traditional financial markets that operate on T+1 or T+2 settlement cycles, blockchain-based tokenized assets can settle in real-time or within seconds. Our platform supports atomic swaps for delivery-versus-payment (DvP) transactions, instant settlement finality, 24/7 trading and settlement capabilities, and integration with both traditional and digital payment rails. This dramatically reduces counterparty risk, improves capital efficiency, and enables new types of financial products.",
+  },
+  {
+    question: "What is ERC-3643 and why is it important for security tokens?",
+    answer:
+      "ERC-3643 is the T-REX (Token for Regulated EXchanges) standard, a comprehensive security token standard designed for compliant and permissioned digital securities. Sereel implements ERC-3643 to provide on-chain identity verification, transfer restrictions based on investor eligibility, forced transfers for regulatory actions, token recovery mechanisms, and compliance rule enforcement. This standard is essential for institutions tokenizing regulated securities like bonds, equity, and real-world assets, as it ensures full regulatory compliance while maintaining the benefits of blockchain technology.",
+  },
+  {
+    question: "What are the key institutional use cases Sereel enables?",
+    answer:
+      "Sereel enables a wide range of institutional use cases including: tokenization of corporate and government bonds with automated coupon payments; real estate tokenization for fractional ownership and improved liquidity; private equity and venture capital fund tokenization; supply chain finance and invoice factoring; carbon credit and ESG asset tokenization; insurance product tokenization; syndicated loan management; treasury and cash management; cross-border payments and settlements; and collateral management for derivatives. Our platform is designed to handle complex institutional workflows while ensuring regulatory compliance and institutional-grade security.",
+  },
+  {
+    question: "Who are Sereel's solutions designed for?",
+    answer:
+      "We serve banks, fintechs, insurance firms, investment platforms, asset managers, private equity funds, family offices, corporate treasuries, and other regulated financial institutions looking to adopt secure, compliant, and scalable blockchain technology. Our enterprise solutions are built specifically for organizations that require institutional-grade infrastructure, regulatory compliance, and seamless integration with existing financial systems.",
+  },
+  {
     question: "What kind of wallets does Sereel provide?",
     answer:
-      "We provide non-custodial, smart contract-based wallets powered by ERC-4337. These wallets offer programmable features like spending limits, session keys, and gasless transactions all without sacrificing security.",
+      "We provide non-custodial, smart contract-based wallets powered by ERC-4337 account abstraction. These wallets offer programmable features like spending limits, session keys, multi-signature controls, social recovery, gasless transactions, and batch operations—all without sacrificing security. Our wallet infrastructure is designed for institutional use with role-based access controls, audit trails, and integration with enterprise identity management systems.",
   },
   {
-    question: "Who are our solutions for?",
+    question: "What is ISO 20022 and how does Sereel use it?",
     answer:
-      "We serve banks, fintechs, insurance firms, investment platforms, and other regulated financial institutions looking to adopt secure, compliant, and scalable blockchain technology.",
-  },
-  {
-    question: "What can Sereel tokenize?",
-    answer:
-      "Our platform supports tokenization of fiat, bonds, real estate, commodities, invoices, equity, and more, we turn real-world assets into programmable, tradable digital tokens.",
-  },
-  {
-    question: "What is ISO 20022?",
-    answer:
-      "ISO 20022 is a global standard for exchanging electronic data between financial institutions, enabling efficient and standardized communication for financial transactions. It supports rich data formats, enhancing compliance and operational efficiency.",
-  },
-  {
-    question: "What is ERC-3643?",
-    answer:
-      "ERC-3643 is a security token standard designed for compliant and permissioned digital assets. Sereel uses it to help institutions tokenize bonds, equity, and real-world assets while maintaining full compliance with regulatory requirements.",
-  },
-  {
-    question: "What standards do we use for tokenized assets?",
-    answer:
-      "We support ERC-1400 and ERC-3643 standards for regulated asset tokens, as well as custom structures where needed.",
-  },
-  {
-    question: "What is Restaking?",
-    answer:
-      "Restaking refers to the process of using staked assets on a Proof of Stake network to run applications other than the consensus mechanism being run. This enables validators to earn additional fees on top of running blockchains such as Ethereum. Sereel participates in restaking by running additional services such as machine learning training and zero knowledge processing.",
+      "ISO 20022 is a global standard for exchanging electronic data between financial institutions, enabling efficient and standardized communication for financial transactions. Sereel implements ISO 20022 messaging standards to ensure seamless integration with existing banking infrastructure, support rich data formats for enhanced compliance and operational efficiency, enable structured financial data exchange, and facilitate cross-border payment interoperability. This ensures our blockchain-based solutions can work alongside traditional financial systems.",
   },
 ];
 
