@@ -3,7 +3,7 @@ import { Footer } from "../../components/Footer/Footer";
 import { Header } from "../../components/Header/Header";
 import { MobileMenu } from "../../components/Header/MobileMenu";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { 
   SmartAccountIcon, 
   ISO20022Icon, 
@@ -23,6 +23,18 @@ export const Wallet = () => {
   });
 
   const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
+
+  useEffect(() => {
+    document.title = "Sereel Wallet - Custody Solutions";
+    
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement('meta');
+      metaDescription.setAttribute('name', 'description');
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.setAttribute('content', 'Enterprise EOA wallets and multi-signature solutions with Shamir Secret Sharing recovery. Built for institutional security requirements and regulatory compliance.');
+  }, []);
 
   return (
     <div className="w-full" ref={containerRef}>

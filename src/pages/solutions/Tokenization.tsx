@@ -3,7 +3,7 @@ import { Footer } from "../../components/Footer/Footer";
 import { Header } from "../../components/Header/Header";
 import { MobileMenu } from "../../components/Header/MobileMenu";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { 
   StockIcon, 
   LockIcon, 
@@ -24,6 +24,18 @@ export const Tokenization = () => {
   });
 
   const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
+
+  useEffect(() => {
+    document.title = "Asset Tokenization - Sereel";
+    
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement('meta');
+      metaDescription.setAttribute('name', 'description');
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.setAttribute('content', 'Deploy security tokens across Ethereum, Solana, IOTA, Starknet, and Canton Network using the CMTA standard. Tokenize bonds, securities, stablecoins, and private credit compliantly.');
+  }, []);
 
   return (
     <div className="w-full" ref={containerRef}>
