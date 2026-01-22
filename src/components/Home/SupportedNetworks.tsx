@@ -7,42 +7,42 @@ export const SupportedNetworks = () => {
     {
       name: "Ethereum",
       type: "L1",
-      logo: "🔷",
+      logo: "/images/networks/ethereum.jpg",
     },
     {
       name: "Arbitrum",
       type: "L2",
-      logo: "🔵",
+      logo: "/images/networks/arbitrum.jpg",
     },
     {
       name: "Base",
       type: "L2",
-      logo: "🔷",
+      logo: "/images/networks/base.jpg",
     },
     {
       name: "Polygon",
       type: "L2",
-      logo: "🟣",
+      logo: "/images/networks/polygon.jpg",
     },
     {
       name: "Optimism",
       type: "L2",
-      logo: "🔴",
+      logo: "/images/networks/optimism.jpg",
     },
   ];
 
   const nonEvmChains = [
     {
       name: "Solana",
-      logo: "🟢",
+      logo: "/images/networks/solana.jpg",
     },
     {
       name: "IOTA",
-      logo: "⚪",
+      logo: "/images/networks/iota.jpg",
     },
     {
       name: "Starknet",
-      logo: "🟠",
+      logo: "/images/networks/starknet.jpg",
     },
   ];
 
@@ -50,14 +50,14 @@ export const SupportedNetworks = () => {
     {
       name: "Canton Network",
       description: "privacy-preserving settlements",
-      logo: "🔐",
+      logo: "/images/networks/canton.jpg",
     },
   ];
 
   return (
-    <section className="w-full flex items-center justify-center py-12 sm:py-16 lg:py-20 xl:py-24 relative overflow-hidden safe-area-padding">
+    <section className="w-full flex items-center justify-center py-20 sm:py-24 lg:py-32 xl:py-40 relative overflow-hidden safe-area-padding">
       <div className="w-[95%] max-w-7xl mx-auto relative z-10 responsive-container">
-        <AnimatedSection className="w-full flex items-center justify-center flex-col">
+        <AnimatedSection className="w-full flex items-center justify-center flex-col mb-20">
           <motion.h3
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-gilroy-bold"
             initial={{ opacity: 0, y: 30 }}
@@ -68,7 +68,7 @@ export const SupportedNetworks = () => {
             <GlowingText className="text-[#1CA36E]">Supported Networks</GlowingText>
           </motion.h3>
           <motion.p
-            className="mt-2 text-center text-[#D5D5D5] text-sm sm:text-base lg:text-lg max-w-2xl mx-auto"
+            className="mt-6 text-center text-[#D5D5D5] text-sm sm:text-base lg:text-lg max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -78,8 +78,7 @@ export const SupportedNetworks = () => {
           </motion.p>
         </AnimatedSection>
 
-        <AnimatedSection className="mt-12 sm:mt-16 space-y-8">
-          {/* EVM Chains Section */}
+        <AnimatedSection className="space-y-24">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -87,7 +86,7 @@ export const SupportedNetworks = () => {
             viewport={{ once: true }}
           >
             <motion.h4
-              className="text-xl sm:text-2xl font-gilroy-bold text-white mb-6"
+              className="text-xl sm:text-2xl lg:text-3xl font-gilroy-bold text-white mb-12 text-center"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
@@ -96,54 +95,38 @@ export const SupportedNetworks = () => {
               EVM Chains
             </motion.h4>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-10">
               {evmChains.map((chain, index) => (
                 <motion.div
                   key={index}
-                  className="relative bg-gradient-to-br from-[#1CA36E]/5 to-white/5 border border-[#202026] rounded-xl p-6 hover:border-[#1CA36E]/50 transition-all duration-300 flex flex-col items-center justify-center min-h-[180px]"
+                  className="group relative aspect-square bg-gradient-to-br from-[#1CA36E]/5 to-white/5 border border-[#202026] rounded-2xl p-8 hover:border-[#1CA36E]/50 transition-all duration-500 overflow-hidden"
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                   whileHover={{
-                    scale: 1.05,
-                    boxShadow: "0 0 30px rgba(28, 163, 110, 0.2)",
+                    scale: 1.08,
+                    boxShadow: "0 20px 60px rgba(28, 163, 110, 0.3)",
                   }}
                 >
-                  {/* Logo Placeholder */}
                   <motion.div
-                    className="w-16 h-16 rounded-full bg-white/5 border border-[#5F5F7138] flex items-center justify-center mb-4 text-4xl"
-                    whileHover={{
-                      backgroundColor: "rgba(28, 163, 110, 0.1)",
-                      borderColor: "rgba(28, 163, 110, 0.5)",
-                      scale: 1.1,
-                    }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    {chain.logo}
-                  </motion.div>
-
-                  <h5 className="font-gilroy-bold text-lg text-white mb-2 text-center">
-                    {chain.name}
-                  </h5>
-
-                  {/* L1/L2 Badge */}
-                  <motion.div
-                    className={`px-3 py-1 rounded-full text-xs font-gilroy-medium ${
-                      chain.type === "L1"
-                        ? "bg-blue-500/20 text-blue-300 border border-blue-500/30"
-                        : "bg-[#1CA36E]/20 text-[#1CA36E] border border-[#1CA36E]/30"
-                    }`}
-                    whileHover={{ scale: 1.1 }}
-                  >
-                    {chain.type}
-                  </motion.div>
+                    className="absolute inset-0 bg-gradient-to-br from-[#1CA36E]/0 to-[#1CA36E]/0 group-hover:from-[#1CA36E]/10 group-hover:to-[#1CA36E]/5 transition-all duration-500"
+                  />
+                  
+                  <div className="relative w-full h-full flex items-center justify-center">
+                    <motion.img
+                      src={chain.logo}
+                      alt={chain.name}
+                      className="w-full h-full object-contain rounded-lg"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  </div>
                 </motion.div>
               ))}
             </div>
           </motion.div>
 
-          {/* Separator */}
           <motion.div
             className="w-full h-px bg-gradient-to-r from-transparent via-[#202026] to-transparent"
             initial={{ opacity: 0, scaleX: 0 }}
@@ -152,7 +135,6 @@ export const SupportedNetworks = () => {
             viewport={{ once: true }}
           />
 
-          {/* Non-EVM Chains Section */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -160,7 +142,7 @@ export const SupportedNetworks = () => {
             viewport={{ once: true }}
           >
             <motion.h4
-              className="text-xl sm:text-2xl font-gilroy-bold text-white mb-6"
+              className="text-xl sm:text-2xl lg:text-3xl font-gilroy-bold text-white mb-12 text-center"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
@@ -169,42 +151,38 @@ export const SupportedNetworks = () => {
               Non-EVM Chains
             </motion.h4>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 lg:gap-10 max-w-4xl mx-auto">
               {nonEvmChains.map((chain, index) => (
                 <motion.div
                   key={index}
-                  className="bg-gradient-to-br from-[#1CA36E]/5 to-white/5 border border-[#202026] rounded-xl p-6 hover:border-[#1CA36E]/50 transition-all duration-300 flex flex-col items-center justify-center min-h-[180px]"
+                  className="group relative aspect-square bg-gradient-to-br from-purple-500/5 to-white/5 border border-[#202026] rounded-2xl p-8 hover:border-purple-500/50 transition-all duration-500 overflow-hidden"
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                   whileHover={{
-                    scale: 1.05,
-                    boxShadow: "0 0 30px rgba(28, 163, 110, 0.2)",
+                    scale: 1.08,
+                    boxShadow: "0 20px 60px rgba(168, 85, 247, 0.3)",
                   }}
                 >
-                  {/* Logo Placeholder */}
                   <motion.div
-                    className="w-16 h-16 rounded-full bg-white/5 border border-[#5F5F7138] flex items-center justify-center mb-4 text-4xl"
-                    whileHover={{
-                      backgroundColor: "rgba(28, 163, 110, 0.1)",
-                      borderColor: "rgba(28, 163, 110, 0.5)",
-                      scale: 1.1,
-                    }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    {chain.logo}
-                  </motion.div>
-
-                  <h5 className="font-gilroy-bold text-lg text-white text-center">
-                    {chain.name}
-                  </h5>
+                    className="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-purple-500/0 group-hover:from-purple-500/10 group-hover:to-purple-500/5 transition-all duration-500"
+                  />
+                  
+                  <div className="relative w-full h-full flex items-center justify-center">
+                    <motion.img
+                      src={chain.logo}
+                      alt={chain.name}
+                      className="w-full h-full object-contain rounded-lg"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  </div>
                 </motion.div>
               ))}
             </div>
           </motion.div>
 
-          {/* Separator */}
           <motion.div
             className="w-full h-px bg-gradient-to-r from-transparent via-[#202026] to-transparent"
             initial={{ opacity: 0, scaleX: 0 }}
@@ -213,7 +191,6 @@ export const SupportedNetworks = () => {
             viewport={{ once: true }}
           />
 
-          {/* Enterprise Networks Section */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -221,7 +198,7 @@ export const SupportedNetworks = () => {
             viewport={{ once: true }}
           >
             <motion.h4
-              className="text-xl sm:text-2xl font-gilroy-bold text-white mb-6"
+              className="text-xl sm:text-2xl lg:text-3xl font-gilroy-bold text-white mb-12 text-center"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
@@ -230,65 +207,55 @@ export const SupportedNetworks = () => {
               Enterprise Networks
             </motion.h4>
             
-            <div className="grid grid-cols-1 gap-4">
+            <div className="grid grid-cols-1 gap-8 max-w-md mx-auto">
               {enterpriseNetworks.map((network, index) => (
                 <motion.div
                   key={index}
-                  className="bg-gradient-to-br from-purple-500/10 to-blue-500/10 border border-purple-500/20 rounded-xl p-6 hover:border-purple-500/50 transition-all duration-300 flex items-center gap-6"
+                  className="group relative aspect-square bg-gradient-to-br from-blue-500/5 to-cyan-500/5 border border-[#202026] rounded-2xl p-12 hover:border-blue-500/50 transition-all duration-500 overflow-hidden"
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                   whileHover={{
-                    scale: 1.02,
-                    boxShadow: "0 0 30px rgba(168, 85, 247, 0.2)",
+                    scale: 1.08,
+                    boxShadow: "0 20px 60px rgba(59, 130, 246, 0.3)",
                   }}
                 >
-                  {/* Logo Placeholder */}
                   <motion.div
-                    className="w-16 h-16 rounded-full bg-white/5 border border-purple-500/30 flex items-center justify-center text-4xl shrink-0"
-                    whileHover={{
-                      backgroundColor: "rgba(168, 85, 247, 0.1)",
-                      borderColor: "rgba(168, 85, 247, 0.5)",
-                      scale: 1.1,
-                    }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    {network.logo}
-                  </motion.div>
-
-                  <div>
-                    <h5 className="font-gilroy-bold text-lg text-white mb-1">
-                      {network.name}
-                    </h5>
-                    <p className="text-[#D5D5D5] text-sm">
-                      {network.description}
-                    </p>
+                    className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-cyan-500/0 group-hover:from-blue-500/10 group-hover:to-cyan-500/5 transition-all duration-500"
+                  />
+                  
+                  <div className="relative w-full h-full flex items-center justify-center">
+                    <motion.img
+                      src={network.logo}
+                      alt={network.name}
+                      className="w-full h-full object-contain rounded-lg"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.3 }}
+                    />
                   </div>
                 </motion.div>
               ))}
             </div>
           </motion.div>
 
-          {/* Interoperability & Standards Section */}
           <motion.div
-            className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-6"
+            className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-10"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            {/* Chainlink CCIP Integration */}
             <motion.div
-              className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-blue-500/20 rounded-xl p-6 hover:border-blue-500/50 transition-all duration-300"
+              className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-blue-500/20 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-300"
               whileHover={{
                 scale: 1.02,
-                boxShadow: "0 0 30px rgba(59, 130, 246, 0.2)",
+                boxShadow: "0 20px 60px rgba(59, 130, 246, 0.2)",
               }}
             >
-              <div className="flex items-start gap-4">
+              <div className="flex items-start gap-6">
                 <motion.div
-                  className="w-12 h-12 rounded-full bg-white/5 border border-blue-500/30 flex items-center justify-center shrink-0 text-2xl"
+                  className="w-16 h-16 rounded-full bg-white/5 border border-blue-500/30 flex items-center justify-center shrink-0 text-3xl"
                   whileHover={{
                     backgroundColor: "rgba(59, 130, 246, 0.1)",
                     borderColor: "rgba(59, 130, 246, 0.5)",
@@ -300,14 +267,14 @@ export const SupportedNetworks = () => {
                 </motion.div>
 
                 <div>
-                  <h5 className="font-gilroy-bold text-lg text-white mb-2">
+                  <h5 className="font-gilroy-bold text-xl text-white mb-3">
                     Interoperability
                   </h5>
-                  <p className="text-[#D5D5D5] text-sm mb-3">
+                  <p className="text-[#D5D5D5] text-base mb-4">
                     Chainlink CCIP integration for secure cross-chain messaging and asset transfers
                   </p>
                   <motion.div
-                    className="inline-flex items-center gap-2 text-xs text-blue-400"
+                    className="inline-flex items-center gap-2 text-sm text-blue-400"
                     animate={{
                       x: [0, 5, 0],
                     }}
@@ -324,17 +291,16 @@ export const SupportedNetworks = () => {
               </div>
             </motion.div>
 
-            {/* CMTA Standard */}
             <motion.div
-              className="bg-gradient-to-br from-[#1CA36E]/10 to-green-500/10 border border-[#1CA36E]/20 rounded-xl p-6 hover:border-[#1CA36E]/50 transition-all duration-300"
+              className="bg-gradient-to-br from-[#1CA36E]/10 to-green-500/10 border border-[#1CA36E]/20 rounded-2xl p-8 hover:border-[#1CA36E]/50 transition-all duration-300"
               whileHover={{
                 scale: 1.02,
-                boxShadow: "0 0 30px rgba(28, 163, 110, 0.2)",
+                boxShadow: "0 20px 60px rgba(28, 163, 110, 0.2)",
               }}
             >
-              <div className="flex items-start gap-4">
+              <div className="flex items-start gap-6">
                 <motion.div
-                  className="w-12 h-12 rounded-full bg-white/5 border border-[#1CA36E]/30 flex items-center justify-center shrink-0 text-2xl"
+                  className="w-16 h-16 rounded-full bg-white/5 border border-[#1CA36E]/30 flex items-center justify-center shrink-0 text-3xl"
                   whileHover={{
                     backgroundColor: "rgba(28, 163, 110, 0.1)",
                     borderColor: "rgba(28, 163, 110, 0.5)",
@@ -346,14 +312,14 @@ export const SupportedNetworks = () => {
                 </motion.div>
 
                 <div>
-                  <h5 className="font-gilroy-bold text-lg text-white mb-2">
+                  <h5 className="font-gilroy-bold text-xl text-white mb-3">
                     Compliance Standard
                   </h5>
-                  <p className="text-[#D5D5D5] text-sm mb-3">
+                  <p className="text-[#D5D5D5] text-base mb-4">
                     CMTA-compliant tokenization using the CMTAT framework for regulatory adherence
                   </p>
                   <motion.div
-                    className="inline-flex px-3 py-1 rounded-full bg-[#1CA36E]/20 text-[#1CA36E] text-xs font-gilroy-medium border border-[#1CA36E]/30"
+                    className="inline-flex px-4 py-2 rounded-full bg-[#1CA36E]/20 text-[#1CA36E] text-sm font-gilroy-medium border border-[#1CA36E]/30"
                     whileHover={{ scale: 1.05 }}
                   >
                     CMTAT Framework
