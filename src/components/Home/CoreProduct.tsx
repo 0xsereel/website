@@ -27,7 +27,9 @@ export const CoreProduct = () => {
       title: "Enterprise Digital Asset Custody",
       headline: "Institutional DeFi Infrastructure & Enterprise Wallet Solutions",
       description:
-        "Enterprise digital asset custody with institutional tokenization infrastructure for RWA tokenization platform and Canton Network tokenization. Purpose-built for security token issuance, bond tokenization platform operations, and institutional DeFi infrastructure requiring granular access controls and compliance-ready audit trails.",
+        "Enterprise digital asset custody with institutional tokenization infrastructure for RWA tokenization platform and Canton Network tokenization.",
+      subDescription:
+        "Purpose-built for security token issuance, bond tokenization platform operations, and institutional DeFi infrastructure requiring granular access controls and compliance-ready audit trails.",
       capabilities: [
         "Enterprise EOA wallets with institutional security architecture",
         "Multi-signature governance with configurable approval workflows",
@@ -57,7 +59,9 @@ export const CoreProduct = () => {
       title: "Security Token Issuance & CMTA Tokenization",
       headline: "Multi-Chain Tokenization with RWA Tokenization Platform",
       description:
-        "Security token issuance with CMTA tokenization across Canton Network and institutional DeFi infrastructure. Our bond tokenization platform enables real world asset tokenization, private credit tokenization, treasury tokenization, and stablecoin issuance platform capabilities with Regulation S/D token issuance. Deploy tokenized securities platform solutions across leading blockchain networks—the institutional benchmark for institutional tokenization infrastructure.",
+        "Security token issuance with CMTA tokenization across Canton Network and institutional DeFi infrastructure.",
+      subDescription:
+        "Our bond tokenization platform enables real world asset tokenization, private credit tokenization, treasury tokenization, and stablecoin issuance platform capabilities with Regulation S/D token issuance. Deploy tokenized securities platform solutions across leading blockchain networks—the institutional benchmark for institutional tokenization infrastructure.",
       capabilities: [],
     },
     {
@@ -95,7 +99,9 @@ export const CoreProduct = () => {
       title: "Bond Tokenization Platform & Tokenized Securities",
       headline: "Private Credit Tokenization, Treasury Tokenization, Stablecoin Issuance",
       description:
-        "Bond tokenization platform for private credit tokenization, treasury tokenization, and stablecoin issuance platform solutions. Our tokenized securities platform provides real world asset tokenization with Regulation S/D token issuance frameworks across global markets using CMTA tokenization standards for institutional tokenization infrastructure.",
+        "Bond tokenization platform for private credit tokenization, treasury tokenization, and stablecoin issuance platform solutions.",
+      subDescription:
+        "Our tokenized securities platform provides real world asset tokenization with Regulation S/D token issuance frameworks across global markets using CMTA tokenization standards for institutional tokenization infrastructure.",
       assetClasses: [
         "Securities & Equity",
         "Bonds & Fixed Income",
@@ -148,7 +154,9 @@ export const CoreProduct = () => {
       title: "Canton Network & Multi-Chain Integration",
       headline: "Canton Network Tokenization with Institutional DeFi Infrastructure",
       description:
-        "Multi-chain tokenization with Canton Network integration for institutional DeFi infrastructure. Complete RWA tokenization platform for security token issuance, enterprise digital asset custody, and tokenized securities platform. Connect institutional tokenization infrastructure to global liquidity through our exchange partnerships and CMTA tokenization standards.",
+        "Multi-chain tokenization with Canton Network integration for institutional DeFi infrastructure.",
+      subDescription:
+        "Complete RWA tokenization platform for security token issuance, enterprise digital asset custody, and tokenized securities platform. Connect institutional tokenization infrastructure to global liquidity through our exchange partnerships and CMTA tokenization standards.",
       capabilities: [
         "Primary issuance and distribution infrastructure",
         "Secondary market connectivity",
@@ -160,11 +168,11 @@ export const CoreProduct = () => {
   ];
 
   return (
-    <section className="w-full flex items-center justify-center py-12 sm:py-16 lg:py-20 xl:py-24 relative overflow-hidden safe-area-padding">
+    <section className="w-full flex items-center justify-center py-16 sm:py-20 lg:py-28 xl:py-32 relative overflow-hidden safe-area-padding">
       <div className="w-[95%] max-w-7xl mx-auto relative z-10 responsive-container">
-        <AnimatedSection className="w-full flex items-center justify-center flex-col">
+        <AnimatedSection className="w-full flex items-center justify-center flex-col mb-16 sm:mb-20 lg:mb-24">
           <motion.h3
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-gilroy-bold"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-gilroy-bold mb-6"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -173,7 +181,7 @@ export const CoreProduct = () => {
             <GlowingText className="text-[#1CA36E]">Platform Pillars</GlowingText>
           </motion.h3>
           <motion.p
-            className="mt-2 text-center text-[#D5D5D5] text-sm sm:text-base lg:text-lg max-w-2xl mx-auto"
+            className="text-center text-[#D5D5D5] text-sm sm:text-base lg:text-lg max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -183,137 +191,152 @@ export const CoreProduct = () => {
           </motion.p>
         </AnimatedSection>
 
-        <AnimatedSection
-          className="responsive-grid mt-12 sm:mt-16"
-          variant="stagger"
-        >
+        <div className="space-y-8 sm:space-y-10 lg:space-y-12">
           {pillars.map((pillar, index) => (
             <AnimatedCard
               key={index}
-              className="w-full min-h-[320px] sm:min-h-[350px] border border-[#202026] rounded-xl p-4 sm:p-6 bg-gradient-to-br from-[#1CA36E]/5 to-white/5 hover:border-[#1CA36E]/50 transition-all duration-300 flex flex-col"
-              delay={index * 0.1}
+              className={`w-full border border-[#202026] rounded-2xl p-6 sm:p-8 lg:p-10 transition-all duration-500 hover:border-[#1CA36E]/50 hover:shadow-[0_0_30px_rgba(28,163,110,0.1)] ${
+                index % 2 === 0
+                  ? "bg-gradient-to-br from-[#1CA36E]/8 to-white/8"
+                  : "bg-gradient-to-br from-white/10 to-[#1CA36E]/5"
+              }`}
+              delay={index * 0.15}
             >
-              <div className="w-full">
+              <div className="flex flex-col lg:flex-row lg:items-start gap-6 lg:gap-8">
                 <motion.div
-                  className="w-12 h-12 sm:w-16 sm:h-16 border border-[#5F5F7138] rounded-full bg-white/5 flex items-center justify-center mb-3 sm:mb-4 shrink-0"
+                  className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 border border-[#5F5F7138] rounded-2xl bg-white/5 flex items-center justify-center shrink-0"
                   whileHover={{
-                    backgroundColor: "rgba(28, 163, 110, 0.1)",
-                    borderColor: "rgba(28, 163, 110, 0.5)",
-                    scale: 1.1,
+                    backgroundColor: "rgba(28, 163, 110, 0.15)",
+                    borderColor: "rgba(28, 163, 110, 0.6)",
+                    scale: 1.05,
                   }}
                   transition={{ duration: 0.3 }}
                 >
-                  {pillar.icon}
+                  <div className="transform scale-110 sm:scale-125">
+                    {pillar.icon}
+                  </div>
                 </motion.div>
-              </div>
 
-              <div className="mt-2 sm:mt-3 flex-1 flex flex-col">
-                <h3 className="font-gilroy-bold text-lg sm:text-xl mb-2 text-white">
-                  {pillar.headline}
-                </h3>
-                <p className="text-[#D5D5D5] mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base">
-                  {pillar.description}
-                </p>
-
-                {pillar.capabilities && pillar.capabilities.length > 0 && (
-                  <div className="space-y-2">
-                    {pillar.capabilities.map((capability, idx) => (
-                      <motion.div
-                        key={idx}
-                        className="flex items-start gap-2 text-sm text-[#969696]"
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: idx * 0.1 }}
-                        viewport={{ once: true }}
-                      >
-                        <motion.span
-                          className="w-2 h-2 bg-[#1CA36E] rounded-full mt-1.5 shrink-0"
-                          animate={{
-                            scale: [1, 1.2, 1],
-                            opacity: [0.7, 1, 0.7],
-                          }}
-                          transition={{
-                            duration: 2,
-                            repeat: Infinity,
-                            delay: idx * 0.3,
-                          }}
-                        />
-                        <span>{capability}</span>
-                      </motion.div>
-                    ))}
-                  </div>
-                )}
-
-                {pillar.assetClasses && (
+                <div className="flex-1 space-y-6">
                   <div className="space-y-3">
-                    <div>
-                      <h4 className="font-gilroy-bold text-sm text-white mb-2">
-                        Asset Classes
-                      </h4>
-                      <div className="space-y-2">
-                        {pillar.assetClasses.map((asset, idx) => (
-                          <motion.div
-                            key={idx}
-                            className="flex items-center gap-2 text-sm text-[#969696]"
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.5, delay: idx * 0.1 }}
-                            viewport={{ once: true }}
-                          >
-                            <motion.span
-                              className="w-2 h-2 bg-[#1CA36E] rounded-full"
-                              animate={{
-                                scale: [1, 1.2, 1],
-                                opacity: [0.7, 1, 0.7],
-                              }}
-                              transition={{
-                                duration: 2,
-                                repeat: Infinity,
-                                delay: idx * 0.3,
-                              }}
-                            />
-                            {asset}
-                          </motion.div>
-                        ))}
-                      </div>
-                    </div>
-                    <div>
-                      <h4 className="font-gilroy-bold text-sm text-white mb-2">
-                        Regulatory Frameworks
-                      </h4>
-                      <div className="space-y-2">
-                        {pillar.regulatoryFrameworks?.map((framework, idx) => (
-                          <motion.div
-                            key={idx}
-                            className="flex items-center gap-2 text-sm text-[#969696]"
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.5, delay: idx * 0.1 }}
-                            viewport={{ once: true }}
-                          >
-                            <motion.span
-                              className="w-2 h-2 bg-[#1CA36E] rounded-full"
-                              animate={{
-                                scale: [1, 1.2, 1],
-                                opacity: [0.7, 1, 0.7],
-                              }}
-                              transition={{
-                                duration: 2,
-                                repeat: Infinity,
-                                delay: idx * 0.3,
-                              }}
-                            />
-                            {framework}
-                          </motion.div>
-                        ))}
-                      </div>
-                    </div>
+                    <h3 className="font-gilroy-bold text-xl sm:text-2xl lg:text-3xl text-white leading-tight">
+                      {pillar.headline}
+                    </h3>
+                    <p className="text-[#E5E5E5] text-base sm:text-lg leading-relaxed">
+                      {pillar.description}
+                    </p>
+                    <p className="text-[#B5B5B5] text-sm sm:text-base leading-relaxed">
+                      {pillar.subDescription}
+                    </p>
                   </div>
-                )}
+
+                  {pillar.capabilities && pillar.capabilities.length > 0 && (
+                    <div className="pt-4 border-t border-[#202026]/50">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
+                        {pillar.capabilities.map((capability, idx) => (
+                          <motion.div
+                            key={idx}
+                            className="flex items-start gap-3 text-sm sm:text-base text-[#A5A5A5]"
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.5, delay: idx * 0.08 }}
+                            viewport={{ once: true }}
+                          >
+                            <motion.span
+                              className="w-2 h-2 bg-[#1CA36E] rounded-full mt-2 shrink-0"
+                              animate={{
+                                scale: [1, 1.3, 1],
+                                opacity: [0.6, 1, 0.6],
+                              }}
+                              transition={{
+                                duration: 2.5,
+                                repeat: Infinity,
+                                delay: idx * 0.3,
+                              }}
+                            />
+                            <span className="leading-relaxed">{capability}</span>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {pillar.assetClasses && (
+                    <div className="pt-4 border-t border-[#202026]/50">
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div className="space-y-4">
+                          <h4 className="font-gilroy-bold text-base sm:text-lg text-white/90 flex items-center gap-2">
+                            <span className="w-1 h-6 bg-[#1CA36E] rounded-full"></span>
+                            Asset Classes
+                          </h4>
+                          <div className="space-y-3 pl-4">
+                            {pillar.assetClasses.map((asset, idx) => (
+                              <motion.div
+                                key={idx}
+                                className="flex items-center gap-3 text-sm sm:text-base text-[#A5A5A5]"
+                                initial={{ opacity: 0, x: -20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.5, delay: idx * 0.08 }}
+                                viewport={{ once: true }}
+                              >
+                                <motion.span
+                                  className="w-2 h-2 bg-[#1CA36E] rounded-full shrink-0"
+                                  animate={{
+                                    scale: [1, 1.3, 1],
+                                    opacity: [0.6, 1, 0.6],
+                                  }}
+                                  transition={{
+                                    duration: 2.5,
+                                    repeat: Infinity,
+                                    delay: idx * 0.3,
+                                  }}
+                                />
+                                {asset}
+                              </motion.div>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div className="space-y-4">
+                          <h4 className="font-gilroy-bold text-base sm:text-lg text-white/90 flex items-center gap-2">
+                            <span className="w-1 h-6 bg-[#1CA36E] rounded-full"></span>
+                            Regulatory Frameworks
+                          </h4>
+                          <div className="space-y-3 pl-4">
+                            {pillar.regulatoryFrameworks?.map((framework, idx) => (
+                              <motion.div
+                                key={idx}
+                                className="flex items-center gap-3 text-sm sm:text-base text-[#A5A5A5]"
+                                initial={{ opacity: 0, x: -20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.5, delay: idx * 0.08 }}
+                                viewport={{ once: true }}
+                              >
+                                <motion.span
+                                  className="w-2 h-2 bg-[#1CA36E] rounded-full shrink-0"
+                                  animate={{
+                                    scale: [1, 1.3, 1],
+                                    opacity: [0.6, 1, 0.6],
+                                  }}
+                                  transition={{
+                                    duration: 2.5,
+                                    repeat: Infinity,
+                                    delay: idx * 0.3,
+                                  }}
+                                />
+                                {framework}
+                              </motion.div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             </AnimatedCard>
           ))}
-        </AnimatedSection>
+        </div>
       </div>
     </section>
   );
