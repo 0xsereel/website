@@ -1,59 +1,166 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export const Footer = () => {
   const logoPath = "/images/Hero/glowing_seree_logo.svg";
 
   return (
-    <footer className="w-full flex items-center justify-center py-12 sm:py-16 lg:py-20 safe-area-padding">
-      <div className="lg:w-[90%] w-full mx-auto">
-        <div className="w-full flex justify-between items-start lg:flex-row flex-col gap-8 lg:gap-0">
-          <Link to="/" className="flex items-center gap-3 min-h-[44px] mb-8 lg:mb-0">
-            <img className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24" src={logoPath} alt="Sereel Logo" />
+    <footer className="w-full flex items-center justify-center py-16 sm:py-20 lg:py-24 safe-area-padding relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-t from-[#1CA36E]/5 via-transparent to-transparent pointer-events-none"></div>
+      
+      <div className="lg:w-[90%] w-full mx-auto relative z-10">
+        <div className="backdrop-blur-xl bg-white/[0.02] border border-white/5 rounded-3xl shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] p-8 sm:p-10 lg:p-12">
+          <div className="w-full flex justify-between items-start lg:flex-row flex-col gap-12 lg:gap-16">
+            <Link to="/" className="flex items-center gap-4 min-h-[44px] mb-4 lg:mb-0 group">
+              <motion.img 
+                whileHover={{ scale: 1.05, rotate: -5 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 drop-shadow-[0_0_12px_rgba(28,163,110,0.5)]" 
+                src={logoPath} 
+                alt="Sereel Logo" 
+              />
 
-            <h3 className="text-lg sm:text-xl lg:text-2xl font-gilroy-bold">Sereel</h3>
-          </Link>
+              <motion.h3 
+                className="text-xl sm:text-2xl lg:text-3xl font-gilroy-bold bg-gradient-to-br from-white via-white/95 to-[#1CA36E]/80 bg-clip-text text-transparent"
+                whileHover={{ 
+                  backgroundImage: "linear-gradient(135deg, #ffffff, #1CA36E, #00FFB2)",
+                }}
+              >
+                Sereel
+              </motion.h3>
+            </Link>
 
-          <div className="flex items-start gap-8 sm:gap-10 lg:gap-12 xl:gap-16 lg:flex-row flex-col w-full lg:w-auto justify-center lg:justify-start">
-            <div className="text-center lg:text-left">
-              <h3 className="font-gilroy-bold my-3 sm:my-4 lg:my-5 text-base sm:text-lg">Solutions</h3>
-              <div className="flex flex-col space-y-2 sm:space-y-3">
-                <Link to="/solutions/wallet" className="min-h-[44px] flex items-center justify-center lg:justify-start hover:text-[#1CA36E] transition-colors text-sm sm:text-base">Wallet</Link>
-                <Link to="/solutions/tokenization" className="min-h-[44px] flex items-center justify-center lg:justify-start hover:text-[#1CA36E] transition-colors text-sm sm:text-base">Tokenization</Link>
-                <Link to="/solutions/defi" className="min-h-[44px] flex items-center justify-center lg:justify-start hover:text-[#1CA36E] transition-colors text-sm sm:text-base">DeFi</Link>
-              </div>
-            </div>
-
-            <div className="text-center lg:text-left">
-                <h3 className="font-gilroy-bold my-3 sm:my-4 lg:my-5 text-base sm:text-lg">About Us</h3>
-                <div className="flex flex-col space-y-2 sm:space-y-3">
-                  <Link
-                    to="/about"
-                    className="min-h-[44px] flex items-center justify-center lg:justify-start hover:text-[#1CA36E] transition-colors text-sm sm:text-base"
-                  >
-                    About
-                  </Link>
-                  <Link to="/entities" className="min-h-[44px] flex items-center justify-center lg:justify-start hover:text-[#1CA36E] transition-colors text-sm sm:text-base">Entities</Link>
-                  <Link to="/partnerships" className="min-h-[44px] flex items-center justify-center lg:justify-start hover:text-[#1CA36E] transition-colors text-sm sm:text-base">Partnerships</Link>
+            <div className="flex items-start gap-10 sm:gap-12 lg:gap-16 xl:gap-20 lg:flex-row flex-col w-full lg:w-auto justify-center lg:justify-start">
+              <div className="text-center lg:text-left">
+                <h3 className="font-gilroy-bold my-4 sm:my-5 lg:my-6 text-base sm:text-lg text-white/90 relative inline-block">
+                  Solutions
+                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-[#1CA36E] to-transparent"></span>
+                </h3>
+                <div className="flex flex-col space-y-3 sm:space-y-4">
+                  <motion.div whileHover={{ x: 4 }} transition={{ type: "spring", stiffness: 300 }}>
+                    <Link 
+                      to="/solutions/wallet" 
+                      className="min-h-[44px] flex items-center justify-center lg:justify-start hover:text-[#1CA36E] transition-all duration-300 text-sm sm:text-base text-white/70 hover:text-[#1CA36E] group relative"
+                    >
+                      <span className="relative">
+                        Wallet
+                        <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-gradient-to-r from-[#1CA36E] to-[#00FFB2] group-hover:w-full transition-all duration-300"></span>
+                      </span>
+                    </Link>
+                  </motion.div>
+                  <motion.div whileHover={{ x: 4 }} transition={{ type: "spring", stiffness: 300 }}>
+                    <Link 
+                      to="/solutions/tokenization" 
+                      className="min-h-[44px] flex items-center justify-center lg:justify-start hover:text-[#1CA36E] transition-all duration-300 text-sm sm:text-base text-white/70 hover:text-[#1CA36E] group relative"
+                    >
+                      <span className="relative">
+                        Tokenization
+                        <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-gradient-to-r from-[#1CA36E] to-[#00FFB2] group-hover:w-full transition-all duration-300"></span>
+                      </span>
+                    </Link>
+                  </motion.div>
+                  <motion.div whileHover={{ x: 4 }} transition={{ type: "spring", stiffness: 300 }}>
+                    <Link 
+                      to="/solutions/defi" 
+                      className="min-h-[44px] flex items-center justify-center lg:justify-start hover:text-[#1CA36E] transition-all duration-300 text-sm sm:text-base text-white/70 hover:text-[#1CA36E] group relative"
+                    >
+                      <span className="relative">
+                        DeFi
+                        <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-gradient-to-r from-[#1CA36E] to-[#00FFB2] group-hover:w-full transition-all duration-300"></span>
+                      </span>
+                    </Link>
+                  </motion.div>
                 </div>
-            </div>
+              </div>
 
-            <div className="text-center lg:text-left">
-              <h3 className="font-gilroy-bold my-3 sm:my-4 lg:my-5 text-base sm:text-lg">Resources</h3>
-              <div className="flex flex-col space-y-2 sm:space-y-3">
-                <Link to="/blog" className="min-h-[44px] flex items-center justify-center lg:justify-start hover:text-[#1CA36E] transition-colors text-sm sm:text-base">Blog</Link>
-                <Link to="/repositories" className="min-h-[44px] flex items-center justify-center lg:justify-start hover:text-[#1CA36E] transition-colors text-sm sm:text-base">Research Repository</Link>
+              <div className="text-center lg:text-left">
+                <h3 className="font-gilroy-bold my-4 sm:my-5 lg:my-6 text-base sm:text-lg text-white/90 relative inline-block">
+                  About Us
+                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-[#1CA36E] to-transparent"></span>
+                </h3>
+                <div className="flex flex-col space-y-3 sm:space-y-4">
+                  <motion.div whileHover={{ x: 4 }} transition={{ type: "spring", stiffness: 300 }}>
+                    <Link
+                      to="/about"
+                      className="min-h-[44px] flex items-center justify-center lg:justify-start hover:text-[#1CA36E] transition-all duration-300 text-sm sm:text-base text-white/70 hover:text-[#1CA36E] group relative"
+                    >
+                      <span className="relative">
+                        About
+                        <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-gradient-to-r from-[#1CA36E] to-[#00FFB2] group-hover:w-full transition-all duration-300"></span>
+                      </span>
+                    </Link>
+                  </motion.div>
+                  <motion.div whileHover={{ x: 4 }} transition={{ type: "spring", stiffness: 300 }}>
+                    <Link 
+                      to="/entities" 
+                      className="min-h-[44px] flex items-center justify-center lg:justify-start hover:text-[#1CA36E] transition-all duration-300 text-sm sm:text-base text-white/70 hover:text-[#1CA36E] group relative"
+                    >
+                      <span className="relative">
+                        Entities
+                        <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-gradient-to-r from-[#1CA36E] to-[#00FFB2] group-hover:w-full transition-all duration-300"></span>
+                      </span>
+                    </Link>
+                  </motion.div>
+                  <motion.div whileHover={{ x: 4 }} transition={{ type: "spring", stiffness: 300 }}>
+                    <Link 
+                      to="/partnerships" 
+                      className="min-h-[44px] flex items-center justify-center lg:justify-start hover:text-[#1CA36E] transition-all duration-300 text-sm sm:text-base text-white/70 hover:text-[#1CA36E] group relative"
+                    >
+                      <span className="relative">
+                        Partnerships
+                        <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-gradient-to-r from-[#1CA36E] to-[#00FFB2] group-hover:w-full transition-all duration-300"></span>
+                      </span>
+                    </Link>
+                  </motion.div>
+                </div>
+              </div>
+
+              <div className="text-center lg:text-left">
+                <h3 className="font-gilroy-bold my-4 sm:my-5 lg:my-6 text-base sm:text-lg text-white/90 relative inline-block">
+                  Resources
+                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-[#1CA36E] to-transparent"></span>
+                </h3>
+                <div className="flex flex-col space-y-3 sm:space-y-4">
+                  <motion.div whileHover={{ x: 4 }} transition={{ type: "spring", stiffness: 300 }}>
+                    <Link 
+                      to="/blog" 
+                      className="min-h-[44px] flex items-center justify-center lg:justify-start hover:text-[#1CA36E] transition-all duration-300 text-sm sm:text-base text-white/70 hover:text-[#1CA36E] group relative"
+                    >
+                      <span className="relative">
+                        Blog
+                        <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-gradient-to-r from-[#1CA36E] to-[#00FFB2] group-hover:w-full transition-all duration-300"></span>
+                      </span>
+                    </Link>
+                  </motion.div>
+                  <motion.div whileHover={{ x: 4 }} transition={{ type: "spring", stiffness: 300 }}>
+                    <Link 
+                      to="/repositories" 
+                      className="min-h-[44px] flex items-center justify-center lg:justify-start hover:text-[#1CA36E] transition-all duration-300 text-sm sm:text-base text-white/70 hover:text-[#1CA36E] group relative"
+                    >
+                      <span className="relative">
+                        Research Repository
+                        <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-gradient-to-r from-[#1CA36E] to-[#00FFB2] group-hover:w-full transition-all duration-300"></span>
+                      </span>
+                    </Link>
+                  </motion.div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div className="w-full mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-[#333]">
-          <p className="text-center text-[#D5D5D5] font-gilroy-bold text-sm sm:text-base lg:text-lg mb-4">
-            Institutional DeFi. Enterprise Standards.
-          </p>
-          <p className="text-center text-[#D5D5D5] text-xs sm:text-sm lg:text-base">
-            Sereel 2025, All Rights Reserved. Sereel Technologies, Inc.
-          </p>
+          <div className="w-full mt-10 sm:mt-12 pt-8 sm:pt-10 border-t border-white/10 relative">
+            <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-[#1CA36E]/50 to-transparent"></div>
+            <motion.p 
+              initial={{ opacity: 0.7 }}
+              whileHover={{ opacity: 1 }}
+              className="text-center text-white/80 font-gilroy-bold text-sm sm:text-base lg:text-lg mb-5 bg-gradient-to-r from-white/70 via-[#1CA36E]/70 to-white/70 bg-clip-text text-transparent"
+            >
+              Institutional DeFi. Enterprise Standards.
+            </motion.p>
+            <p className="text-center text-white/50 text-xs sm:text-sm lg:text-base font-gilroy">
+              Sereel 2025, All Rights Reserved. Sereel Technologies, Inc.
+            </p>
+          </div>
         </div>
       </div>
     </footer>
