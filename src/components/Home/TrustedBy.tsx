@@ -7,7 +7,7 @@ interface Partner {
   name: string;
   website: string;
   description: string;
-  logoPlaceholder: string;
+  logo: string;
 }
 
 export const TrustedBy = () => {
@@ -15,23 +15,20 @@ export const TrustedBy = () => {
     {
       name: "Future Wealth Group",
       website: "futurewealthgroup.ch",
-      description:
-        "Swiss-based investment group empowering global investments across tokenized assets and sustainable finance.",
-      logoPlaceholder: "FWG",
+      description: "Swiss-based investment group empowering global investments.",
+      logo: "/images/partners/future-wealth-group-logo.jpg",
     },
     {
       name: "GrowTokens",
       website: "growtokens.io",
-      description:
-        "Impact-driven ESG investment platform tokenizing solar energy projects powering African communities. Making sustainable energy investments accessible, transparent, and scalable.",
-      logoPlaceholder: "GT",
+      description: "Impact-driven ESG investment platform tokenizing solar energy projects.",
+      logo: "/images/partners/growtokens-logo.jpg",
     },
     {
       name: "Future Energy Global",
       website: "fe.global",
-      description:
-        "Accelerating sustainable aviation fuel (SAF) markets through innovative financial ecosystems. Operating at the intersection of climate and capital—integrity led, profit driven. Backed by Aviation Partners.",
-      logoPlaceholder: "FEG",
+      description: "Accelerating sustainable aviation fuel markets through innovative financial ecosystems.",
+      logo: "/images/partners/future-energy-global-logo.jpg",
     },
   ];
 
@@ -62,34 +59,34 @@ export const TrustedBy = () => {
               delay={index * 0.1}
             >
               <motion.div
-                className="w-full h-24 sm:h-32 flex items-center justify-center mb-6 rounded-lg overflow-hidden"
-                whileHover={{ scale: 1.05 }}
+                className="w-full h-32 sm:h-40 flex items-center justify-center mb-6 rounded-lg overflow-hidden bg-white/5 p-4"
+                whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <motion.div
-                  className="text-4xl sm:text-5xl font-gilroy-bold transition-all duration-300 grayscale group-hover:grayscale-0"
-                  style={{ color: "#1CA36E" }}
-                >
-                  {partner.logoPlaceholder}
-                </motion.div>
+                <img
+                  src={partner.logo}
+                  alt={`${partner.name} logo`}
+                  className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+                />
               </motion.div>
 
-              <div className="flex-1 flex flex-col">
-                <h3 className="font-gilroy-bold text-xl sm:text-2xl mb-2 text-white">
+              <div className="flex-1 flex flex-col space-y-3">
+                <h3 className="font-gilroy-bold text-xl sm:text-2xl text-white">
                   {partner.name}
                 </h3>
+                
                 <motion.a
                   href={`https://${partner.website}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#1CA36E] text-sm sm:text-base mb-4 hover:underline inline-flex items-center gap-1"
+                  className="text-[#1CA36E] text-sm sm:text-base hover:underline inline-flex items-center gap-1.5 font-medium"
                   whileHover={{ x: 5 }}
                   transition={{ duration: 0.2 }}
                 >
                   {partner.website}
                   <svg
-                    width="12"
-                    height="12"
+                    width="14"
+                    height="14"
                     viewBox="0 0 12 12"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -104,7 +101,8 @@ export const TrustedBy = () => {
                     />
                   </svg>
                 </motion.a>
-                <p className="text-[#D5D5D5] text-sm sm:text-base leading-relaxed">
+
+                <p className="text-[#D5D5D5] text-sm leading-relaxed">
                   {partner.description}
                 </p>
               </div>
