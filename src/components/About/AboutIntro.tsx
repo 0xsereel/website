@@ -78,7 +78,7 @@ export default function AboutIntro() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              Sereel delivers the complete institutional stack: from secure wallet infrastructure and compliant tokenization engines to market connectivity and strategic advisory. We operate where traditional finance meets digital assets—enabling institutions to tokenize, custody, and trade any asset class across any blockchain network.
+              Sereel's RWA tokenization platform delivers institutional tokenization infrastructure with security token issuance, CMTA tokenization, and enterprise digital asset custody. Our bond tokenization platform supports Regulation S/D token issuance with multi-chain tokenization across Canton Network. We provide institutional DeFi infrastructure for real world asset tokenization, private credit tokenization, treasury tokenization, stablecoin issuance platform capabilities, and tokenized securities platform solutions—enabling institutions to tokenize, custody, and trade any asset class across any blockchain network.
             </motion.p>
 
             <motion.div

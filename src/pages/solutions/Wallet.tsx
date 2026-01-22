@@ -25,7 +25,7 @@ export const Wallet = () => {
   const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
   useEffect(() => {
-    document.title = "Sereel Wallet - Custody Solutions";
+    document.title = "Enterprise Digital Asset Custody | Institutional DeFi Infrastructure - Sereel Wallet";
     
     let metaDescription = document.querySelector('meta[name="description"]');
     if (!metaDescription) {
@@ -33,7 +33,15 @@ export const Wallet = () => {
       metaDescription.setAttribute('name', 'description');
       document.head.appendChild(metaDescription);
     }
-    metaDescription.setAttribute('content', 'Enterprise EOA wallets and multi-signature solutions with Shamir Secret Sharing recovery. Built for institutional security requirements and regulatory compliance.');
+    metaDescription.setAttribute('content', 'Enterprise digital asset custody with institutional DeFi infrastructure. Multi-signature solutions for institutional tokenization infrastructure. Built for security token issuance, RWA tokenization platform, and Canton Network tokenization.');
+    
+    let metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (!metaKeywords) {
+      metaKeywords = document.createElement('meta');
+      metaKeywords.setAttribute('name', 'keywords');
+      document.head.appendChild(metaKeywords);
+    }
+    metaKeywords.setAttribute('content', 'enterprise digital asset custody, institutional DeFi infrastructure, institutional tokenization infrastructure, RWA tokenization platform, Canton Network tokenization, security token issuance, tokenized securities platform');
   }, []);
 
   return (
@@ -68,7 +76,7 @@ export const Wallet = () => {
             className="text-5xl font-gilroy-bold text-white mb-4"
             whileHover={{ scale: 1.05 }}
           >
-            Sereel Wallet
+            Enterprise Digital Asset Custody & Institutional DeFi Infrastructure
           </motion.h1>
           <motion.p 
             className="text-xl text-[#D5D5D5] max-w-2xl mx-auto"
@@ -76,7 +84,7 @@ export const Wallet = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            An institutional wallet with native <span className="text-[#1CA36E] font-semibold">ISO20022 compliance</span>
+            Institutional tokenization infrastructure with <span className="text-[#1CA36E] font-semibold">enterprise digital asset custody</span> for RWA tokenization platform and Canton Network tokenization
           </motion.p>
         </motion.div>
       </motion.div>
@@ -122,8 +130,8 @@ const TradFiToDeFiAnimation = () => {
       transition={{ duration: 0.8 }}
     >
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-gilroy-bold mb-4">Traditional Finance → DeFi</h2>
-        <p className="text-[#D5D5D5] text-lg">Watch how Sereel transforms institutional finance</p>
+        <h2 className="text-4xl font-gilroy-bold mb-4">Institutional DeFi Infrastructure for Enterprise Digital Asset Custody</h2>
+        <p className="text-[#D5D5D5] text-lg">Institutional tokenization infrastructure powering security token issuance and tokenized securities platform</p>
       </div>
 
       <div className="grid lg:grid-cols-3 gap-8">
@@ -332,9 +340,9 @@ const CTASection = () => {
         boxShadow: "0 0 40px rgba(28, 163, 110, 0.3)"
       }}
     >
-      <h2 className="text-3xl font-gilroy-bold mb-4">Ready to Transform Your Institution?</h2>
+      <h2 className="text-3xl font-gilroy-bold mb-4">Deploy Enterprise Digital Asset Custody Today</h2>
       <p className="text-[#D5D5D5] text-lg mb-8 max-w-2xl mx-auto">
-        Join leading financial institutions already leveraging Sereel's institutional-grade DeFi infrastructure.
+        Join leading institutions using our RWA tokenization platform with institutional DeFi infrastructure, CMTA tokenization, and Canton Network tokenization for security token issuance.
       </p>
       <motion.div
         className="flex justify-center"

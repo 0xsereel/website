@@ -39,7 +39,7 @@ export const ClientSegments = () => {
       ),
       title: "For Fund Managers",
       description:
-        "Tokenize fund shares for broader distribution. Automate NAV calculations and dividend distributions. Enable 24/7 subscriptions and redemptions with programmable compliance.",
+        "Private credit tokenization and treasury tokenization with our RWA tokenization platform. Security token issuance with CMTA tokenization. Automate NAV calculations and dividend distributions. Enable 24/7 subscriptions with institutional tokenization infrastructure.",
     },
     {
       icon: (
@@ -68,7 +68,7 @@ export const ClientSegments = () => {
       ),
       title: "For Stock Exchanges",
       description:
-        "Launch digital asset trading venues. Integrate tokenized securities with existing market infrastructure. Enable T+0 settlement and around-the-clock trading.",
+        "Launch tokenized securities platform with bond tokenization platform capabilities. Security token issuance with multi-chain tokenization and Canton Network integration. Enable T+0 settlement with institutional DeFi infrastructure.",
     },
     {
       icon: (
@@ -133,7 +133,7 @@ export const ClientSegments = () => {
       ),
       title: "For Banks",
       description:
-        "Offer tokenization-as-a-service to corporate clients. Launch digital bond programs. Enable blockchain-based corporate treasury solutions for your institutional clients.",
+        "Offer RWA tokenization platform as-a-service with institutional tokenization infrastructure. Bond tokenization platform for Regulation S/D token issuance. Enterprise digital asset custody with CMTA tokenization and stablecoin issuance platform capabilities.",
     },
     {
       icon: (
@@ -176,7 +176,7 @@ export const ClientSegments = () => {
       ),
       title: "For Family Offices",
       description:
-        "Access tokenized alternatives and private credit. Manage multi-generational wealth with institutional-grade custody. Enable fractional ownership of illiquid assets.",
+        "Private credit tokenization and real world asset tokenization with enterprise digital asset custody. Access tokenized securities platform for treasury tokenization. Multi-chain tokenization with institutional DeFi infrastructure and Canton Network integration.",
     },
   ];
 
@@ -202,7 +202,7 @@ export const ClientSegments = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Purpose-built solutions for institutional market participants
+            RWA tokenization platform with institutional tokenization infrastructure, security token issuance, bond tokenization platform, and enterprise digital asset custody for institutional market participants
           </motion.p>
         </AnimatedSection>
 

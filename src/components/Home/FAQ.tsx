@@ -137,8 +137,7 @@ export const FAQ = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Get answers to common questions about institutional DeFi and the
-            Sereel Protocol
+            Get answers to common questions about RWA tokenization platform, institutional tokenization infrastructure, security token issuance, CMTA tokenization, and Canton Network integration
           </motion.p>
         </AnimatedSection>
 
@@ -226,8 +225,7 @@ export const FAQ = () => {
               Still Have Questions?
             </motion.h4>
             <p className="text-[#D5D5D5] mb-6 max-w-2xl mx-auto">
-              Our team is ready to help you understand how Sereel can transform
-              your institution's approach to DeFi
+              Our team is ready to help you deploy RWA tokenization platform with institutional DeFi infrastructure, security token issuance, enterprise digital asset custody, and Canton Network tokenization
             </p>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <motion.a

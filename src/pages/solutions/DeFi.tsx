@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { Header } from "../../components/Header/Header";
 import { MobileMenu } from "../../components/Header/MobileMenu";
@@ -14,6 +14,26 @@ export default function DeFi() {
   });
 
   const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
+
+  useEffect(() => {
+    document.title = "Institutional DeFi Infrastructure | Canton Network Tokenization - Sereel Protocol";
+    
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement('meta');
+      metaDescription.setAttribute('name', 'description');
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.setAttribute('content', 'Institutional DeFi infrastructure with Canton Network tokenization. Multi-chain tokenization for RWA tokenization platform, security token issuance, and enterprise digital asset custody. CMTA tokenization for institutional tokenization infrastructure.');
+    
+    let metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (!metaKeywords) {
+      metaKeywords = document.createElement('meta');
+      metaKeywords.setAttribute('name', 'keywords');
+      document.head.appendChild(metaKeywords);
+    }
+    metaKeywords.setAttribute('content', 'institutional DeFi infrastructure, Canton Network tokenization, multi-chain tokenization, RWA tokenization platform, security token issuance, enterprise digital asset custody, CMTA tokenization, institutional tokenization infrastructure, tokenized securities platform');
+  }, []);
 
   return (
     <div className="w-full min-h-screen bg-black text-white" ref={containerRef}>
@@ -48,7 +68,7 @@ export default function DeFi() {
             className="text-6xl font-bold text-white mb-6"
             whileHover={{ scale: 1.05 }}
           >
-            Sereel Protocol
+            Institutional DeFi Infrastructure & Canton Network Tokenization
           </motion.h1>
           <motion.p
             className="text-2xl text-[#D5D5D5] mb-8"
@@ -56,11 +76,11 @@ export default function DeFi() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Institutional{" "}
+            Multi-chain tokenization with{" "}
             <span className="text-[#1CA36E] font-semibold">
-              DeFi Infrastructure
+              RWA tokenization platform
             </span>{" "}
-            for the next generation of finance
+            for security token issuance, CMTA tokenization, and enterprise digital asset custody
           </motion.p>
           <motion.div
             className="flex justify-center gap-8 text-lg"
@@ -117,10 +137,10 @@ const YieldComparisonSection = () => {
     >
       <div className="text-center mb-16">
         <h2 className="text-5xl font-bold mb-6">
-          Traditional Finance vs. Sereel DeFi
+          Institutional Tokenization Infrastructure vs. Traditional Finance
         </h2>
         <p className="text-[#D5D5D5] text-xl">
-          Experience the next evolution in institutional finance
+          RWA tokenization platform with institutional DeFi infrastructure for security token issuance
         </p>
       </div>
 
@@ -207,10 +227,10 @@ const YieldComparisonSection = () => {
               </div>
               <div>
                 <h3 className="text-2xl font-bold text-[#1CA36E]">
-                  Sereel Protocol
+                  Institutional DeFi Infrastructure
                 </h3>
                 <p className="text-[#D5D5D5]">
-                  Next-generation DeFi infrastructure
+                  Canton Network tokenization with multi-chain tokenization
                 </p>
               </div>
             </div>
@@ -308,9 +328,9 @@ const ThreeModuleEcosystem = () => {
       viewport={{ once: true }}
     >
       <div className="text-center mb-16">
-        <h2 className="text-5xl font-bold mb-6">Three-Module Vaults</h2>
+        <h2 className="text-5xl font-bold mb-6">Enterprise Digital Asset Custody with Tokenized Securities Platform</h2>
         <p className="text-[#D5D5D5] text-xl">
-          Efficient liquidity utility across three primitives
+          CMTA tokenization for institutional tokenization infrastructure and bond tokenization platform
         </p>
       </div>
 
@@ -481,11 +501,10 @@ const CTASection = () => {
           }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         >
-          Ready to Experience Institutional DeFi?
+          Deploy Institutional DeFi Infrastructure Today
         </motion.h2>
         <p className="text-[#D5D5D5] text-xl mb-8 max-w-3xl mx-auto">
-          Join leading institutions already leveraging the Sereel Protocol for
-          next-generation yield optimization and compliance-ready DeFi access.
+          Join leading institutions using our RWA tokenization platform with Canton Network tokenization, multi-chain tokenization, security token issuance, CMTA tokenization, and enterprise digital asset custody for institutional tokenization infrastructure.
         </p>
         <div className="flex justify-center gap-6">
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>

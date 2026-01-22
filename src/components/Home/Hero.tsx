@@ -61,7 +61,7 @@ export const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Institutional-Grade Digital Asset Infrastructure
+            RWA Tokenization Platform & Institutional Tokenization Infrastructure
           </motion.h1>
 
           <motion.p
@@ -70,7 +70,7 @@ export const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            End-to-end tokenization, custody, and market infrastructure for asset managers, banks, exchanges, and family offices. Built for regulatory compliance. Designed for scale.
+            Enterprise digital asset custody, security token issuance, and CMTA tokenization infrastructure. Bond tokenization platform with Regulation S/D compliance. Multi-chain tokenization across Canton Network and institutional DeFi infrastructure for real world asset tokenization, private credit tokenization, treasury tokenization, and stablecoin issuance.
           </motion.p>
 
           <motion.div

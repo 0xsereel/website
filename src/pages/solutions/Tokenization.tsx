@@ -26,7 +26,7 @@ export const Tokenization = () => {
   const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
   useEffect(() => {
-    document.title = "Asset Tokenization - Sereel";
+    document.title = "Security Token Issuance | CMTA Tokenization | Bond Tokenization Platform - Sereel";
     
     let metaDescription = document.querySelector('meta[name="description"]');
     if (!metaDescription) {
@@ -34,7 +34,15 @@ export const Tokenization = () => {
       metaDescription.setAttribute('name', 'description');
       document.head.appendChild(metaDescription);
     }
-    metaDescription.setAttribute('content', 'Deploy security tokens across Ethereum, Solana, IOTA, Starknet, and Canton Network using the CMTA standard. Tokenize bonds, securities, stablecoins, and private credit compliantly.');
+    metaDescription.setAttribute('content', 'Security token issuance with CMTA tokenization and bond tokenization platform. Multi-chain tokenization for real world asset tokenization, private credit tokenization, treasury tokenization, and stablecoin issuance. Regulation S/D token issuance across Canton Network with institutional DeFi infrastructure.');
+    
+    let metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (!metaKeywords) {
+      metaKeywords = document.createElement('meta');
+      metaKeywords.setAttribute('name', 'keywords');
+      document.head.appendChild(metaKeywords);
+    }
+    metaKeywords.setAttribute('content', 'security token issuance, CMTA tokenization, bond tokenization platform, multi-chain tokenization, real world asset tokenization, private credit tokenization, treasury tokenization, stablecoin issuance platform, Regulation S token issuance, Regulation D token issuance, Canton Network tokenization, tokenized securities platform');
   }, []);
 
   return (
@@ -70,7 +78,7 @@ export const Tokenization = () => {
             className="text-5xl font-gilroy-bold text-white mb-4"
             whileHover={{ scale: 1.05 }}
           >
-            Asset Tokenization
+            Security Token Issuance & CMTA Tokenization Platform
           </motion.h1>
           <motion.p 
             className="text-xl text-[#D5D5D5] max-w-2xl mx-auto"
@@ -78,7 +86,7 @@ export const Tokenization = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Transform real-world assets into <span className="text-[#1CA36E] font-semibold">liquid, tradable tokens</span> with zkTLS-powered verification
+            Bond tokenization platform for real world asset tokenization with <span className="text-[#1CA36E] font-semibold">multi-chain tokenization</span> across Canton Network. Regulation S/D token issuance for private credit tokenization, treasury tokenization, and stablecoin issuance.
           </motion.p>
         </motion.div>
       </motion.div>
@@ -127,8 +135,8 @@ const AssetTransformationFlow = () => {
       transition={{ duration: 0.8 }}
     >
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-gilroy-bold mb-4">Real-World Assets → Digital Tokens</h2>
-        <p className="text-[#D5D5D5] text-lg">Watch how Sereel transforms traditional assets into liquid blockchain tokens</p>
+        <h2 className="text-4xl font-gilroy-bold mb-4">RWA Tokenization Platform: Real World Asset Tokenization</h2>
+        <p className="text-[#D5D5D5] text-lg">Security token issuance with CMTA tokenization for institutional tokenization infrastructure</p>
       </div>
 
       <div className="grid lg:grid-cols-5 gap-6 items-center">
@@ -517,8 +525,8 @@ const SupportedAssetsGrid = () => {
       viewport={{ once: true }}
     >
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-gilroy-bold mb-4">Supported Assets</h2>
-        <p className="text-[#D5D5D5] text-lg">Tokenize any real-world asset with our universal framework</p>
+        <h2 className="text-4xl font-gilroy-bold mb-4">Bond Tokenization & Tokenized Securities Platform</h2>
+        <p className="text-[#D5D5D5] text-lg">Private credit tokenization, treasury tokenization, and stablecoin issuance platform with Regulation S/D compliance</p>
       </div>
 
       <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6">
@@ -579,8 +587,8 @@ const BenefitsSection = () => {
       viewport={{ once: true }}
     >
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-gilroy-bold mb-4">Why Tokenize with Sereel?</h2>
-        <p className="text-[#D5D5D5] text-lg">Unlock the full potential of your real-world assets</p>
+        <h2 className="text-4xl font-gilroy-bold mb-4">Multi-Chain Tokenization & Canton Network Integration</h2>
+        <p className="text-[#D5D5D5] text-lg">Institutional DeFi infrastructure for enterprise digital asset custody and tokenized securities</p>
       </div>
 
       <div className="grid lg:grid-cols-2 gap-8">
@@ -622,9 +630,9 @@ const CTASection = () => {
         boxShadow: "0 0 40px rgba(28, 163, 110, 0.3)"
       }}
     >
-      <h2 className="text-3xl font-gilroy-bold mb-4">Ready to Tokenize Your Assets?</h2>
+      <h2 className="text-3xl font-gilroy-bold mb-4">Start Your Institutional Tokenization Infrastructure Today</h2>
       <p className="text-[#D5D5D5] text-lg mb-8 max-w-2xl mx-auto">
-        Join the future of asset management with Sereel's institutional-grade tokenization platform.
+        Deploy security token issuance with our RWA tokenization platform. CMTA tokenization, bond tokenization, and enterprise digital asset custody for institutional DeFi infrastructure.
       </p>
       <div className="flex justify-center gap-4">
         <motion.div

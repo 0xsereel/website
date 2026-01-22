@@ -24,10 +24,10 @@ export const CoreProduct = () => {
           />
         </svg>
       ),
-      title: "Enterprise Wallet Infrastructure",
-      headline: "Institutional-Grade Custody & Key Management",
+      title: "Enterprise Digital Asset Custody",
+      headline: "Institutional DeFi Infrastructure & Enterprise Wallet Solutions",
       description:
-        "Enterprise EOA wallets and multisignature solutions engineered for institutional security requirements. Purpose-built for fund managers, family offices, and treasury operations requiring granular access controls and compliance-ready audit trails.",
+        "Enterprise digital asset custody with institutional tokenization infrastructure for RWA tokenization platform and Canton Network tokenization. Purpose-built for security token issuance, bond tokenization platform operations, and institutional DeFi infrastructure requiring granular access controls and compliance-ready audit trails.",
       capabilities: [
         "Enterprise EOA wallets with institutional security architecture",
         "Multi-signature governance with configurable approval workflows",
@@ -54,10 +54,10 @@ export const CoreProduct = () => {
           />
         </svg>
       ),
-      title: "Tokenization Engine",
-      headline: "Multi-Chain Tokenization Built on Open Standards",
+      title: "Security Token Issuance & CMTA Tokenization",
+      headline: "Multi-Chain Tokenization with RWA Tokenization Platform",
       description:
-        "Deploy compliant security tokens across leading blockchain networks using the CMTA standard—the institutional benchmark adopted by major Swiss banks and recognized by Singapore's Project Guardian. Issue once, distribute everywhere.",
+        "Security token issuance with CMTA tokenization across Canton Network and institutional DeFi infrastructure. Our bond tokenization platform enables real world asset tokenization, private credit tokenization, treasury tokenization, and stablecoin issuance platform capabilities with Regulation S/D token issuance. Deploy tokenized securities platform solutions across leading blockchain networks—the institutional benchmark for institutional tokenization infrastructure.",
       capabilities: [],
     },
     {
@@ -92,10 +92,10 @@ export const CoreProduct = () => {
           />
         </svg>
       ),
-      title: "Asset Classes & Regulatory Support",
-      headline: "Tokenize Any Asset. Any Jurisdiction.",
+      title: "Bond Tokenization Platform & Tokenized Securities",
+      headline: "Private Credit Tokenization, Treasury Tokenization, Stablecoin Issuance",
       description:
-        "From government treasuries to private credit, from stablecoins to structured products—we provide the technical and legal frameworks to tokenize assets compliantly across global markets.",
+        "Bond tokenization platform for private credit tokenization, treasury tokenization, and stablecoin issuance platform solutions. Our tokenized securities platform provides real world asset tokenization with Regulation S/D token issuance frameworks across global markets using CMTA tokenization standards for institutional tokenization infrastructure.",
       assetClasses: [
         "Securities & Equity",
         "Bonds & Fixed Income",
@@ -145,10 +145,10 @@ export const CoreProduct = () => {
           />
         </svg>
       ),
-      title: "Market Infrastructure",
-      headline: "Trading, Settlement & Distribution Rails",
+      title: "Canton Network & Multi-Chain Integration",
+      headline: "Canton Network Tokenization with Institutional DeFi Infrastructure",
       description:
-        "Complete market infrastructure for primary issuance, secondary trading, and institutional settlement. Connect tokenized assets to global liquidity through our exchange and clearing house partnerships.",
+        "Multi-chain tokenization with Canton Network integration for institutional DeFi infrastructure. Complete RWA tokenization platform for security token issuance, enterprise digital asset custody, and tokenized securities platform. Connect institutional tokenization infrastructure to global liquidity through our exchange partnerships and CMTA tokenization standards.",
       capabilities: [
         "Primary issuance and distribution infrastructure",
         "Secondary market connectivity",
@@ -179,7 +179,7 @@ export const CoreProduct = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Enterprise-grade infrastructure for tokenizing and managing digital assets
+            RWA tokenization platform with institutional tokenization infrastructure, security token issuance, CMTA tokenization, enterprise digital asset custody, bond tokenization, and Canton Network integration for institutional DeFi infrastructure
           </motion.p>
         </AnimatedSection>
 
