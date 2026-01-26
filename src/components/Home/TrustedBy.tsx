@@ -22,7 +22,7 @@ const logos = [
     url: "https://fe.global/", 
     name: "Future Energy Global"
   },
-];;
+];
 
 export const TrustedBy = () => {
     // const { ref, y } = useParallax(0.3);
