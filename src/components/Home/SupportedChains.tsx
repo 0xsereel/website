@@ -1,4 +1,4 @@
-// src/components/Home/CoreProduct.tsx
+// src/components/Home/SupportedChains.tsx
 import { motion } from "framer-motion";
 import { AnimatedSection } from "../Animation/AnimatedSection";
 // import { AnimatedCard } from "../Animation/AnimatedCard";
@@ -6,14 +6,14 @@ import { GlowingText } from "../Animation/GlowingText";
 // import { useParallax } from "../../hooks/useParallax";
 
 const logos = [
-"/public/images/blog/Arbitrum.png",
-"/public/images/blog/Base.jfif",
-"/public/images/blog/Canton_network.png",
-"/public/images/blog/Ethereum.png",
-"/public/images/blog/Iota.png",
-"/public/images/blog/optimism.png",
-"/public/images/blog/Starknet.png",
-"/public/images/blog/polygon.jfif",
+"/images/blog/Arbitrum.png",
+"/images/blog/Base.jfif",
+"/images/blog/Canton_network.png",
+"/images/blog/Ethereum.png",
+"/images/blog/Iota.png",
+"/images/blog/optimism.png",
+"/images/blog/Starknet.png",
+"/images/blog/polygon.jfif",
 
 
 ];
@@ -65,7 +65,8 @@ export const SupportedChains = () => {
                 duration: 25,
                 ease: "linear",
               }}
-              whileHover={{ animationPlayState: "paused" as never }}
+              whileHover={{ animationPlayState: "paused" }}
+              style={{ animation: "pulse 3s infinite" }}
             >
               {scrollingLogos.map((logo, index) => (
                 <div
@@ -75,7 +76,7 @@ export const SupportedChains = () => {
                   <div className="relative w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 bg-gray-800/50 rounded-2xl overflow-hidden backdrop-blur-sm">
                     <img
                       src={logo}
-                      alt="Trusted company logo"
+                      alt="Supported Chain logo"
                       className="w-full h-full object-cover"
                     />
                   </div>

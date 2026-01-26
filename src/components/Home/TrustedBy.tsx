@@ -1,4 +1,4 @@
-// src/components/Home/CoreProduct.tsx
+// src/components/Home/TrustedBy.tsx
 import { motion } from "framer-motion";
 import { AnimatedSection } from "../Animation/AnimatedSection";
 // import { AnimatedCard } from "../Animation/AnimatedCard";
@@ -6,9 +6,9 @@ import { GlowingText } from "../Animation/GlowingText";
 // import { useParallax } from "../../hooks/useParallax";
 
 const logos = [
-"/public/images/blog/Growtoken.jfif",
-"/public/images/blog/FWG2.jpg",
-"/public/images/blog/future_energy_global_logo.jfif",
+"/images/blog/Growtoken.jfif",
+"/images/blog/FWG2.jpg",
+"/images/blog/future_energy_global_logo.jfif",
 ];
 
 export const TrustedBy = () => {
@@ -45,7 +45,7 @@ export const TrustedBy = () => {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
                 >
-                From fast‑growing startups to global companies, teams trust us to provide secure capital market infrastructure .
+                From fast‑growing startups to global companies, teams trust us to provide secure capital market infrastructure.
             </motion.p> 
                   
           <div className="w-full overflow-hidden relative mt-10 sm:mt-12 lg:mt-14">
@@ -58,7 +58,9 @@ export const TrustedBy = () => {
       duration: 25,
       ease: "linear",
     }}
-    whileHover={{ animationPlayState: "paused" as never }}
+    whileHover={{ animationPlayState: "paused" }}
+    style={{ animation: "pulse 3s infinite" }}
+
   >
     {scrollingLogos.map((logo, index) => (
       <div
