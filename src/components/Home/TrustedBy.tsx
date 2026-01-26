@@ -13,9 +13,6 @@ const logos = [
 
 export const TrustedBy = () => {
     // const { ref, y } = useParallax(0.3);
-    
-    const scrollingLogos = [...logos, ...logos];
-
 
   return (
     <section className="w-full flex items-center justify-center py-12 sm:py-16 lg:py-20 xl:py-24 relative overflow-hidden safe-area-padding">
@@ -48,36 +45,27 @@ export const TrustedBy = () => {
                 From fast‑growing startups to global companies, teams trust us to provide secure capital market infrastructure.
             </motion.p> 
                   
-          <div className="w-full overflow-hidden relative mt-10 sm:mt-12 lg:mt-14">
-  <motion.div
-    className="flex items-center gap-6 sm:gap-10 lg:gap-16"
-    animate={{ x: [0, -1000] }}
-    transition={{
-      repeat: Infinity,
-      repeatType: "loop",
-      duration: 25,
-      ease: "linear",
-    }}
-    whileHover={{ animationPlayState: "paused" }}
-    style={{ animation: "pulse 3s infinite" }}
-
-  >
-    {scrollingLogos.map((logo, index) => (
-      <div
-        key={index}
-        className="flex items-center justify-center min-w-[140px] sm:min-w-[180px] lg:min-w-[220px] opacity-70 hover:opacity-100 transition-opacity"
-      >
-        <div className="relative w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 bg-gray-800/50 rounded-2xl overflow-hidden backdrop-blur-sm">
-          <img
-            src={logo}
-            alt="Trusted company logo"
-            className="w-full h-full object-cover"
-          />
-        </div>
-      </div>
-    ))}
-  </motion.div>
-</div>
+          <div className="w-full flex items-center justify-center gap-6 sm:gap-10 lg:gap-16 mt-10 sm:mt-12 lg:mt-14 flex-wrap">
+            {logos.map((logo, index) => (
+              <motion.div
+                key={index}
+                className="flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 0.7, scale: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ opacity: 1, scale: 1.05 }}
+              >
+                <div className="relative w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 bg-gray-800/50 rounded-2xl overflow-hidden backdrop-blur-sm">
+                  <img
+                    src={logo}
+                    alt="Trusted company logo"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </div>
                       
                   
         </AnimatedSection>
