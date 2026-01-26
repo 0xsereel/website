@@ -5,11 +5,24 @@ import { AnimatedSection } from "../Animation/AnimatedSection";
 import { GlowingText } from "../Animation/GlowingText";
 // import { useParallax } from "../../hooks/useParallax";
 
+
 const logos = [
-"/images/blog/Growtoken.jfif",
-"/images/blog/FWG2.jpg",
-"/images/blog/future_energy_global_logo.jfif",
-];
+  {
+    image: "/images/blog/Growtoken.jfif",
+    url: "https://growtokens.io/", 
+    name: "Growtoken"
+  },
+  {
+    image: "/images/blog/FWG2.jpg",
+    url: "https://futurewealthgroup.ch/", 
+    name: "FWG"
+  },
+  {
+    image: "/images/blog/future_energy_global_logo.jfif",
+    url: "https://fe.global/", 
+    name: "Future Energy Global"
+  },
+];;
 
 export const TrustedBy = () => {
     // const { ref, y } = useParallax(0.3);
@@ -47,8 +60,11 @@ export const TrustedBy = () => {
                   
           <div className="w-full flex items-center justify-center gap-6 sm:gap-10 lg:gap-16 mt-10 sm:mt-12 lg:mt-14 flex-wrap">
             {logos.map((logo, index) => (
-              <motion.div
+              <motion.a
                 key={index}
+                href={logo.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity"
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 0.7, scale: 1 }}
@@ -58,12 +74,12 @@ export const TrustedBy = () => {
               >
                 <div className="relative w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 bg-gray-800/50 rounded-2xl overflow-hidden backdrop-blur-sm">
                   <img
-                    src={logo}
-                    alt="Trusted company logo"
+                    src={logo.image}
+                    alt={logo.name}
                     className="w-full h-full object-cover"
                   />
                 </div>
-              </motion.div>
+              </motion.a>
             ))}
           </div>
                       
