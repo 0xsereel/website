@@ -39,14 +39,12 @@ export const ReadyToTokenize = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button
-                onClick={() => navigate("/contact")}
-                className="px-8 py-4 text-base sm:text-lg"
-              >
-                Schedule Strategic Consultation
-              </Button>
-            </motion.div>
+            <Button
+              onClick={() => navigate("/contact")}
+              className="px-8 py-4 text-base sm:text-lg"
+            >
+              Schedule Strategic Consultation
+            </Button>
           </motion.div>
         </AnimatedSection>
       </div>

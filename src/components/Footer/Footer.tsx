@@ -13,7 +13,7 @@ export const Footer = () => {
               <h3 className="text-lg sm:text-xl lg:text-2xl font-gilroy-bold">Sereel</h3>
             </Link>
             <p className="text-[#1CA36E] text-sm sm:text-base font-gilroy-medium italic mt-2">
-              Institutional DeFi. Enterprise Standards.
+              Institutional-Grade Infrastructure. Enterprise Standards.
             </p>
           </div>
 

@@ -233,6 +233,7 @@ export const CoreProduct = () => {
               </div>
 
               <motion.button
+                type="button"
                 onClick={() => navigate("/contact")}
                 className="text-[#1CA36E] text-sm font-medium hover:text-white transition-colors duration-300 flex items-center gap-2 group"
                 whileHover={{ x: 5 }}
