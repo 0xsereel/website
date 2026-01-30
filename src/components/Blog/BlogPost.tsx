@@ -144,17 +144,15 @@ export const BlogPost = () => {
           {/* Featured Image */}
           <motion.div
             className="mb-12"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
           >
             <motion.div
               className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#1CA36E]/10 to-white/5 border border-[#202026]"
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
             >
               {!imageLoaded && (
                 <motion.div
@@ -187,17 +185,15 @@ export const BlogPost = () => {
           {/* Article Content */}
           <motion.div
             className="blog-content"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
           >
             <motion.div
               className="prose prose-lg max-w-none w-full"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
             >
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
@@ -218,10 +214,6 @@ export const BlogPost = () => {
                   h1: ({ children }) => (
                     <motion.h1
                       className="text-4xl font-gilroy-bold mb-6 mt-8 text-white"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.8 }}
-                      viewport={{ once: true }}
                       whileHover={{ 
                         textShadow: "0 0 20px rgba(28, 163, 110, 0.8)",
                         color: "#1CA36E"
@@ -233,10 +225,6 @@ export const BlogPost = () => {
                   h2: ({ children }) => (
                     <motion.h2
                       className="text-3xl font-gilroy-bold mb-4 mt-8 text-white"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.8 }}
-                      viewport={{ once: true }}
                       whileHover={{ 
                         textShadow: "0 0 20px rgba(28, 163, 110, 0.8)",
                         color: "#1CA36E"
@@ -248,10 +236,6 @@ export const BlogPost = () => {
                   h3: ({ children }) => (
                     <motion.h3
                       className="text-2xl font-gilroy-bold mb-3 mt-6 text-white"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.8 }}
-                      viewport={{ once: true }}
                       whileHover={{ 
                         textShadow: "0 0 20px rgba(28, 163, 110, 0.8)",
                         color: "#1CA36E"
@@ -261,56 +245,36 @@ export const BlogPost = () => {
                     </motion.h3>
                   ),
                   p: ({ children }) => (
-                    <motion.p
+                    <p
                       className="text-[#D5D5D5] mb-4 leading-relaxed"
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6 }}
-                      viewport={{ once: true }}
                     >
                       {children}
-                    </motion.p>
+                    </p>
                   ),
                   ul: ({ children }) => (
-                    <motion.ul
+                    <ul
                       className="list-disc pl-6 mb-4 space-y-2"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.8 }}
-                      viewport={{ once: true }}
                     >
                       {children}
-                    </motion.ul>
+                    </ul>
                   ),
                   ol: ({ children }) => (
-                    <motion.ol
+                    <ol
                       className="list-decimal pl-6 mb-4 space-y-2"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.8 }}
-                      viewport={{ once: true }}
                     >
                       {children}
-                    </motion.ol>
+                    </ol>
                   ),
                   li: ({ children }) => (
-                    <motion.li
+                    <li
                       className="text-[#D5D5D5]"
-                      initial={{ opacity: 0, x: -10 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6 }}
-                      viewport={{ once: true }}
                     >
                       {children}
-                    </motion.li>
+                    </li>
                   ),
                   blockquote: ({ children }) => (
                     <motion.blockquote
                       className="border-l-4 border-[#1CA36E] pl-4 italic text-[#1CA36E] bg-[#1CA36E]/5 p-4 rounded-r-lg my-6"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.8 }}
-                      viewport={{ once: true }}
                       whileHover={{ 
                         backgroundColor: "rgba(28, 163, 110, 0.1)",
                         borderColor: "#00FFB2"
@@ -356,10 +320,9 @@ export const BlogPost = () => {
           {/* Back to Blog Button */}
           <motion.div
             className="mt-12 text-center"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
           >
             <motion.a
               href="/blog"
