@@ -5,7 +5,7 @@ import { GlowingText } from "../Animation/GlowingText";
 
 export default function AboutHero() {
   return (
-    <div className="w-full min-h-screen bg-black text-white">
+    <div className="w-full bg-black text-white">
       <Header />
       <div className="pt-20"></div>
         {/* Enhanced Hero Section */}
