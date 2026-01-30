@@ -30,9 +30,9 @@ export const CoreProduct = () => {
       title: "Enterprise Wallet Infrastructure",
       subtitle: "Institutional-Grade Custody & Key Management",
       description:
-        "Enterprise EOA wallets and multisignature solutions engineered for institutional security requirements.",
+        "Enterprise EOA and custodied wallets engineered for institutional security requirements.",
       capabilities: [
-        "Enterprise EOA wallets with institutional security",
+        "Enterprise EOA and custodied wallets with institutional security",
         "Multi-signature governance with approval workflows",
         "Shamir Secret Sharing for distributed key recovery",
         "Complete audit trails and compliance reporting",

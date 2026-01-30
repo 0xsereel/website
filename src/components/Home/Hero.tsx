@@ -131,7 +131,7 @@ export const Hero = () => {
           </motion.div>
 
           {/* Market stats banner */}
-          <motion.div
+          {/* <motion.div
             className="mt-6 sm:mt-8 lg:mt-12 flex flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 md:gap-8 lg:gap-10"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -153,10 +153,10 @@ export const Hero = () => {
               whileHover={{ scale: 1.05 }}
             >
               <div className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-gilroy-bold text-[#1CA36E]">
-                40+
+                5+
               </div>
               <div className="text-xs sm:text-sm text-[#969696] leading-tight mt-1">
-                CMTA Members
+                Chain Ecosystems
               </div>
             </motion.div>
             <motion.div
@@ -170,7 +170,7 @@ export const Hero = () => {
                 Settlement
               </div>
             </motion.div>
-          </motion.div>
+          </motion.div> */}
         </motion.div>
 
         {/* Right side - Logo area - properly hidden on mobile/medium */}

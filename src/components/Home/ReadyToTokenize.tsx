@@ -47,15 +47,6 @@ export const ReadyToTokenize = () => {
                 Schedule Strategic Consultation
               </Button>
             </motion.div>
-
-            <motion.button
-              onClick={() => navigate("/repositories")}
-              className="px-8 py-4 text-base sm:text-lg border border-[#1CA36E] text-[#1CA36E] rounded-full hover:bg-[#1CA36E]/10 transition-all duration-300"
-              whileHover={{ scale: 1.05, backgroundColor: "rgba(28, 163, 110, 0.1)" }}
-              whileTap={{ scale: 0.95 }}
-            >
-              View Documentation
-            </motion.button>
           </motion.div>
         </AnimatedSection>
       </div>
