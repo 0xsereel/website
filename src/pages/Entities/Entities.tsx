@@ -15,14 +15,17 @@ export const Entities = () => {
     {
       name: "Seree Technologies, Inc.",
       location: "Delaware, USA",
-      icon: "🏢",
       color: "from-blue-500/10 to-cyan-500/10",
     },
     {
       name: "Sereel Technologies Botswana",
       location: "Gaborone, Botswana",
-      icon: "🌍",
       color: "from-[#1CA36E]/10 to-green-500/10",
+    },
+    {
+      name: "Sereel Technologies Kenya",
+      location: "Nairobi, Kenya",
+      color: "from-green-500/10 to-teal-500/10",
     },
   ];
 
@@ -86,7 +89,7 @@ export const Entities = () => {
             </p>
           </AnimatedSection>
 
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {entities.map((entity, index) => (
               <AnimatedCard
                 key={index}
@@ -100,16 +103,12 @@ export const Entities = () => {
                 />
 
                 <div className="relative z-10">
-                  <motion.div className="text-6xl mb-6">
-                    {entity.icon}
-                  </motion.div>
-
                   <h3 className="text-2xl font-gilroy-bold mb-2 text-[#1CA36E] group-hover:text-white transition-colors duration-300">
                     {entity.name}
                   </h3>
 
                   <p className="text-[#969696] mb-6 group-hover:text-[#D5D5D5] transition-colors duration-300">
-                    📍 {entity.location}
+                    {entity.location}
                   </p>
                 </div>
               </AnimatedCard>

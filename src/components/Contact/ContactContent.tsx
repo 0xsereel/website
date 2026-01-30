@@ -466,7 +466,7 @@ export const ContactContent = () => {
                     </motion.div>
                     <div>
                       <p className="text-[#969696] text-sm mb-1">Visit us in</p>
-                      <p className="text-white text-lg font-gilroy-medium">Kigali, Rwanda</p>
+                      <p className="text-white text-lg font-gilroy-medium">Nairobi, Kenya</p>
                     </div>
                   </motion.div>
                 </div>

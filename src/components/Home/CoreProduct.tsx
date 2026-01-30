@@ -3,12 +3,12 @@ import { motion } from "framer-motion";
 import { AnimatedSection } from "../Animation/AnimatedSection";
 import { AnimatedCard } from "../Animation/AnimatedCard";
 import { GlowingText } from "../Animation/GlowingText";
-// import { useParallax } from "../../hooks/useParallax";
+import { useNavigate } from "react-router-dom";
 
 export const CoreProduct = () => {
-  // const { ref, y } = useParallax(0.3);
+  const navigate = useNavigate();
 
-  const products = [
+  const pillars = [
     {
       icon: (
         <svg
@@ -27,13 +27,16 @@ export const CoreProduct = () => {
           />
         </svg>
       ),
-      title: "Noncustodial Wallet Service",
+      title: "Enterprise Wallet Infrastructure",
+      subtitle: "Institutional-Grade Custody & Key Management",
       description:
-        "Your assets are protected with Smart Accounts with Multi-Factor Authentication. Secure, self-custodied, and enterprise-ready.",
-      features: [
-        "ERC-4337 Smart Accounts",
-        "WebAuthn Integration",
-        "ISO20022 Compliance",
+        "Enterprise EOA and custodied wallets engineered for institutional security requirements.",
+      capabilities: [
+        "Enterprise EOA and custodied wallets with institutional security",
+        "Multi-signature governance with approval workflows",
+        "Shamir Secret Sharing for distributed key recovery",
+        "Complete audit trails and compliance reporting",
+        "Role-based access control for treasury operations",
       ],
     },
     {
@@ -54,13 +57,46 @@ export const CoreProduct = () => {
           />
         </svg>
       ),
-      title: "Asset Tokenization Service",
+      title: "Tokenization Engine",
+      subtitle: "Multi-Chain Tokenization Built on Open Standards",
       description:
-        "Convert fiat, bonds, and other assets into liquid, tradable tokens with zkTLS-powered verification.",
-      features: [
-        "zkTLS Verification",
-        "Instant Liquidity",
-        "90% Cost Reduction",
+        "Deploy compliant security tokens using the CMTA standard—the institutional benchmark adopted by major Swiss banks.",
+      capabilities: [
+        "EVM Chains: Ethereum, Arbitrum, Base, Polygon, Optimism",
+        "Non-EVM: Solana, IOTA, Starknet",
+        "Enterprise: Canton Network (privacy-preserving)",
+        "Interoperability: Chainlink CCIP integration",
+        "CMTA-compliant tokenization (CMTAT & ERC3643)",
+      ],
+    },
+    {
+      icon: (
+        <svg
+          width="24"
+          height="25"
+          viewBox="0 0 24 25"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 3.8H21M3 9.8H21M3 15.8H21M3 21.8H21"
+            stroke="white"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      ),
+      title: "Asset Classes & Regulatory Support",
+      subtitle: "Tokenize Any Asset. Any Jurisdiction.",
+      description:
+        "Technical and legal frameworks to tokenize assets compliantly across global markets.",
+      capabilities: [
+        "Securities & Equity, Bonds & Fixed Income",
+        "Private Credit, Stablecoins, Utility Tokens",
+        "Regulation S (Non-US Offerings)",
+        "Regulation D (Accredited US Investors)",
+        "MiCA-Ready, Swiss DLT, Singapore MAS Guidelines",
       ],
     },
     {
@@ -95,26 +131,22 @@ export const CoreProduct = () => {
           />
         </svg>
       ),
-      title: "Sereel Protocol",
+      title: "Market Infrastructure",
+      subtitle: "Trading, Settlement & Distribution Rails",
       description:
-        "Institutional DeFi infrastructure.",
-      features: [
-        "AMM + Lending + Options",
-        "ERC-3643 Compliant",
-        "Risk Management",
+        "Complete market infrastructure for primary issuance, secondary trading, and institutional settlement.",
+      capabilities: [
+        "Primary issuance and distribution infrastructure",
+        "Secondary market connectivity",
+        "T+0 settlement capabilities",
+        "Institutional custody integrations",
+        "OTC and exchange connectivity",
       ],
     },
   ];
 
   return (
     <section className="w-full flex items-center justify-center py-12 sm:py-16 lg:py-20 xl:py-24 relative overflow-hidden safe-area-padding">
-      {/* Parallax Background */}
-      {/* <motion.div
-        ref={ref}
-        className="absolute inset-0 bg-gradient-to-br from-[#1CA36E]/5 via-transparent to-[#1CA36E]/10"
-        style={{ y }}
-      /> */}
-
       <div className="w-[95%] max-w-7xl mx-auto relative z-10 responsive-container">
         <AnimatedSection className="w-full flex items-center justify-center flex-col">
           <motion.h3
@@ -124,33 +156,32 @@ export const CoreProduct = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            Our{" "}
-            <GlowingText className="text-[#1CA36E]">Core Products</GlowingText>
+            <GlowingText className="text-[#1CA36E]">Platform</GlowingText> Pillars
           </motion.h3>
           <motion.p
-            className="mt-2 text-center text-[#D5D5D5] text-sm sm:text-base lg:text-lg max-w-2xl mx-auto"
+            className="mt-2 text-center text-[#D5D5D5] text-sm sm:text-base lg:text-lg max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            The solutions we offer are seamless, secure and accessible
+            Complete institutional infrastructure from custody to tokenization to market access
           </motion.p>
         </AnimatedSection>
 
         <AnimatedSection
-          className="responsive-grid mt-12 sm:mt-16"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12 sm:mt-16"
           variant="stagger"
         >
-          {products.map((product, index) => (
+          {pillars.map((pillar, index) => (
             <AnimatedCard
               key={index}
-              className="w-full min-h-[320px] sm:min-h-[350px] border border-[#202026] rounded-xl p-4 sm:p-6 bg-gradient-to-br from-[#1CA36E]/5 to-white/5 hover:border-[#1CA36E]/50 transition-all duration-300 flex flex-col"
+              className="w-full border border-[#202026] rounded-xl p-6 sm:p-8 bg-gradient-to-br from-[#1CA36E]/5 to-white/5 hover:border-[#1CA36E]/50 transition-all duration-300 flex flex-col"
               delay={index * 0.1}
             >
-              <div className="w-full">
+              <div className="w-full flex items-start gap-4 mb-4">
                 <motion.div
-                  className="w-12 h-12 sm:w-16 sm:h-16 border border-[#5F5F7138] rounded-full bg-white/5 flex items-center justify-center mb-3 sm:mb-4 shrink-0"
+                  className="w-14 h-14 sm:w-16 sm:h-16 border border-[#5F5F7138] rounded-full bg-white/5 flex items-center justify-center shrink-0"
                   whileHover={{
                     backgroundColor: "rgba(28, 163, 110, 0.1)",
                     borderColor: "rgba(28, 163, 110, 0.5)",
@@ -158,45 +189,73 @@ export const CoreProduct = () => {
                   }}
                   transition={{ duration: 0.3 }}
                 >
-                  {product.icon}
+                  {pillar.icon}
                 </motion.div>
-              </div>
-
-              <div className="mt-2 sm:mt-3 flex-1 flex flex-col">
-                <h3 className="font-gilroy-bold text-lg sm:text-xl mb-2 sm:mb-3 text-white">
-                  {product.title}
-                </h3>
-                <p className="text-[#D5D5D5] mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base flex-1">
-                  {product.description}
-                </p>
-
-                <div className="space-y-2">
-                  {product.features.map((feature, idx) => (
-                    <motion.div
-                      key={idx}
-                      className="flex items-center gap-2 text-sm text-[#969696]"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.5, delay: idx * 0.1 }}
-                      viewport={{ once: true }}
-                    >
-                      <motion.span
-                        className="w-2 h-2 bg-[#1CA36E] rounded-full"
-                        animate={{
-                          scale: [1, 1.2, 1],
-                          opacity: [0.7, 1, 0.7],
-                        }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          delay: idx * 0.3,
-                        }}
-                      />
-                      {feature}
-                    </motion.div>
-                  ))}
+                <div className="flex-1">
+                  <h3 className="font-gilroy-bold text-xl sm:text-2xl text-white mb-1">
+                    {pillar.title}
+                  </h3>
+                  <p className="text-[#1CA36E] text-sm sm:text-base font-medium">
+                    {pillar.subtitle}
+                  </p>
                 </div>
               </div>
+
+              <p className="text-[#D5D5D5] mb-4 leading-relaxed text-sm sm:text-base">
+                {pillar.description}
+              </p>
+
+              <div className="space-y-2 mb-6 flex-1">
+                {pillar.capabilities.map((capability, idx) => (
+                  <motion.div
+                    key={idx}
+                    className="flex items-start gap-2 text-sm text-[#969696]"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: idx * 0.1 }}
+                    viewport={{ once: true }}
+                  >
+                    <motion.span
+                      className="w-1.5 h-1.5 bg-[#1CA36E] rounded-full mt-1.5 shrink-0"
+                      animate={{
+                        scale: [1, 1.2, 1],
+                        opacity: [0.7, 1, 0.7],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        delay: idx * 0.3,
+                      }}
+                    />
+                    <span>{capability}</span>
+                  </motion.div>
+                ))}
+              </div>
+
+              <motion.button
+                type="button"
+                onClick={() => navigate("/contact")}
+                className="text-[#1CA36E] text-sm font-medium hover:text-white transition-colors duration-300 flex items-center gap-2 group"
+                whileHover={{ x: 5 }}
+              >
+                Contact us for more info
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="group-hover:translate-x-1 transition-transform"
+                >
+                  <path
+                    d="M6 12L10 8L6 4"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </motion.button>
             </AnimatedCard>
           ))}
         </AnimatedSection>
