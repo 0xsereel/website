@@ -1,7 +1,4 @@
-import { GoChevronDown, GoChevronUp } from "react-icons/go";
 import { FaBars } from "react-icons/fa";
-import { MenuOptions } from "./MenuOptions";
-import { useState } from "react";
 import { useGlobal } from "../../contexts/globals";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -10,12 +7,6 @@ export const Header = () => {
   const logoPath = "/images/Hero/glowing_seree_logo.svg";
 
   const { setIsMobileMenuOpen } = useGlobal();
-
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleOpenMenu = () => {
-    setIsOpen(!isOpen);
-  };
 
   return (
     <header className="w-full fixed top-0 z-50 items-center justify-between flex flex-col safe-area-padding bg-black bg-opacity-80 backdrop-blur-sm" style={{ padding: 'clamp(0.75rem, 2vw, 1rem)' }}>
@@ -37,17 +28,6 @@ export const Header = () => {
           {/* Menu Buttons  */}
 
           <div className="font-gilroy-medium lg:flex gap-3 xl:gap-5 ml-2 lg:ml-3 text-sm lg:text-md hidden">
-            <div>
-              <button
-                className="flex gap-2 items-center cursor-pointer min-h-[44px] px-3 py-2"
-                onClick={handleOpenMenu}
-                aria-label="Solutions menu"
-              >
-                <p>Solutions</p>
-                {isOpen ? <GoChevronUp aria-hidden="true" /> : <GoChevronDown aria-hidden="true" />}
-              </button>
-            </div>
-
             <div>
               <Link
                 to="/about"
@@ -95,9 +75,6 @@ export const Header = () => {
             <FaBars size={24} aria-hidden="true" />
           </button>
         </div>
-      </div>
-      <div>
-        <MenuOptions isOpen={isOpen} />
       </div>
     </header>
   );

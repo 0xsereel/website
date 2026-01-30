@@ -7,6 +7,7 @@ import { TrustedBy } from "../../components/Home/TrustedBy";
 import { SupportedChains } from "../../components/Home/SupportedChains";
 import { IGS } from "../../components/Home/IGS";
 import { NewsLetter } from "../../components/Home/NewsLetter";
+import { ReadyToTokenize } from "../../components/Home/ReadyToTokenize";
 import RecentArticles from "../../components/Home/RecentArticles/index";
 import { GradientProvider } from "../../utils/gradient";
 
@@ -22,6 +23,7 @@ export const Home = () => {
         <IGS />
         <RecentArticles />
         <FAQ />
+        <ReadyToTokenize />
         <NewsLetter />
         <Footer />
       </div>

@@ -1,15 +1,9 @@
 import { motion } from "framer-motion";
 import { Header } from "../Header/Header";
 import { GlowingText } from "../Animation/GlowingText";
-import TeamSection from "./TeamSection";
-import MissionStatement from "./MissionStatement";
-import SolutionsSection from "./SolutionsSection";
-import SecuritySection from "./SecuritySection";
 
 
 export default function AboutHero() {
-  const peopleImagePath = "/images/about/about_image.jpeg";
-
   return (
     <div className="w-full min-h-screen bg-black text-white">
       <Header />
@@ -64,11 +58,11 @@ export default function AboutHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            We Are on a Mission to <GlowingText className="text-[#1CA36E]">Maximize</GlowingText>
+            <GlowingText className="text-[#1CA36E]">Institutional</GlowingText> Tokenization
             <br />
-            The <GlowingText className="text-[#1CA36E]">Efficiency</GlowingText> of the
+            Infrastructure for the
             <br />
-            Global Financial Ecosystem
+            <GlowingText className="text-[#1CA36E]">Modern Financial</GlowingText> World
           </motion.h1>
           <motion.p
             className="text-xl text-[#D5D5D5] max-w-3xl mx-auto"
@@ -76,24 +70,10 @@ export default function AboutHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Bridging traditional finance with decentralized infrastructure for institutional innovation
+            Where traditional finance meets digital assets
           </motion.p>
         </motion.div>
       </motion.div>
-
-      <div className="w-full bg-black py-20 relative overflow-hidden">
-        {/* Team Section */}
-        <TeamSection peopleImagePath={peopleImagePath} />
-        
-        {/* Mission Statement */}
-        <MissionStatement />
-        
-        {/* Solutions Section */}
-        <SolutionsSection />
-        
-        {/* Security Section */}
-        <SecuritySection />
-      </div>
     </div>
   );
 }

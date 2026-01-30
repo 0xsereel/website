@@ -11,39 +11,39 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
   {
-    question: "What kind of wallets does Sereel provide?",
+    question: "What is CMTA and why does it matter?",
     answer:
-      "We provide non-custodial, smart contract-based wallets powered by ERC-4337. These wallets offer programmable features like spending limits, session keys, and gasless transactions all without sacrificing security.",
+      "CMTA (Capital Markets and Technology Association) is the institutional tokenization standard adopted by major Swiss banks and recognized by Singapore's Project Guardian. Unlike proprietary systems, CMTA ensures your tokens are portable, interoperable, and compliant across 40+ institutional members.",
   },
   {
-    question: "Who are our solutions for?",
+    question: "What asset classes can be tokenized?",
     answer:
-      "We serve banks, fintechs, insurance firms, investment platforms, and other regulated financial institutions looking to adopt secure, compliant, and scalable blockchain technology.",
+      "We support tokenization of securities & equity, bonds & fixed income, private credit, stablecoins, utility tokens, and structured products. Our platform provides the technical and legal frameworks to tokenize assets compliantly across global markets.",
   },
   {
-    question: "What can Sereel tokenize?",
+    question: "Which regulatory frameworks are supported?",
     answer:
-      "Our platform supports tokenization of fiat, bonds, real estate, commodities, invoices, equity, and more, we turn real-world assets into programmable, tradable digital tokens.",
+      "We support Regulation S (Non-US Offerings), Regulation D (Accredited US Investors), MiCA-Ready (European Union), Swiss DLT Framework, Singapore MAS Guidelines, and custom jurisdictional support tailored to your market.",
   },
   {
-    question: "What is ISO 20022?",
+    question: "How does enterprise custody security work?",
     answer:
-      "ISO 20022 is a global standard for exchanging electronic data between financial institutions, enabling efficient and standardized communication for financial transactions. It supports rich data formats, enhancing compliance and operational efficiency.",
+      "Our enterprise wallet infrastructure features EOA wallets with institutional security architecture, multi-signature governance with configurable approval workflows, Shamir Secret Sharing for distributed key recovery, complete audit trails, and role-based access control for treasury operations.",
   },
   {
-    question: "What is ERC-3643?",
+    question: "What is Canton Network and why does privacy matter?",
     answer:
-      "ERC-3643 is a security token standard designed for compliant and permissioned digital assets. Sereel uses it to help institutions tokenize bonds, equity, and real-world assets while maintaining full compliance with regulatory requirements.",
+      "Canton Network enables privacy-preserving transactions for institutional use cases requiring confidentiality—without sacrificing regulatory transparency. This is critical for institutions that need to maintain competitive advantage while remaining compliant.",
   },
   {
-    question: "What standards do we use for tokenized assets?",
+    question: "What advisory services do you offer?",
     answer:
-      "We support ERC-1400 and ERC-3643 standards for regulated asset tokens, as well as custom structures where needed.",
+      "Beyond technology, we provide tokenomics design and optimization, network and protocol selection advisory, regulatory pathway mapping, go-to-market strategy for tokenized products, secondary market liquidity planning, and custom infrastructure architecture consulting.",
   },
   {
-    question: "What is Restaking?",
+    question: "How do I get started with Sereel?",
     answer:
-      "Restaking refers to the process of using staked assets on a Proof of Stake network to run applications other than the consensus mechanism being run. This enables validators to earn additional fees on top of running blockchains such as Ethereum. Sereel participates in restaking by running additional services such as machine learning training and zero knowledge processing.",
+      "Schedule a strategic consultation with our team to discuss your tokenization requirements. We'll assess your use case, recommend the optimal technical and regulatory approach, and architect a solution tailored to your institutional needs.",
   },
 ];
 
@@ -112,8 +112,7 @@ export const FAQ = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Get answers to common questions about institutional DeFi and the
-            Sereel Protocol
+            Get answers to common questions about our institutional tokenization infrastructure
           </motion.p>
         </AnimatedSection>
 
@@ -202,7 +201,7 @@ export const FAQ = () => {
             </motion.h4>
             <p className="text-[#D5D5D5] mb-6 max-w-2xl mx-auto">
               Our team is ready to help you understand how Sereel can transform
-              your institution's approach to DeFi
+              your institution's tokenization strategy
             </p>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <motion.a

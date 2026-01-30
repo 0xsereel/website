@@ -60,7 +60,6 @@ export const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Unlock the{" "}
             <span className="relative inline-block">
               <motion.span
                 className="absolute inset-0 bg-gradient-to-r from-[#1CA36E] to-white bg-clip-text text-transparent"
@@ -73,41 +72,48 @@ export const Hero = () => {
                   ease: "easeInOut",
                 }}
               >
-                future
+                Institutional-Grade
               </motion.span>
-              <span className="text-transparent">future</span>
+              <span className="text-transparent">Institutional-Grade</span>
             </span>{" "}
-            of finance
+            Digital Asset Infrastructure
           </motion.h1>
 
           <motion.p
-            className="text-base sm:text-lg lg:text-xl mt-4 sm:mt-5 text-[#D5D5D5] max-w-[90%] sm:max-w-[600px] text-center lg:text-left mx-auto lg:mx-0 leading-relaxed"
+            className="text-base sm:text-lg lg:text-xl mt-4 sm:mt-5 text-[#D5D5D5] max-w-[90%] sm:max-w-[700px] text-center lg:text-left mx-auto lg:mx-0 leading-relaxed"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Institutional-grade blockchain solutions for{" "}
+            End-to-end tokenization, custody, and market infrastructure for{" "}
             <motion.span
               className="text-[#1CA36E] font-semibold"
               whileHover={{ scale: 1.1, filter: "0 0 10px #1CA36E" }}
             >
-              fast settlements
+              asset managers
             </motion.span>
             ,{" "}
             <motion.span
               className="text-[#1CA36E] font-semibold"
               whileHover={{ scale: 1.1, filter: "0 0 10px #1CA36E" }}
             >
-              DeFi access
+              banks
+            </motion.span>
+            ,{" "}
+            <motion.span
+              className="text-[#1CA36E] font-semibold"
+              whileHover={{ scale: 1.1, filter: "0 0 10px #1CA36E" }}
+            >
+              exchanges
             </motion.span>
             , and{" "}
             <motion.span
               className="text-[#1CA36E] font-semibold"
               whileHover={{ scale: 1.1, filter: "0 0 10px #1CA36E" }}
             >
-              asset tokenization
+              family offices
             </motion.span>
-            .
+            . Built for regulatory compliance. Designed for scale.
           </motion.p>
 
           <motion.div
@@ -120,13 +126,13 @@ export const Hero = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button onClick={handleGetStarted}className="px-8 py-4">Get Started</Button>
+              <Button onClick={handleGetStarted} className="px-8 py-4">Schedule Consultation</Button>
             </motion.div>
           </motion.div>
 
-          {/* Enhanced statistics with horizontal layout for all screen sizes */}
+          {/* Market stats banner */}
           <motion.div
-            className="mt-6 sm:mt-8 lg:mt-12 flex flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 md:gap-6 lg:gap-8"
+            className="mt-6 sm:mt-8 lg:mt-12 flex flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 md:gap-8 lg:gap-10"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
@@ -136,10 +142,10 @@ export const Hero = () => {
               whileHover={{ scale: 1.05 }}
             >
               <div className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-gilroy-bold text-[#1CA36E]">
-                &lt;4min
+                $30B+
               </div>
               <div className="text-xs sm:text-sm text-[#969696] leading-tight mt-1">
-                Settlement Time
+                Tokenized RWAs
               </div>
             </motion.div>
             <motion.div
@@ -147,10 +153,10 @@ export const Hero = () => {
               whileHover={{ scale: 1.05 }}
             >
               <div className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-gilroy-bold text-[#1CA36E]">
-                90%
+                40+
               </div>
               <div className="text-xs sm:text-sm text-[#969696] leading-tight mt-1">
-                Cost Reduction
+                CMTA Members
               </div>
             </motion.div>
             <motion.div
@@ -158,10 +164,10 @@ export const Hero = () => {
               whileHover={{ scale: 1.05 }}
             >
               <div className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-gilroy-bold text-[#1CA36E]">
-                24/7
+                T+0
               </div>
               <div className="text-xs sm:text-sm text-[#969696] leading-tight mt-1">
-                Uptime
+                Settlement
               </div>
             </motion.div>
           </motion.div>

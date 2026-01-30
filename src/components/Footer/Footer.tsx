@@ -7,22 +7,17 @@ export const Footer = () => {
     <footer className="w-full flex items-center justify-center py-12 sm:py-16 lg:py-20 safe-area-padding">
       <div className="lg:w-[90%] w-full mx-auto">
         <div className="w-full flex justify-between items-start lg:flex-row flex-col gap-8 lg:gap-0">
-          <Link to="/" className="flex items-center gap-3 min-h-[44px] mb-8 lg:mb-0">
-            <img className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24" src={logoPath} alt="Sereel Logo" />
-
-            <h3 className="text-lg sm:text-xl lg:text-2xl font-gilroy-bold">Sereel</h3>
-          </Link>
+          <div className="flex flex-col items-start gap-3">
+            <Link to="/" className="flex items-center gap-3 min-h-[44px]">
+              <img className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24" src={logoPath} alt="Sereel Logo" />
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-gilroy-bold">Sereel</h3>
+            </Link>
+            <p className="text-[#1CA36E] text-sm sm:text-base font-gilroy-medium italic mt-2">
+              Institutional DeFi. Enterprise Standards.
+            </p>
+          </div>
 
           <div className="flex items-start gap-8 sm:gap-10 lg:gap-12 xl:gap-16 lg:flex-row flex-col w-full lg:w-auto justify-center lg:justify-start">
-            <div className="text-center lg:text-left">
-              <h3 className="font-gilroy-bold my-3 sm:my-4 lg:my-5 text-base sm:text-lg">Solutions</h3>
-              <div className="flex flex-col space-y-2 sm:space-y-3">
-                <Link to="/solutions/wallet" className="min-h-[44px] flex items-center justify-center lg:justify-start hover:text-[#1CA36E] transition-colors text-sm sm:text-base">Wallet</Link>
-                <Link to="/solutions/tokenization" className="min-h-[44px] flex items-center justify-center lg:justify-start hover:text-[#1CA36E] transition-colors text-sm sm:text-base">Tokenization</Link>
-                <Link to="/solutions/defi" className="min-h-[44px] flex items-center justify-center lg:justify-start hover:text-[#1CA36E] transition-colors text-sm sm:text-base">DeFi</Link>
-              </div>
-            </div>
-
             <div className="text-center lg:text-left">
                 <h3 className="font-gilroy-bold my-3 sm:my-4 lg:my-5 text-base sm:text-lg">About Us</h3>
                 <div className="flex flex-col space-y-2 sm:space-y-3">

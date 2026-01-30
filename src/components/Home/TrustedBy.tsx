@@ -55,7 +55,7 @@ export const TrustedBy = () => {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
                 >
-                From banks to asset managers, trusted by institutions building the future of sustainable finance.
+                Trusted by institutions building the future of sustainable finance
             </motion.p> 
                   
           <div className="w-full flex items-center justify-center gap-6 sm:gap-10 lg:gap-16 mt-10 sm:mt-12 lg:mt-14 flex-wrap">
