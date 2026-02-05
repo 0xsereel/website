@@ -44,7 +44,7 @@ export const Footer = () => {
 
         <div className="w-full mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-[#333]">
           <p className="text-center text-[#D5D5D5] text-xs sm:text-sm lg:text-base">
-            Sereel 2025, All Rights Reserved. Sereel Technologies, Inc.
+            Sereel 2026, All Rights Reserved. Sereel Technologies, Inc.
           </p>
         </div>
       </div>
