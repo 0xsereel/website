@@ -1,914 +1,725 @@
-import { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import blogsData from '../../Blog Data/Blogs.json';
+import { useState, useEffect, useRef, useMemo } from "react";
+import { Link } from "react-router-dom";
+import blogsData from "../../Blog Data/Blogs.json";
+
+/* ═══════════════════════════════════════════
+   SEREEL v4 — Cinematic Institutional Design
+   ═══════════════════════════════════════════ */
+
+interface BlogPost {
+    id: number;
+    title: string;
+    image: string;
+    summary: string;
+    date?: string;
+    content?: string;
+}
 
 const C = {
-  bg: '#000000',
-  surface: '#0A0A0A',
-  border: '#1A1A1A',
-  text: '#E5E5E5',
-  textMuted: '#999999',
-  green: '#00FFB2',
-  greenDark: '#1CA36E',
-  greenGlow: 'rgba(0, 255, 178, 0.2)',
+    bg: "#010201",
+    surface: "#060906",
+    elevated: "#0b110c",
+    card: "#0a0f0b",
+    cardHi: "#0f1710",
+    border: "#141f16",
+    borderHi: "#1c3020",
+    g: "#1ea46f",
+    gL: "#2bdb8e",
+    gD: "#1ea46f15",
+    gU: "#1ea46f08",
+    gGlow: "#1ea46f22",
+    w: "#e8f0eb",
+    w2: "#c4d4c9",
+    m: "#6b8a74",
+    d: "#354d3c",
+    dd: "#1a2b1f",
 };
 
-const grd = (from: string, to: string) => `linear-gradient(135deg, ${from}, ${to})`;
+const grd = "linear-gradient(135deg, #1ea46f, #18d4a0)";
+const grdT = { background: grd, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" };
 
-const MeshBg = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+/* ─── Animated Mesh Gradient Hero Background ─── */
+function MeshBg() {
+    return (
+        <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none" }}>
+            {/* Large morphing blob */}
+            <div style={{
+                position: "absolute", top: "-10%", right: "-5%",
+                width: "60vw", height: "60vw", maxWidth: 800, maxHeight: 800,
+                borderRadius: "30% 70% 60% 40% / 50% 30% 70% 50%",
+                background: `radial-gradient(ellipse at 30% 40%, ${C.g}08, ${C.g}03 50%, transparent 70%)`,
+                animation: "morph 20s ease-in-out infinite",
+                filter: "blur(40px)",
+            }} />
+            {/* Secondary blob */}
+            <div style={{
+                position: "absolute", bottom: "5%", left: "-10%",
+                width: "45vw", height: "45vw", maxWidth: 600, maxHeight: 600,
+                borderRadius: "60% 40% 30% 70% / 40% 60% 40% 60%",
+                background: `radial-gradient(ellipse at 60% 60%, ${C.g}05, transparent 60%)`,
+                animation: "morph 25s ease-in-out infinite reverse",
+                filter: "blur(50px)",
+            }} />
+            {/* Dot matrix grid */}
+            <svg width="100%" height="100%" style={{ position: "absolute", inset: 0, opacity: 0.25 }}>
+                <defs>
+                    <pattern id="dots" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+                        <circle cx="1" cy="1" r="0.5" fill={C.g} opacity="0.15" />
+                    </pattern>
+                    <radialGradient id="dotMask">
+                        <stop offset="0%" stopColor="white" />
+                        <stop offset="60%" stopColor="white" stopOpacity="0.3" />
+                        <stop offset="100%" stopColor="white" stopOpacity="0" />
+                    </radialGradient>
+                    <mask id="dm"><rect width="100%" height="100%" fill="url(#dotMask)" /></mask>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#dots)" mask="url(#dm)" />
+            </svg>
+            {/* Horizon glow */}
+            <div style={{
+                position: "absolute", bottom: 0, left: "10%", right: "10%", height: 1,
+                background: `linear-gradient(90deg, transparent, ${C.g}15, transparent)`,
+            }} />
+        </div>
+    );
+}
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+/* ─── Hooks ─── */
+function useVis(th = 0.1) {
+    const r = useRef<HTMLDivElement>(null);
+    const [v, setV] = useState(false);
+    useEffect(() => {
+        const o = new IntersectionObserver(([e]) => e.isIntersecting && setV(true), { threshold: th });
+        if (r.current) {
+            o.observe(r.current);
+        }
+        return () => o.disconnect();
+    }, [th]);
+    return { r, v };
+}
 
-    const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-    resize();
-    window.addEventListener('resize', resize);
+function useCt(end: number, dur = 2200) {
+    const [n, setN] = useState(0);
+    const [go, setGo] = useState(false);
+    const r = useRef<HTMLDivElement>(null);
+    useEffect(() => {
+        const o = new IntersectionObserver(([e]) => e.isIntersecting && setGo(true), { threshold: 0.3 });
+        if (r.current) {
+            o.observe(r.current);
+        }
+        return () => o.disconnect();
+    }, []);
+    useEffect(() => {
+        if (!go) return;
+        let v = 0; const s = end / (dur / 16);
+        const t = setInterval(() => { v += s; if (v >= end) { setN(end); clearInterval(t); } else setN(Math.floor(v)); }, 16);
+        return () => clearInterval(t);
+    }, [go, end, dur]);
+    return { n, r };
+}
 
-    const blobs = [
-      { x: 0.2, y: 0.3, r: 0.3, dx: 0.0003, dy: 0.0002 },
-      { x: 0.8, y: 0.6, r: 0.25, dx: -0.0002, dy: 0.0003 },
-      { x: 0.5, y: 0.8, r: 0.2, dx: 0.0002, dy: -0.0002 },
+interface RvProps {
+    children: React.ReactNode;
+    d?: number;
+    s?: React.CSSProperties;
+}
+
+function Rv({ children, d = 0, s = {} }: RvProps) {
+    const { r, v } = useVis();
+    return <div ref={r} style={{ opacity: v ? 1 : 0, transform: v ? "translateY(0)" : "translateY(28px)", transition: `all 0.7s cubic-bezier(0.16,1,0.3,1) ${d}s`, ...s }}>{children}</div>;
+}
+
+/* ─── Hero Word Morph ─── */
+function WordMorph() {
+    const w = ["Tokenization", "Custody", "Settlement", "Compliance"];
+    const [i, setI] = useState(0);
+    const [sh, setSh] = useState(true);
+    useEffect(() => {
+        const iv = setInterval(() => { setSh(false); setTimeout(() => { setI(p => (p + 1) % w.length); setSh(true); }, 280); }, 2800);
+        return () => clearInterval(iv);
+    }, [w.length]);
+    return <span style={{ display: "inline-block", ...grdT, opacity: sh ? 1 : 0, transform: sh ? "translateY(0) scale(1)" : "translateY(-6px) scale(0.98)", transition: "all 0.28s cubic-bezier(0.16,1,0.3,1)" }}>{w[i]}</span>;
+}
+
+/* ─── Marquee ─── */
+function ChainBar() {
+    const c = ["Ethereum", "Arbitrum", "Base", "Polygon", "Optimism", "Solana", "IOTA", "Starknet", "Canton Network", "Chainlink CCIP"];
+    return (
+        <div style={{ overflow: "hidden", position: "relative", padding: "16px 0" }}>
+            <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 120, background: `linear-gradient(90deg, ${C.bg}, transparent)`, zIndex: 2 }} />
+            <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: 120, background: `linear-gradient(-90deg, ${C.bg}, transparent)`, zIndex: 2 }} />
+            <div style={{ display: "flex", gap: 44, animation: "marquee 40s linear infinite", width: "max-content" }}>
+                {[...c, ...c, ...c].map((n, i) => (
+                    <div key={i} style={{ color: C.d, fontSize: 11, fontFamily: "var(--mono)", letterSpacing: "2.5px", textTransform: "uppercase", fontWeight: 500, whiteSpace: "nowrap", display: "flex", alignItems: "center", gap: 10 }}>
+                        <div style={{ width: 3, height: 3, borderRadius: "50%", background: C.g, opacity: 0.4 }} />{n}
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+}
+
+/* ─── Glow Card ─── */
+interface GcProps {
+    children: React.ReactNode;
+    style?: React.CSSProperties;
+    p?: string;
+}
+
+function Gc({ children, style = {}, p = "32px" }: GcProps) {
+    const [h, setH] = useState(false);
+    return (
+        <div onMouseEnter={() => setH(true)} onMouseLeave={() => setH(false)} style={{
+            background: h ? C.cardHi : C.card, border: `1px solid ${h ? C.g + "25" : C.border}`,
+            borderRadius: 14, padding: p, position: "relative", overflow: "hidden",
+            transition: "all 0.5s cubic-bezier(0.16,1,0.3,1)",
+            transform: h ? "translateY(-2px)" : "none",
+            boxShadow: h ? `0 24px 64px -16px ${C.g}12` : "none",
+            ...style,
+        }}>
+            <div style={{
+                position: "absolute", top: 0, left: "15%", right: "15%", height: 1,
+                background: h ? `linear-gradient(90deg, transparent, ${C.g}40, transparent)` : "transparent",
+                transition: "all 0.5s ease",
+            }} />
+            {children}
+        </div>
+    );
+}
+
+/* ═══════════ MAIN ═══════════ */
+export function SereelV4() {
+    const [navBg, setNavBg] = useState(false);
+    useEffect(() => {
+        const fn = () => setNavBg(window.scrollY > 30);
+        window.addEventListener("scroll", fn);
+        return () => window.removeEventListener("scroll", fn);
+    }, []);
+
+    const s1 = useCt(2); const s2 = useCt(16); const s3 = useCt(80); const s4 = useCt(24);
+
+    const pillars = [
+        { num: "01", ico: "🔐", t: "Custody & Key Management", d: "Enterprise EOA wallets and multisig with MPC recovery, audit trails, and role-based access.", tags: ["Multi-sig", "MPC", "HSM", "RBAC", "Audit Trails"] },
+        { num: "02", ico: "🪙", t: "Multi-Chain Tokenization", d: "CMTA-compliant token issuance across EVM, Solana, IOTA, Starknet, and Canton Network.", tags: ["CMTAT", "ERC3643", "Multi-chain", "Privacy", "CCIP"] },
+        { num: "03", ico: "📋", t: "Any Asset. Any Jurisdiction.", d: "Securities, bonds, private credit, stablecoins, and structured products across global regulatory frameworks.", tags: ["Reg S/D", "MiCA", "Swiss DLT", "MAS", "Custom"] },
+        { num: "04", ico: "📊", t: "Market Infrastructure", d: "Primary issuance, secondary trading, T+0 settlement, and OTC connectivity for institutional liquidity.", tags: ["Issuance", "OTC", "T+0", "Exchange", "Clearing"] },
     ];
 
-    const draw = () => {
-      ctx.fillStyle = C.bg;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    const segments = [
+        { ico: "📈", t: "Fund Managers", d: "Tokenize fund shares. Automate NAV and dividends. 24/7 subscriptions with programmable compliance." },
+        { ico: "🏛", t: "Exchanges", d: "Launch digital asset venues. Tokenized securities integration. T+0 and around-the-clock trading." },
+        { ico: "⚖️", t: "Clearing Houses", d: "Atomic settlement. Real-time collateral. Smart contract clearing. Zero failed trades." },
+        { ico: "🏦", t: "Banks", d: "Tokenization-as-a-service. Digital bond programs. Blockchain treasury for corporate clients." },
+        { ico: "💎", t: "Family Offices", d: "Tokenized alternatives. Multi-gen custody. Fractional ownership of illiquid assets." },
+    ];
 
-      blobs.forEach((b) => {
-        b.x += b.dx;
-        b.y += b.dy;
-        if (b.x < 0 || b.x > 1) b.dx *= -1;
-        if (b.y < 0 || b.y > 1) b.dy *= -1;
+    const latestBlogs = useMemo(() => blogsData.slice(0, 3), []);
 
-        const grad = ctx.createRadialGradient(
-          b.x * canvas.width,
-          b.y * canvas.height,
-          0,
-          b.x * canvas.width,
-          b.y * canvas.height,
-          b.r * canvas.width
-        );
-        grad.addColorStop(0, 'rgba(0, 255, 178, 0.08)');
-        grad.addColorStop(1, 'rgba(0, 255, 178, 0)');
-        ctx.fillStyle = grad;
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-      });
+    return (
+        <div style={{ background: C.bg, color: C.w, minHeight: "100vh", fontFamily: "var(--body)", overflowX: "hidden" }}>
+            <style>{`
+        :root { --body: 'Gilroy', sans-serif; --display: 'Gilroy-Bold', sans-serif; --mono: monospace; }
+        @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-33.333%)} }
+        @keyframes morph { 0%{border-radius:30% 70% 60% 40%/50% 30% 70% 50%} 33%{border-radius:50% 50% 30% 70%/40% 60% 50% 50%} 66%{border-radius:40% 60% 50% 50%/60% 40% 60% 40%} 100%{border-radius:30% 70% 60% 40%/50% 30% 70% 50%} }
+        @keyframes pulse { 0%,100%{opacity:.25} 50%{opacity:1} }
+        @keyframes lineGrow { from{transform:scaleX(0)} to{transform:scaleX(1)} }
+        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+        @keyframes ringRotate { 0%{transform:translate(-50%,-50%) rotate(0deg)} 100%{transform:translate(-50%,-50%) rotate(360deg)} }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        ::selection { background:${C.g}; color:#010201; }
+        html { scroll-behavior:smooth; }
+        .sb {
+          background: ${C.g}; color: #010201; border: none;
+          padding: 14px 36px; border-radius: 8px; font-size: 14px; font-weight: 700;
+          cursor: pointer; transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
+          font-family: var(--body); letter-spacing: 0.2px;
+        }
+        .sb:hover { background: ${C.gL}; transform: translateY(-2px); box-shadow: 0 12px 40px ${C.g}30; }
+        .so {
+          background: transparent; color: ${C.w}; border: 1px solid ${C.border};
+          padding: 14px 36px; border-radius: 8px; font-size: 14px; font-weight: 600;
+          cursor: pointer; transition: all 0.35s ease; font-family: var(--body);
+        }
+        .so:hover { border-color: ${C.g}35; background: ${C.gU}; transform: translateY(-2px); }
+        .sl { font-size: 11px; letter-spacing: 3.5px; text-transform: uppercase; color: ${C.g}; font-weight: 500; margin-bottom: 18px; font-family: var(--mono); }
+      `}</style>
 
-      requestAnimationFrame(draw);
-    };
-    draw();
+            {/* ═══ NAV ═══ */}
+            <nav style={{
+                position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, height: 64,
+                padding: "0 clamp(16px,4vw,56px)",
+                display: "flex", alignItems: "center", justifyContent: "space-between",
+                background: navBg ? C.bg + "f2" : "transparent",
+                backdropFilter: navBg ? "blur(28px) saturate(1.4)" : "none",
+                borderBottom: navBg ? `1px solid ${C.border}` : "1px solid transparent",
+                transition: "all 0.4s ease",
+            }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 9 }}>
+                    <img src='/images/Hero/glowing_seree_logo.svg' alt='Sereel' style={{ width: 30, height: 30 }} />
+                    <span style={{ fontSize: 19, fontWeight: 800, letterSpacing: "-0.3px", fontFamily: "var(--display)" }}>sereel</span>
+                </div>
+                <div style={{ display: "flex", gap: 24, alignItems: "center" }}>
+                    {["Platform", "Solutions", "Developers", "Advisory"].map(l => (
+                        <button key={l} style={{ color: C.m, background: "none", border: "none", fontSize: 13, fontWeight: 500, cursor: "pointer", transition: "color 0.2s", fontFamily: "var(--body)" }}
+                                onMouseEnter={e => (e.target as HTMLElement).style.color = C.w} onMouseLeave={e => (e.target as HTMLElement).style.color = C.m}>{l}</button>
+                    ))}
+                    <div style={{ width: 1, height: 16, background: C.border, margin: "0 4px" }} />
+                    <button className="sb" style={{ padding: "9px 22px", fontSize: 12.5 }}>Schedule Consultation</button>
+                </div>
+            </nav>
 
-    return () => window.removeEventListener('resize', resize);
-  }, []);
+            {/* ═══ HERO ═══ */}
+            <section style={{
+                minHeight: "100vh", display: "flex", alignItems: "center",
+                padding: "100px clamp(16px,4vw,56px) 40px", position: "relative",
+            }}>
+                <MeshBg />
+                <div style={{ position: "relative", zIndex: 1, maxWidth: 1120, margin: "0 auto", width: "100%",
+                    display: "grid", gridTemplateColumns: "1.15fr 0.85fr", gap: 48, alignItems: "center",
+                }}>
+                    <div>
+                        <Rv>
+                            <div style={{
+                                display: "inline-flex", alignItems: "center", gap: 10,
+                                border: `1px solid ${C.g}20`, borderRadius: 100, padding: "7px 18px",
+                                background: C.gU, marginBottom: 32,
+                            }}>
+                                <div style={{ width: 5, height: 5, borderRadius: "50%", background: C.g, animation: "pulse 2s ease-in-out infinite", boxShadow: `0 0 8px ${C.g}` }} />
+                                <span style={{ fontSize: 11, color: C.g, fontWeight: 500, fontFamily: "var(--mono)", letterSpacing: "2px", textTransform: "uppercase" }}>Live Infrastructure</span>
+                            </div>
+                        </Rv>
+                        <Rv d={0.06}>
+                            <h1 style={{
+                                fontSize: "clamp(44px,5.5vw,72px)", fontWeight: 800, lineHeight: 1.0,
+                                letterSpacing: "-3px", fontFamily: "var(--display)", marginBottom: 24,
+                            }}>
+                                Institutional<br />Digital Asset<br /><WordMorph />
+                            </h1>
+                        </Rv>
+                        <Rv d={0.12}>
+                            <p style={{ fontSize: 16, color: C.m, maxWidth: 480, lineHeight: 1.8, marginBottom: 40 }}>
+                                End-to-end tokenization, custody, and market infrastructure
+                                for asset managers, banks, exchanges, and family offices.
+                            </p>
+                        </Rv>
+                        <Rv d={0.18}>
+                            <div style={{ display: "flex", gap: 12 }}>
+                                <button className="sb">Schedule Consultation</button>
+                                <button className="so">Download Overview</button>
+                            </div>
+                        </Rv>
+                    </div>
 
-  return (
-    <>
-      <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-0" />
-      <svg className="fixed inset-0 pointer-events-none z-0 opacity-20" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <pattern id="dotGrid" width="20" height="20" patternUnits="userSpaceOnUse">
-            <circle cx="1" cy="1" r="1" fill={C.border} />
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#dotGrid)" />
-      </svg>
-      <div
-        className="fixed bottom-0 left-0 right-0 h-32 pointer-events-none z-0"
-        style={{
-          background: `linear-gradient(to top, ${C.greenGlow}, transparent)`,
-        }}
-      />
-    </>
-  );
-};
+                    {/* Right side: live-looking data card */}
+                    <Rv d={0.25}>
+                        <div style={{
+                            background: C.card, border: `1px solid ${C.border}`,
+                            borderRadius: 16, padding: "28px 24px", position: "relative",
+                            boxShadow: `0 40px 80px -20px ${C.bg}`,
+                        }}>
+                            <div style={{ position: "absolute", top: 0, left: "20%", right: "20%", height: 1, background: `linear-gradient(90deg, transparent, ${C.g}30, transparent)` }} />
+                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
+                                <span style={{ fontSize: 11, color: C.d, fontFamily: "var(--mono)", letterSpacing: "2px", textTransform: "uppercase" }}>Platform Status</span>
+                                <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                                    <div style={{ width: 6, height: 6, borderRadius: "50%", background: C.g, animation: "pulse 2s infinite", boxShadow: `0 0 10px ${C.g}60` }} />
+                                    <span style={{ fontSize: 11, color: C.g, fontFamily: "var(--mono)" }}>Operational</span>
+                                </div>
+                            </div>
 
-const useVis = (ref: React.RefObject<HTMLElement | HTMLDivElement | null>, threshold = 0.1) => {
-  const [vis, setVis] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([e]) => {
-        if (e.isIntersecting) setVis(true);
-      },
-      { threshold }
+                            {/* Mini stat rows */}
+                            {[
+                                { l: "Networks Active", v: "10", bar: 85 },
+                                { l: "Tokens Deployed", v: "47", bar: 62 },
+                                { l: "Settlement Uptime", v: "99.97%", bar: 99 },
+                                { l: "Avg. Finality", v: "< 2s", bar: 45 },
+                            ].map((row, i) => (
+                                <div key={i} style={{ padding: "14px 0", borderBottom: i < 3 ? `1px solid ${C.border}` : "none" }}>
+                                    <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 8 }}>
+                                        <span style={{ fontSize: 12.5, color: C.m }}>{row.l}</span>
+                                        <span style={{ fontSize: 12.5, color: C.w, fontWeight: 600, fontFamily: "var(--mono)" }}>{row.v}</span>
+                                    </div>
+                                    <div style={{ height: 2, background: C.border, borderRadius: 1, overflow: "hidden" }}>
+                                        <div style={{
+                                            height: "100%", width: `${row.bar}%`, borderRadius: 1,
+                                            background: grd, transition: "width 1.5s ease",
+                                            boxShadow: `0 0 8px ${C.g}30`,
+                                        }} />
+                                    </div>
+                                </div>
+                            ))}
+
+                            {/* Bottom row */}
+                            <div style={{ display: "flex", gap: 8, marginTop: 16 }}>
+                                {["EVM", "Solana", "IOTA", "Canton"].map(t => (
+                                    <span key={t} style={{
+                                        fontSize: 10, color: C.d, fontFamily: "var(--mono)", letterSpacing: "1px",
+                                        padding: "5px 10px", borderRadius: 6, background: C.gU,
+                                        border: `1px solid ${C.border}`,
+                                    }}>{t}</span>
+                                ))}
+                            </div>
+                        </div>
+                    </Rv>
+                </div>
+            </section>
+
+            {/* ═══ CHAINS ═══ */}
+            <div style={{ borderTop: `1px solid ${C.border}`, borderBottom: `1px solid ${C.border}` }}>
+                <div style={{ textAlign: "center", paddingTop: 14, fontSize: 10, letterSpacing: "3px", textTransform: "uppercase", color: C.dd, fontFamily: "var(--mono)" }}>Supported Networks</div>
+                <ChainBar />
+            </div>
+
+            {/* ═══ STATS ═══ */}
+            <section style={{ padding: "64px clamp(16px,4vw,56px)", maxWidth: 1120, margin: "0 auto" }}>
+                <Rv>
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 1, background: C.border, borderRadius: 14, overflow: "hidden" }}>
+                        {[
+                            { r: s1.r, n: s1.n, s: "T+", l: "RWA Market 2030" },
+                            { r: s2.r, n: s2.n, s: "T+", l: "Tokenizable Assets" },
+                            { r: s3.r, n: s3.n, s: "%", l: "Cost Reduction" },
+                            { r: s4.r, n: s4.n, s: "/7", l: "Settlement" },
+                        ].map((s, i) => (
+                            <div key={i} ref={s.r} style={{ textAlign: "center", padding: "36px 12px", background: C.card }}>
+                                <div style={{ fontSize: "clamp(32px,4vw,48px)", fontWeight: 800, fontFamily: "var(--display)", ...grdT, lineHeight: 1 }}>{s.n}{s.s}</div>
+                                <div style={{ fontSize: 10, color: C.d, marginTop: 10, letterSpacing: "2.5px", textTransform: "uppercase", fontFamily: "var(--mono)" }}>{s.l}</div>
+                            </div>
+                        ))}
+                    </div>
+                </Rv>
+            </section>
+
+            {/* ═══ ABOUT — Full bleed split ═══ */}
+            <section style={{ padding: "80px clamp(16px,4vw,56px) 100px", maxWidth: 1120, margin: "0 auto" }}>
+                <Rv>
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1.3fr", gap: 56, alignItems: "start" }}>
+                        <div style={{ position: "sticky", top: 100 }}>
+                            <div className="sl">About</div>
+                            <h2 style={{ fontSize: "clamp(30px,3.8vw,46px)", fontWeight: 800, letterSpacing: "-2px", lineHeight: 1.04, fontFamily: "var(--display)" }}>
+                                Where TradFi<br />meets <span style={{ color: C.m }}>DeFi.</span>
+                            </h2>
+                        </div>
+                        <div>
+                            <p style={{ fontSize: 17, color: C.m, lineHeight: 1.9, marginBottom: 32 }}>
+                                Sereel delivers the complete institutional stack: from secure wallet infrastructure
+                                and compliant tokenization engines to market connectivity and strategic advisory.
+                            </p>
+                            <p style={{ fontSize: 17, color: C.m, lineHeight: 1.9 }}>
+                                We operate where traditional finance meets digital assets—enabling institutions to
+                                tokenize, custody, and trade any asset class across any blockchain network.
+                            </p>
+                            <div style={{ marginTop: 32, height: 2, width: 80, background: grd, borderRadius: 1 }} />
+                        </div>
+                    </div>
+                </Rv>
+            </section>
+
+            {/* ═══ BENTO GRID — Platform Pillars ═══ */}
+            <section style={{ padding: "60px clamp(16px,4vw,56px) 100px", maxWidth: 1120, margin: "0 auto" }}>
+                <Rv>
+                    <div className="sl">Core Platform</div>
+                    <h2 style={{ fontSize: "clamp(30px,4vw,46px)", fontWeight: 800, letterSpacing: "-2px", lineHeight: 1.02, fontFamily: "var(--display)", marginBottom: 40, maxWidth: 500 }}>
+                        One platform. <span style={{ color: C.m }}>Every operation.</span>
+                    </h2>
+                </Rv>
+
+                {/* Bento layout: 2 large + 2 medium */}
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gridTemplateRows: "auto auto", gap: 16 }}>
+                    {pillars.map((p, i) => (
+                        <Rv key={i} d={i * 0.06}>
+                            <Gc style={{ height: "100%", cursor: "pointer" }} p="32px 28px">
+                                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 20 }}>
+                                    <span style={{ fontSize: 10, color: C.g, fontFamily: "var(--mono)", letterSpacing: "3px" }}>{p.num}</span>
+                                    <span style={{ fontSize: 22 }}>{p.ico}</span>
+                                </div>
+                                <h3 style={{ fontSize: 20, fontWeight: 700, color: C.w, lineHeight: 1.2, marginBottom: 12, fontFamily: "var(--body)" }}>{p.t}</h3>
+                                <p style={{ fontSize: 14, color: C.m, lineHeight: 1.75, marginBottom: 20 }}>{p.d}</p>
+                                <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+                                    {p.tags.map(t => (
+                                        <span key={t} style={{
+                                            fontSize: 10, color: C.d, fontFamily: "var(--mono)", letterSpacing: "0.5px",
+                                            padding: "5px 10px", borderRadius: 6, background: C.gU, border: `1px solid ${C.border}`,
+                                        }}>{t}</span>
+                                    ))}
+                                </div>
+                            </Gc>
+                        </Rv>
+                    ))}
+                </div>
+            </section>
+
+            {/* ═══ CLIENT SEGMENTS — Horizontal Cards ═══ */}
+            <section style={{ padding: "100px clamp(16px,4vw,56px)", background: C.surface, position: "relative" }}>
+                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 1, background: `linear-gradient(90deg, transparent, ${C.g}12, transparent)` }} />
+                <div style={{ maxWidth: 1120, margin: "0 auto" }}>
+                    <Rv>
+                        <div className="sl">Solutions</div>
+                        <h2 style={{ fontSize: "clamp(28px,3.5vw,42px)", fontWeight: 800, letterSpacing: "-1.5px", fontFamily: "var(--display)", marginBottom: 48 }}>
+                            For every <span style={{ color: C.m }}>institutional player.</span>
+                        </h2>
+                    </Rv>
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(5,1fr)", gap: 12 }}>
+                        {segments.map((s, i) => (
+                            <Rv key={i} d={i * 0.05}>
+                                <Gc style={{ height: "100%", cursor: "pointer" }} p="24px 20px">
+                                    <div style={{ fontSize: 22, marginBottom: 14 }}>{s.ico}</div>
+                                    <h4 style={{ fontSize: 14, fontWeight: 700, color: C.w, marginBottom: 10 }}>{s.t}</h4>
+                                    <p style={{ fontSize: 12.5, color: C.m, lineHeight: 1.7 }}>{s.d}</p>
+                                </Gc>
+                            </Rv>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* ═══ B2B + MARKETPLACE — Asymmetric Split ═══ */}
+            <section style={{ padding: "100px clamp(16px,4vw,56px)", maxWidth: 1120, margin: "0 auto" }}>
+                <div style={{ display: "grid", gridTemplateColumns: "1.2fr 0.8fr", gap: 16 }}>
+                    <Rv>
+                        <Gc style={{ height: "100%" }} p="40px 32px">
+                            <div className="sl">Developer APIs</div>
+                            <h3 style={{ fontSize: 28, fontWeight: 800, letterSpacing: "-1px", lineHeight: 1.08, marginBottom: 16, fontFamily: "var(--display)" }}>
+                                B2B APIs for <span style={grdT}>seamless integration</span>
+                            </h3>
+                            <p style={{ fontSize: 14, color: C.m, lineHeight: 1.8, marginBottom: 28 }}>
+                                RESTful APIs and SDKs. Custody, token issuance, wallet management, and settlement—all accessible programmatically with enterprise auth.
+                            </p>
+                            <div style={{ background: C.bg, borderRadius: 10, padding: "16px 18px", border: `1px solid ${C.border}` }}>
+                                <div style={{ display: "flex", gap: 5, marginBottom: 12 }}>
+                                    {["#ff5f57", "#febc2e", "#28c840"].map(c => <div key={c} style={{ width: 8, height: 8, borderRadius: "50%", background: c, opacity: 0.8 }} />)}
+                                </div>
+                                <pre style={{ fontFamily: "var(--mono)", fontSize: 11.5, lineHeight: 1.9, color: C.m, margin: 0 }}>
+{`const bond = await sereel.tokenize({
+  asset: 'corporate-bond',
+  standard: 'CMTAT',
+  chain: 'ethereum',
+  supply: 1_000_000,
+  compliance: ['RegS', 'MiCA'],
+})`}
+                </pre>
+                            </div>
+                        </Gc>
+                    </Rv>
+                    <div style={{ display: "grid", gridTemplateRows: "1fr 1fr", gap: 16 }}>
+                        <Rv d={0.08}>
+                            <Gc style={{ height: "100%" }} p="24px 22px">
+                                <div className="sl" style={{ color: "#18d4a0", marginBottom: 12 }}>Marketplace</div>
+                                <h4 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Institutional Venue</h4>
+                                <p style={{ fontSize: 13, color: C.m, lineHeight: 1.7 }}>
+                                    Primary issuance, secondary trading, OTC—all in one regulated marketplace with built-in compliance.
+                                </p>
+                            </Gc>
+                        </Rv>
+                        <Rv d={0.14}>
+                            <Gc style={{ height: "100%" }} p="24px 22px">
+                                <div className="sl" style={{ color: "#c9a84c", marginBottom: 12 }}>Settlement</div>
+                                <h4 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>T+0 Atomic</h4>
+                                <p style={{ fontSize: 13, color: C.m, lineHeight: 1.7 }}>
+                                    Instant settlement with smart contract clearing. Multi-chain DVP across custody integrations.
+                                </p>
+                            </Gc>
+                        </Rv>
+                    </div>
+                </div>
+            </section>
+
+            {/* ═══ ADVISORY ═══ */}
+            <section style={{ padding: "100px clamp(16px,4vw,56px)", background: C.surface, position: "relative" }}>
+                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 1, background: `linear-gradient(90deg, transparent, ${C.g}10, transparent)` }} />
+                <div style={{ maxWidth: 1120, margin: "0 auto" }}>
+                    <Rv>
+                        <div style={{ display: "grid", gridTemplateColumns: "1fr 1.1fr", gap: 48, alignItems: "center" }}>
+                            <div>
+                                <div className="sl">Advisory</div>
+                                <h2 style={{ fontSize: "clamp(26px,3vw,36px)", fontWeight: 800, letterSpacing: "-1px", lineHeight: 1.08, marginBottom: 20, fontFamily: "var(--display)" }}>
+                                    Tokenization Strategy <span style={{ color: C.m }}>& Consulting</span>
+                                </h2>
+                                <p style={{ fontSize: 15, color: C.m, lineHeight: 1.8, marginBottom: 32 }}>
+                                    From tokenomics design to network selection, regulatory mapping to go-to-market—our team guides you from concept to launch.
+                                </p>
+                                <button className="sb">Explore Advisory</button>
+                            </div>
+                            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+                                {["Tokenomics design", "Protocol selection", "Regulatory mapping", "Go-to-market", "Liquidity planning", "Architecture design"].map((s, i) => (
+                                    <Rv key={i} d={i * 0.04}>
+                                        <Gc p="16px 14px" style={{}}>
+                                            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                                                <div style={{ width: 4, height: 4, borderRadius: "50%", background: C.g, flexShrink: 0, boxShadow: `0 0 6px ${C.g}50` }} />
+                                                <span style={{ fontSize: 12.5, color: C.m }}>{s}</span>
+                                            </div>
+                                        </Gc>
+                                    </Rv>
+                                ))}
+                            </div>
+                        </div>
+                    </Rv>
+                </div>
+            </section>
+
+            {/* ═══ WHY SEREEL ═══ */}
+            <section style={{ padding: "100px clamp(16px,4vw,56px)", maxWidth: 1120, margin: "0 auto" }}>
+                <Rv>
+                    <div className="sl">The Difference</div>
+                    <h2 style={{ fontSize: "clamp(28px,3.5vw,42px)", fontWeight: 800, letterSpacing: "-1.5px", fontFamily: "var(--display)", marginBottom: 48 }}>
+                        Built different. <span style={{ color: C.m }}>Not retrofitted.</span>
+                    </h2>
+                </Rv>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+                    {[
+                        { n: "01", t: "Standards-Based", d: "Built on CMTA — adopted by Swiss banks, validated by Project Guardian, 40+ institutional members. Portable, not locked in." },
+                        { n: "02", t: "True Multi-Chain", d: "Native deployments across EVM, Solana, IOTA, Starknet, Canton. Not bridges. Not wrapped. Native issuance, full parity." },
+                        { n: "03", t: "Privacy-Preserving", d: "Canton Network integration for institutional confidentiality without sacrificing regulatory transparency." },
+                        { n: "04", t: "Production-Ready", d: "Live clients tokenizing bonds, securities, stablecoins. Real capital flows, not proofs of concept." },
+                    ].map((w, i) => (
+                        <Rv key={i} d={i * 0.06}>
+                            <Gc style={{ cursor: "pointer" }} p="32px 28px">
+                                <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 16 }}>
+                  <span style={{
+                      fontSize: 11, fontWeight: 600, color: C.g, fontFamily: "var(--mono)",
+                      width: 32, height: 32, borderRadius: 8, background: C.gD,
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                  }}>{w.n}</span>
+                                    <h4 style={{ fontSize: 17, fontWeight: 700, color: C.w }}>{w.t}</h4>
+                                </div>
+                                <p style={{ fontSize: 14, color: C.m, lineHeight: 1.75, paddingLeft: 46 }}>{w.d}</p>
+                            </Gc>
+                        </Rv>
+                    ))}
+                </div>
+            </section>
+
+            {/* ═══ PARTNERS ═══ */}
+            <section style={{ padding: "100px clamp(16px,4vw,56px)", background: C.surface, position: "relative" }}>
+                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 1, background: `linear-gradient(90deg, transparent, #c9a84c15, transparent)` }} />
+                <div style={{ maxWidth: 1120, margin: "0 auto" }}>
+                    <Rv>
+                        <div style={{ textAlign: "center", marginBottom: 48 }}>
+                            <div className="sl" style={{ color: "#c9a84c" }}>Trusted Partners</div>
+                            <h2 style={{ fontSize: "clamp(26px,3vw,38px)", fontWeight: 800, letterSpacing: "-1px", fontFamily: "var(--display)", maxWidth: 480, margin: "0 auto" }}>
+                                Powering the future of <span style={{ color: C.m }}>sustainable finance</span>
+                            </h2>
+                        </div>
+                    </Rv>
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 16 }}>
+                        {[
+                            { nm: "Future Wealth Group", url: "futurewealthgroup.ch", d: "Swiss-based investment group empowering global investments across tokenized assets and sustainable finance.", lt: "FW" },
+                            { nm: "GrowTokens", url: "growtokens.io", d: "Impact-driven ESG platform tokenizing solar energy projects powering African communities. Accessible, transparent, scalable.", lt: "GT" },
+                            { nm: "Future Energy Global", url: "fe.global", d: "Accelerating SAF markets through innovative financial ecosystems. Climate meets capital — integrity led, profit driven.", lt: "FE" },
+                        ].map((p, i) => (
+                            <Rv key={i} d={i * 0.08}>
+                                <Gc style={{ height: "100%", display: "flex", flexDirection: "column", cursor: "pointer" }} p="32px 24px">
+                                    <div style={{
+                                        width: 44, height: 44, borderRadius: 10,
+                                        background: `linear-gradient(135deg, ${C.gD}, ${C.gU})`,
+                                        border: `1px solid ${C.g}15`, display: "flex", alignItems: "center", justifyContent: "center",
+                                        fontSize: 15, fontWeight: 800, color: C.g, fontFamily: "var(--display)",
+                                        marginBottom: 18,
+                                    }}>{p.lt}</div>
+                                    <h4 style={{ fontSize: 16, fontWeight: 700, color: C.w, marginBottom: 4 }}>{p.nm}</h4>
+                                    <p style={{ fontSize: 11.5, color: C.d, fontFamily: "var(--mono)", marginBottom: 14 }}>{p.url}</p>
+                                    <p style={{ fontSize: 13.5, color: C.m, lineHeight: 1.7, flex: 1 }}>{p.d}</p>
+                                    <div style={{ marginTop: 18, fontSize: 12, color: C.g, fontWeight: 600, display: "flex", alignItems: "center", gap: 5 }}>
+                                        Visit <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                                    </div>
+                                </Gc>
+                            </Rv>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* ═══ BLOG ═══ */}
+            <section style={{ padding: "100px clamp(16px,4vw,56px)", maxWidth: 1120, margin: "0 auto" }}>
+                <Rv>
+                    <div className="sl">Latest Insights</div>
+                    <h2 style={{ fontSize: "clamp(28px,3.5vw,42px)", fontWeight: 800, letterSpacing: "-1.5px", fontFamily: "var(--display)", marginBottom: 48 }}>
+                        From the <span style={{ color: C.m }}>Blog</span>
+                    </h2>
+                </Rv>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 16 }}>
+                    {latestBlogs.map((post: BlogPost, i: number) => (
+                        <Rv key={post.id} d={i * 0.08}>
+                            <Gc style={{ height: "100%", display: "flex", flexDirection: "column", cursor: "pointer" }} p="24px 20px">
+                                <img src={post.image} alt={post.title} style={{ width: "100%", height: 180, objectFit: "cover", borderRadius: 10, marginBottom: 16, border: `1px solid ${C.border}` }} />
+                                <h4 style={{ fontSize: 16, fontWeight: 700, color: C.w, marginBottom: 10, lineHeight: 1.3 }}>{post.title}</h4>
+                                <p style={{ fontSize: 13, color: C.m, lineHeight: 1.7, marginBottom: 16, flex: 1 }}>{post.summary}</p>
+                                <Link to={`/blog/${post.id}`} style={{ fontSize: 13, color: C.g, fontWeight: 600, textDecoration: "none", display: "flex", alignItems: "center", gap: 5 }}>
+                                    Read More <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                </Link>
+                            </Gc>
+                        </Rv>
+                    ))}
+                </div>
+            </section>
+
+            {/* ═══ FINAL CTA ═══ */}
+            <section style={{ padding: "160px clamp(16px,4vw,56px)", textAlign: "center", position: "relative" }}>
+                <div style={{ position: "absolute", inset: 0, background: `radial-gradient(ellipse at center, ${C.g}06, transparent 45%)` }} />
+                {/* Rotating ring */}
+                <div style={{
+                    position: "absolute", top: "50%", left: "50%",
+                    width: 440, height: 440, borderRadius: "50%",
+                    border: `1px solid ${C.g}06`, animation: "ringRotate 60s linear infinite",
+                }}>
+                    <div style={{ position: "absolute", top: -3, left: "50%", width: 6, height: 6, borderRadius: "50%", background: C.g, opacity: 0.4 }} />
+                </div>
+                <div style={{
+                    position: "absolute", top: "50%", left: "50%",
+                    transform: "translate(-50%,-50%)",
+                    width: 640, height: 640, borderRadius: "50%",
+                    border: `1px solid ${C.g}03`,
+                }} />
+                <Rv>
+                    <div style={{ position: "relative", zIndex: 1, maxWidth: 600, margin: "0 auto" }}>
+                        <h2 style={{ fontSize: "clamp(38px,5vw,60px)", fontWeight: 800, letterSpacing: "-2.5px", lineHeight: 1.0, marginBottom: 24, fontFamily: "var(--display)" }}>
+                            Ready to <span style={grdT}>Tokenize?</span>
+                        </h2>
+                        <p style={{ fontSize: 16, color: C.m, marginBottom: 44, lineHeight: 1.8, maxWidth: 460, margin: "0 auto 44px" }}>
+                            Launching a tokenized fund, digitizing bonds, or building exchange infrastructure — we architect the solution.
+                        </p>
+                        <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
+                            <button className="sb" style={{ padding: "16px 44px", fontSize: 15 }}>Schedule Consultation</button>
+                            <button className="so" style={{ padding: "16px 44px", fontSize: 15 }}>Platform Overview</button>
+                        </div>
+                        <button style={{ marginTop: 16, background: "none", border: "none", color: C.g, fontSize: 13, fontWeight: 600, cursor: "pointer", fontFamily: "var(--body)" }}>
+                            View Documentation →
+                        </button>
+                    </div>
+                </Rv>
+            </section>
+
+            {/* ═══ FOOTER ═══ */}
+            <footer style={{ borderTop: `1px solid ${C.border}`, padding: "48px clamp(16px,4vw,56px) 28px" }}>
+                <div style={{ maxWidth: 1120, margin: "0 auto", display: "grid", gridTemplateColumns: "1.6fr 1fr 1fr 1fr 1fr", gap: 28 }}>
+                    <div>
+                        <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14 }}>
+                            <img src='/images/Hero/glowing_seree_logo.svg' alt='Sereel' style={{ width: 24, height: 24 }} />
+                            <span style={{ fontSize: 16, fontWeight: 800, fontFamily: "var(--display)" }}>sereel</span>
+                        </div>
+                        <p style={{ fontSize: 12.5, color: C.d, lineHeight: 1.7, maxWidth: 220 }}>Where Traditional Finance Meets Digital Assets.</p>
+                    </div>
+                    {[
+                        { t: "Platform", l: ["Custody", "Tokenization", "Marketplace", "APIs", "Settlement"] },
+                        { t: "Solutions", l: ["Fund Managers", "Exchanges", "Banks", "Family Offices"] },
+                        { t: "Resources", l: ["Docs", "API Reference", "Blog", "Whitepapers"] },
+                        { t: "Company", l: ["About", "Advisory", "Careers", "Contact"] },
+                    ].map(c => (
+                        <div key={c.t}>
+                            <h4 style={{ fontSize: 10, fontWeight: 600, letterSpacing: "2.5px", textTransform: "uppercase", marginBottom: 18, color: C.w, fontFamily: "var(--mono)" }}>{c.t}</h4>
+                            <div style={{ display: "flex", flexDirection: "column", gap: 9 }}>
+                                {c.l.map(l => <span key={l} style={{ fontSize: 13, color: C.d, cursor: "pointer", transition: "color 0.2s" }} onMouseEnter={e => (e.target as HTMLElement).style.color = C.w} onMouseLeave={e => (e.target as HTMLElement).style.color = C.d}>{l}</span>)}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+                <div style={{ maxWidth: 1120, margin: "32px auto 0", paddingTop: 16, borderTop: `1px solid ${C.border}`, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                    <span style={{ fontSize: 11, color: C.dd }}>© 2025 Sereel. All rights reserved.</span>
+                    <div style={{ display: "flex", gap: 18 }}>
+                        {["Twitter", "LinkedIn", "GitHub"].map(s => <span key={s} style={{ fontSize: 11, color: C.d, cursor: "pointer" }} onMouseEnter={e => (e.target as HTMLElement).style.color = C.w} onMouseLeave={e => (e.target as HTMLElement).style.color = C.d}>{s}</span>)}
+                    </div>
+                </div>
+            </footer>
+        </div>
     );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, [ref, threshold]);
-  return vis;
-};
+}
 
-const useCt = (end: number, dur = 2000, start = 0) => {
-  const [val, setVal] = useState(start);
-  const [hasStarted, setHasStarted] = useState(false);
-
-  useEffect(() => {
-    if (!hasStarted) return;
-    const st = Date.now();
-    const tick = () => {
-      const elapsed = Date.now() - st;
-      const progress = Math.min(elapsed / dur, 1);
-      setVal(Math.floor(start + (end - start) * progress));
-      if (progress < 1) requestAnimationFrame(tick);
-    };
-    tick();
-  }, [hasStarted, end, dur, start]);
-
-  return [val, () => setHasStarted(true)] as const;
-};
-
-const Rv: React.FC<{ children: React.ReactNode; delay?: number }> = ({ children, delay = 0 }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const vis = useVis(ref);
-  return (
-    <div
-      ref={ref}
-      className="transition-all duration-700 ease-out"
-      style={{
-        opacity: vis ? 1 : 0,
-        transform: vis ? 'translateY(0)' : 'translateY(20px)',
-        transitionDelay: `${delay}ms`,
-      }}
-    >
-      {children}
-    </div>
-  );
-};
-
-const WordMorph = () => {
-  const words = ['Tokenization', 'Custody', 'Settlement', 'Compliance'];
-  const [idx, setIdx] = useState(0);
-
-  useEffect(() => {
-    const int = setInterval(() => {
-      setIdx((i) => (i + 1) % words.length);
-    }, 2500);
-    return () => clearInterval(int);
-  }, [words.length]);
-
-  return (
-    <span className="inline-block relative" style={{ minWidth: '280px' }}>
-      {words.map((w, i) => (
-        <span
-          key={w}
-          className="absolute left-0 top-0 transition-all duration-500"
-          style={{
-            opacity: i === idx ? 1 : 0,
-            transform: i === idx ? 'translateY(0)' : 'translateY(-10px)',
-            color: C.green,
-          }}
-        >
-          {w}
-        </span>
-      ))}
-    </span>
-  );
-};
-
-const ChainBar = () => {
-  const chains = [
-    'Ethereum',
-    'Polygon',
-    'Avalanche',
-    'Arbitrum',
-    'Optimism',
-    'Base',
-    'BNB Chain',
-    'Solana',
-    'Sui',
-    'Canton',
-  ];
-  return (
-    <div className="relative overflow-hidden" style={{ background: C.surface }}>
-      <div className="marquee flex gap-12 py-4">
-        {[...chains, ...chains].map((ch, i) => (
-          <span key={i} className="text-sm font-medium whitespace-nowrap" style={{ color: C.textMuted }}>
-            {ch}
-          </span>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const Gc: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => {
-  const [hov, setHov] = useState(false);
-  return (
-    <div
-      className={`relative rounded-2xl p-6 transition-all duration-300 ${className}`}
-      style={{
-        background: hov ? 'rgba(255,255,255,0.03)' : 'rgba(255,255,255,0.02)',
-        border: `1px solid ${hov ? C.green : C.border}`,
-      }}
-      onMouseEnter={() => setHov(true)}
-      onMouseLeave={() => setHov(false)}
-    >
-      {children}
-    </div>
-  );
-};
-
-const Nav = () => {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handle = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handle);
-    return () => window.removeEventListener('scroll', handle);
-  }, []);
-
-  return (
-    <nav
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-      style={{
-        backdropFilter: scrolled ? 'blur(12px)' : 'none',
-        background: scrolled ? 'rgba(0,0,0,0.8)' : 'transparent',
-        borderBottom: scrolled ? `1px solid ${C.border}` : 'none',
-      }}
-    >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <div className="text-2xl font-bold" style={{ color: C.text }}>
-          Sereel
-        </div>
-        <div className="flex gap-8 items-center">
-          <a href="#about" className="text-sm hover:opacity-70 transition" style={{ color: C.textMuted }}>
-            About
-          </a>
-          <a href="#platform" className="text-sm hover:opacity-70 transition" style={{ color: C.textMuted }}>
-            Platform
-          </a>
-          <a href="#partners" className="text-sm hover:opacity-70 transition" style={{ color: C.textMuted }}>
-            Partners
-          </a>
-          <button className="sb">Get Started</button>
-        </div>
-      </div>
-    </nav>
-  );
-};
-
-const Hero = () => {
-  return (
-    <section className="relative min-h-screen flex items-center pt-20 px-6" style={{ color: C.text }}>
-      <div className="max-w-7xl mx-auto w-full grid gap-12" style={{ gridTemplateColumns: '1.15fr 0.85fr' }}>
-        <div className="flex flex-col justify-center gap-6">
-          <Rv>
-            <span
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium w-fit"
-              style={{ background: grd(C.greenGlow, 'transparent'), border: `1px solid ${C.green}` }}
-            >
-              <span
-                className="w-2 h-2 rounded-full pulse"
-                style={{ background: C.green, boxShadow: `0 0 8px ${C.green}` }}
-              />
-              Live Infrastructure
-            </span>
-          </Rv>
-          <Rv delay={100}>
-            <h1 className="text-6xl font-bold leading-tight" style={{ fontFamily: 'var(--display)' }}>
-              Enterprise <WordMorph />
-              <br />
-              Infrastructure
-            </h1>
-          </Rv>
-          <Rv delay={200}>
-            <p className="text-lg leading-relaxed" style={{ color: C.textMuted }}>
-              Institutional-grade tokenization platform powering compliant digital assets across global networks.
-              Security, custody, and settlement designed for scale.
-            </p>
-          </Rv>
-          <Rv delay={300}>
-            <div className="flex gap-4 mt-4">
-              <button className="sb">Start Building</button>
-              <button className="so">View Documentation</button>
-            </div>
-          </Rv>
-        </div>
-
-        <Rv delay={400}>
-          <Gc className="flex flex-col gap-6">
-            <div className="flex items-center justify-between">
-              <h3 className="text-sm font-medium" style={{ color: C.textMuted }}>
-                Platform Status
-              </h3>
-              <span className="text-xs px-2 py-1 rounded" style={{ background: C.greenGlow, color: C.green }}>
-                Operational
-              </span>
-            </div>
-            <div className="space-y-4">
-              <div>
-                <div className="flex justify-between text-xs mb-1" style={{ color: C.textMuted }}>
-                  <span>API Uptime</span>
-                  <span>99.9%</span>
-                </div>
-                <div className="w-full h-1.5 rounded-full" style={{ background: C.border }}>
-                  <div className="h-full rounded-full" style={{ width: '99.9%', background: C.green }} />
-                </div>
-              </div>
-              <div>
-                <div className="flex justify-between text-xs mb-1" style={{ color: C.textMuted }}>
-                  <span>Network Health</span>
-                  <span>100%</span>
-                </div>
-                <div className="w-full h-1.5 rounded-full" style={{ background: C.border }}>
-                  <div className="h-full rounded-full" style={{ width: '100%', background: C.green }} />
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-wrap gap-2 mt-2">
-              {['Ethereum', 'Polygon', 'Avalanche'].map((n) => (
-                <span
-                  key={n}
-                  className="text-xs px-2 py-1 rounded"
-                  style={{ background: C.surface, color: C.textMuted }}
-                >
-                  {n}
-                </span>
-              ))}
-            </div>
-          </Gc>
-        </Rv>
-      </div>
-    </section>
-  );
-};
-
-const ChainsSection = () => {
-  return (
-    <section className="relative py-2">
-      <ChainBar />
-    </section>
-  );
-};
-
-const Stats = () => {
-  const ref1 = useRef<HTMLDivElement>(null);
-  const ref2 = useRef<HTMLDivElement>(null);
-  const ref3 = useRef<HTMLDivElement>(null);
-  const ref4 = useRef<HTMLDivElement>(null);
-
-  const vis1 = useVis(ref1);
-  const vis2 = useVis(ref2);
-  const vis3 = useVis(ref3);
-  const vis4 = useVis(ref4);
-
-  const [val1, start1] = useCt(2);
-  const [val2, start2] = useCt(16);
-  const [val3, start3] = useCt(80);
-  const [val4, start4] = useCt(24);
-
-  useEffect(() => {
-    if (vis1) start1();
-  }, [vis1, start1]);
-
-  useEffect(() => {
-    if (vis2) start2();
-  }, [vis2, start2]);
-
-  useEffect(() => {
-    if (vis3) start3();
-  }, [vis3, start3]);
-
-  useEffect(() => {
-    if (vis4) start4();
-  }, [vis4, start4]);
-
-  const stats = [
-    { label: 'Billion in TVL', value: `$${val1}B+`, ref: ref1 },
-    { label: 'Supported Networks', value: val2.toString(), ref: ref2 },
-    { label: 'Enterprise Clients', value: `${val3}+`, ref: ref3 },
-    { label: '7 Availability', value: `${val4}/7`, ref: ref4 },
-  ];
-
-  return (
-    <section className="relative py-24 px-6">
-      <div className="max-w-7xl mx-auto grid grid-cols-4 gap-8">
-        {stats.map((s, i) => (
-          <div key={i} ref={s.ref} className="text-center">
-            <Rv delay={i * 100}>
-              <div className="text-5xl font-bold mb-2" style={{ color: C.green, fontFamily: 'var(--display)' }}>
-                {s.value}
-              </div>
-              <div className="text-sm" style={{ color: C.textMuted }}>
-                {s.label}
-              </div>
-            </Rv>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-};
-
-const About = () => {
-  return (
-    <section id="about" className="relative py-24 px-6">
-      <div className="max-w-7xl mx-auto grid gap-12" style={{ gridTemplateColumns: '0.4fr 0.6fr' }}>
-        <div className="sticky top-32 h-fit">
-          <Rv>
-            <span className="sl">About Sereel</span>
-            <h2 className="text-4xl font-bold mt-4 mb-6" style={{ fontFamily: 'var(--display)', color: C.text }}>
-              Built for the next generation of finance
-            </h2>
-          </Rv>
-        </div>
-        <div className="space-y-6" style={{ color: C.textMuted }}>
-          <Rv delay={100}>
-            <p className="text-lg leading-relaxed">
-              Sereel provides institutional-grade infrastructure for tokenizing, managing, and settling digital assets.
-              Our platform combines security, compliance, and operational efficiency to enable enterprises to operate
-              confidently in the digital asset economy.
-            </p>
-          </Rv>
-          <Rv delay={200}>
-            <p className="text-lg leading-relaxed">
-              From real-world asset tokenization to cross-chain settlement, we handle the complexity so you can focus on
-              growth. Built on industry standards like CMTAT and ISO20022, Sereel ensures regulatory compliance without
-              compromising on innovation.
-            </p>
-          </Rv>
-          <Rv delay={300}>
-            <p className="text-lg leading-relaxed">
-              Trusted by global enterprises, financial institutions, and government entities, Sereel is redefining what's
-              possible in digital finance infrastructure.
-            </p>
-          </Rv>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const Bento = () => {
-  const items = [
-    {
-      num: '01',
-      title: 'Tokenization',
-      desc: 'CMTAT-compliant token issuance with embedded compliance logic',
-      tags: ['ERC-3643', 'ISO20022', 'CMTAT'],
-    },
-    {
-      num: '02',
-      title: 'Custody',
-      desc: 'Enterprise-grade multi-signature custody with institutional SLAs',
-      tags: ['MPC', 'HSM', 'SOC 2'],
-    },
-    {
-      num: '03',
-      title: 'Settlement',
-      desc: 'Atomic cross-chain settlement with T+0 finality',
-      tags: ['DvP', 'Atomic Swap', 'Real-time'],
-    },
-    {
-      num: '04',
-      title: 'Compliance',
-      desc: 'Built-in KYC/AML with automated regulatory reporting',
-      tags: ['KYC', 'AML', 'MiCA'],
-    },
-  ];
-
-  return (
-    <section id="platform" className="relative py-24 px-6">
-      <div className="max-w-7xl mx-auto">
-        <Rv>
-          <div className="text-center mb-16">
-            <span className="sl">Platform Pillars</span>
-            <h2 className="text-4xl font-bold mt-4" style={{ fontFamily: 'var(--display)', color: C.text }}>
-              Complete Infrastructure Stack
-            </h2>
-          </div>
-        </Rv>
-        <div className="grid grid-cols-2 gap-6">
-          {items.map((it, i) => (
-            <Rv key={i} delay={i * 100}>
-              <Gc>
-                <div className="text-4xl font-bold mb-4" style={{ color: C.green, fontFamily: 'var(--mono)' }}>
-                  {it.num}
-                </div>
-                <h3 className="text-2xl font-bold mb-3" style={{ color: C.text }}>
-                  {it.title}
-                </h3>
-                <p className="mb-4" style={{ color: C.textMuted }}>
-                  {it.desc}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {it.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs px-2 py-1 rounded"
-                      style={{ background: C.surface, color: C.textMuted }}
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </Gc>
-            </Rv>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const ClientSegments = () => {
-  const segments = [
-    { title: 'Asset Managers', desc: 'Tokenize and manage digital fund structures' },
-    { title: 'Banks', desc: 'Issue compliant digital securities and bonds' },
-    { title: 'Fintechs', desc: 'Build on institutional-grade infrastructure' },
-    { title: 'Governments', desc: 'Deploy sovereign digital currency solutions' },
-    { title: 'Enterprises', desc: 'Tokenize treasury and supply chain assets' },
-  ];
-
-  return (
-    <section className="relative py-24 px-6" style={{ background: C.surface }}>
-      <div className="max-w-7xl mx-auto">
-        <Rv>
-          <div className="text-center mb-16">
-            <span className="sl">Client Segments</span>
-            <h2 className="text-4xl font-bold mt-4" style={{ fontFamily: 'var(--display)', color: C.text }}>
-              Trusted by Industry Leaders
-            </h2>
-          </div>
-        </Rv>
-        <div className="grid grid-cols-5 gap-6">
-          {segments.map((seg, i) => (
-            <Rv key={i} delay={i * 80}>
-              <Gc>
-                <h3 className="text-lg font-bold mb-2" style={{ color: C.text }}>
-                  {seg.title}
-                </h3>
-                <p className="text-sm" style={{ color: C.textMuted }}>
-                  {seg.desc}
-                </p>
-              </Gc>
-            </Rv>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const B2BMarketplace = () => {
-  return (
-    <section className="relative py-24 px-6">
-      <div className="max-w-7xl mx-auto grid gap-8" style={{ gridTemplateColumns: '1.2fr 0.8fr' }}>
-        <Rv>
-          <Gc className="h-full flex flex-col justify-between">
-            <div>
-              <span className="sl">B2B Platform</span>
-              <h2 className="text-3xl font-bold mt-4 mb-4" style={{ fontFamily: 'var(--display)', color: C.text }}>
-                Developer-First APIs
-              </h2>
-              <p className="mb-6" style={{ color: C.textMuted }}>
-                RESTful and GraphQL APIs with comprehensive SDKs for JavaScript, Python, Go, and Rust. Deploy in minutes,
-                scale to billions.
-              </p>
-            </div>
-            <div
-              className="rounded-lg p-4 font-mono text-sm overflow-x-auto"
-              style={{ background: C.bg, color: C.green }}
-            >
-              <pre>
-                {`curl -X POST https://api.sereel.io/v1/tokens \\
-  -H "Authorization: Bearer \${API_KEY}" \\
-  -d '{
-    "name": "Treasury Bond 2025",
-    "symbol": "TB2025",
-    "supply": 1000000,
-    "compliance": "CMTAT"
-  }'`}
-              </pre>
-            </div>
-          </Gc>
-        </Rv>
-        <div className="space-y-6">
-          <Rv delay={100}>
-            <Gc>
-              <h3 className="text-xl font-bold mb-2" style={{ color: C.text }}>
-                White-Label Solutions
-              </h3>
-              <p className="text-sm" style={{ color: C.textMuted }}>
-                Deploy branded tokenization platforms with your identity. Full UI customization and infrastructure
-                control.
-              </p>
-            </Gc>
-          </Rv>
-          <Rv delay={200}>
-            <Gc>
-              <h3 className="text-xl font-bold mb-2" style={{ color: C.text }}>
-                Marketplace Access
-              </h3>
-              <p className="text-sm" style={{ color: C.textMuted }}>
-                Connect to our institutional marketplace for secondary trading and liquidity provision.
-              </p>
-            </Gc>
-          </Rv>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const Advisory = () => {
-  const services = [
-    { title: 'Tokenization Strategy', desc: 'Asset selection, structure design, and compliance roadmap' },
-    { title: 'Regulatory Guidance', desc: 'Navigate MiCA, MiFID II, and securities law frameworks' },
-    { title: 'Technical Integration', desc: 'End-to-end implementation and system integration support' },
-    { title: 'Custody Architecture', desc: 'Design secure multi-party custody solutions' },
-    { title: 'Market Design', desc: 'Secondary market structure and liquidity strategies' },
-    { title: 'Post-Launch Operations', desc: 'Ongoing compliance, reporting, and infrastructure support' },
-  ];
-
-  return (
-    <section className="relative py-24 px-6">
-      <div className="max-w-7xl mx-auto">
-        <Rv>
-          <div className="text-center mb-16">
-            <span className="sl">Advisory Services</span>
-            <h2 className="text-4xl font-bold mt-4" style={{ fontFamily: 'var(--display)', color: C.text }}>
-              Expert Guidance at Every Step
-            </h2>
-          </div>
-        </Rv>
-        <div className="grid grid-cols-2 gap-6">
-          {services.map((srv, i) => (
-            <Rv key={i} delay={i * 80}>
-              <Gc>
-                <h3 className="text-xl font-bold mb-2" style={{ color: C.text }}>
-                  {srv.title}
-                </h3>
-                <p className="text-sm" style={{ color: C.textMuted }}>
-                  {srv.desc}
-                </p>
-              </Gc>
-            </Rv>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const WhySereel = () => {
-  const reasons = [
-    {
-      num: '01',
-      title: 'Regulatory-First Design',
-      desc: 'Built from the ground up with compliance embedded at the protocol level',
-    },
-    {
-      num: '02',
-      title: 'Battle-Tested Security',
-      desc: 'SOC 2 Type II, ISO 27001, and regular third-party audits',
-    },
-    {
-      num: '03',
-      title: 'True Interoperability',
-      desc: 'Cross-chain by default with support for all major networks',
-    },
-    {
-      num: '04',
-      title: 'Institutional SLAs',
-      desc: '99.9% uptime guarantee with 24/7 dedicated support',
-    },
-  ];
-
-  return (
-    <section className="relative py-24 px-6" style={{ background: C.surface }}>
-      <div className="max-w-7xl mx-auto">
-        <Rv>
-          <div className="text-center mb-16">
-            <span className="sl">Why Sereel</span>
-            <h2 className="text-4xl font-bold mt-4" style={{ fontFamily: 'var(--display)', color: C.text }}>
-              The Institutional Choice
-            </h2>
-          </div>
-        </Rv>
-        <div className="grid grid-cols-2 gap-6">
-          {reasons.map((r, i) => (
-            <Rv key={i} delay={i * 100}>
-              <Gc>
-                <div className="text-3xl font-bold mb-4" style={{ color: C.green, fontFamily: 'var(--mono)' }}>
-                  {r.num}
-                </div>
-                <h3 className="text-2xl font-bold mb-3" style={{ color: C.text }}>
-                  {r.title}
-                </h3>
-                <p style={{ color: C.textMuted }}>{r.desc}</p>
-              </Gc>
-            </Rv>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const Partners = () => {
-  const partners = [
-    { name: 'Firewall', desc: 'Security Infrastructure Partner' },
-    { name: 'Gnosis', desc: 'Multi-Signature Technology' },
-    { name: 'Fordefi', desc: 'Enterprise MPC Provider' },
-  ];
-
-  return (
-    <section id="partners" className="relative py-24 px-6">
-      <div className="max-w-7xl mx-auto">
-        <Rv>
-          <div className="text-center mb-16">
-            <span className="sl">Technology Partners</span>
-            <h2 className="text-4xl font-bold mt-4" style={{ fontFamily: 'var(--display)', color: C.text }}>
-              Built on Best-in-Class Infrastructure
-            </h2>
-          </div>
-        </Rv>
-        <div className="grid grid-cols-3 gap-6">
-          {partners.map((p, i) => (
-            <Rv key={i} delay={i * 100}>
-              <Gc className="text-center">
-                <div className="text-2xl font-bold mb-2" style={{ color: C.green }}>
-                  {p.name}
-                </div>
-                <p className="text-sm" style={{ color: C.textMuted }}>
-                  {p.desc}
-                </p>
-              </Gc>
-            </Rv>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const Blog = () => {
-  const latestBlogs = blogsData.slice(0, 3);
-
-  return (
-    <section className="relative py-24 px-6">
-      <div className="max-w-7xl mx-auto">
-        <Rv>
-          <div className="text-center mb-16">
-            <span className="sl">Latest Insights</span>
-            <h2 className="text-4xl font-bold mt-4" style={{ fontFamily: 'var(--display)', color: C.text }}>
-              From the Blog
-            </h2>
-          </div>
-        </Rv>
-        <div className="grid grid-cols-3 gap-6">
-          {latestBlogs.map((post, i) => (
-            <Rv key={post.id} delay={i * 100}>
-              <Gc className="h-full flex flex-col">
-                <img
-                  src={post.image}
-                  alt={post.title}
-                  className="w-full h-48 object-cover rounded-lg mb-4"
-                  style={{ border: `1px solid ${C.border}` }}
-                />
-                <h3 className="text-xl font-bold mb-2" style={{ color: C.text }}>
-                  {post.title}
-                </h3>
-                <p className="text-sm mb-4 flex-grow" style={{ color: C.textMuted }}>
-                  {post.summary}
-                </p>
-                <Link
-                  to={`/blog/${post.id}`}
-                  className="text-sm font-medium hover:opacity-70 transition"
-                  style={{ color: C.green }}
-                >
-                  Read More →
-                </Link>
-              </Gc>
-            </Rv>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const FinalCTA = () => {
-  return (
-    <section className="relative py-32 px-6">
-      <div
-        className="absolute inset-0 opacity-30"
-        style={{
-          background: `radial-gradient(circle at center, ${C.greenGlow}, transparent 70%)`,
-        }}
-      />
-      <div className="max-w-4xl mx-auto text-center relative z-10">
-        <div className="ringRotate w-32 h-32 mx-auto mb-8 rounded-full" style={{ border: `2px solid ${C.green}` }} />
-        <Rv>
-          <h2 className="text-5xl font-bold mb-6" style={{ fontFamily: 'var(--display)', color: C.text }}>
-            Ready to Build the Future?
-          </h2>
-        </Rv>
-        <Rv delay={100}>
-          <p className="text-xl mb-8" style={{ color: C.textMuted }}>
-            Join leading institutions leveraging Sereel's infrastructure to tokenize, custody, and settle digital assets
-            at scale.
-          </p>
-        </Rv>
-        <Rv delay={200}>
-          <div className="flex gap-4 justify-center">
-            <button className="sb">Schedule a Demo</button>
-            <button className="so">Contact Sales</button>
-          </div>
-        </Rv>
-      </div>
-    </section>
-  );
-};
-
-const Footer = () => {
-  const footerLinks = {
-    Product: ['Tokenization', 'Custody', 'Settlement', 'Compliance', 'APIs'],
-    Resources: ['Documentation', 'Guides', 'Blog', 'Case Studies', 'Whitepaper'],
-    Company: ['About', 'Careers', 'Partners', 'Press', 'Contact'],
-    Legal: ['Privacy Policy', 'Terms of Service', 'Security', 'Compliance', 'Licenses'],
-  };
-
-  const socials = [
-    { name: 'Twitter', href: '#' },
-    { name: 'LinkedIn', href: '#' },
-    { name: 'GitHub', href: '#' },
-  ];
-
-  return (
-    <footer className="relative py-16 px-6" style={{ background: C.surface, borderTop: `1px solid ${C.border}` }}>
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-5 gap-8 mb-12">
-          <div>
-            <div className="text-2xl font-bold mb-4" style={{ color: C.text }}>
-              Sereel
-            </div>
-            <p className="text-sm" style={{ color: C.textMuted }}>
-              Enterprise tokenization infrastructure for the digital economy.
-            </p>
-          </div>
-          {Object.entries(footerLinks).map(([title, links]) => (
-            <div key={title}>
-              <h4 className="text-sm font-bold mb-4" style={{ color: C.text }}>
-                {title}
-              </h4>
-              <ul className="space-y-2">
-                {links.map((link) => (
-                  <li key={link}>
-                    <a href="#" className="text-sm hover:opacity-70 transition" style={{ color: C.textMuted }}>
-                      {link}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-        <div
-          className="pt-8 flex items-center justify-between"
-          style={{ borderTop: `1px solid ${C.border}`, color: C.textMuted }}
-        >
-          <p className="text-sm">© 2025 Sereel. All rights reserved.</p>
-          <div className="flex gap-6">
-            {socials.map((s) => (
-              <a key={s.name} href={s.href} className="text-sm hover:opacity-70 transition">
-                {s.name}
-              </a>
-            ))}
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-};
-
-export const SereelV4 = () => {
-  return (
-    <div className="relative" style={{ background: C.bg, color: C.text, fontFamily: 'var(--body)' }}>
-      <MeshBg />
-      <Nav />
-      <Hero />
-      <ChainsSection />
-      <Stats />
-      <About />
-      <Bento />
-      <ClientSegments />
-      <B2BMarketplace />
-      <Advisory />
-      <WhySereel />
-      <Partners />
-      <Blog />
-      <FinalCTA />
-      <Footer />
-    </div>
-  );
-};
+export default SereelV4;
