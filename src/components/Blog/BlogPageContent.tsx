@@ -6,9 +6,13 @@ import { useState } from "react";
 // V4 Color Palette
 const C = {
   bg: '#010201',
+  surface: '#060906',
   card: '#0a0f0b',
+  cardHi: '#0f1710',
   border: '#141f16',
   g: '#1ea46f',
+  gL: '#2bdb8e',
+  gD: '#1ea46f15',
   m: '#6b8a74',
   w: '#e8f0eb',
 };
@@ -24,18 +28,75 @@ interface Blog {
 
 const typedBlogs: Blog[] = blogs as Blog[];
 
+// Mesh Background Component
+function MeshBg() {
+  return (
+    <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none" }}>
+      {/* Large morphing blob */}
+      <div style={{
+        position: "absolute", top: "-10%", right: "-5%",
+        width: "60vw", height: "60vw", maxWidth: 800, maxHeight: 800,
+        borderRadius: "30% 70% 60% 40% / 50% 30% 70% 50%",
+        background: `radial-gradient(ellipse at 30% 40%, ${C.g}08, ${C.g}03 50%, transparent 70%)`,
+        animation: "morph 20s ease-in-out infinite",
+        filter: "blur(40px)",
+      }} />
+      {/* Secondary blob */}
+      <div style={{
+        position: "absolute", bottom: "5%", left: "-10%",
+        width: "45vw", height: "45vw", maxWidth: 600, maxHeight: 600,
+        borderRadius: "60% 40% 30% 70% / 40% 60% 40% 60%",
+        background: `radial-gradient(ellipse at 60% 60%, ${C.g}05, transparent 60%)`,
+        animation: "morph 25s ease-in-out infinite reverse",
+        filter: "blur(50px)",
+      }} />
+      {/* Dot matrix grid */}
+      <svg width="100%" height="100%" style={{ position: "absolute", inset: 0, opacity: 0.25 }}>
+        <defs>
+          <pattern id="dots" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+            <circle cx="1" cy="1" r="0.5" fill={C.g} opacity="0.15" />
+          </pattern>
+          <radialGradient id="dotMask">
+            <stop offset="0%" stopColor="white" />
+            <stop offset="60%" stopColor="white" stopOpacity="0.3" />
+            <stop offset="100%" stopColor="white" stopOpacity="0" />
+          </radialGradient>
+          <mask id="dm"><rect width="100%" height="100%" fill="url(#dotMask)" /></mask>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#dots)" mask="url(#dm)" />
+      </svg>
+      {/* Horizon glow */}
+      <div style={{
+        position: "absolute", bottom: 0, left: "10%", right: "10%", height: 1,
+        background: `linear-gradient(90deg, transparent, ${C.g}15, transparent)`,
+      }} />
+    </div>
+  );
+}
+
 export const BlogPageContent = () => {
   return (
     <div className="w-full" style={{ background: C.bg }}>
-      {/* Hero Section */}
+      <style>{`
+        @keyframes morph { 
+          0%{border-radius:30% 70% 60% 40%/50% 30% 70% 50%} 
+          33%{border-radius:50% 50% 30% 70%/40% 60% 50% 50%} 
+          66%{border-radius:40% 60% 50% 50%/60% 40% 60% 40%} 
+          100%{border-radius:30% 70% 60% 40%/50% 30% 70% 50%}
+        }
+      `}</style>
+
+      {/* Hero Section with MeshBg */}
       <div 
         className="w-full lg:h-[500px] h-[300px] flex items-center justify-center relative overflow-hidden"
         style={{ background: C.bg }}
       >
+        <MeshBg />
         <div className="text-center px-5 relative z-10">
           <h1 
-            className="lg:text-6xl text-4xl font-gilroy-bold mb-4"
+            className="lg:text-6xl text-4xl mb-4"
             style={{
+              fontFamily: 'var(--display)',
               background: `linear-gradient(135deg, ${C.w}, ${C.g})`,
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
@@ -64,9 +125,21 @@ export const BlogPageContent = () => {
             <>
               {/* Section Header */}
               <div className="text-center mb-16">
+                <div className="sl" style={{
+                  fontSize: 11,
+                  letterSpacing: '3.5px',
+                  textTransform: 'uppercase',
+                  color: C.g,
+                  fontWeight: 500,
+                  marginBottom: 18,
+                  fontFamily: 'var(--mono)',
+                }}>
+                  Latest Articles
+                </div>
                 <h2 
-                  className="text-4xl font-gilroy-bold mb-4"
+                  className="text-4xl mb-4"
                   style={{
+                    fontFamily: 'var(--display)',
                     background: `linear-gradient(135deg, ${C.g}, ${C.w})`,
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
@@ -107,20 +180,21 @@ const BlogCard = ({ blog }: { blog: Blog }) => {
 
   return (
     <div
-      className="group rounded-xl overflow-hidden transition-all duration-300 relative"
+      className="group rounded-xl overflow-hidden transition-all duration-500 relative"
       style={{
-        background: C.card,
-        border: `1px solid ${hov ? C.g : C.border}`,
+        background: hov ? C.cardHi : C.card,
+        border: `1px solid ${hov ? C.g + "25" : C.border}`,
+        transform: hov ? "translateY(-2px)" : "none",
+        boxShadow: hov ? `0 24px 64px -16px ${C.g}12` : "none",
       }}
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
     >
       {/* Top Glow Line */}
       <div
-        className="absolute top-0 left-0 right-0 h-[2px] transition-opacity duration-300"
+        className="absolute top-0 left-[15%] right-[15%] h-[1px] transition-all duration-500"
         style={{
-          background: `linear-gradient(90deg, transparent, ${C.g}, transparent)`,
-          opacity: hov ? 1 : 0,
+          background: hov ? `linear-gradient(90deg, transparent, ${C.g}40, transparent)` : "transparent",
         }}
       />
 
@@ -140,7 +214,13 @@ const BlogCard = ({ blog }: { blog: Blog }) => {
             
             {/* Title overlay */}
             <div className="absolute bottom-0 left-0 right-0 p-4">
-              <h3 className="font-gilroy-bold text-lg line-clamp-2" style={{ color: C.w }}>
+              <h3 
+                className="text-lg line-clamp-2" 
+                style={{ 
+                  color: C.w,
+                  fontFamily: 'var(--display)',
+                }}
+              >
                 {blog.title}
               </h3>
             </div>
@@ -159,8 +239,12 @@ const BlogCard = ({ blog }: { blog: Blog }) => {
 
           {/* Read More Button */}
           <div
-            className="flex items-center gap-2 font-gilroy-medium text-sm group-hover:gap-3 transition-all duration-300"
-            style={{ color: C.g }}
+            className="flex items-center gap-2 text-sm group-hover:gap-3 transition-all duration-300"
+            style={{ 
+              color: C.g,
+              fontFamily: 'var(--body)',
+              fontWeight: 600,
+            }}
           >
             <span>Read More</span>
             <svg
@@ -185,7 +269,13 @@ const EmptyState = () => {
   return (
     <div className="w-full flex items-center justify-center flex-col py-20">
       <div className="text-8xl mb-6">📝</div>
-      <h3 className="font-gilroy-bold text-4xl mb-4" style={{ color: C.w }}>
+      <h3 
+        className="text-4xl mb-4" 
+        style={{ 
+          color: C.w,
+          fontFamily: 'var(--display)',
+        }}
+      >
         No blogs found at the moment
       </h3>
       <p className="text-lg text-center" style={{ color: C.m }}>
