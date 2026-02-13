@@ -5,7 +5,16 @@ import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import blogs from "../../Blog Data/Blogs.json";
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+
+// V4 Color Palette
+const C = {
+  bg: '#010201',
+  card: '#0a0f0b',
+  border: '#141f16',
+  g: '#1ea46f',
+  m: '#6b8a74',
+  w: '#e8f0eb',
+};
 
 interface Blog {
   id: number;
@@ -69,322 +78,205 @@ export const BlogPost = () => {
 
   if (!id || !blog) {
     return (
-      <div className="w-full h-screen flex items-center justify-center bg-black">
-        <motion.div
-          className="text-center"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          <motion.div
-            className="text-6xl mb-4"
-            transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-          >
-            🔍
-          </motion.div>
-          <h2 className="text-2xl font-gilroy-bold text-white mb-2">Blog not found</h2>
-          <p className="text-[#D5D5D5]">The article you're looking for doesn't exist</p>
-        </motion.div>
+      <div className="w-full h-screen flex items-center justify-center" style={{ background: C.bg }}>
+        <div className="text-center">
+          <div className="text-6xl mb-4">🔍</div>
+          <h2 className="text-2xl font-gilroy-bold mb-2" style={{ color: C.w }}>
+            Blog not found
+          </h2>
+          <p style={{ color: C.m }}>The article you're looking for doesn't exist</p>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="w-full bg-black min-h-screen">
+    <div className="w-full min-h-screen" style={{ background: C.bg }}>
       {/* Hero Section */}
-      <motion.div
-        className="w-full h-[400px] bg-gradient-to-br from-[#1CA36E]/10 via-black to-[#1CA36E]/5 flex items-center justify-center relative overflow-hidden"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
+      <div
+        className="w-full h-[400px] flex items-center justify-center relative overflow-hidden"
+        style={{
+          background: `linear-gradient(135deg, ${C.bg} 0%, ${C.card} 50%, ${C.bg} 100%)`,
+        }}
       >
-        {/* Animated background
-        <motion.div
-          className="absolute inset-0"
-          animate={{
-            background: [
-              "radial-gradient(circle at 25% 25%, rgba(28, 163, 110, 0.1) 0%, transparent 50%)",
-              "radial-gradient(circle at 75% 75%, rgba(28, 163, 110, 0.1) 0%, transparent 50%)",
-              "radial-gradient(circle at 25% 75%, rgba(28, 163, 110, 0.1) 0%, transparent 50%)",
-              "radial-gradient(circle at 25% 25%, rgba(28, 163, 110, 0.1) 0%, transparent 50%)",
-            ],
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        /> */}
-
-        <motion.div
-          className="text-center px-5 relative z-10 max-w-4xl mx-auto"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <motion.h1 
-            className="lg:text-5xl text-3xl font-gilroy-bold mb-4 leading-tight text-white"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+        <div className="text-center px-5 relative z-10 max-w-4xl mx-auto">
+          <h1 
+            className="lg:text-5xl text-3xl font-gilroy-bold mb-4 leading-tight"
+            style={{
+              background: `linear-gradient(135deg, ${C.w}, ${C.g})`,
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
           >
             {blog.title}
-          </motion.h1>
-          <motion.p 
-            className="text-[#969696] text-lg"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+          </h1>
+          <p 
+            className="text-lg"
+            style={{ color: C.m }}
           >
             {blog.date}
-          </motion.p>
-        </motion.div>
-      </motion.div>
+          </p>
+        </div>
+      </div>
 
       {/* Content Section */}
-      <div className="w-full bg-black py-20">
+      <div className="w-full py-20" style={{ background: C.bg }}>
         <div className="w-[90%] max-w-4xl mx-auto">
           
           {/* Featured Image */}
-          <motion.div
-            className="mb-12"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <motion.div
-              className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#1CA36E]/10 to-white/5 border border-[#202026]"
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+          <div className="mb-12">
+            <div
+              className="relative overflow-hidden rounded-2xl"
+              style={{
+                background: C.card,
+                border: `1px solid ${C.border}`,
+              }}
             >
               {!imageLoaded && (
-                <motion.div
-                  className="w-full h-[400px] flex items-center justify-center"
-                  animate={{ opacity: [0.5, 1, 0.5] }}
-                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                >
+                <div className="w-full h-[400px] flex items-center justify-center">
                   <div className="text-4xl">📸</div>
-                </motion.div>
+                </div>
               )}
               
-              <motion.img
+              <img
                 src={imageSrc}
                 alt={blog.title}
                 className="w-full max-h-[500px] object-cover rounded-2xl"
-                initial={{ opacity: 0, scale: 1.1 }}
-                animate={{ opacity: imageLoaded ? 1 : 0, scale: 1 }}
-                transition={{ duration: 0.8 }}
-                whileHover={{ scale: 1.02 }}
+                style={{ opacity: imageLoaded ? 1 : 0 }}
               />
-              
-              {/* Image overlay effect */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"
-                whileHover={{ opacity: 1 }}
-              />
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
           {/* Article Content */}
-          <motion.div
-            className="blog-content"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <motion.div
-              className="prose prose-lg max-w-none w-full"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
+          <div className="blog-content">
+            <div className="prose prose-lg max-w-none w-full">
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
                 rehypePlugins={[rehypeRaw]}
                 components={{
                   a: ({ href, children }) => (
-                    <motion.a
+                    <a
                       href={href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#1CA36E] underline hover:text-[#00FFB2] transition-colors duration-300"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.2 }}
+                      className="transition-colors duration-300"
+                      style={{ color: C.g, textDecoration: 'underline' }}
                     >
                       {children}
-                    </motion.a>
+                    </a>
                   ),
                   h1: ({ children }) => (
-                    <motion.h1
-                      className="text-4xl font-gilroy-bold mb-6 mt-8 text-white"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.8 }}
-                      viewport={{ once: true }}
-                      whileHover={{ 
-                        textShadow: "0 0 20px rgba(28, 163, 110, 0.8)",
-                        color: "#1CA36E"
-                      }}
+                    <h1
+                      className="text-4xl font-gilroy-bold mb-6 mt-8"
+                      style={{ color: C.w }}
                     >
                       {children}
-                    </motion.h1>
+                    </h1>
                   ),
                   h2: ({ children }) => (
-                    <motion.h2
-                      className="text-3xl font-gilroy-bold mb-4 mt-8 text-white"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.8 }}
-                      viewport={{ once: true }}
-                      whileHover={{ 
-                        textShadow: "0 0 20px rgba(28, 163, 110, 0.8)",
-                        color: "#1CA36E"
-                      }}
+                    <h2
+                      className="text-3xl font-gilroy-bold mb-4 mt-8"
+                      style={{ color: C.w }}
                     >
                       {children}
-                    </motion.h2>
+                    </h2>
                   ),
                   h3: ({ children }) => (
-                    <motion.h3
-                      className="text-2xl font-gilroy-bold mb-3 mt-6 text-white"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.8 }}
-                      viewport={{ once: true }}
-                      whileHover={{ 
-                        textShadow: "0 0 20px rgba(28, 163, 110, 0.8)",
-                        color: "#1CA36E"
-                      }}
+                    <h3
+                      className="text-2xl font-gilroy-bold mb-3 mt-6"
+                      style={{ color: C.w }}
                     >
                       {children}
-                    </motion.h3>
+                    </h3>
                   ),
                   p: ({ children }) => (
-                    <motion.p
-                      className="text-[#D5D5D5] mb-4 leading-relaxed"
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6 }}
-                      viewport={{ once: true }}
+                    <p
+                      className="mb-4 leading-relaxed"
+                      style={{ color: C.m }}
                     >
                       {children}
-                    </motion.p>
+                    </p>
                   ),
                   ul: ({ children }) => (
-                    <motion.ul
-                      className="list-disc pl-6 mb-4 space-y-2"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.8 }}
-                      viewport={{ once: true }}
-                    >
+                    <ul className="list-disc pl-6 mb-4 space-y-2">
                       {children}
-                    </motion.ul>
+                    </ul>
                   ),
                   ol: ({ children }) => (
-                    <motion.ol
-                      className="list-decimal pl-6 mb-4 space-y-2"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.8 }}
-                      viewport={{ once: true }}
-                    >
+                    <ol className="list-decimal pl-6 mb-4 space-y-2">
                       {children}
-                    </motion.ol>
+                    </ol>
                   ),
                   li: ({ children }) => (
-                    <motion.li
-                      className="text-[#D5D5D5]"
-                      initial={{ opacity: 0, x: -10 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6 }}
-                      viewport={{ once: true }}
-                    >
+                    <li style={{ color: C.m }}>
                       {children}
-                    </motion.li>
+                    </li>
                   ),
                   blockquote: ({ children }) => (
-                    <motion.blockquote
-                      className="border-l-4 border-[#1CA36E] pl-4 italic text-[#1CA36E] bg-[#1CA36E]/5 p-4 rounded-r-lg my-6"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.8 }}
-                      viewport={{ once: true }}
-                      whileHover={{ 
-                        backgroundColor: "rgba(28, 163, 110, 0.1)",
-                        borderColor: "#00FFB2"
+                    <blockquote
+                      className="border-l-4 pl-4 italic p-4 rounded-r-lg my-6"
+                      style={{
+                        borderColor: C.g,
+                        color: C.g,
+                        background: `${C.g}0d`,
                       }}
                     >
                       {children}
-                    </motion.blockquote>
+                    </blockquote>
                   ),
                   code: ({ children }) => (
-                    <motion.code
-                      className="bg-[#202026] text-[#1CA36E] px-2 py-1 rounded text-sm font-mono"
-                      whileHover={{ 
-                        backgroundColor: "rgba(28, 163, 110, 0.1)",
-                        color: "#00FFB2"
+                    <code
+                      className="px-2 py-1 rounded text-sm font-mono"
+                      style={{
+                        background: C.card,
+                        color: C.g,
                       }}
-                      transition={{ duration: 0.2 }}
                     >
                       {children}
-                    </motion.code>
+                    </code>
                   ),
                   pre: ({ children }) => (
-                    <motion.pre
-                      className="bg-[#202026] p-4 rounded-lg overflow-x-auto mb-4 border border-[#1CA36E]/20"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8 }}
-                      viewport={{ once: true }}
-                      whileHover={{ 
-                        borderColor: "rgba(28, 163, 110, 0.5)",
-                        backgroundColor: "rgba(28, 163, 110, 0.05)"
+                    <pre
+                      className="p-4 rounded-lg overflow-x-auto mb-4"
+                      style={{
+                        background: C.card,
+                        border: `1px solid ${C.border}`,
                       }}
                     >
                       {children}
-                    </motion.pre>
+                    </pre>
                   ),
                 }}
               >
                 {blog.content}
               </ReactMarkdown>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
           {/* Back to Blog Button */}
-          <motion.div
-            className="mt-12 text-center"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <motion.a
+          <div className="mt-12 text-center">
+            <a
               href="/blog"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-[#1CA36E] to-[#00FFB2] text-white px-8 py-3 rounded-full font-gilroy-medium hover:from-[#00FFB2] hover:to-[#1CA36E] transition-all duration-300"
-              whileHover={{ 
-                scale: 1.05,
-                boxShadow: "0 0 30px rgba(28, 163, 110, 0.6)"
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-full font-gilroy-medium transition-all duration-300"
+              style={{
+                background: `linear-gradient(135deg, ${C.g}, ${C.g})`,
+                color: C.bg,
               }}
-              whileTap={{ scale: 0.95 }}
             >
-              <motion.svg
+              <svg
                 width="20"
                 height="20"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
-                animate={{ x: [-2, 2, -2] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               >
                 <path d="M19 12H5M12 19l-7-7 7-7" />
-              </motion.svg>
+              </svg>
               Back to Blogs
-            </motion.a>
-          </motion.div>
+            </a>
+          </div>
         </div>
       </div>
     </div>

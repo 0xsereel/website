@@ -6,7 +6,7 @@ import { GradientProvider } from "../../utils/gradient";
 
 export const SingleBlog = () => {
   return (
-    <div className="w-full">
+    <div className="w-full" style={{ background: '#010201' }}>
       <GradientProvider>
         <Header />
         <MobileMenu />
