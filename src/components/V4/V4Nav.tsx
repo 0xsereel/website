@@ -20,10 +20,10 @@ export function V4Nav() {
             borderBottom: navBg ? `1px solid ${C.border}` : "1px solid transparent",
             transition: "all 0.4s ease",
         }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 9 }}>
+            <Link to="/" style={{ display: "flex", alignItems: "center", gap: 9, textDecoration: "none", color: "inherit" }}>
                 <img src='/images/Hero/glowing_seree_logo.svg' alt='Sereel' style={{ width: 30, height: 30 }} />
                 <span style={{ fontSize: 19, fontWeight: 800, letterSpacing: "-0.3px", fontFamily: "var(--display)" }}>sereel</span>
-            </div>
+            </Link>
             <div style={{ display: "flex", gap: 24, alignItems: "center" }}>
                 {[
                     { label: "Platform", to: "/platform" },
