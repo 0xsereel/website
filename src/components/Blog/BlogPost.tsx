@@ -5,20 +5,8 @@ import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import blogs from "../../Blog Data/Blogs.json";
 import { useState, useEffect } from "react";
-
-// V4 Color Palette
-const C = {
-  bg: '#010201',
-  surface: '#060906',
-  card: '#0a0f0b',
-  cardHi: '#0f1710',
-  border: '#141f16',
-  g: '#1ea46f',
-  gL: '#2bdb8e',
-  gD: '#1ea46f15',
-  m: '#6b8a74',
-  w: '#e8f0eb',
-};
+import { C } from "../V4/theme";
+import { MeshBg, Rv } from "../V4/shared";
 
 interface Blog {
   id: number;
@@ -84,17 +72,19 @@ export const BlogPost = () => {
     return (
       <div className="w-full h-screen flex items-center justify-center" style={{ background: C.bg }}>
         <div className="text-center">
-          <div className="text-6xl mb-4">🔍</div>
-          <h2 
-            className="text-2xl mb-2" 
-            style={{ 
-              color: C.w,
-              fontFamily: 'var(--display)',
-            }}
-          >
-            Blog not found
-          </h2>
-          <p style={{ color: C.m }}>The article you're looking for doesn't exist</p>
+          <Rv>
+            <div className="text-6xl mb-4">🔍</div>
+            <h2 
+              className="text-2xl mb-2" 
+              style={{ 
+                color: C.w,
+                fontFamily: 'var(--display)',
+              }}
+            >
+              Blog not found
+            </h2>
+            <p style={{ color: C.m, fontFamily: 'var(--body)' }}>The article you're looking for doesn't exist</p>
+          </Rv>
         </div>
       </div>
     );
@@ -105,29 +95,32 @@ export const BlogPost = () => {
       {/* Hero Section */}
       <div
         className="w-full h-[400px] flex items-center justify-center relative overflow-hidden"
-        style={{
-          background: `linear-gradient(135deg, ${C.bg} 0%, ${C.surface} 40%, ${C.card} 60%, ${C.surface} 80%, ${C.bg} 100%)`,
-        }}
+        style={{ background: C.bg }}
       >
+        <MeshBg />
         <div className="text-center px-5 relative z-10 max-w-4xl mx-auto">
-          <h1 
-            className="lg:text-5xl text-3xl mb-4 leading-tight"
-            style={{
-              fontFamily: 'var(--display)',
-              background: `linear-gradient(135deg, ${C.w}, ${C.g})`,
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}
-          >
-            {blog.title}
-          </h1>
-          <p 
-            className="text-lg"
-            style={{ color: C.m }}
-          >
-            {blog.date}
-          </p>
+          <Rv>
+            <h1 
+              className="lg:text-5xl text-3xl mb-4 leading-tight"
+              style={{
+                fontFamily: 'var(--display)',
+                background: `linear-gradient(135deg, ${C.w}, ${C.g})`,
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
+              {blog.title}
+            </h1>
+          </Rv>
+          <Rv d={0.1}>
+            <p 
+              className="text-lg"
+              style={{ color: C.m, fontFamily: 'var(--body)' }}
+            >
+              {blog.date}
+            </p>
+          </Rv>
         </div>
       </div>
 
@@ -136,189 +129,197 @@ export const BlogPost = () => {
         <div className="w-[90%] max-w-4xl mx-auto">
           
           {/* Featured Image */}
-          <div className="mb-12">
-            <div
-              className="relative overflow-hidden rounded-2xl"
-              style={{
-                background: C.card,
-                border: `1px solid ${C.border}`,
-              }}
-            >
-              {!imageLoaded && (
-                <div className="w-full h-[400px] flex items-center justify-center">
-                  <div className="text-4xl">📸</div>
-                </div>
-              )}
-              
-              <img
-                src={imageSrc}
-                alt={blog.title}
-                className="w-full max-h-[500px] object-cover rounded-2xl"
-                style={{ opacity: imageLoaded ? 1 : 0 }}
-              />
-            </div>
-          </div>
-
-          {/* Article Content */}
-          <div className="blog-content">
-            <div className="prose prose-lg max-w-none w-full">
-              <ReactMarkdown
-                remarkPlugins={[remarkGfm]}
-                rehypePlugins={[rehypeRaw]}
-                components={{
-                  a: ({ href, children }) => (
-                    <a
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="transition-colors duration-300"
-                      style={{ 
-                        color: C.g, 
-                        textDecoration: 'underline',
-                      }}
-                    >
-                      {children}
-                    </a>
-                  ),
-                  h1: ({ children }) => (
-                    <h1
-                      className="text-4xl mb-6 mt-8"
-                      style={{ 
-                        color: C.w,
-                        fontFamily: 'var(--display)',
-                      }}
-                    >
-                      {children}
-                    </h1>
-                  ),
-                  h2: ({ children }) => (
-                    <h2
-                      className="text-3xl mb-4 mt-8"
-                      style={{ 
-                        color: C.w,
-                        fontFamily: 'var(--display)',
-                      }}
-                    >
-                      {children}
-                    </h2>
-                  ),
-                  h3: ({ children }) => (
-                    <h3
-                      className="text-2xl mb-3 mt-6"
-                      style={{ 
-                        color: C.w,
-                        fontFamily: 'var(--display)',
-                      }}
-                    >
-                      {children}
-                    </h3>
-                  ),
-                  p: ({ children }) => (
-                    <p
-                      className="mb-4 leading-relaxed"
-                      style={{ color: C.m }}
-                    >
-                      {children}
-                    </p>
-                  ),
-                  ul: ({ children }) => (
-                    <ul className="list-disc pl-6 mb-4 space-y-2">
-                      {children}
-                    </ul>
-                  ),
-                  ol: ({ children }) => (
-                    <ol className="list-decimal pl-6 mb-4 space-y-2">
-                      {children}
-                    </ol>
-                  ),
-                  li: ({ children }) => (
-                    <li style={{ color: C.m }}>
-                      {children}
-                    </li>
-                  ),
-                  blockquote: ({ children }) => (
-                    <blockquote
-                      className="border-l-4 pl-4 italic p-4 rounded-r-lg my-6"
-                      style={{
-                        borderColor: C.g,
-                        color: C.g,
-                        background: `${C.g}0d`,
-                      }}
-                    >
-                      {children}
-                    </blockquote>
-                  ),
-                  code: ({ children }) => (
-                    <code
-                      className="px-2 py-1 rounded text-sm"
-                      style={{
-                        background: C.card,
-                        color: C.g,
-                        fontFamily: 'var(--mono)',
-                      }}
-                    >
-                      {children}
-                    </code>
-                  ),
-                  pre: ({ children }) => (
-                    <pre
-                      className="p-4 rounded-lg overflow-x-auto mb-4"
-                      style={{
-                        background: C.card,
-                        border: `1px solid ${C.border}`,
-                        fontFamily: 'var(--mono)',
-                      }}
-                    >
-                      {children}
-                    </pre>
-                  ),
+          <Rv>
+            <div className="mb-12">
+              <div
+                className="relative overflow-hidden rounded-2xl"
+                style={{
+                  background: C.card,
+                  border: `1px solid ${C.border}`,
                 }}
               >
-                {blog.content}
-              </ReactMarkdown>
+                {!imageLoaded && (
+                  <div className="w-full h-[400px] flex items-center justify-center">
+                    <div className="text-4xl">📸</div>
+                  </div>
+                )}
+                
+                <img
+                  src={imageSrc}
+                  alt={blog.title}
+                  className="w-full max-h-[500px] object-cover rounded-2xl"
+                  style={{ opacity: imageLoaded ? 1 : 0 }}
+                />
+              </div>
             </div>
-          </div>
+          </Rv>
+
+          {/* Article Content */}
+          <Rv d={0.1}>
+            <div className="blog-content">
+              <div className="prose prose-lg max-w-none w-full">
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}
+                  rehypePlugins={[rehypeRaw]}
+                  components={{
+                    a: ({ href, children }) => (
+                      <a
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="transition-colors duration-300"
+                        style={{ 
+                          color: C.g, 
+                          textDecoration: 'underline',
+                          fontFamily: 'var(--body)',
+                        }}
+                      >
+                        {children}
+                      </a>
+                    ),
+                    h1: ({ children }) => (
+                      <h1
+                        className="text-4xl mb-6 mt-8"
+                        style={{ 
+                          color: C.w,
+                          fontFamily: 'var(--display)',
+                        }}
+                      >
+                        {children}
+                      </h1>
+                    ),
+                    h2: ({ children }) => (
+                      <h2
+                        className="text-3xl mb-4 mt-8"
+                        style={{ 
+                          color: C.w,
+                          fontFamily: 'var(--display)',
+                        }}
+                      >
+                        {children}
+                      </h2>
+                    ),
+                    h3: ({ children }) => (
+                      <h3
+                        className="text-2xl mb-3 mt-6"
+                        style={{ 
+                          color: C.w,
+                          fontFamily: 'var(--display)',
+                        }}
+                      >
+                        {children}
+                      </h3>
+                    ),
+                    p: ({ children }) => (
+                      <p
+                        className="mb-4 leading-relaxed"
+                        style={{ color: C.m, fontFamily: 'var(--body)' }}
+                      >
+                        {children}
+                      </p>
+                    ),
+                    ul: ({ children }) => (
+                      <ul className="list-disc pl-6 mb-4 space-y-2">
+                        {children}
+                      </ul>
+                    ),
+                    ol: ({ children }) => (
+                      <ol className="list-decimal pl-6 mb-4 space-y-2">
+                        {children}
+                      </ol>
+                    ),
+                    li: ({ children }) => (
+                      <li style={{ color: C.m, fontFamily: 'var(--body)' }}>
+                        {children}
+                      </li>
+                    ),
+                    blockquote: ({ children }) => (
+                      <blockquote
+                        className="border-l-4 pl-4 italic p-4 rounded-r-lg my-6"
+                        style={{
+                          borderColor: C.g,
+                          color: C.g,
+                          background: `${C.g}0d`,
+                          fontFamily: 'var(--body)',
+                        }}
+                      >
+                        {children}
+                      </blockquote>
+                    ),
+                    code: ({ children }) => (
+                      <code
+                        className="px-2 py-1 rounded text-sm"
+                        style={{
+                          background: C.card,
+                          color: C.g,
+                          fontFamily: 'var(--mono)',
+                        }}
+                      >
+                        {children}
+                      </code>
+                    ),
+                    pre: ({ children }) => (
+                      <pre
+                        className="p-4 rounded-lg overflow-x-auto mb-4"
+                        style={{
+                          background: C.card,
+                          border: `1px solid ${C.border}`,
+                          fontFamily: 'var(--mono)',
+                        }}
+                      >
+                        {children}
+                      </pre>
+                    ),
+                  }}
+                >
+                  {blog.content}
+                </ReactMarkdown>
+              </div>
+            </div>
+          </Rv>
 
           {/* Back to Blog Button */}
-          <div className="mt-12 text-center">
-            <a
-              href="/blog"
-              className="sb inline-flex items-center gap-2 px-8 py-3 rounded-lg transition-all duration-350"
-              style={{
-                background: C.g,
-                color: C.bg,
-                border: 'none',
-                fontSize: 14,
-                fontWeight: 700,
-                cursor: 'pointer',
-                fontFamily: 'var(--body)',
-                letterSpacing: '0.2px',
-                textDecoration: 'none',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = C.gL;
-                e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow = `0 12px 40px ${C.g}30`;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = C.g;
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = 'none';
-              }}
-            >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
+          <Rv d={0.15}>
+            <div className="mt-12 text-center">
+              <a
+                href="/blog"
+                className="sb inline-flex items-center gap-2 px-8 py-3 rounded-lg transition-all duration-350"
+                style={{
+                  background: C.g,
+                  color: C.bg,
+                  border: 'none',
+                  fontSize: 14,
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  fontFamily: 'var(--body)',
+                  letterSpacing: '0.2px',
+                  textDecoration: 'none',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = C.gL;
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.boxShadow = `0 12px 40px ${C.g}30`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = C.g;
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = 'none';
+                }}
               >
-                <path d="M19 12H5M12 19l-7-7 7-7" />
-              </svg>
-              Back to Blogs
-            </a>
-          </div>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+                Back to Blogs
+              </a>
+            </div>
+          </Rv>
         </div>
       </div>
     </div>
