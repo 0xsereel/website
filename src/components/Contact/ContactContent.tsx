@@ -349,30 +349,6 @@ export const ContactContent = () => {
                   </div>
                 </Gc>
               </Rv>
-
-              <Rv d={0.25}>
-                <Gc p="20px 24px">
-                  <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-                    <div style={{
-                      width: 44,
-                      height: 44,
-                      borderRadius: 10,
-                      background: C.gD,
-                      border: `1px solid ${C.g}20`,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontSize: 20,
-                    }}>
-                      📍
-                    </div>
-                    <div>
-                      <p style={{ fontSize: 12, color: C.d, marginBottom: 4, fontFamily: "var(--mono)", letterSpacing: "1px" }}>Visit us in</p>
-                      <p style={{ fontSize: 16, color: C.w, fontWeight: 600 }}>Kigali, Rwanda</p>
-                    </div>
-                  </div>
-                </Gc>
-              </Rv>
             </div>
 
             {/* CTA Card */}
