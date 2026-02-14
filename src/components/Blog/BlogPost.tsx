@@ -91,14 +91,14 @@ export const BlogPost = () => {
   }
 
   return (
-    <div className="w-full min-h-screen mx-auto text-center" style={{ background: C.bg }}>
+    <div className="w-full min-h-screen" style={{ background: C.bg }}>
       {/* Hero Section */}
       <div
-        className="w-full h-[400px] flex items-center justify-center relative overflow-hidden"
+        className="w-full h-[400px] flex items-center relative overflow-hidden"
         style={{ background: C.bg }}
       >
         <MeshBg />
-        <div className="text-center px-5 relative z-10 max-w-4xl mx-auto items-center">
+        <div className="px-8 relative z-10 max-w-4xl mx-auto">
           <Rv>
             <h1 
               className="lg:text-5xl text-3xl mb-4 leading-tight"
@@ -126,7 +126,7 @@ export const BlogPost = () => {
 
       {/* Content Section */}
       <div className="w-full py-20" style={{ background: C.bg }}>
-        <div className="w-[90%] max-w-4xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto px-8">
           
           {/* Featured Image */}
           <Rv>
@@ -280,7 +280,7 @@ export const BlogPost = () => {
 
           {/* Back to Blog Button */}
           <Rv d={0.15}>
-            <div className="mt-12 text-center mx-auto items-center">
+            <div className="mt-12">
               <a
                 href="/blog"
                 className="sb inline-flex items-center gap-2 px-8 py-3 rounded-lg transition-all duration-350"
