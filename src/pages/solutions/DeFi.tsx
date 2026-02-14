@@ -1,33 +1,21 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { V4Layout } from "../../components/V4/V4Layout";
 import { C } from "../../components/V4/theme";
 import { MeshBg, Gc, Rv } from "../../components/V4/shared";
+import { SEO } from "../../components/SEO/SEO";
 import { DeFiSecurityIcon } from "../../utils/icons";
 
 export default function DeFi() {
-  useEffect(() => {
-    document.title = "Institutional DeFi Infrastructure | Canton Network Tokenization - Sereel Protocol";
-    
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.setAttribute('name', 'description');
-      document.head.appendChild(metaDescription);
-    }
-    metaDescription.setAttribute('content', 'Institutional DeFi infrastructure with Canton Network tokenization. Multi-chain tokenization for RWA tokenization platform, security token issuance, and enterprise digital asset custody. CMTA tokenization for institutional tokenization infrastructure.');
-    
-    let metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (!metaKeywords) {
-      metaKeywords = document.createElement('meta');
-      metaKeywords.setAttribute('name', 'keywords');
-      document.head.appendChild(metaKeywords);
-    }
-    metaKeywords.setAttribute('content', 'institutional DeFi infrastructure, Canton Network tokenization, multi-chain tokenization, RWA tokenization platform, security token issuance, enterprise digital asset custody, CMTA tokenization, institutional tokenization infrastructure, tokenized securities platform');
-  }, []);
-
   return (
-    <V4Layout>
+    <>
+      <SEO
+        title="Institutional DeFi Infrastructure | Canton Network Tokenization - Sereel Protocol"
+        description="Institutional DeFi infrastructure with Canton Network tokenization. Multi-chain tokenization for RWA tokenization platform, security token issuance, and enterprise digital asset custody. CMTA tokenization for institutional tokenization infrastructure."
+        keywords={['institutional DeFi infrastructure', 'Canton Network tokenization', 'multi-chain tokenization', 'RWA tokenization platform', 'security token issuance', 'enterprise digital asset custody', 'CMTA tokenization', 'institutional tokenization infrastructure', 'tokenized securities platform']}
+        canonical="/solutions/defi"
+      />
+      <V4Layout>
       {/* Hero Section */}
       <section style={{
         minHeight: "80vh",
@@ -333,7 +321,8 @@ export default function DeFi() {
           </Gc>
         </Rv>
       </section>
-    </V4Layout>
+      </V4Layout>
+    </>
   );
 }
 

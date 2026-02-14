@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { V4Layout } from "../../components/V4/V4Layout";
 import { C } from "../../components/V4/theme";
 import { MeshBg, Gc, Rv } from "../../components/V4/shared";
-import { useEffect } from "react";
+import { SEO } from "../../components/SEO/SEO";
 import { 
   SmartAccountIcon, 
   ISO20022Icon, 
@@ -14,28 +14,15 @@ import {
 } from "../../utils/icons";
 
 export const Wallet = () => {
-  useEffect(() => {
-    document.title = "Enterprise Digital Asset Custody | Institutional DeFi Infrastructure - Sereel Wallet";
-    
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.setAttribute('name', 'description');
-      document.head.appendChild(metaDescription);
-    }
-    metaDescription.setAttribute('content', 'Enterprise digital asset custody with institutional DeFi infrastructure. Multi-signature solutions for institutional tokenization infrastructure. Built for security token issuance, RWA tokenization platform, and Canton Network tokenization.');
-    
-    let metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (!metaKeywords) {
-      metaKeywords = document.createElement('meta');
-      metaKeywords.setAttribute('name', 'keywords');
-      document.head.appendChild(metaKeywords);
-    }
-    metaKeywords.setAttribute('content', 'enterprise digital asset custody, institutional DeFi infrastructure, institutional tokenization infrastructure, RWA tokenization platform, Canton Network tokenization, security token issuance, tokenized securities platform');
-  }, []);
-
   return (
-    <V4Layout>
+    <>
+      <SEO
+        title="Enterprise Digital Asset Custody | Institutional DeFi Infrastructure - Sereel Wallet"
+        description="Enterprise digital asset custody with institutional DeFi infrastructure. Multi-signature solutions for institutional tokenization infrastructure. Built for security token issuance, RWA tokenization platform, and Canton Network tokenization."
+        keywords={['enterprise digital asset custody', 'institutional DeFi infrastructure', 'institutional tokenization infrastructure', 'RWA tokenization platform', 'Canton Network tokenization', 'security token issuance', 'tokenized securities platform']}
+        canonical="/solutions/wallet"
+      />
+      <V4Layout>
       {/* Hero Section */}
       <section style={{
         minHeight: "60vh",
@@ -408,6 +395,7 @@ export const Wallet = () => {
           </Gc>
         </Rv>
       </section>
-    </V4Layout>
+      </V4Layout>
+    </>
   );
 };

@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { V4Layout } from "../../components/V4/V4Layout";
 import { C } from "../../components/V4/theme";
 import { MeshBg, Gc, Rv } from "../../components/V4/shared";
+import { SEO } from "../../components/SEO/SEO";
 import { 
   StockIcon, 
   LockIcon, 
@@ -16,28 +17,15 @@ import {
 } from "../../utils/icons";
 
 export const Tokenization = () => {
-  useEffect(() => {
-    document.title = "Security Token Issuance | CMTA Tokenization | Bond Tokenization Platform - Sereel";
-    
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.setAttribute('name', 'description');
-      document.head.appendChild(metaDescription);
-    }
-    metaDescription.setAttribute('content', 'Security token issuance with CMTA tokenization and bond tokenization platform. Multi-chain tokenization for real world asset tokenization, private credit tokenization, treasury tokenization, and stablecoin issuance. Regulation S/D token issuance across Canton Network with institutional DeFi infrastructure.');
-    
-    let metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (!metaKeywords) {
-      metaKeywords = document.createElement('meta');
-      metaKeywords.setAttribute('name', 'keywords');
-      document.head.appendChild(metaKeywords);
-    }
-    metaKeywords.setAttribute('content', 'security token issuance, CMTA tokenization, bond tokenization platform, multi-chain tokenization, real world asset tokenization, private credit tokenization, treasury tokenization, stablecoin issuance platform, Regulation S token issuance, Regulation D token issuance, Canton Network tokenization, tokenized securities platform');
-  }, []);
-
   return (
-    <V4Layout>
+    <>
+      <SEO
+        title="Security Token Issuance | CMTA Tokenization | Bond Tokenization Platform - Sereel"
+        description="Security token issuance with CMTA tokenization and bond tokenization platform. Multi-chain tokenization for real world asset tokenization, private credit tokenization, treasury tokenization, and stablecoin issuance. Regulation S/D token issuance across Canton Network with institutional DeFi infrastructure."
+        keywords={['security token issuance', 'CMTA tokenization', 'bond tokenization platform', 'multi-chain tokenization', 'real world asset tokenization', 'private credit tokenization', 'treasury tokenization', 'stablecoin issuance platform', 'Regulation S token issuance', 'Regulation D token issuance', 'Canton Network tokenization', 'tokenized securities platform']}
+        canonical="/solutions/tokenization"
+      />
+      <V4Layout>
       {/* Hero Section */}
       <section style={{
         minHeight: "60vh",
@@ -466,7 +454,8 @@ export const Tokenization = () => {
           </Gc>
         </Rv>
       </section>
-    </V4Layout>
+      </V4Layout>
+    </>
   );
 };
 
