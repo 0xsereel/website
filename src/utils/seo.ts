@@ -222,3 +222,107 @@ export function generateOrganizationSchema() {
     ],
   };
 }
+
+export interface BlogArticleData {
+  id: number;
+  title: string;
+  date?: string;
+  image: string;
+  content: string;
+  summary?: string;
+  author?: string;
+}
+
+export function generateArticleSchema(article: BlogArticleData) {
+  const imageUrl = article.image.startsWith('http')
+    ? article.image
+    : `${SITE_CONFIG.url}/${article.image.replace(/^\//, '')}`;
+
+  const publishedDate = article.date ? parsePublishedDate(article.date) : new Date().toISOString();
+  
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.title,
+    description: article.summary || extractSummary(article.content),
+    image: imageUrl,
+    datePublished: publishedDate,
+    dateModified: publishedDate,
+    author: {
+      '@type': 'Organization',
+      name: article.author || SITE_CONFIG.author,
+      url: SITE_CONFIG.url,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_CONFIG.name,
+      url: SITE_CONFIG.url,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_CONFIG.url}/images/Hero/glowing_seree_logo_expanded.svg`,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${SITE_CONFIG.url}/blog/${article.id}`,
+    },
+  };
+}
+
+function parsePublishedDate(dateString: string): string {
+  const monthMap: { [key: string]: string } = {
+    January: '01', February: '02', March: '03', April: '04',
+    May: '05', June: '06', July: '07', August: '08',
+    September: '09', October: '10', November: '11', December: '12'
+  };
+
+  const match = dateString.match(/(\w+)\s+(\d+),\s+(\d{4})/);
+  if (match) {
+    const [, month, day, year] = match;
+    const monthNum = monthMap[month] || '01';
+    const dayNum = day.padStart(2, '0');
+    return `${year}-${monthNum}-${dayNum}T00:00:00Z`;
+  }
+
+  return new Date().toISOString();
+}
+
+function extractSummary(content: string): string {
+  const textContent = content
+    .replace(/[#*`]/g, '')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/!\[([^\]]*)\]\([^)]+\)/g, '')
+    .trim();
+  
+  const firstParagraph = textContent.split('\n\n')[0] || textContent;
+  return firstParagraph.substring(0, 160).trim() + (firstParagraph.length > 160 ? '...' : '');
+}
+
+export function generateBlogListingSchema(articles: BlogArticleData[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    name: `${SITE_CONFIG.name} Blog`,
+    description: 'Insights from the forefront of institutional blockchain adoption, RWA tokenization, and DeFi innovation.',
+    url: `${SITE_CONFIG.url}/blog`,
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_CONFIG.name,
+      url: SITE_CONFIG.url,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_CONFIG.url}/images/Hero/glowing_seree_logo_expanded.svg`,
+      },
+    },
+    blogPost: articles.slice(0, 10).map((article) => ({
+      '@type': 'BlogPosting',
+      headline: article.title,
+      description: article.summary || extractSummary(article.content),
+      url: `${SITE_CONFIG.url}/blog/${article.id}`,
+      datePublished: article.date ? parsePublishedDate(article.date) : new Date().toISOString(),
+      image: article.image.startsWith('http')
+        ? article.image
+        : `${SITE_CONFIG.url}/${article.image.replace(/^\//, '')}`,
+    })),
+  };
+}
