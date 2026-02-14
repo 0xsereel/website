@@ -16,7 +16,7 @@ const typedBlogs: Blog[] = blogs as Blog[];
 
 export const BlogPageContent = () => {
   return (
-    <div className="w-full mx-auto text-center" style={{ background: C.bg }}>
+    <div className="w-full mx-auto" style={{ background: C.bg }}>
       {/* Hero Section with MeshBg */}
       <div 
         className="w-full lg:h-[500px] h-[300px] flex items-center justify-center relative overflow-hidden"
@@ -55,11 +55,11 @@ export const BlogPageContent = () => {
         className="w-full py-20 relative overflow-hidden"
         style={{ background: C.bg }}
       >
-        <div className="w-full max-w-[1200px] mx-auto px-5 relative z-10 text-center">
+        <div className="w-full max-w-[1200px] mx-auto px-5 relative z-10">
           {typedBlogs.length > 0 ? (
             <>
               {/* Section Header */}
-              <div className="text-center mb-16 mx-auto">
+              <div className="mb-16">
                 <Rv>
                   <div className="sl" style={{
                     fontSize: 11,
@@ -75,7 +75,7 @@ export const BlogPageContent = () => {
                 </Rv>
                 <Rv d={0.06}>
                   <h2 
-                    className="text-4xl mb-4 mx-auto"
+                    className="text-4xl mb-4"
                     style={{
                       fontFamily: 'var(--display)',
                       background: `linear-gradient(135deg, ${C.g}, ${C.w})`,
@@ -89,7 +89,7 @@ export const BlogPageContent = () => {
                 </Rv>
                 <Rv d={0.12}>
                   <p
-                    className="text-lg mx-auto"
+                    className="text-lg"
                     style={{ color: C.m, fontFamily: 'var(--body)' }}
                   >
                     Insights from the forefront of institutional blockchain adoption
@@ -98,7 +98,7 @@ export const BlogPageContent = () => {
               </div>
 
               {/* Blog Grid */}
-              <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 mx-auto">
+              <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
                 {typedBlogs.map((blog, index) => (
                   <Rv key={blog.id} d={index * 0.08}>
                     <BlogCard blog={blog} />
