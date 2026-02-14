@@ -1,7 +1,6 @@
 import { useEffect } from "react";
+import { V4Layout } from "../../components/V4/V4Layout";
 import AboutHero from "../../components/About/AboutHero";
-import { Footer } from "../../components/Footer/Footer";
-import { MobileMenu } from "../../components/Header/MobileMenu";
 
 export const About = () => {
   useEffect(() => {
@@ -25,10 +24,8 @@ export const About = () => {
   }, []);
 
   return (
-    <div className="w-full">
+    <V4Layout>
       <AboutHero />
-      <MobileMenu />
-      <Footer />
-    </div>
+    </V4Layout>
   );
 };

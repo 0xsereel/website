@@ -1,14 +1,10 @@
-import { MobileMenu } from "../../components/Header/MobileMenu";
-import { Header } from "../../components/Header/Header";
-import { Footer } from "../../components/Footer/Footer";
+import { V4Layout } from "../../components/V4/V4Layout";
 import { ContactContent } from "../../components/Contact/ContactContent";
+
 export const Contact = () => {
   return (
-    <div className="w-full">
-      <Header />
-      <MobileMenu />
+    <V4Layout>
       <ContactContent />
-      <Footer />
-    </div>
+    </V4Layout>
   );
 };
