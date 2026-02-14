@@ -6,10 +6,10 @@ export function V4Footer() {
         <footer style={{ borderTop: `1px solid ${C.border}`, padding: "48px clamp(16px,4vw,56px) 28px" }}>
             <div style={{ maxWidth: 1120, margin: "0 auto", display: "grid", gridTemplateColumns: "1.6fr 1fr 1fr 1fr 1fr", gap: 28 }}>
                 <div>
-                    <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14 }}>
+                    <Link to="/" style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14, textDecoration: "none" }}>
                         <img src='/images/Hero/glowing_seree_logo.svg' alt='Sereel' style={{ width: 24, height: 24 }} />
-                        <span style={{ fontSize: 16, fontWeight: 800, fontFamily: "var(--display)" }}>sereel</span>
-                    </div>
+                        <span style={{ fontSize: 16, fontWeight: 800, fontFamily: "var(--display)", color: C.w }}>sereel</span>
+                    </Link>
                     <p style={{ fontSize: 12.5, color: C.d, lineHeight: 1.7, maxWidth: 220 }}>Where Traditional Finance Meets Digital Assets.</p>
                 </div>
                 {[
