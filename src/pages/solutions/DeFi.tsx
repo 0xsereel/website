@@ -1,20 +1,11 @@
-import { useState, useRef, useEffect } from "react";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import { Header } from "../../components/Header/Header";
-import { MobileMenu } from "../../components/Header/MobileMenu";
-import { Footer } from "../../components/Footer/Footer";
-import { Button } from "../../components/Button/Button";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { V4Layout } from "../../components/V4/V4Layout";
+import { C } from "../../components/V4/theme";
+import { MeshBg, Gc, Rv } from "../../components/V4/shared";
 import { DeFiSecurityIcon } from "../../utils/icons";
 
 export default function DeFi() {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
-
   useEffect(() => {
     document.title = "Institutional DeFi Infrastructure | Canton Network Tokenization - Sereel Protocol";
     
@@ -36,239 +27,317 @@ export default function DeFi() {
   }, []);
 
   return (
-    <div className="w-full min-h-screen bg-black text-white" ref={containerRef}>
-      <Header />
-
+    <V4Layout>
       {/* Hero Section */}
-      <motion.div
-        className="w-full h-screen flex items-center justify-center relative overflow-hidden pt-20"
-        style={{ y }}
-      >
-        {/* Animated background */}
-        <motion.div
-          className="absolute inset-0"
-          animate={{
-            background: [
-              "radial-gradient(circle at 20% 30%, rgba(28, 163, 110, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(28, 163, 110, 0.1) 0%, transparent 50%)",
-              "radial-gradient(circle at 60% 80%, rgba(28, 163, 110, 0.15) 0%, transparent 50%), radial-gradient(circle at 40% 20%, rgba(28, 163, 110, 0.1) 0%, transparent 50%)",
-              "radial-gradient(circle at 80% 20%, rgba(28, 163, 110, 0.15) 0%, transparent 50%), radial-gradient(circle at 20% 80%, rgba(28, 163, 110, 0.1) 0%, transparent 50%)",
-              "radial-gradient(circle at 20% 30%, rgba(28, 163, 110, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(28, 163, 110, 0.1) 0%, transparent 50%)",
-            ],
-          }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        />
-
-        <motion.div
-          className="text-center relative z-10 max-w-4xl mx-auto px-4"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <motion.h1
-            className="text-6xl font-bold text-white mb-6"
-            whileHover={{ scale: 1.05 }}
-          >
-            Institutional DeFi Infrastructure & Canton Network Tokenization
-          </motion.h1>
-          <motion.p
-            className="text-2xl text-[#D5D5D5] mb-8"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            Multi-chain tokenization with{" "}
-            <span className="text-[#1CA36E] font-semibold">
-              RWA tokenization platform
-            </span>{" "}
-            for security token issuance, CMTA tokenization, and enterprise digital asset custody
-          </motion.p>
-          <motion.div
-            className="flex justify-center gap-8 text-lg"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <div className="text-center">
-              <div className="text-3xl font-bold text-[#1CA36E]">3-Module</div>
-              <div className="text-sm text-[#969696]">Vaults</div>
+      <section style={{
+        minHeight: "80vh",
+        display: "flex",
+        alignItems: "center",
+        padding: "140px clamp(16px,4vw,56px) 80px",
+        position: "relative",
+      }}>
+        <MeshBg />
+        <div style={{
+          position: "relative",
+          zIndex: 1,
+          maxWidth: 1120,
+          margin: "0 auto",
+          width: "100%",
+          textAlign: "center",
+        }}>
+          <Rv>
+            <h1 style={{
+              fontSize: "clamp(44px,5.5vw,64px)",
+              fontWeight: 800,
+              lineHeight: 1.1,
+              letterSpacing: "-2.5px",
+              fontFamily: "var(--display)",
+              marginBottom: 24,
+            }}>
+              Institutional DeFi Infrastructure &<br />Canton Network Tokenization
+            </h1>
+          </Rv>
+          <Rv d={0.08}>
+            <p style={{
+              fontSize: 18,
+              color: C.m,
+              maxWidth: 820,
+              margin: "0 auto 40px",
+              lineHeight: 1.8,
+            }}>
+              Multi-chain tokenization with <span style={{ color: C.g, fontWeight: 600 }}>RWA tokenization platform</span> for security token issuance, CMTA tokenization, and enterprise digital asset custody
+            </p>
+          </Rv>
+          <Rv d={0.16}>
+            <div style={{
+              display: "flex",
+              justifyContent: "center",
+              gap: 40,
+              fontSize: 16,
+            }}>
+              <div style={{ textAlign: "center" }}>
+                <div style={{
+                  fontSize: 36,
+                  fontWeight: 800,
+                  color: C.g,
+                  fontFamily: "var(--display)",
+                }}>
+                  3-Module
+                </div>
+                <div style={{ fontSize: 13, color: C.d, marginTop: 4 }}>Vaults</div>
+              </div>
+              <div style={{ textAlign: "center" }}>
+                <div style={{
+                  fontSize: 36,
+                  fontWeight: 800,
+                  color: C.g,
+                  fontFamily: "var(--display)",
+                }}>
+                  ERC-3643
+                </div>
+                <div style={{ fontSize: 13, color: C.d, marginTop: 4 }}>Compliant</div>
+              </div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-[#1CA36E]">ERC-3643</div>
-              <div className="text-sm text-[#969696]">Compliant</div>
-            </div>
-          </motion.div>
-        </motion.div>
-      </motion.div>
-
-      <div className="w-full bg-black py-20 px-5">
-        <div className="w-full max-w-7xl mx-auto">
-          {/* Yield Comparison Section */}
-          <YieldComparisonSection />
-
-          {/* SereelVault Architecture */}
-          {/* <SereelVaultArchitecture /> */}
-
-          {/* Three-Module Ecosystem */}
-          <ThreeModuleEcosystem />
-
-          {/* CTA Section */}
-          <CTASection />
+          </Rv>
         </div>
-      </div>
+      </section>
 
-      <MobileMenu />
-      <Footer />
-    </div>
+      {/* Yield Comparison Section */}
+      <section style={{
+        padding: "80px clamp(16px,4vw,56px)",
+        maxWidth: 1120,
+        margin: "0 auto",
+      }}>
+        <Rv>
+          <div style={{ textAlign: "center", marginBottom: 56 }}>
+            <h2 style={{
+              fontSize: "clamp(32px,4vw,42px)",
+              fontWeight: 800,
+              letterSpacing: "-1.5px",
+              fontFamily: "var(--display)",
+              marginBottom: 16,
+            }}>
+              Institutional Tokenization Infrastructure vs. Traditional Finance
+            </h2>
+            <p style={{ fontSize: 16, color: C.m, lineHeight: 1.8 }}>
+              RWA tokenization platform with institutional DeFi infrastructure for security token issuance
+            </p>
+          </div>
+        </Rv>
+
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          gap: 24,
+        }}>
+          {/* Traditional Finance */}
+          <Rv d={0.1}>
+            <Gc style={{
+              background: "linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(251, 146, 60, 0.08))",
+              borderColor: "rgba(239, 68, 68, 0.2)",
+              height: "100%",
+            }}>
+              <div style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 16,
+                marginBottom: 24,
+              }}>
+                <div style={{
+                  width: 56,
+                  height: 56,
+                  background: "rgba(239, 68, 68, 0.15)",
+                  borderRadius: "50%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexShrink: 0,
+                }}>
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ef4444" strokeWidth="2">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                    <line x1="8" y1="21" x2="16" y2="21" />
+                    <line x1="12" y1="17" x2="12" y2="21" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 style={{
+                    fontSize: 24,
+                    fontWeight: 800,
+                    color: "#ef4444",
+                    fontFamily: "var(--display)",
+                  }}>
+                    Traditional Finance
+                  </h3>
+                  <p style={{ fontSize: 13, color: C.m }}>Legacy financial systems</p>
+                </div>
+              </div>
+
+              <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                {[
+                  { label: "Settlement Time", value: "T+3 Days" },
+                  { label: "Operating Hours", value: "9-5 Limited" },
+                  { label: "Transaction Costs", value: "High Fees" },
+                  { label: "Liquidity", value: "Fragmented" },
+                ].map((item, i) => (
+                  <div key={i} style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                  }}>
+                    <span style={{ fontSize: 14, color: C.m }}>{item.label}</span>
+                    <span style={{
+                      fontSize: 18,
+                      fontWeight: 700,
+                      color: "#ef4444",
+                      fontFamily: "var(--display)",
+                    }}>
+                      {item.value}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </Gc>
+          </Rv>
+
+          {/* Sereel DeFi */}
+          <Rv d={0.2}>
+            <Gc style={{
+              background: `linear-gradient(135deg, ${C.g}08, ${C.g}05)`,
+              borderColor: `${C.g}25`,
+              height: "100%",
+            }}>
+              <div style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 16,
+                marginBottom: 24,
+              }}>
+                <div style={{
+                  width: 56,
+                  height: 56,
+                  background: `${C.g}15`,
+                  borderRadius: "50%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexShrink: 0,
+                }}>
+                  <div style={{ color: C.g, width: 28, height: 28 }}><DeFiSecurityIcon className="w-full h-full" /></div>
+                </div>
+                <div>
+                  <h3 style={{
+                    fontSize: 24,
+                    fontWeight: 800,
+                    color: C.g,
+                    fontFamily: "var(--display)",
+                  }}>
+                    Institutional DeFi Infrastructure
+                  </h3>
+                  <p style={{ fontSize: 13, color: C.m }}>Canton Network tokenization with multi-chain tokenization</p>
+                </div>
+              </div>
+
+              <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                {[
+                  { label: "Settlement Time", value: "Instant" },
+                  { label: "Operating Hours", value: "24/7 Global" },
+                  { label: "Transaction Costs", value: "90% Lower" },
+                  { label: "Liquidity", value: "Unified Pools" },
+                ].map((item, i) => (
+                  <div key={i} style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                  }}>
+                    <span style={{ fontSize: 14, color: C.m }}>{item.label}</span>
+                    <span style={{
+                      fontSize: 18,
+                      fontWeight: 700,
+                      color: C.g,
+                      fontFamily: "var(--display)",
+                    }}>
+                      {item.value}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </Gc>
+          </Rv>
+        </div>
+      </section>
+
+      {/* Three-Module Ecosystem */}
+      <section style={{
+        padding: "80px clamp(16px,4vw,56px)",
+        maxWidth: 1120,
+        margin: "0 auto",
+      }}>
+        <Rv>
+          <div style={{ textAlign: "center", marginBottom: 56 }}>
+            <h2 style={{
+              fontSize: "clamp(32px,4vw,42px)",
+              fontWeight: 800,
+              letterSpacing: "-1.5px",
+              fontFamily: "var(--display)",
+              marginBottom: 16,
+            }}>
+              Enterprise Digital Asset Custody with Tokenized Securities Platform
+            </h2>
+            <p style={{ fontSize: 16, color: C.m, lineHeight: 1.8 }}>
+              CMTA tokenization for institutional tokenization infrastructure and bond tokenization platform
+            </p>
+          </div>
+        </Rv>
+
+        <ThreeModuleEcosystem />
+      </section>
+
+      {/* CTA Section */}
+      <section style={{
+        padding: "100px clamp(16px,4vw,56px)",
+        maxWidth: 1120,
+        margin: "0 auto",
+      }}>
+        <Rv>
+          <Gc style={{
+            textAlign: "center",
+            background: `linear-gradient(135deg, ${C.g}08, ${C.g}03)`,
+            borderColor: `${C.g}25`,
+            position: "relative",
+            overflow: "visible",
+          }} p="56px 40px">
+            <h2 style={{
+              fontSize: "clamp(28px,3.5vw,38px)",
+              fontWeight: 800,
+              letterSpacing: "-1.5px",
+              fontFamily: "var(--display)",
+              marginBottom: 20,
+            }}>
+              Deploy Institutional DeFi Infrastructure Today
+            </h2>
+            <p style={{
+              fontSize: 16,
+              color: C.m,
+              lineHeight: 1.8,
+              marginBottom: 36,
+              maxWidth: 720,
+              margin: "0 auto 36px",
+            }}>
+              Join leading institutions using our RWA tokenization platform with Canton Network tokenization, multi-chain tokenization, security token issuance, CMTA tokenization, and enterprise digital asset custody for institutional tokenization infrastructure.
+            </p>
+            <Link to="/contact" style={{ textDecoration: "none" }}>
+              <button className="sb" style={{ padding: "16px 44px", fontSize: 15 }}>
+                Get Started Today
+              </button>
+            </Link>
+          </Gc>
+        </Rv>
+      </section>
+    </V4Layout>
   );
 }
 
-// Yield Comparison Section
-const YieldComparisonSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
-  return (
-    <motion.div
-      ref={ref}
-      className="w-full mb-24"
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.8 }}
-    >
-      <div className="text-center mb-16">
-        <h2 className="text-5xl font-bold mb-6">
-          Institutional Tokenization Infrastructure vs. Traditional Finance
-        </h2>
-        <p className="text-[#D5D5D5] text-xl">
-          RWA tokenization platform with institutional DeFi infrastructure for security token issuance
-        </p>
-      </div>
-
-      <div className="grid lg:grid-cols-2 gap-12">
-        {/* Traditional Finance */}
-        <motion.div
-          className="bg-gradient-to-br from-red-500/10 to-orange-500/10 p-8 rounded-2xl border border-red-500/20 relative overflow-hidden"
-          initial={{ opacity: 0, x: -50 }}
-          animate={isInView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          whileHover={{
-            scale: 1.02,
-            boxShadow: "0 0 40px rgba(239, 68, 68, 0.3)",
-          }}
-        >
-          <div className="relative z-10">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center">
-                <svg
-                  width="32"
-                  height="32"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-                  <line x1="8" y1="21" x2="16" y2="21" />
-                  <line x1="12" y1="17" x2="12" y2="21" />
-                </svg>
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold text-red-400">
-                  Traditional Finance
-                </h3>
-                <p className="text-[#D5D5D5]">Legacy financial systems</p>
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              <div className="flex justify-between items-center">
-                <span className="text-[#D5D5D5]">Settlement Time</span>
-                <span className="text-xl font-bold text-red-400">T+3 Days</span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-[#D5D5D5]">Operating Hours</span>
-                <span className="text-xl font-bold text-red-400">
-                  9-5 Limited
-                </span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-[#D5D5D5]">Transaction Costs</span>
-                <span className="text-xl font-bold text-red-400">
-                  High Fees
-                </span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-[#D5D5D5]">Liquidity</span>
-                <span className="text-xl font-bold text-red-400">
-                  Fragmented
-                </span>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Sereel DeFi */}
-        <motion.div
-          className="bg-gradient-to-br from-[#1CA36E]/10 to-green-500/10 p-8 rounded-2xl border border-[#1CA36E]/20 relative overflow-hidden"
-          initial={{ opacity: 0, x: 50 }}
-          animate={isInView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          whileHover={{
-            scale: 1.02,
-            boxShadow: "0 0 40px rgba(28, 163, 110, 0.3)",
-          }}
-        >
-          <div className="relative z-10">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-16 h-16 bg-[#1CA36E]/20 rounded-full flex items-center justify-center">
-                <div className="w-16 h-16 bg-[#1CA36E]/20 rounded-full flex items-center justify-center">
-                  <DeFiSecurityIcon className="w-8 h-8 text-[#1CA36E]" />
-                </div>
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold text-[#1CA36E]">
-                  Institutional DeFi Infrastructure
-                </h3>
-                <p className="text-[#D5D5D5]">
-                  Canton Network tokenization with multi-chain tokenization
-                </p>
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              <div className="flex justify-between items-center">
-                <span className="text-[#D5D5D5]">Settlement Time</span>
-                <span className="text-xl font-bold text-[#1CA36E]">
-                  Instant
-                </span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-[#D5D5D5]">Operating Hours</span>
-                <span className="text-xl font-bold text-[#1CA36E]">
-                  24/7 Global
-                </span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-[#D5D5D5]">Transaction Costs</span>
-                <span className="text-xl font-bold text-[#1CA36E]">
-                  90% Lower
-                </span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-[#D5D5D5]">Liquidity</span>
-                <span className="text-xl font-bold text-[#1CA36E]">
-                  Unified Pools
-                </span>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-      </div>
-    </motion.div>
-  );
-};
-
-// Three-Module Ecosystem
+// Three-Module Ecosystem Component
 const ThreeModuleEcosystem = () => {
   const [activeModule, setActiveModule] = useState(0);
   const modules = [
@@ -320,200 +389,191 @@ const ThreeModuleEcosystem = () => {
   ];
 
   return (
-    <motion.div
-      className="mb-24"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-    >
-      <div className="text-center mb-16">
-        <h2 className="text-5xl font-bold mb-6">Enterprise Digital Asset Custody with Tokenized Securities Platform</h2>
-        <p className="text-[#D5D5D5] text-xl">
-          CMTA tokenization for institutional tokenization infrastructure and bond tokenization platform
-        </p>
-      </div>
-
+    <>
       {/* Module Selector */}
-      <div className="flex justify-center mb-12">
-        <div className="bg-[#202026] rounded-full p-2 flex">
+      <div style={{
+        display: "flex",
+        justifyContent: "center",
+        marginBottom: 40,
+      }}>
+        <div style={{
+          display: "flex",
+          background: C.card,
+          borderRadius: 100,
+          padding: 6,
+          gap: 4,
+        }}>
           {modules.map((module, index) => (
-            <motion.button
+            <button
               key={index}
-              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 flex items-center gap-2 ${
-                activeModule === index
-                  ? "bg-[#1CA36E] text-white"
-                  : "text-[#969696] hover:text-white"
-              }`}
               onClick={() => setActiveModule(index)}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 10,
+                padding: "12px 24px",
+                borderRadius: 100,
+                border: "none",
+                background: activeModule === index ? C.g : "transparent",
+                color: activeModule === index ? "#010201" : C.m,
+                fontSize: 14,
+                fontWeight: activeModule === index ? 700 : 500,
+                cursor: "pointer",
+                transition: "all 0.3s ease",
+                fontFamily: "var(--body)",
+              }}
             >
-              <span className="text-2xl">{module.icon}</span>
+              <span style={{ fontSize: 20 }}>{module.icon}</span>
               {module.name}
-            </motion.button>
+            </button>
           ))}
         </div>
       </div>
 
       {/* Module Details */}
-      <motion.div
-        className="bg-gradient-to-br from-[#1CA36E]/5 to-white/5 p-8 rounded-2xl border border-[#202026]"
-        // key={activeModule}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.2 }}
-      >
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Module Visualization */}
-          <div className="flex items-center justify-center">
-            <motion.div
-              className="relative w-64 h-64 rounded-full bg-gradient-to-br from-[#1CA36E]/20 to-white/10 flex items-center justify-center"
-              animate={{
-                rotate: [0, 360],
-              }}
-              transition={{
-                rotate: { duration: 20, repeat: Infinity, ease: "linear" },
-              }}
-            >
-              <motion.div
-                className="text-8xl"
-                animate={{
-                  rotate: [0, -360],
-                }}
-                transition={{
-                  rotate: { duration: 20, repeat: Infinity, ease: "linear" },
-                }}
-              >
-                {modules[activeModule].icon}
-              </motion.div>
+      <Rv key={activeModule}>
+        <Gc>
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1.3fr",
+            gap: 40,
+            alignItems: "center",
+          }}>
+            {/* Module Visualization */}
+            <div style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: 40,
+            }}>
+              <div style={{
+                width: 200,
+                height: 200,
+                borderRadius: "50%",
+                background: `linear-gradient(135deg, ${C.g}15, ${C.g}05)`,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                position: "relative",
+              }}>
+                <div style={{ fontSize: 80 }}>
+                  {modules[activeModule].icon}
+                </div>
+                {/* Orbital dots */}
+                {[0, 120, 240].map((deg, i) => (
+                  <div
+                    key={i}
+                    style={{
+                      position: "absolute",
+                      width: 8,
+                      height: 8,
+                      borderRadius: "50%",
+                      background: i === 0 ? C.g : C.w,
+                      top: "50%",
+                      left: "50%",
+                      transform: `translate(-50%, -50%) rotate(${deg}deg) translateY(-100px)`,
+                    }}
+                  />
+                ))}
+              </div>
+            </div>
 
-              {/* Orbital Elements */}
-              <motion.div
-                className="absolute inset-0"
-                animate={{ rotate: -360 }}
-                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-              >
-                <div className="absolute top-4 left-1/2 w-3 h-3 bg-[#1CA36E] rounded-full transform -translate-x-1/2" />
-                <div className="absolute bottom-4 right-4 w-3 h-3 bg-white rounded-full" />
-                <div className="absolute bottom-4 left-4 w-3 h-3 bg-[#1CA36E] rounded-full" />
-              </motion.div>
-            </motion.div>
-          </div>
-
-          {/* Module Information */}
-          <div className="space-y-6">
+            {/* Module Information */}
             <div>
-              <h3 className="text-3xl font-bold mb-4 text-[#1CA36E]">
+              <h3 style={{
+                fontSize: 32,
+                fontWeight: 800,
+                letterSpacing: "-1px",
+                fontFamily: "var(--display)",
+                color: C.g,
+                marginBottom: 12,
+              }}>
                 {modules[activeModule].name}
               </h3>
-              <p className="text-[#D5D5D5] text-lg mb-6">
+              <p style={{
+                fontSize: 16,
+                color: C.m,
+                lineHeight: 1.8,
+                marginBottom: 28,
+              }}>
                 {modules[activeModule].description}
               </p>
-            </div>
 
-            <div className="grid grid-cols-1 gap-4">
-              <div className="bg-[#202026] p-4 rounded-lg">
-                <h4 className="font-bold text-white mb-2">Purpose</h4>
-                <p className="text-[#D5D5D5] text-sm">
-                  {modules[activeModule].details.purpose}
-                </p>
+              <div style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: 16,
+              }}>
+                {[
+                  { label: "Purpose", value: modules[activeModule].details.purpose },
+                  { label: "Mechanism", value: modules[activeModule].details.mechanism },
+                  { label: "Yield Source", value: modules[activeModule].details.yield },
+                ].map((item, i) => (
+                  <div
+                    key={i}
+                    style={{
+                      background: C.surface,
+                      padding: 16,
+                      borderRadius: 10,
+                      border: `1px solid ${C.border}`,
+                    }}
+                  >
+                    <h4 style={{
+                      fontSize: 14,
+                      fontWeight: 700,
+                      color: C.w,
+                      marginBottom: 6,
+                    }}>
+                      {item.label}
+                    </h4>
+                    <p style={{ fontSize: 13, color: C.m, lineHeight: 1.6 }}>
+                      {item.value}
+                    </p>
+                  </div>
+                ))}
               </div>
-              <div className="bg-[#202026] p-4 rounded-lg">
-                <h4 className="font-bold text-white mb-2">Mechanism</h4>
-                <p className="text-[#D5D5D5] text-sm">
-                  {modules[activeModule].details.mechanism}
-                </p>
-              </div>
-              <div className="bg-[#202026] p-4 rounded-lg">
-                <h4 className="font-bold text-white mb-2">Yield Source</h4>
-                <p className="text-[#D5D5D5] text-sm">
-                  {modules[activeModule].details.yield}
-                </p>
-              </div>
-            </div>
 
-            <div>
-              <h4 className="font-bold text-white mb-3">Key Features</h4>
-              <ul className="space-y-2">
-                {modules[activeModule].details.features.map(
-                  (feature, index) => (
-                    <li
-                      key={index}
-                      className="text-[#D5D5D5] flex items-center text-sm"
+              <div style={{ marginTop: 24 }}>
+                <h4 style={{
+                  fontSize: 14,
+                  fontWeight: 700,
+                  color: C.w,
+                  marginBottom: 12,
+                }}>
+                  Key Features
+                </h4>
+                <div style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 8,
+                }}>
+                  {modules[activeModule].details.features.map((feature, i) => (
+                    <div
+                      key={i}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 10,
+                        fontSize: 13,
+                        color: C.m,
+                      }}
                     >
-                      <span className="w-2 h-2 bg-[#1CA36E] rounded-full mr-3"></span>
+                      <div style={{
+                        width: 4,
+                        height: 4,
+                        borderRadius: "50%",
+                        background: C.g,
+                        flexShrink: 0,
+                      }} />
                       {feature}
-                    </li>
-                  )
-                )}
-              </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </motion.div>
-    </motion.div>
-  );
-};
-
-// CTA Section
-const CTASection = () => {
-  return (
-    <motion.div
-      className="text-center bg-gradient-to-br from-[#1CA36E]/10 to-white/5 p-12 rounded-2xl border border-[#1CA36E]/20 relative overflow-hidden"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-      whileHover={{
-        boxShadow: "0 0 40px rgba(28, 163, 110, 0.4)",
-      }}
-    >
-      {/* Animated background elements */}
-      <motion.div
-        className="absolute top-0 left-0 w-20 h-20 bg-[#1CA36E]/10 rounded-full"
-        animate={{
-          x: [0, 100, 0],
-          y: [0, 50, 0],
-          scale: [1, 1.2, 1],
-        }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute bottom-0 right-0 w-16 h-16 bg-white/10 rounded-full"
-        animate={{
-          x: [0, -80, 0],
-          y: [0, -40, 0],
-          scale: [1, 1.1, 1],
-        }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-      />
-
-      <div className="relative z-10">
-        <motion.h2
-          className="text-4xl font-bold mb-6"
-          animate={{
-            textShadow: [
-              "0 0 10px rgba(28, 163, 110, 0.5)",
-              "0 0 20px rgba(28, 163, 110, 0.8)",
-              "0 0 10px rgba(28, 163, 110, 0.5)",
-            ],
-          }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        >
-          Deploy Institutional DeFi Infrastructure Today
-        </motion.h2>
-        <p className="text-[#D5D5D5] text-xl mb-8 max-w-3xl mx-auto">
-          Join leading institutions using our RWA tokenization platform with Canton Network tokenization, multi-chain tokenization, security token issuance, CMTA tokenization, and enterprise digital asset custody for institutional tokenization infrastructure.
-        </p>
-        <div className="flex justify-center gap-6">
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Button onClick={() => window.open("/contact", "_blank")}>
-              Get Started Today
-            </Button>
-          </motion.div>
-        </div>
-      </div>
-    </motion.div>
+        </Gc>
+      </Rv>
+    </>
   );
 };
