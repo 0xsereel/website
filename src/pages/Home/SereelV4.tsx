@@ -96,10 +96,10 @@ export function SereelV4() {
                 borderBottom: navBg ? `1px solid ${C.border}` : "1px solid transparent",
                 transition: "all 0.4s ease",
             }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 9 }}>
+                <Link to="/" style={{ display: "flex", alignItems: "center", gap: 9, textDecoration: "none", color: "inherit" }}>
                     <img src='/images/Hero/glowing_seree_logo.svg' alt='Sereel' style={{ width: 30, height: 30 }} />
                     <span style={{ fontSize: 19, fontWeight: 800, letterSpacing: "-0.3px", fontFamily: "var(--display)" }}>sereel</span>
-                </div>
+                </Link>
                 <div style={{ display: "flex", gap: 24, alignItems: "center" }}>
                     {["Platform", "Solutions", "Developers", "Advisory"].map(l => (
                         <button key={l} style={{ color: C.m, background: "none", border: "none", fontSize: 13, fontWeight: 500, cursor: "pointer", transition: "color 0.2s", fontFamily: "var(--body)" }}
@@ -533,10 +533,10 @@ export function SereelV4() {
             <footer style={{ borderTop: `1px solid ${C.border}`, padding: "48px clamp(16px,4vw,56px) 28px" }}>
                 <div style={{ maxWidth: 1120, margin: "0 auto", display: "grid", gridTemplateColumns: "1.6fr 1fr 1fr 1fr 1fr", gap: 28 }}>
                     <div>
-                        <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14 }}>
+                        <Link to="/" style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14, textDecoration: "none", color: "inherit" }}>
                             <img src='/images/Hero/glowing_seree_logo.svg' alt='Sereel' style={{ width: 24, height: 24 }} />
                             <span style={{ fontSize: 16, fontWeight: 800, fontFamily: "var(--display)" }}>sereel</span>
-                        </div>
+                        </Link>
                         <p style={{ fontSize: 12.5, color: C.d, lineHeight: 1.7, maxWidth: 220 }}>Where Traditional Finance Meets Digital Assets.</p>
                     </div>
                     {[
