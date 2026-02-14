@@ -42,7 +42,7 @@ export const Blog = () => {
         }}
         structuredData={blogListingSchema}
       />
-      <V4Layout excludeNewsletter={true} excludeCTA={true}>
+      <V4Layout>
         <BlogPageContent />
       </V4Layout>
     </>

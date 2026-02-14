@@ -1,16 +1,12 @@
 import { V4Nav } from "./V4Nav";
 import { V4Footer } from "./V4Footer";
 import { C } from "./theme";
-import { NewsLetter } from "../Home/NewsLetter";
-import { FinalCTA } from "../Home/FinalCTA";
 
 interface V4LayoutProps {
     children: React.ReactNode;
-    excludeNewsletter?: boolean;
-    excludeCTA?: boolean;
 }
 
-export function V4Layout({ children, excludeNewsletter = false, excludeCTA = false }: V4LayoutProps) {
+export function V4Layout({ children }: V4LayoutProps) {
     return (
         <div style={{ background: C.bg, color: C.w, minHeight: "100vh", fontFamily: "var(--body)", overflowX: "hidden" }}>
             <style>{`
@@ -41,8 +37,6 @@ export function V4Layout({ children, excludeNewsletter = false, excludeCTA = fal
       `}</style>
             <V4Nav />
             {children}
-            {!excludeCTA && <FinalCTA />}
-            {!excludeNewsletter && <NewsLetter />}
             <V4Footer />
         </div>
     );

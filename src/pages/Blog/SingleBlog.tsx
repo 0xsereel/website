@@ -19,7 +19,7 @@ export const SingleBlog = () => {
           description="The blog post you are looking for could not be found."
           noIndex={true}
         />
-        <V4Layout excludeNewsletter={true} excludeCTA={true}>
+        <V4Layout>
           <BlogPost />
         </V4Layout>
       </>
@@ -77,7 +77,7 @@ export const SingleBlog = () => {
         }}
         structuredData={articleSchema}
       />
-      <V4Layout excludeNewsletter={true} excludeCTA={true}>
+      <V4Layout>
         <BlogPost />
       </V4Layout>
     </>
