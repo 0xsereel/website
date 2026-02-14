@@ -19,9 +19,15 @@ export const SingleBlog = () => {
           description="The blog post you are looking for could not be found."
           noIndex={true}
         />
-        <V4Layout>
-          <BlogPost />
-        </V4Layout>
+          <V4Layout>
+              <div style={{
+                  maxWidth: 780,
+                  margin: "0 auto",
+                  padding: "80px clamp(16px, 4vw, 56px)",
+              }}>
+                  <BlogPost />
+              </div>
+          </V4Layout>
       </>
     );
   }
@@ -77,9 +83,15 @@ export const SingleBlog = () => {
         }}
         structuredData={articleSchema}
       />
-      <V4Layout>
-        <BlogPost />
-      </V4Layout>
+        <V4Layout>
+            <div style={{
+                maxWidth: 780,
+                margin: "0 auto",
+                padding: "80px clamp(16px, 4vw, 56px)",
+            }}>
+                <BlogPost />
+            </div>
+        </V4Layout>
     </>
   );
 };

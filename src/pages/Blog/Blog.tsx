@@ -42,9 +42,15 @@ export const Blog = () => {
         }}
         structuredData={blogListingSchema}
       />
-      <V4Layout>
-        <BlogPageContent />
-      </V4Layout>
+        <V4Layout>
+            <div style={{
+                maxWidth: 1120,
+                margin: "0 auto",
+                padding: "80px clamp(16px, 4vw, 56px)",
+            }}>
+                <BlogPageContent />
+            </div>
+        </V4Layout>
     </>
   );
 };
