@@ -52,7 +52,7 @@ export const Tokenization = () => {
               fontFamily: "var(--display)",
               marginBottom: 24,
             }}>
-              Security Token Issuance &<br />CMTA Tokenization Platform
+              Security Token Issuance &<br />Tokenization Platform
             </h1>
           </Rv>
           <Rv d={0.08}>
