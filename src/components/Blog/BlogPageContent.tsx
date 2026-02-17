@@ -1,18 +1,30 @@
 import blogs from "../../Blog Data/Blogs.json";
 import { Link } from "react-router-dom";
 import { C } from "../Core/theme";
-import { MeshBg, Gc, Rv } from "../Core/shared";
+import { MeshBg, Rv } from "../Core/shared";
 
 interface Blog {
   id: number;
   title: string;
   image: string;
   content: string;
-  summary: string;
+  summary?: string;
   date?: string;
 }
 
 const typedBlogs: Blog[] = blogs as Blog[];
+
+function getCardSummary(blog: Blog) {
+  const raw = (blog.summary && blog.summary.trim().length > 0 ? blog.summary : blog.content) || "";
+  const cleaned = raw
+    .replace(/!\[[^\]]*\]\([^)]+\)/g, " ")
+    .replace(/\[[^\]]+\]\([^)]+\)/g, " ")
+    .replace(/[#*_`>-]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  return cleaned.length > 150 ? `${cleaned.slice(0, 150).trim()}...` : cleaned;
+}
 
 export const BlogPageContent = () => {
   return (
@@ -55,7 +67,7 @@ export const BlogPageContent = () => {
         className="w-full py-20 relative overflow-hidden"
         style={{ background: C.bg }}
       >
-        <div className="w-full max-w-[1200px] mx-auto px-5 relative z-10">
+        <div className="w-full max-w-[1320px] mx-auto px-5 relative z-10">
           {typedBlogs.length > 0 ? (
             <>
               {/* Section Header */}
@@ -98,7 +110,7 @@ export const BlogPageContent = () => {
               </div>
 
               {/* Blog Grid */}
-              <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
+              <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8 auto-rows-fr">
                 {typedBlogs.map((blog, index) => (
                   <Rv key={blog.id} d={index * 0.08}>
                     <BlogCard blog={blog} />
@@ -115,86 +127,102 @@ export const BlogPageContent = () => {
   );
 };
 
-// Gc-style Glow Card Component
+// Blog Card
 const BlogCard = ({ blog }: { blog: Blog }) => {
+  const summary = getCardSummary(blog);
+
   return (
-    <Link to={`/blog/${blog.id}`} style={{ textDecoration: 'none' }}>
-      <Gc style={{ height: "100%", display: "flex", flexDirection: "column", cursor: "pointer" }} p="0">
-        {/* Image Section */}
-        <div className="relative overflow-hidden">
-          <div className="w-full h-[200px] relative">
-            <img
-              className="w-full h-full object-cover object-center"
-              src={blog.image}
-              alt={blog.title}
-              loading="lazy"
-            />
-            
-            {/* Overlay gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-            
-            {/* Title overlay */}
-            <div className="absolute bottom-0 left-0 right-0 px-6 pb-5 pt-4" style={{ display: "flex", justifyContent: "center" }}>
-              <h3 
-                className="text-lg line-clamp-2" 
-                style={{ 
-                  color: C.w,
-                  fontFamily: 'var(--display)',
-                  margin: 0,
-                  textAlign: "center",
-                  maxWidth: 320,
-                }}
-              >
-                {blog.title}
-              </h3>
-            </div>
+    <Link to={`/blog/${blog.id}`} className="group block h-full" style={{ textDecoration: "none" }}>
+      <article
+        style={{
+          height: "100%",
+          minHeight: 460,
+          display: "flex",
+          flexDirection: "column",
+          borderRadius: 16,
+          border: `1px solid ${C.border}`,
+          overflow: "hidden",
+          background: "linear-gradient(180deg, #04100b 0%, #020706 100%)",
+          transition: "transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease",
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = "translateY(-6px)";
+          e.currentTarget.style.borderColor = `${C.g}66`;
+          e.currentTarget.style.boxShadow = "0 22px 44px -26px rgba(28,163,110,0.7)";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = "translateY(0)";
+          e.currentTarget.style.borderColor = C.border;
+          e.currentTarget.style.boxShadow = "none";
+        }}
+      >
+        <div className="relative" style={{ height: 242 }}>
+          <img
+            className="w-full h-full object-cover object-center"
+            src={blog.image}
+            alt={blog.title}
+            loading="lazy"
+          />
+
+          <div
+            className="absolute inset-0"
+            style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.04) 28%, rgba(0,0,0,0.88) 100%)" }}
+          />
+
+          <div className="absolute bottom-0 left-0 right-0" style={{ padding: "0 16px 16px" }}>
+            <h3
+              className="line-clamp-2"
+              style={{
+                margin: 0,
+                color: C.w,
+                fontFamily: "var(--display)",
+                fontSize: "clamp(18px, 2vw, 36px)",
+                lineHeight: 1.07,
+                letterSpacing: "-0.45px",
+                textAlign: "left",
+                textShadow: "0 6px 18px rgba(0,0,0,0.52)",
+              }}
+            >
+              {blog.title}
+            </h3>
           </div>
         </div>
 
-        {/* Content Section */}
         <div
-          className="px-7 pb-6 pt-5"
           style={{
             flex: 1,
             display: "flex",
             flexDirection: "column",
-            textAlign: "center",
-            alignItems: "center",
             justifyContent: "space-between",
+            padding: "18px 20px 20px",
+            background: "linear-gradient(180deg, rgba(1,8,6,0.92) 0%, rgba(1,8,6,1) 100%)",
+            borderTop: `1px solid ${C.border}`,
           }}
         >
-          <div className="mb-4" style={{ width: "100%", maxWidth: 320, margin: "0 auto" }}>
-            <p 
-              className="text-sm line-clamp-3 leading-relaxed"
-              style={{ color: C.m, fontFamily: "var(--body)", margin: 0 }}
-            >
-              {blog.summary}
+          <div
+            style={{
+              color: C.m,
+              fontFamily: "var(--body)",
+              fontSize: 15,
+              lineHeight: 1.56,
+              margin: 0,
+              textAlign: "left",
+              paddingRight: 6,
+            }}
+          >
+            <p className="line-clamp-3" style={{ margin: 0 }}>
+              {summary}
             </p>
           </div>
 
-          {/* Read More Button */}
-          <div
-            className="flex items-center justify-center gap-2 group-hover:gap-3 transition-all duration-300"
-            style={{ 
-              color: C.g,
-              fontFamily: 'var(--body)',
-              fontWeight: 600,
-            }}
-          >
+          <div className="flex items-center gap-2 group-hover:gap-3 transition-all duration-300" style={{ marginTop: 18, color: C.g, fontFamily: "var(--body)", fontWeight: 600, fontSize: 15 }}>
             <span>Read More</span>
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </div>
         </div>
-      </Gc>
+      </article>
     </Link>
   );
 };
