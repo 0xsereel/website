@@ -1,12 +1,12 @@
-import { V4Nav } from "./V4Nav";
-import { V4Footer } from "./V4Footer";
+import { Nav } from "./Nav";
+import { Footer } from "./Footer";
 import { C } from "./theme";
 
-interface V4LayoutProps {
+interface LayoutProps {
     children: React.ReactNode;
 }
 
-export function V4Layout({ children }: V4LayoutProps) {
+export function Layout({ children }: LayoutProps) {
     return (
         <div style={{ background: C.bg, color: C.w, minHeight: "100vh", fontFamily: "var(--body)", overflowX: "hidden" }}>
             <style>{`
@@ -35,9 +35,9 @@ export function V4Layout({ children }: V4LayoutProps) {
         .so:hover { border-color: ${C.g}35; background: ${C.gU}; transform: translateY(-2px); }
         .sl { font-size: 11px; letter-spacing: 3.5px; text-transform: uppercase; color: ${C.g}; font-weight: 500; margin-bottom: 18px; font-family: var(--mono); }
       `}</style>
-            <V4Nav />
+            <Nav />
             {children}
-            <V4Footer />
+            <Footer />
         </div>
     );
 }

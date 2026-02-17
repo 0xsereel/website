@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ChainBar, MeshBg, Rv } from "../../components/V4/shared";
-import { C, grdT } from "../../components/V4/theme";
+import { ChainBar, MeshBg, Rv } from "../../components/Core/shared";
+import { C, grdT } from "../../components/Core/theme";
 
 interface Pillar {
   number: string;
@@ -223,6 +223,12 @@ function ImageSlot({
 }
 
 function PartnerLogo({ partner }: { partner: Partner }) {
+  const compactDomain = (domain: string) => {
+    if (domain.length <= 14) return domain;
+    const [root, tld = ""] = domain.split(".");
+    return `${root.slice(0, 7)}...${tld ? `.${tld}` : ""}`;
+  };
+
   return (
     <article className="partner-card">
       <a href={`https://${partner.website}`} target="_blank" rel="noreferrer" className="partner-head">
@@ -231,7 +237,9 @@ function PartnerLogo({ partner }: { partner: Partner }) {
         </div>
         <div>
           <h3>{partner.name}</h3>
-          <p>{partner.website}</p>
+          <p className="partner-url" title={partner.website}>
+            {compactDomain(partner.website)}
+          </p>
         </div>
       </a>
       <p className="partner-description">{partner.description}</p>
@@ -239,7 +247,7 @@ function PartnerLogo({ partner }: { partner: Partner }) {
   );
 }
 
-export function SereelV4() {
+export function Sereel() {
   const [navBg, setNavBg] = useState(false);
 
   useEffect(() => {
@@ -375,10 +383,57 @@ export function SereelV4() {
           margin-top: 26px;
           border: 1px solid ${C.borderHi};
           border-radius: 12px;
-          padding: 14px 16px;
+          padding: 16px;
           background: ${C.gU};
           color: ${C.w2};
-          font-size: 14px;
+        }
+
+        .market-banner-title {
+          font-size: 10px;
+          color: ${C.g};
+          font-family: var(--mono);
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          margin-bottom: 12px;
+        }
+
+        .market-stats-grid {
+          display: grid;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          gap: 10px;
+        }
+
+        .market-stat {
+          border: 1px solid ${C.border};
+          border-radius: 10px;
+          background: ${C.surface};
+          padding: 12px 10px;
+          text-align: center;
+        }
+
+        .market-stat strong {
+          display: block;
+          font-size: clamp(18px, 2.7vw, 24px);
+          line-height: 1;
+          margin-bottom: 6px;
+          color: ${C.w};
+          font-family: var(--display);
+        }
+
+        .market-stat span {
+          display: block;
+          font-size: 10px;
+          color: ${C.d};
+          text-transform: uppercase;
+          letter-spacing: 1.3px;
+          font-family: var(--mono);
+        }
+
+        .market-source {
+          margin-top: 10px;
+          font-size: 11px;
+          color: ${C.d};
+          text-align: center;
         }
 
         .split-grid {
@@ -497,12 +552,17 @@ export function SereelV4() {
 
         .image-placeholder code {
           font-family: var(--mono);
-          font-size: 11px;
+          font-size: 10px;
           color: ${C.g};
           border: 1px solid ${C.borderHi};
           border-radius: 8px;
           padding: 5px 8px;
           background: ${C.bg};
+          display: block;
+          max-width: 100%;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
 
         .partner-card {
@@ -549,9 +609,17 @@ export function SereelV4() {
 
         .partner-head p {
           margin: 0;
-          font-size: 11px;
+          font-size: 10px;
           color: ${C.d};
           font-family: var(--mono);
+        }
+
+        .partner-url {
+          max-width: 128px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: block;
         }
 
         .partner-description {
@@ -597,7 +665,8 @@ export function SereelV4() {
             grid-template-columns: 1fr;
           }
 
-          .hero-metrics { grid-template-columns: 1fr 1fr; }
+          .hero-metrics,
+          .market-stats-grid { grid-template-columns: 1fr 1fr; }
         }
 
         @media (max-width: 700px) {
@@ -606,7 +675,8 @@ export function SereelV4() {
           }
 
           .hero-metrics,
-          .segments-grid {
+          .segments-grid,
+          .market-stats-grid {
             grid-template-columns: 1fr;
           }
         }
@@ -664,9 +734,7 @@ export function SereelV4() {
                   End-to-end tokenization, custody, and market infrastructure for institutional DeFi at enterprise
                   standard. Engineered for regulatory certainty. Designed for global scale.
                 </p>
-                <p style={{ color: C.w2, fontSize: 14, marginTop: 12, marginBottom: 0 }}>
-                  Built on the CMTA standard. We are certified CMTA technology providers.
-                </p>
+                
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 26 }}>
                   <Link to="/contact" className="sb">Schedule Consultation</Link>
                   <Link to="/blog" className="so">Visit Blog</Link>
@@ -705,7 +773,28 @@ export function SereelV4() {
             </Rv>
           </div>
 
-          <div className="market-banner">MARKET STATS BANNER: This content is only supported in a Lark Docs</div>
+          <div className="market-banner">
+            <div className="market-banner-title">Market Stats Banner</div>
+            <div className="market-stats-grid">
+              <div className="market-stat">
+                <strong>$24.83B</strong>
+                <span>Total RWA Value</span>
+              </div>
+              <div className="market-stat">
+                <strong>849,297</strong>
+                <span>Asset Holders</span>
+              </div>
+              <div className="market-stat">
+                <strong>$296.51B</strong>
+                <span>Stablecoin Value</span>
+              </div>
+              <div className="market-stat">
+                <strong>$10.71B</strong>
+                <span>Tokenized U.S. Treasuries</span>
+              </div>
+            </div>
+            <div className="market-source">Source: RWA.xyz market overview (as of February 2026)</div>
+          </div>
         </div>
       </section>
 
@@ -970,4 +1059,4 @@ export function SereelV4() {
   );
 }
 
-export default SereelV4;
+export default Sereel;

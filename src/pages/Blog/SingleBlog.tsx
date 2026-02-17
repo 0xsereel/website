@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { BlogPost } from "../../components/Blog/BlogPost";
-import { V4Layout } from "../../components/V4/V4Layout";
+import { Layout } from "../../components/Core/Layout";
 import { SEO } from "../../components/SEO/SEO";
 import { generateArticleSchema, SITE_CONFIG, type BlogArticleData } from "../../utils/seo";
 import blogs from "../../Blog Data/Blogs.json";
@@ -19,7 +19,7 @@ export const SingleBlog = () => {
           description="The blog post you are looking for could not be found."
           noIndex={true}
         />
-          <V4Layout>
+          <Layout>
               <div style={{
                   maxWidth: 780,
                   margin: "0 auto",
@@ -27,7 +27,7 @@ export const SingleBlog = () => {
               }}>
                   <BlogPost />
               </div>
-          </V4Layout>
+          </Layout>
       </>
     );
   }
@@ -83,7 +83,7 @@ export const SingleBlog = () => {
         }}
         structuredData={articleSchema}
       />
-        <V4Layout>
+        <Layout>
             <div style={{
                 maxWidth: 780,
                 margin: "0 auto",
@@ -91,7 +91,7 @@ export const SingleBlog = () => {
             }}>
                 <BlogPost />
             </div>
-        </V4Layout>
+        </Layout>
     </>
   );
 };

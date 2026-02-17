@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { C } from "./theme";
 
-export function V4Nav() {
+export function Nav() {
     const [navBg, setNavBg] = useState(false);
     useEffect(() => {
         const fn = () => setNavBg(window.scrollY > 30);

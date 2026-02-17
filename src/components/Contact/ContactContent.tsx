@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { C, grdT } from "../V4/theme";
-import { MeshBg, Gc, Rv } from "../V4/shared";
+import { C, grdT } from "../Core/theme";
+import { MeshBg, Gc, Rv } from "../Core/shared";
 
 export const ContactContent = () => {
   const contactImagePath = "/images/contact/contact.jpg";

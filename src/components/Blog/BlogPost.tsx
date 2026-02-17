@@ -5,8 +5,8 @@ import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import blogs from "../../Blog Data/Blogs.json";
 import { useState, useEffect } from "react";
-import { C } from "../V4/theme";
-import { MeshBg, Rv } from "../V4/shared";
+import { C } from "../Core/theme";
+import { MeshBg, Rv } from "../Core/shared";
 
 interface Blog {
   id: number;

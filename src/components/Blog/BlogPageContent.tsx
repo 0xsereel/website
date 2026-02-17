@@ -1,7 +1,7 @@
 import blogs from "../../Blog Data/Blogs.json";
 import { Link } from "react-router-dom";
-import { C } from "../V4/theme";
-import { MeshBg, Gc, Rv } from "../V4/shared";
+import { C } from "../Core/theme";
+import { MeshBg, Gc, Rv } from "../Core/shared";
 
 interface Blog {
   id: number;

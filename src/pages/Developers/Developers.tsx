@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import { V4Layout } from "../../components/V4/V4Layout";
-import { MeshBg, Rv } from "../../components/V4/shared";
-import { C, grdT } from "../../components/V4/theme";
+import { Layout } from "../../components/Core/Layout";
+import { MeshBg, Rv } from "../../components/Core/shared";
+import { C, grdT } from "../../components/Core/theme";
 
 export function Developers() {
   return (
-    <V4Layout>
+    <Layout>
       <section style={{
         minHeight: "80vh", display: "flex", alignItems: "center",
         padding: "120px clamp(16px,4vw,56px) 60px", position: "relative",
@@ -45,6 +45,6 @@ export function Developers() {
           </div>
         </Rv>
       </section>
-    </V4Layout>
+    </Layout>
   );
 }

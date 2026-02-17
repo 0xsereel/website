@@ -1,5 +1,5 @@
 import { GradientProvider } from "../../utils/gradient";
-import { SereelV4 } from "./SereelV4";
+import { Sereel } from "./Sereel";
 import { SEO } from "../../components/SEO/SEO";
 
 export const Home = () => {
@@ -27,7 +27,7 @@ export const Home = () => {
         canonical="/"
       />
       <GradientProvider>
-        <SereelV4 />
+        <Sereel />
       </GradientProvider>
     </>
   );

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { C, grdT } from "../V4/theme";
-import { MeshBg, Gc, Rv } from "../V4/shared";
+import { C, grdT } from "../Core/theme";
+import { MeshBg, Gc, Rv } from "../Core/shared";
 
 function MarketImage({
   src,

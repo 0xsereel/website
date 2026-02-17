@@ -1,6 +1,6 @@
-import { V4Layout } from "../../components/V4/V4Layout";
-import { C, grdT } from "../../components/V4/theme";
-import { MeshBg, Gc, Rv } from "../../components/V4/shared";
+import { Layout } from "../../components/Core/Layout";
+import { C, grdT } from "../../components/Core/theme";
+import { MeshBg, Gc, Rv } from "../../components/Core/shared";
 
 export const Entities = () => {
   const entities = [
@@ -19,7 +19,7 @@ export const Entities = () => {
   ];
 
   return (
-    <V4Layout>
+    <Layout>
       <section style={{
         minHeight: "80vh", display: "flex", alignItems: "center",
         padding: "140px clamp(16px,4vw,56px) 60px", position: "relative",
@@ -75,6 +75,6 @@ export const Entities = () => {
           ))}
         </div>
       </section>
-    </V4Layout>
+    </Layout>
   );
 };

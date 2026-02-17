@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { C } from "./theme";
 
-export function V4Footer() {
+export function Footer() {
     return (
         <footer style={{ borderTop: `1px solid ${C.border}`, padding: "48px clamp(16px,4vw,56px) 28px" }}>
             <div style={{ maxWidth: 1120, margin: "0 auto", display: "grid", gridTemplateColumns: "1.6fr 1fr 1fr 1fr 1fr", gap: 28 }}>

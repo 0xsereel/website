@@ -104,7 +104,7 @@ body {
 
 
 
-/* BlogPost.css - V4 Design System */
+/* BlogPost.css - Core Design System */
 .blog-content {
   line-height: 1.6;
   color: #e8f0eb;
@@ -875,7 +875,7 @@ html {
   filter: brightness(1.2);
 }
 
-/* SereelV4 specific animations and styles */
+/* Sereel specific animations and styles */
 @keyframes morph {
   0%, 100% {
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;

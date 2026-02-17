@@ -1,4 +1,4 @@
-import { V4Layout } from "../../components/V4/V4Layout";
+import { Layout } from "../../components/Core/Layout";
 import AboutHero from "../../components/About/AboutHero";
 import { SEO } from "../../components/SEO/SEO";
 
@@ -11,9 +11,9 @@ export const About = () => {
         keywords={['RWA tokenization platform', 'institutional tokenization infrastructure', 'security token issuance', 'CMTA tokenization', 'enterprise digital asset custody', 'bond tokenization platform', 'Canton Network tokenization', 'institutional DeFi infrastructure', 'multi-chain tokenization', 'tokenized securities platform']}
         canonical="/about"
       />
-      <V4Layout>
+      <Layout>
         <AboutHero />
-      </V4Layout>
+      </Layout>
     </>
   );
 };

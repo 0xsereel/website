@@ -1,5 +1,5 @@
 import { BlogPageContent } from "../../components/Blog/BlogPageContent";
-import { V4Layout } from "../../components/V4/V4Layout";
+import { Layout } from "../../components/Core/Layout";
 import { SEO } from "../../components/SEO/SEO";
 import { generateBlogListingSchema, SITE_CONFIG, type BlogArticleData } from "../../utils/seo";
 import blogs from "../../Blog Data/Blogs.json";
@@ -42,7 +42,7 @@ export const Blog = () => {
         }}
         structuredData={blogListingSchema}
       />
-        <V4Layout>
+        <Layout>
             <div style={{
                 maxWidth: 1120,
                 margin: "0 auto",
@@ -50,7 +50,7 @@ export const Blog = () => {
             }}>
                 <BlogPageContent />
             </div>
-        </V4Layout>
+        </Layout>
     </>
   );
 };

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { V4Layout } from "../../components/V4/V4Layout";
-import { MeshBg, Gc, Rv } from "../../components/V4/shared";
-import { C } from "../../components/V4/theme";
+import { Layout } from "../../components/Core/Layout";
+import { MeshBg, Gc, Rv } from "../../components/Core/shared";
+import { C } from "../../components/Core/theme";
 
 type ModuleCard = {
   title: string;
@@ -117,7 +117,7 @@ const modules: ModuleCard[] = [
 
 export function Platform() {
   return (
-    <V4Layout>
+    <Layout>
       <style>{`
         .platform-wrap {
           width: min(1160px, calc(100% - 40px));
@@ -419,6 +419,6 @@ export function Platform() {
           </Rv>
         </div>
       </section>
-    </V4Layout>
+    </Layout>
   );
 }

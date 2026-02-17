@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { V4Layout } from "../../components/V4/V4Layout";
-import { C } from "../../components/V4/theme";
-import { MeshBg, Gc, Rv } from "../../components/V4/shared";
+import { Layout } from "../../components/Core/Layout";
+import { C } from "../../components/Core/theme";
+import { MeshBg, Gc, Rv } from "../../components/Core/shared";
 import { SEO } from "../../components/SEO/SEO";
 import { 
   StockIcon, 
@@ -25,7 +25,7 @@ export const Tokenization = () => {
         keywords={['security token issuance', 'CMTA tokenization', 'bond tokenization platform', 'multi-chain tokenization', 'real world asset tokenization', 'private credit tokenization', 'treasury tokenization', 'stablecoin issuance platform', 'Regulation S token issuance', 'Regulation D token issuance', 'Canton Network tokenization', 'tokenized securities platform']}
         canonical="/solutions/tokenization"
       />
-      <V4Layout>
+      <Layout>
       {/* Hero Section */}
       <section style={{
         minHeight: "60vh",
@@ -454,7 +454,7 @@ export const Tokenization = () => {
           </Gc>
         </Rv>
       </section>
-      </V4Layout>
+      </Layout>
     </>
   );
 };

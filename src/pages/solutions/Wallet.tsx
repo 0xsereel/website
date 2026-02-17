@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { V4Layout } from "../../components/V4/V4Layout";
-import { C } from "../../components/V4/theme";
-import { MeshBg, Gc, Rv } from "../../components/V4/shared";
+import { Layout } from "../../components/Core/Layout";
+import { C } from "../../components/Core/theme";
+import { MeshBg, Gc, Rv } from "../../components/Core/shared";
 import { SEO } from "../../components/SEO/SEO";
 import { 
   SmartAccountIcon, 
@@ -22,7 +22,7 @@ export const Wallet = () => {
         keywords={['enterprise digital asset custody', 'institutional DeFi infrastructure', 'institutional tokenization infrastructure', 'RWA tokenization platform', 'Canton Network tokenization', 'security token issuance', 'tokenized securities platform']}
         canonical="/solutions/wallet"
       />
-      <V4Layout>
+      <Layout>
       {/* Hero Section */}
       <section style={{
         minHeight: "60vh",
@@ -395,7 +395,7 @@ export const Wallet = () => {
           </Gc>
         </Rv>
       </section>
-      </V4Layout>
+      </Layout>
     </>
   );
 };

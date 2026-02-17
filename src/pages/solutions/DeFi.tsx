@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { V4Layout } from "../../components/V4/V4Layout";
-import { C } from "../../components/V4/theme";
-import { MeshBg, Gc, Rv } from "../../components/V4/shared";
+import { Layout } from "../../components/Core/Layout";
+import { C } from "../../components/Core/theme";
+import { MeshBg, Gc, Rv } from "../../components/Core/shared";
 import { SEO } from "../../components/SEO/SEO";
 import { DeFiSecurityIcon } from "../../utils/icons";
 
@@ -15,7 +15,7 @@ export default function DeFi() {
         keywords={['institutional DeFi infrastructure', 'Canton Network tokenization', 'multi-chain tokenization', 'RWA tokenization platform', 'security token issuance', 'enterprise digital asset custody', 'CMTA tokenization', 'institutional tokenization infrastructure', 'tokenized securities platform']}
         canonical="/solutions/defi"
       />
-      <V4Layout>
+      <Layout>
       {/* Hero Section */}
       <section style={{
         minHeight: "80vh",
@@ -321,7 +321,7 @@ export default function DeFi() {
           </Gc>
         </Rv>
       </section>
-      </V4Layout>
+      </Layout>
     </>
   );
 }
