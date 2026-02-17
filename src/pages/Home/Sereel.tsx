@@ -73,17 +73,6 @@ const platformPillars: Pillar[] = [
       "We provide the technical and legal framework to tokenize assets compliantly across jurisdictions.",
     blocks: [
       {
-        label: "Asset Classes",
-        items: [
-          "Securities & Equity",
-          "Bonds & Fixed Income",
-          "Private Credit",
-          "Stablecoins",
-          "Utility Tokens",
-          "Structured Products",
-        ],
-      },
-      {
         label: "Regulatory Frameworks",
         items: [
           "Regulation S (Non-US Offerings)",
