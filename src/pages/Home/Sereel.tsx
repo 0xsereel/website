@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ChainBar, MeshBg, Rv } from "../../components/Core/shared";
-import { C, grdT } from "../../components/Core/theme";
+import { C } from "../../components/Core/theme";
+import { Footer } from "../../components/Core/Footer";
 
 interface Pillar {
   number: string;
@@ -957,53 +958,6 @@ export function Sereel() {
         </div>
       </section>
 
-      <section style={{ padding: "112px 0" }}>
-        <div className="section-wrap">
-          <Rv>
-            <div
-              className="shell"
-              style={{
-                padding: "36px",
-                background: `linear-gradient(145deg, ${C.elevated}, ${C.card})`,
-                position: "relative",
-                overflow: "hidden",
-              }}
-            >
-              <div
-                style={{
-                  position: "absolute",
-                  inset: 0,
-                  background: `radial-gradient(ellipse at 70% 20%, ${C.g}10, transparent 50%)`,
-                  pointerEvents: "none",
-                }}
-              />
-              <div style={{ position: "relative", zIndex: 1 }}>
-                <div className="section-label">Final CTA</div>
-                <h2
-                  style={{
-                    fontSize: "clamp(34px, 5.5vw, 62px)",
-                    lineHeight: 1.02,
-                    letterSpacing: "-2.4px",
-                    fontFamily: "var(--display)",
-                    margin: "0 0 16px",
-                  }}
-                >
-                  Ready to <span style={grdT}>Tokenize?</span>
-                </h2>
-                <p style={{ margin: "0 0 24px", color: C.w2, maxWidth: 840, lineHeight: 1.8, fontSize: 16 }}>
-                  Whether you're launching a tokenized fund, digitizing corporate bonds, or building exchange
-                  infrastructure, we'll architect the solution. Schedule a consultation to discuss your requirements.
-                </p>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
-                  <Link to="/contact" className="sb">Schedule Strategic Consultation</Link>
-                  <Link to="/blog" className="so">Visit Blog</Link>
-                </div>
-              </div>
-            </div>
-          </Rv>
-        </div>
-      </section>
-
       <section style={{ padding: "12px 0 90px" }}>
         <div className="section-wrap">
           <Rv>
@@ -1024,37 +978,7 @@ export function Sereel() {
         </div>
       </section>
 
-      <footer style={{ borderTop: `1px solid ${C.border}`, padding: "30px 0 22px" }}>
-        <div className="section-wrap footer-grid">
-          <div>
-            <Link to="/" style={{ display: "flex", alignItems: "center", gap: 8, textDecoration: "none", color: "inherit", marginBottom: 10 }}>
-              <img src="/images/Hero/glowing_seree_logo.svg" alt="Sereel" style={{ width: 24, height: 24 }} />
-              <span style={{ fontFamily: "var(--display)", fontSize: 16 }}>sereel</span>
-            </Link>
-            <p style={{ margin: 0, color: C.d, fontSize: 13 }}>Where Traditional Finance Meets Digital Assets.</p>
-          </div>
-          <div>
-            <h4 style={{ margin: "0 0 10px", fontSize: 11, color: C.w2, letterSpacing: "2px", textTransform: "uppercase" }}>Platform</h4>
-            <p style={{ margin: 0, color: C.d, lineHeight: 1.75, fontSize: 13 }}>
-              Custody<br />Tokenization<br />ERC-3643 & Compliance<br />Boutique Solutions
-            </p>
-          </div>
-          <div>
-            <h4 style={{ margin: "0 0 10px", fontSize: 11, color: C.w2, letterSpacing: "2px", textTransform: "uppercase" }}>Resources</h4>
-            <div style={{ display: "grid", gap: 8 }}>
-              <Link to="/blog" style={{ color: C.d, fontSize: 13, textDecoration: "none" }}>Blog</Link>
-              <Link to="/contact" style={{ color: C.d, fontSize: 13, textDecoration: "none" }}>Contact</Link>
-            </div>
-          </div>
-        </div>
-        <div className="section-wrap" style={{ marginTop: 18, paddingTop: 14, borderTop: `1px solid ${C.border}`, display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
-          <p style={{ margin: 0, fontSize: 11, color: C.d }}>© 2026 Sereel. All rights reserved.</p>
-          <div className="social-links">
-            <a className="social-link" href="https://x.com/sereel" target="_blank" rel="noreferrer">X</a>
-            <a className="social-link" href="https://www.linkedin.com/company/sereel" target="_blank" rel="noreferrer">LinkedIn</a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
