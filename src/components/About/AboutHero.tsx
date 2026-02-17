@@ -188,12 +188,11 @@ export default function AboutHero() {
                   <span style={grdT}>Well-Served</span> Markets
                 </h1>
                 <p style={{ margin: "0 0 12px", color: C.w2, fontSize: 16, lineHeight: 1.82 }}>
-                  Sereel is built to connect capital, infrastructure, and compliant distribution across global markets.
-                  We unify the standards expected by major institutions with the access required by regions that are
-                  historically excluded from efficient market rails.
+                  Sereel connects capital, infrastructure, and compliant distribution across global markets.
+                  We pair institutional standards with access for historically underserved regions.
                 </p>
                 <p style={{ margin: "0 0 26px", color: C.w2, fontSize: 16, lineHeight: 1.82 }}>
-                  Our mandate is simple: institutional quality everywhere, not only in already mature financial centers.
+                  Our mandate is simple: institutional quality in every market.
                 </p>
                 <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
                   <Link className="sb" to="/contact">
@@ -213,10 +212,9 @@ export default function AboutHero() {
                   One institutional layer for fragmented markets
                 </h3>
                 <ul className="dot-list">
-                  <li>CMTA and ERC-3643 token standards for portability and regulatory alignment</li>
-                  <li>Enterprise wallet, custody, and governance controls for institutional operations</li>
-                  <li>Multi-chain issuance and settlement without compromising compliance policies</li>
-                  <li>Distribution rails that support both mature and developing market participants</li>
+                  <li>CMTA-based standards for portability and compliance</li>
+                  <li>Institutional custody and governance controls</li>
+                  <li>Multi-chain issuance and settlement with policy controls</li>
                 </ul>
               </Gc>
             </Rv>
@@ -230,11 +228,9 @@ export default function AboutHero() {
             <Gc p="36px 30px">
               <div className="sl">Institutional Thesis</div>
               <p style={{ margin: 0, color: C.w2, fontSize: 18, lineHeight: 1.9, maxWidth: 1000 }}>
-                Capital should not be constrained by geography, legacy infrastructure, or disconnected regulatory
-                processes. Sereel integrates tokenization, custody, compliance, and market connectivity so institutions
-                can originate in one market and distribute in another with confidence. We are building institutional
-                infrastructure that works equally well for deeply liquid markets and growth markets that need trusted
-                access to global capital.
+                Capital should not be constrained by geography or legacy infrastructure. Sereel combines tokenization,
+                custody, compliance, and market connectivity so institutions can originate in one market and distribute
+                in another with confidence.
               </p>
             </Gc>
           </Rv>
@@ -264,13 +260,12 @@ export default function AboutHero() {
               <Gc p="26px 24px" style={{ height: "100%" }}>
                 <div className="sl">Underserved Markets</div>
                 <p style={{ margin: "0 0 14px", color: C.w2, lineHeight: 1.8, fontSize: 15 }}>
-                  Regions and sectors with strong demand for capital but limited access to institutional-grade issuance,
-                  distribution, and settlement infrastructure.
+                  Regions with strong capital demand but limited institutional issuance and settlement access.
                 </p>
                 <ul className="dot-list">
                   <li>Emerging market credit and private enterprise financing</li>
-                  <li>Infrastructure and climate-transition projects requiring transparent funding rails</li>
-                  <li>Growth-stage issuers requiring compliant international investor access</li>
+                  <li>Infrastructure and climate-transition projects</li>
+                  <li>Growth issuers seeking compliant global investor access</li>
                 </ul>
               </Gc>
             </Rv>
@@ -279,13 +274,12 @@ export default function AboutHero() {
               <Gc p="26px 24px" style={{ height: "100%" }}>
                 <div className="sl">Well-Served Markets</div>
                 <p style={{ margin: "0 0 14px", color: C.w2, lineHeight: 1.8, fontSize: 15 }}>
-                  Asset managers, banks, exchanges, and family offices that require governance, compliance, and
-                  operational quality before allocating capital globally.
+                  Institutions that require governance, compliance, and operational quality before allocating globally.
                 </p>
                 <ul className="dot-list">
                   <li>Institutional allocators seeking compliant access to new asset pools</li>
-                  <li>Regulated entities requiring auditable controls across every transfer event</li>
-                  <li>Markets prioritizing standards-based interoperability over proprietary lock-in</li>
+                  <li>Regulated entities requiring auditable controls</li>
+                  <li>Markets prioritizing open standards over lock-in</li>
                 </ul>
               </Gc>
             </Rv>
@@ -299,19 +293,19 @@ export default function AboutHero() {
             {[
               {
                 title: "Standards-First Issuance",
-                body: "CMTA and ERC-3643 foundations enable compliant issuance models designed for institutional portability across jurisdictions and counterparties.",
+                body: "CMTA standards enable compliant issuance with institutional portability across jurisdictions.",
               },
               {
                 title: "Institutional Custody & Governance",
-                body: "Role-based controls, approval workflows, and auditable operations designed for treasury, compliance, and risk teams.",
+                body: "Role-based controls, approval workflows, and auditable operations for treasury and risk teams.",
               },
               {
                 title: "Cross-Market Distribution Rails",
-                body: "Primary and secondary market connectivity to support lifecycle management from issuance through settlement and reporting.",
+                body: "Primary and secondary connectivity from issuance through settlement and reporting.",
               },
               {
                 title: "Jurisdiction-Aware Compliance",
-                body: "Policy controls that map to regional frameworks so institutions can scale without losing regulatory discipline.",
+                body: "Policy controls mapped to regional frameworks for compliant scaling.",
               },
             ].map((item, index) => (
               <Rv key={item.title} d={index * 0.05}>
@@ -423,8 +417,8 @@ export default function AboutHero() {
                   Building the institutional standard for <span style={grdT}>global market inclusion</span>
                 </h2>
                 <p style={{ margin: "0 auto 30px", maxWidth: 820, color: C.w2, lineHeight: 1.85, fontSize: 16 }}>
-                  If your institution is expanding into new markets or bringing local opportunities to global capital,
-                  Sereel provides the infrastructure, controls, and regulatory posture to scale with confidence.
+                  Expanding into new markets or connecting local opportunities to global capital? Sereel provides the
+                  infrastructure and controls to scale with confidence.
                 </p>
                 <Link to="/contact" className="sb" style={{ padding: "16px 42px", fontSize: 15, textDecoration: "none" }}>
                   Schedule Strategic Consultation

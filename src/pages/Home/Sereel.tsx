@@ -30,16 +30,15 @@ const platformPillars: Pillar[] = [
     sectionTitle: "Enterprise Wallet Infrastructure",
     headline: "Institutional-Grade Custody & Key Management",
     description:
-      "Enterprise EOA wallets and multisignature solutions engineered for institutional security requirements. Purpose-built for fund managers, family offices, and treasury operations requiring granular access controls and compliance-ready audit trails.",
+      "Enterprise EOA wallets and multisignature controls built for institutional security, governance, and auditability.",
     blocks: [
       {
         label: "Capabilities",
         items: [
-          "Enterprise EOA wallets with institutional security architecture",
-          "Multi-signature governance with configurable approval workflows",
-          "MPC for distributed key recovery",
-          "Complete audit trails and compliance reporting",
-          "Role-based access control for treasury operations",
+          "Enterprise EOA wallets",
+          "Configurable multi-signature workflows",
+          "MPC key recovery",
+          "Audit trails and compliance reporting",
         ],
       },
     ],
@@ -49,7 +48,7 @@ const platformPillars: Pillar[] = [
     sectionTitle: "Tokenization Engine",
     headline: "Multi-Chain Tokenization Built on Open Standards",
     description:
-      "Deploy compliant security tokens across leading blockchain networks using the CMTA standard, the institutional benchmark adopted by major Swiss banks and recognized by Singapore's Project Guardian. Issue once, distribute everywhere.",
+      "Issue compliant tokens across leading networks using the CMTA standard. Issue once, distribute across markets.",
     blocks: [
       {
         label: "Supported Networks",
@@ -57,12 +56,12 @@ const platformPillars: Pillar[] = [
           "EVM Chains: Ethereum, Arbitrum, Base, Polygon, Optimism (all L2s)",
           "Non-EVM: Solana, IOTA, Starknet",
           "Enterprise: Canton Network (privacy-preserving settlements)",
-          "Interoperability: Chainlink CCIP integration",
+          "Interoperability: Chainlink CCIP",
         ],
       },
       {
         label: "Standard",
-        items: ["CMTA-compliant tokenization (CMTAT framework) and ERC3643"],
+        items: ["CMTA-compliant tokenization (CMTAT framework)"],
       },
     ],
   },
@@ -71,7 +70,7 @@ const platformPillars: Pillar[] = [
     sectionTitle: "Asset Classes & Regulatory Support",
     headline: "Tokenize Any Asset. Any Jurisdiction.",
     description:
-      "From government treasuries to private credit, from stablecoins to structured products, we provide the technical and legal frameworks to tokenize assets compliantly across global markets.",
+      "We provide the technical and legal framework to tokenize assets compliantly across jurisdictions.",
     blocks: [
       {
         label: "Asset Classes",
@@ -102,7 +101,7 @@ const platformPillars: Pillar[] = [
     sectionTitle: "Market Infrastructure",
     headline: "Trading, Settlement & Distribution Rails",
     description:
-      "Complete market infrastructure for primary issuance, secondary trading, and institutional settlement. Connect tokenized assets to global liquidity through our exchange and clearing house partnerships.",
+      "Infrastructure for primary issuance, secondary trading, and institutional settlement connected to global liquidity.",
     blocks: [
       {
         label: "Capabilities",
@@ -122,46 +121,46 @@ const clientSegments: ClientSegment[] = [
   {
     title: "For Fund Managers",
     description:
-      "Tokenize fund shares for broader distribution. Automate NAV calculations and dividend distributions. Enable 24/7 subscriptions and redemptions with programmable compliance.",
+      "Tokenize fund shares, automate NAV and dividends, and support 24/7 compliant subscriptions.",
   },
   {
     title: "For Stock Exchanges",
     description:
-      "Launch digital asset trading venues. Integrate tokenized securities with existing market infrastructure. Enable T+0 settlement and around-the-clock trading.",
+      "Launch digital venues, integrate tokenized securities, and enable T+0 settlement.",
   },
   {
     title: "For Clearing Houses",
     description:
-      "Atomic settlement and real-time collateral management. Reduce counterparty risk with smart contract-based clearing. Eliminate failed trades.",
+      "Atomic settlement and real-time collateral management with smart-contract clearing.",
   },
   {
     title: "For Banks",
     description:
-      "Offer tokenization-as-a-service to corporate clients. Launch digital bond programs. Enable blockchain-based corporate treasury solutions for your institutional clients.",
+      "Offer tokenization services, launch digital bonds, and modernize corporate treasury workflows.",
   },
   {
     title: "For Family Offices",
     description:
-      "Access tokenized alternatives and private credit. Manage multi-generational wealth with institutional-grade custody. Enable fractional ownership of illiquid assets.",
+      "Access tokenized alternatives and private credit with institutional-grade custody.",
   },
 ];
 
 const whySereel = [
   {
     title: "Standards-Based, Not Proprietary",
-    body: "Built on CMTA, the open standard adopted by leading Swiss banks, validated by Project Guardian, and recognized across 40+ institutional members. Your tokens are portable, not locked into our platform.",
+    body: "Built on CMTA, an open institutional standard. Your tokens stay portable, not locked in.",
   },
   {
     title: "True Multi-Chain, Not Multi-Chain Theater",
-    body: "Native deployments across EVM chains, Solana, IOTA, Starknet, and Canton Network. Not bridges. Not wrapped tokens. Native issuance with full feature parity.",
+    body: "Native deployments across EVM, Solana, IOTA, Starknet, and Canton with no wrapped-token dependency.",
   },
   {
     title: "Privacy Where It Matters",
-    body: "Canton Network integration enables privacy-preserving transactions for institutional use cases requiring confidentiality without sacrificing regulatory transparency.",
+    body: "Canton integration supports confidentiality where required without sacrificing regulatory transparency.",
   },
   {
     title: "Production-Ready, Not Pilot-Ready",
-    body: "Live clients tokenizing bonds, securities, stablecoins, and utility tokens. Proven infrastructure supporting real capital flows, not proofs of concept.",
+    body: "Live production infrastructure supporting real capital flows, not pilots.",
   },
 ];
 
@@ -170,21 +169,21 @@ const partners: Partner[] = [
     name: "Future Wealth Group",
     website: "futurewealthgroup.ch",
     description:
-      "Swiss-based investment group empowering global investments across tokenized assets and sustainable finance.",
+      "Swiss investment group focused on tokenized assets and sustainable finance.",
     fallback: "FWG",
   },
   {
     name: "GrowTokens",
     website: "growtokens.io",
     description:
-      "Impact-driven ESG investment platform tokenizing solar energy projects powering African communities. Making sustainable energy investments accessible, transparent, and scalable.",
+      "ESG platform tokenizing solar projects for transparent, scalable sustainable investment.",
     fallback: "GT",
   },
   {
     name: "Future Energy Global",
     website: "fe.global",
     description:
-      "Accelerating sustainable aviation fuel (SAF) markets through innovative financial ecosystems. Operating at the intersection of climate and capital, integrity led, profit driven. Backed by Aviation Partners.",
+      "Accelerating SAF markets through financial infrastructure at the intersection of climate and capital.",
     fallback: "FEG",
   },
 ];
@@ -732,8 +731,8 @@ export function Sereel() {
                   Institutional-Grade Digital Asset Infrastructure
                 </h1>
                 <p className="hero-sub">
-                  End-to-end tokenization, custody, and market infrastructure for institutional DeFi at enterprise
-                  standard. Engineered for regulatory certainty. Designed for global scale.
+                  End-to-end tokenization, custody, and market infrastructure for enterprise institutional DeFi.
+                  Built for compliance. Designed for scale.
                 </p>
                 
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 26 }}>
@@ -831,13 +830,11 @@ export function Sereel() {
                     margin: "0 0 14px",
                   }}
                 >
-                  Complete institutional stack for digital assets
+                  Institutional stack for digital assets
                 </h2>
                 <p style={{ color: C.w2, fontSize: 16, lineHeight: 1.9, margin: 0 }}>
-                  Sereel delivers the complete institutional stack: from secure wallet infrastructure and compliant
-                  tokenization engines to market connectivity and strategic advisory. We operate where traditional
-                  finance meets digital assets, enabling institutions to tokenize, custody, and trade any asset class
-                  across any blockchain network.
+                  Sereel provides secure custody, compliant tokenization, market connectivity, and strategic support.
+                  We help institutions tokenize, custody, and trade across blockchain networks.
                 </p>
               </div>
               <div className="shell" style={{ padding: "18px" }}>
@@ -867,7 +864,7 @@ export function Sereel() {
                 maxWidth: 780,
               }}
             >
-              Institutional stack across custody, tokenization, compliance, and market rails
+              One stack for custody, tokenization, compliance, and market rails
             </h2>
           </Rv>
           <div className="pillars-grid">
@@ -913,7 +910,7 @@ export function Sereel() {
                 margin: "0 0 24px",
               }}
             >
-              Purpose-built for every institutional participant
+              Built for institutional participants
             </h2>
           </Rv>
           <div className="segments-grid">
@@ -942,7 +939,7 @@ export function Sereel() {
                 margin: "0 0 22px",
               }}
             >
-              Institutional confidence, built into every layer
+              Institutional confidence in every layer
             </h2>
           </Rv>
           <div className="why-grid">
@@ -964,7 +961,7 @@ export function Sereel() {
             <div style={{ textAlign: "center", marginBottom: 22 }}>
               <div className="section-label" style={{ marginBottom: 10 }}>Trusted By</div>
               <h2 style={{ margin: "0 0 10px", fontSize: "clamp(26px, 3vw, 36px)", fontFamily: "var(--display)" }}>
-                Powering tokenization for forward-thinking institutions
+                Powering tokenization for institutions
               </h2>
             </div>
           </Rv>

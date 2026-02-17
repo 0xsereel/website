@@ -91,25 +91,25 @@ function PlatformImageSlot({
 const modules: ModuleCard[] = [
   {
     title: "Custody & Governance",
-    desc: "Enterprise wallet infrastructure with role-based controls, key governance, and audit-ready operational integrity.",
+    desc: "Enterprise wallet infrastructure with role-based controls and audit-ready governance.",
     to: "/platform/custody",
     tags: ["MPC", "Multi-signature", "RBAC", "Audit Trails"],
   },
   {
     title: "Tokenization Engine",
-    desc: "CMTA and ERC-3643 issuance workflows for compliant deployment across core EVM and non-EVM institutional networks.",
+    desc: "CMTA issuance workflows for compliant deployment across institutional networks.",
     to: "/solutions/tokenization",
-    tags: ["CMTA", "ERC-3643", "Multi-chain", "Compliance"],
+    tags: ["CMTA", "Multi-chain", "Compliance"],
   },
   {
     title: "Market Infrastructure",
-    desc: "Primary issuance and secondary connectivity designed for institutional liquidity, execution control, and post-trade governance.",
+    desc: "Primary issuance and secondary connectivity for institutional liquidity and execution control.",
     to: "/platform/marketplace",
     tags: ["Primary Issuance", "Secondary Markets", "OTC", "Distribution"],
   },
   {
     title: "Settlement Rails",
-    desc: "Fast, deterministic settlement workflows supporting delivery-versus-payment models and real-time reporting controls.",
+    desc: "Deterministic settlement workflows supporting DvP models and real-time reporting.",
     to: "/platform/settlement",
     tags: ["T+0", "DvP", "Atomic Settlement", "Reconciliation"],
   },
@@ -218,8 +218,8 @@ export function Platform() {
                   Institutional Infrastructure for Issuance, Custody, and Settlement
                 </h1>
                 <p style={{ fontSize: 16, color: C.w2, maxWidth: 700, lineHeight: 1.82, marginBottom: 18 }}>
-                  Sereel gives institutions a single operational layer to tokenize assets, govern custody, and settle
-                  across global markets with compliant controls.
+                  Sereel gives institutions one operational layer for tokenization, custody, and settlement across
+                  global markets.
                 </p>
                 <p style={{ fontSize: 14, color: C.w2, lineHeight: 1.75, marginBottom: 26 }}>
                   Built on the CMTA standard. Sereel is a certified CMTA technology provider.
@@ -271,10 +271,9 @@ export function Platform() {
             <Rv>
               <Gc p="24px 22px">
                 <ul className="dot-list">
-                  <li>Standards-based issuance for portability and long-term interoperability</li>
-                  <li>Policy-driven custody and governance controls across operating teams</li>
-                  <li>Integrated settlement and reporting for faster post-trade certainty</li>
-                  <li>Designed for legal, risk, treasury, and compliance collaboration</li>
+                  <li>Standards-based issuance for portability and interoperability</li>
+                  <li>Policy-driven custody and governance controls</li>
+                  <li>Integrated settlement and reporting</li>
                 </ul>
               </Gc>
             </Rv>
@@ -353,13 +352,12 @@ export function Platform() {
                   Built for regulated institutional deployment
                 </h2>
                 <p style={{ margin: "0 0 14px", color: C.w2, lineHeight: 1.8, fontSize: 15 }}>
-                  Run in cloud, hybrid, or enterprise-specific deployment models with policy controls aligned to your
-                  internal governance model.
+                  Run in cloud, hybrid, or enterprise deployment models aligned to your governance framework.
                 </p>
                 <ul className="dot-list">
-                  <li>Dedicated environments for institutional risk boundaries</li>
-                  <li>Operational readiness for audit, reporting, and internal controls</li>
-                  <li>Scalable architecture for regional expansion and cross-border workflows</li>
+                  <li>Dedicated environments for risk boundaries</li>
+                  <li>Operational readiness for audit and controls</li>
+                  <li>Scalable architecture for regional expansion</li>
                 </ul>
               </Gc>
             </Rv>
@@ -406,8 +404,7 @@ export function Platform() {
                   Ready to deploy institutional-grade infrastructure?
                 </h2>
                 <p style={{ fontSize: 16, color: C.w2, marginBottom: 30, lineHeight: 1.8, maxWidth: 760, margin: "0 auto 30px" }}>
-                  Share your requirements. We will map the right architecture, controls, and deployment path for your
-                  institution.
+                  Share your requirements and we will map the right architecture, controls, and deployment path.
                 </p>
                 <Link to="/contact" style={{ textDecoration: "none" }}>
                   <button className="sb" style={{ padding: "16px 44px", fontSize: 15 }}>
