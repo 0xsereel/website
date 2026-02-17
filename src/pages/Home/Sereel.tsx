@@ -774,7 +774,7 @@ export function Sereel() {
           </div>
 
           <div className="market-banner">
-            <div className="market-banner-title">Market Stats Banner</div>
+            <div className="market-banner-title">Market Stats</div>
             <div className="market-stats-grid">
               <div className="market-stat">
                 <strong>$24.83B</strong>
