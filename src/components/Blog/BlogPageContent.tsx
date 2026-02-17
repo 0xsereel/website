@@ -134,12 +134,15 @@ const BlogCard = ({ blog }: { blog: Blog }) => {
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
             
             {/* Title overlay */}
-            <div className="absolute bottom-0 left-0 right-0 p-4">
+            <div className="absolute bottom-0 left-0 right-0 px-6 pb-5 pt-4" style={{ display: "flex", justifyContent: "center" }}>
               <h3 
                 className="text-lg line-clamp-2" 
                 style={{ 
                   color: C.w,
                   fontFamily: 'var(--display)',
+                  margin: 0,
+                  textAlign: "center",
+                  maxWidth: 320,
                 }}
               >
                 {blog.title}
@@ -149,18 +152,29 @@ const BlogCard = ({ blog }: { blog: Blog }) => {
         </div>
 
         {/* Content Section */}
-        <div className="p-6" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-          <div className="mb-4" style={{ flex: 1 }}>
+        <div
+          className="px-7 pb-6 pt-5"
+          style={{
+            flex: 1,
+            display: "flex",
+            flexDirection: "column",
+            textAlign: "center",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <div className="mb-4" style={{ width: "100%", maxWidth: 320, margin: "0 auto" }}>
             <p 
               className="text-sm line-clamp-3 leading-relaxed"
-              style={{ color: C.m, fontFamily: 'var(--body)' }}
-              dangerouslySetInnerHTML={{ __html: blog.summary }}
-            />
+              style={{ color: C.m, fontFamily: "var(--body)", margin: 0 }}
+            >
+              {blog.summary}
+            </p>
           </div>
 
           {/* Read More Button */}
           <div
-            className="flex items-center gap-2 group-hover:gap-3 transition-all duration-300"
+            className="flex items-center justify-center gap-2 group-hover:gap-3 transition-all duration-300"
             style={{ 
               color: C.g,
               fontFamily: 'var(--body)',

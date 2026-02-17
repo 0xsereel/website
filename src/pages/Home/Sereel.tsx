@@ -678,7 +678,7 @@ export function Sereel() {
           left: 0,
           right: 0,
           zIndex: 100,
-          height: 66,
+          height: 148,
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
@@ -690,8 +690,8 @@ export function Sereel() {
         }}
       >
         <Link to="/" style={{ display: "flex", alignItems: "center", gap: 8, textDecoration: "none", color: "inherit" }}>
-          <img src="/images/Hero/glowing_seree_logo.svg" alt="Sereel" style={{ width: 30, height: 30 }} />
-          <span style={{ fontWeight: 800, letterSpacing: "-0.35px", fontSize: 19, fontFamily: "var(--display)" }}>sereel</span>
+          <img src="/images/Hero/glowing_seree_logo.svg" alt="Sereel" style={{ width: 132, height: 132 }} />
+          <span style={{ fontWeight: 800, letterSpacing: "-0.35px", fontSize: 19, fontFamily: "var(--display)" }}>Sereel</span>
         </Link>
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
           <Link to="/platform" className="so" style={{ padding: "8px 14px", fontSize: 12 }}>Platform</Link>

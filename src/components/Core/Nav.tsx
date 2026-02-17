@@ -12,7 +12,7 @@ export function Nav() {
 
     return (
         <nav style={{
-            position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, height: 64,
+            position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, height: 148,
             padding: "0 clamp(16px,4vw,56px)",
             display: "flex", alignItems: "center", justifyContent: "space-between",
             background: navBg ? C.bg + "f2" : "transparent",
@@ -21,8 +21,8 @@ export function Nav() {
             transition: "all 0.4s ease",
         }}>
             <Link to="/" style={{ display: "flex", alignItems: "center", gap: 9, textDecoration: "none", color: "inherit" }}>
-                <img src='/images/Hero/glowing_seree_logo.svg' alt='Sereel' style={{ width: 30, height: 30 }} />
-                <span style={{ fontSize: 19, fontWeight: 800, letterSpacing: "-0.3px", fontFamily: "var(--display)" }}>sereel</span>
+                <img src='/images/Hero/glowing_seree_logo.svg' alt='Sereel' style={{ width: 132, height: 132 }} />
+                <span style={{ fontSize: 19, fontWeight: 800, letterSpacing: "-0.3px", fontFamily: "var(--display)" }}>Sereel</span>
             </Link>
             <div style={{ display: "flex", gap: 24, alignItems: "center" }}>
                 {[

@@ -22,7 +22,7 @@ export function Footer() {
         <div>
           <Link to="/" style={{ display: "flex", alignItems: "center", gap: 8, textDecoration: "none", color: "inherit", marginBottom: 10 }}>
             <img src="/images/Hero/glowing_seree_logo.svg" alt="Sereel" style={{ width: 24, height: 24 }} />
-            <span style={{ fontFamily: "var(--display)", fontSize: 16, color: C.w }}>sereel</span>
+            <span style={{ fontFamily: "var(--display)", fontSize: 16, color: C.w }}>Sereel</span>
           </Link>
           <p style={{ margin: 0, color: C.d, fontSize: 13 }}>Where Traditional Finance Meets Digital Assets.</p>
         </div>
