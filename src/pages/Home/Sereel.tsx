@@ -793,7 +793,7 @@ export function Sereel() {
                 <span>Tokenized U.S. Treasuries</span>
               </div>
             </div>
-            <div className="market-source">Source: RWA.xyz market overview (as of February 2026)</div>
+            <div className="market-source">Source: RWA.xyz market overview (as of 2026)</div>
           </div>
         </div>
       </section>
