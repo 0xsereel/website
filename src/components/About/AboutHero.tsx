@@ -1,297 +1,438 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { C, grdT } from "../V4/theme";
 import { MeshBg, Gc, Rv } from "../V4/shared";
 
-export default function AboutHero() {
-  const peopleImagePath = "/images/about/about_image.jpeg";
+function MarketImage({
+  src,
+  alt,
+  fallbackPath,
+}: {
+  src: string;
+  alt: string;
+  fallbackPath: string;
+}) {
+  const [missing, setMissing] = useState(false);
 
   return (
+    <div
+      style={{
+        border: `1px solid ${C.border}`,
+        borderRadius: 14,
+        overflow: "hidden",
+        background: C.surface,
+        minHeight: 220,
+      }}
+    >
+      {!missing ? (
+        <img
+          src={src}
+          alt={alt}
+          style={{
+            width: "100%",
+            height: "100%",
+            minHeight: 220,
+            objectFit: "cover",
+            filter: "grayscale(22%)",
+          }}
+          onError={() => setMissing(true)}
+        />
+      ) : (
+        <div
+          style={{
+            minHeight: 220,
+            padding: 20,
+            display: "grid",
+            gap: 8,
+            alignContent: "center",
+            justifyItems: "center",
+            textAlign: "center",
+            background: `radial-gradient(circle at 50% 30%, ${C.gU}, transparent 60%), ${C.surface}`,
+          }}
+        >
+          <span
+            style={{
+              fontSize: 10,
+              color: C.g,
+              fontFamily: "var(--mono)",
+              letterSpacing: "2px",
+              textTransform: "uppercase",
+            }}
+          >
+            Insert Image
+          </span>
+          <strong style={{ color: C.w }}>{alt}</strong>
+          <code
+            style={{
+              color: C.g,
+              border: `1px solid ${C.borderHi}`,
+              borderRadius: 8,
+              padding: "5px 8px",
+              fontSize: 11,
+              fontFamily: "var(--mono)",
+              background: C.bg,
+            }}
+          >
+            {fallbackPath}
+          </code>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function AboutHero() {
+  return (
     <>
-      {/* Hero Section */}
-      <section style={{
-        minHeight: "85vh",
-        display: "flex",
-        alignItems: "center",
-        padding: "100px clamp(16px,4vw,56px) 60px",
-        position: "relative",
-      }}>
+      <style>{`
+        .about-wrap {
+          width: min(1160px, calc(100% - 40px));
+          margin: 0 auto;
+        }
+        .about-grid {
+          display: grid;
+          grid-template-columns: 1.1fr 0.9fr;
+          gap: 16px;
+        }
+        .market-grid,
+        .capability-grid,
+        .principle-grid {
+          display: grid;
+          gap: 16px;
+        }
+        .market-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .capability-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .principle-grid {
+          grid-template-columns: repeat(5, minmax(0, 1fr));
+        }
+        .dot-list {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          display: grid;
+          gap: 9px;
+        }
+        .dot-list li {
+          position: relative;
+          padding-left: 16px;
+          color: ${C.w2};
+          font-size: 14px;
+          line-height: 1.68;
+        }
+        .dot-list li::before {
+          content: "";
+          width: 6px;
+          height: 6px;
+          border-radius: 999px;
+          position: absolute;
+          left: 0;
+          top: 0.62em;
+          background: ${C.g};
+          box-shadow: 0 0 10px ${C.gGlow};
+        }
+        .stage-card {
+          border: 1px solid ${C.border};
+          border-radius: 12px;
+          padding: 14px 12px;
+          background: ${C.card};
+        }
+        @media (max-width: 960px) {
+          .about-grid,
+          .market-grid,
+          .capability-grid {
+            grid-template-columns: 1fr;
+          }
+          .principle-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+        }
+        @media (max-width: 640px) {
+          .about-wrap {
+            width: min(1160px, calc(100% - 28px));
+          }
+          .principle-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+      `}</style>
+
+      <section
+        style={{
+          minHeight: "82vh",
+          display: "flex",
+          alignItems: "center",
+          padding: "108px 0 64px",
+          position: "relative",
+        }}
+      >
         <MeshBg />
-        <div style={{ position: "relative", zIndex: 1, maxWidth: 1120, margin: "0 auto", width: "100%", textAlign: "center" }}>
-          <Rv>
-            <h1 style={{
-              fontSize: "clamp(44px,6vw,72px)",
-              fontWeight: 800,
-              lineHeight: 1.1,
-              letterSpacing: "-3px",
-              fontFamily: "var(--display)",
-              marginBottom: 24,
-            }}>
-              We Are on a Mission to <span style={grdT}>Maximize</span><br />
-              The <span style={grdT}>Efficiency</span> of the<br />
-              Global Financial Ecosystem
-            </h1>
-          </Rv>
-          <Rv d={0.1}>
-            <p style={{ fontSize: 18, color: C.w2, maxWidth: 800, margin: "0 auto", lineHeight: 1.8 }}>
-              Bridging traditional finance with decentralized infrastructure for institutional innovation
-            </p>
-          </Rv>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section style={{ padding: "80px clamp(16px,4vw,56px)", maxWidth: 1120, margin: "0 auto" }}>
-        <Rv>
-          <div style={{ maxWidth: 900, margin: "0 auto" }}>
-            <img
-              src={peopleImagePath}
-              alt="Team photo"
-              style={{
-                width: "100%",
-                borderRadius: 16,
-                filter: "grayscale(100%)",
-                transition: "filter 0.5s ease",
-                border: `1px solid ${C.border}`,
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.filter = "grayscale(0%)")}
-              onMouseLeave={(e) => (e.currentTarget.style.filter = "grayscale(100%)")}
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.style.display = 'none';
-              }}
-            />
-          </div>
-        </Rv>
-      </section>
-
-      {/* About Intro */}
-      <section style={{ padding: "80px clamp(16px,4vw,56px) 100px", maxWidth: 1120, margin: "0 auto" }}>
-        <Rv>
-          <Gc style={{ position: "relative" }} p="40px 48px">
-            <div style={{ textAlign: "center" }}>
-              <div style={{ width: 80, height: 1, background: `linear-gradient(90deg, transparent, ${C.g}, transparent)`, margin: "0 auto 32px" }} />
-              <p style={{ fontSize: 18, color: C.w2, lineHeight: 1.9, maxWidth: 900, margin: "0 auto" }}>
-                Sereel's RWA tokenization platform delivers institutional tokenization infrastructure with security token issuance, CMTA tokenization, and enterprise digital asset custody. Our bond tokenization platform supports Regulation S/D token issuance with multi-chain tokenization across Canton Network. We provide institutional DeFi infrastructure for real world asset tokenization, private credit tokenization, treasury tokenization, stablecoin issuance platform capabilities, and tokenized securities platform solutions—enabling institutions to tokenize, custody, and trade any asset class across any blockchain network.
-              </p>
-              <div style={{ width: 80, height: 1, background: `linear-gradient(90deg, transparent, ${C.g}, transparent)`, margin: "32px auto 0" }} />
-            </div>
-          </Gc>
-        </Rv>
-      </section>
-
-      {/* Mission Statement */}
-      <section style={{ padding: "80px clamp(16px,4vw,56px) 100px", maxWidth: 1120, margin: "0 auto" }}>
-        <Rv>
-          <Gc style={{ position: "relative" }} p="48px 40px">
-            <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center" }}>
-              <div style={{ fontSize: 16, color: C.w2, lineHeight: 1.9, display: "flex", flexDirection: "column", gap: 32 }}>
-                <p>
-                  <a
-                    href="https://www.blackrock.com/corporate/investor-relations/larry-fink-annual-chairmans-letter#unlocking-private-markets"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      color: C.g,
-                      textDecoration: "underline",
-                      fontWeight: 700,
-                      transition: "opacity 0.2s",
-                    }}
-                    onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
-                    onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
-                  >
-                    25 trillion dollars
-                  </a>{" "}
-                  sit idly in bank accounts - while cross border payments take days and cost{" "}
-                  <a
-                    href="https://papss.com/media/in-the-media/new-africa-payment-system-to-save-5-billion-in-fees-lift-trade-in-bloomberg/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      color: C.g,
-                      textDecoration: "underline",
-                      fontWeight: 700,
-                      transition: "opacity 0.2s",
-                    }}
-                    onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
-                    onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
-                  >
-                    billions
-                  </a>
-                  . The financial world is not interoperable with the blockchain world. These inefficiencies drive us to build.
-                </p>
-
-                <div style={{ width: 120, height: 1, background: `linear-gradient(90deg, transparent, ${C.g}50, transparent)`, margin: "0 auto" }} />
-
-                <p>
-                  Sereel is binding traditional and{" "}
-                  <a
-                    href="https://www.investopedia.com/decentralized-finance-defi-5113835"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      color: C.g,
-                      textDecoration: "underline",
-                      fontWeight: 700,
-                      transition: "opacity 0.2s",
-                    }}
-                    onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
-                    onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
-                  >
-                    decentralized finance
-                  </a>
-                  . Secure enough for financial institutions, scalable enough for communities and entrepreneurs. With a focus on speed and safety, our Rust-based blockchain architecture gives your capital instant liquidity, programmable yield, and bulletproof security.
-                </p>
-
-                <div style={{ width: 120, height: 1, background: `linear-gradient(90deg, transparent, ${C.g}50, transparent)`, margin: "0 auto" }} />
-
-                <p>
-                  Founded by blockchain engineers and financiers, we're pioneers in turning idle capital into programmable, yield-bearing assets that settle in minutes - not days. We're redefining the physics of value.{" "}
-                  <span style={{ color: C.g, fontWeight: 700, fontSize: 18 }}>Join us.</span>
-                </p>
-              </div>
-            </div>
-          </Gc>
-        </Rv>
-      </section>
-
-      {/* Solutions Section */}
-      <section style={{ padding: "80px clamp(16px,4vw,56px) 100px", maxWidth: 1120, margin: "0 auto" }}>
-        <Rv>
-          <div style={{ textAlign: "center", marginBottom: 56 }}>
-            <div className="sl">Solutions</div>
-            <h2 style={{ fontSize: "clamp(36px,4.5vw,56px)", fontWeight: 800, letterSpacing: "-2px", fontFamily: "var(--display)" }}>
-              Our <span style={grdT}>Solutions</span>
-            </h2>
-            <p style={{ fontSize: 18, color: C.m, marginTop: 16 }}>
-              Seamless, secure and accessible institutional DeFi infrastructure
-            </p>
-          </div>
-        </Rv>
-
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 16 }}>
-          {[
-            {
-              icon: "🔐",
-              title: "Noncustodial Wallet Service",
-              description: "Your assets are protected with Smart Accounts featuring Multi-Factor Authentication. Secure, self-custodied, and enterprise-ready with ERC-4337 integration.",
-              features: ["WebAuthn biometrics", "ISO20022 compliance", "Gas abstraction", "Multi-sig support"],
-            },
-            {
-              icon: "⚡",
-              title: "Asset Tokenization Service",
-              description: "Transform real-world assets into liquid, tradable tokens using zkTLS-powered verification. Instant liquidity with 90% cost reduction.",
-              features: ["zkTLS verification", "Real-time auditing", "Instant burn/mint", "Trust account integration"],
-            },
-            {
-              icon: "📊",
-              title: "Sereel Protocol",
-              description: "Institutional DeFi infrastructure with three modules: AMM, Lending, and Options.",
-              features: ["ERC-3643 compliant", "Risk management", "Yield optimization", "Institutional controls"],
-            },
-          ].map((solution, i) => (
-            <Rv key={i} d={i * 0.08}>
-              <Gc style={{ height: "100%", display: "flex", flexDirection: "column" }} p="32px">
-                <div style={{ fontSize: 32, marginBottom: 20 }}>{solution.icon}</div>
-                <h3 style={{ fontSize: 20, fontWeight: 700, color: C.w, marginBottom: 12, lineHeight: 1.3 }}>{solution.title}</h3>
-                <p style={{ fontSize: 14, color: C.m, lineHeight: 1.75, marginBottom: 24, flex: 1 }}>{solution.description}</p>
-                <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                  {solution.features.map((feature, idx) => (
-                    <div key={idx} style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                      <div style={{ width: 4, height: 4, borderRadius: "50%", background: C.g, flexShrink: 0 }} />
-                      <span style={{ fontSize: 13, color: C.m }}>{feature}</span>
-                    </div>
-                  ))}
-                </div>
-              </Gc>
-            </Rv>
-          ))}
-        </div>
-      </section>
-
-      {/* Security Section */}
-      <section style={{ padding: "80px clamp(16px,4vw,56px) 120px", maxWidth: 1120, margin: "0 auto" }}>
-        <Rv>
-          <div style={{ textAlign: "center", marginBottom: 56 }}>
-            <div className="sl">Security</div>
-            <h2 style={{ fontSize: "clamp(36px,4.5vw,56px)", fontWeight: 800, letterSpacing: "-2px", fontFamily: "var(--display)" }}>
-              Our <span style={grdT}>Security</span> Measures
-            </h2>
-            <p style={{ fontSize: 18, color: C.m, marginTop: 16 }}>
-              Security That Powers Trust
-            </p>
-          </div>
-        </Rv>
-
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))", gap: 16, marginBottom: 60 }}>
-          {[
-            {
-              icon: "🔐",
-              title: "Smart Wallets",
-              description: "Leverages ERC-4337 Account Abstraction to enable Multi-Factor Authentication (MFA) for on-chain accounts — enhancing user control and protecting against unauthorized access.",
-              benefits: [
-                "Biometric & device-based authentication",
-                "Recovery mechanisms without seed phrases",
-                "Gasless and batched transactions",
-              ],
-              link: "https://www.erc4337.io/",
-            },
-            {
-              icon: "✓",
-              title: "ISO 27001 Compliance",
-              description: "We are actively working toward ISO 27001 compliance, ensuring that our information security management systems meet the highest global standards. Security is at the core of our product development process.",
-              benefits: [
-                "Comprehensive risk assessment and mitigation strategies",
-                "Regular security audits and continuous monitoring",
-                "Employee training on information security best practices",
-              ],
-              link: "https://www.iso.org/standard/27001",
-            },
-          ].map((feature, i) => (
-            <Rv key={i} d={i * 0.08}>
-              <Gc style={{ height: "100%", display: "flex", flexDirection: "column" }} p="36px">
-                <div style={{ fontSize: 36, marginBottom: 20 }}>{feature.icon}</div>
-                <h3 style={{ fontSize: 24, fontWeight: 700, color: C.w, marginBottom: 12 }}>{feature.title}</h3>
-                <p style={{ fontSize: 14, color: C.m, lineHeight: 1.75, marginBottom: 20 }}>{feature.description}</p>
-                <h4 style={{ fontSize: 16, fontWeight: 700, color: C.w, marginBottom: 12 }}>Key Benefits</h4>
-                <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 24, flex: 1 }}>
-                  {feature.benefits.map((benefit, idx) => (
-                    <div key={idx} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
-                      <div style={{ width: 4, height: 4, borderRadius: "50%", background: C.g, marginTop: 6, flexShrink: 0 }} />
-                      <span style={{ fontSize: 13, color: C.m, lineHeight: 1.6 }}>{benefit}</span>
-                    </div>
-                  ))}
-                </div>
-                <button
-                  className="sb"
-                  onClick={() => window.open(feature.link, "_blank")}
+        <div className="about-wrap" style={{ position: "relative", zIndex: 1 }}>
+          <div className="about-grid">
+            <Rv>
+              <Gc p="34px 30px">
+                <div className="sl">About Sereel</div>
+                <h1
+                  style={{
+                    margin: "0 0 18px",
+                    fontSize: "clamp(36px,5.5vw,66px)",
+                    lineHeight: 1.02,
+                    letterSpacing: "-2.5px",
+                    fontFamily: "var(--display)",
+                  }}
                 >
-                  Learn More
-                </button>
+                  The Institutional Bridge Between <span style={grdT}>Underserved</span> and{" "}
+                  <span style={grdT}>Well-Served</span> Markets
+                </h1>
+                <p style={{ margin: "0 0 12px", color: C.w2, fontSize: 16, lineHeight: 1.82 }}>
+                  Sereel is built to connect capital, infrastructure, and compliant distribution across global markets.
+                  We unify the standards expected by major institutions with the access required by regions that are
+                  historically excluded from efficient market rails.
+                </p>
+                <p style={{ margin: "0 0 26px", color: C.w2, fontSize: 16, lineHeight: 1.82 }}>
+                  Our mandate is simple: institutional quality everywhere, not only in already mature financial centers.
+                </p>
+                <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+                  <Link className="sb" to="/contact">
+                    Schedule Consultation
+                  </Link>
+                  <Link className="so" to="/blog">
+                    Visit Blog
+                  </Link>
+                </div>
               </Gc>
             </Rv>
-          ))}
-        </div>
 
-        {/* CTA */}
-        <Rv d={0.2}>
-          <Gc style={{ textAlign: "center", position: "relative" }} p="56px 40px">
-            <div style={{ position: "absolute", inset: 0, background: `radial-gradient(ellipse at center, ${C.g}08, transparent 60%)`, pointerEvents: "none" }} />
-            <div style={{ position: "relative", zIndex: 1 }}>
-              <h3 style={{ fontSize: "clamp(28px,3.5vw,44px)", fontWeight: 800, letterSpacing: "-1.5px", fontFamily: "var(--display)", marginBottom: 16 }}>
-                Ready to Transform Your Institution?
-              </h3>
-              <p style={{ fontSize: 16, color: C.m, marginBottom: 32, maxWidth: 700, margin: "0 auto 32px" }}>
-                Join leading financial institutions already leveraging Sereel's institutional-grade DeFi infrastructure for next-generation efficiency and security.
+            <Rv d={0.08}>
+              <Gc p="22px 20px" style={{ height: "100%" }}>
+                <div className="sl">Core Position</div>
+                <h3 style={{ margin: "0 0 12px", fontSize: 24, lineHeight: 1.2 }}>
+                  One institutional layer for fragmented markets
+                </h3>
+                <ul className="dot-list">
+                  <li>CMTA and ERC-3643 token standards for portability and regulatory alignment</li>
+                  <li>Enterprise wallet, custody, and governance controls for institutional operations</li>
+                  <li>Multi-chain issuance and settlement without compromising compliance policies</li>
+                  <li>Distribution rails that support both mature and developing market participants</li>
+                </ul>
+              </Gc>
+            </Rv>
+          </div>
+        </div>
+      </section>
+
+      <section style={{ padding: "18px 0 84px" }}>
+        <div className="about-wrap">
+          <Rv>
+            <Gc p="36px 30px">
+              <div className="sl">Institutional Thesis</div>
+              <p style={{ margin: 0, color: C.w2, fontSize: 18, lineHeight: 1.9, maxWidth: 1000 }}>
+                Capital should not be constrained by geography, legacy infrastructure, or disconnected regulatory
+                processes. Sereel integrates tokenization, custody, compliance, and market connectivity so institutions
+                can originate in one market and distribute in another with confidence. We are building institutional
+                infrastructure that works equally well for deeply liquid markets and growth markets that need trusted
+                access to global capital.
               </p>
-              <button
-                className="sb"
-                style={{ padding: "16px 40px", fontSize: 15 }}
-                onClick={() => window.location.href = "/contact"}
-              >
-                Get Started Today
-              </button>
-            </div>
-          </Gc>
-        </Rv>
+            </Gc>
+          </Rv>
+        </div>
+      </section>
+
+      <section style={{ padding: "0 0 84px" }}>
+        <div className="about-wrap">
+          <Rv>
+            <div className="sl">Market Coverage</div>
+            <h2
+              style={{
+                margin: "0 0 24px",
+                fontSize: "clamp(30px,4.2vw,50px)",
+                lineHeight: 1.04,
+                letterSpacing: "-2px",
+                fontFamily: "var(--display)",
+                maxWidth: 900,
+              }}
+            >
+              Connecting markets that need capital with markets that can deploy it
+            </h2>
+          </Rv>
+
+          <div className="market-grid">
+            <Rv>
+              <Gc p="26px 24px" style={{ height: "100%" }}>
+                <div className="sl">Underserved Markets</div>
+                <p style={{ margin: "0 0 14px", color: C.w2, lineHeight: 1.8, fontSize: 15 }}>
+                  Regions and sectors with strong demand for capital but limited access to institutional-grade issuance,
+                  distribution, and settlement infrastructure.
+                </p>
+                <ul className="dot-list">
+                  <li>Emerging market credit and private enterprise financing</li>
+                  <li>Infrastructure and climate-transition projects requiring transparent funding rails</li>
+                  <li>Growth-stage issuers requiring compliant international investor access</li>
+                </ul>
+              </Gc>
+            </Rv>
+
+            <Rv d={0.08}>
+              <Gc p="26px 24px" style={{ height: "100%" }}>
+                <div className="sl">Well-Served Markets</div>
+                <p style={{ margin: "0 0 14px", color: C.w2, lineHeight: 1.8, fontSize: 15 }}>
+                  Asset managers, banks, exchanges, and family offices that require governance, compliance, and
+                  operational quality before allocating capital globally.
+                </p>
+                <ul className="dot-list">
+                  <li>Institutional allocators seeking compliant access to new asset pools</li>
+                  <li>Regulated entities requiring auditable controls across every transfer event</li>
+                  <li>Markets prioritizing standards-based interoperability over proprietary lock-in</li>
+                </ul>
+              </Gc>
+            </Rv>
+          </div>
+        </div>
+      </section>
+
+      <section style={{ padding: "0 0 84px" }}>
+        <div className="about-wrap">
+          <div className="capability-grid">
+            {[
+              {
+                title: "Standards-First Issuance",
+                body: "CMTA and ERC-3643 foundations enable compliant issuance models designed for institutional portability across jurisdictions and counterparties.",
+              },
+              {
+                title: "Institutional Custody & Governance",
+                body: "Role-based controls, approval workflows, and auditable operations designed for treasury, compliance, and risk teams.",
+              },
+              {
+                title: "Cross-Market Distribution Rails",
+                body: "Primary and secondary market connectivity to support lifecycle management from issuance through settlement and reporting.",
+              },
+              {
+                title: "Jurisdiction-Aware Compliance",
+                body: "Policy controls that map to regional frameworks so institutions can scale without losing regulatory discipline.",
+              },
+            ].map((item, index) => (
+              <Rv key={item.title} d={index * 0.05}>
+                <Gc p="24px 22px" style={{ height: "100%" }}>
+                  <h3 style={{ margin: "0 0 10px", fontSize: 20 }}>{item.title}</h3>
+                  <p style={{ margin: 0, color: C.w2, lineHeight: 1.75, fontSize: 14.5 }}>{item.body}</p>
+                </Gc>
+              </Rv>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section style={{ padding: "0 0 84px" }}>
+        <div className="about-wrap">
+          <Rv>
+            <div className="sl">Operating Model</div>
+            <h2
+              style={{
+                margin: "0 0 20px",
+                fontSize: "clamp(28px,3.9vw,44px)",
+                letterSpacing: "-1.6px",
+                fontFamily: "var(--display)",
+              }}
+            >
+              One institutional workflow, from origination to settlement
+            </h2>
+          </Rv>
+
+          <div className="principle-grid">
+            {[
+              { step: "01", title: "Originate", text: "Source assets and counterparties across target markets." },
+              { step: "02", title: "Structure", text: "Design compliant terms for each issuance jurisdiction." },
+              { step: "03", title: "Issue", text: "Deploy standards-based tokens with institutional controls." },
+              { step: "04", title: "Distribute", text: "Connect primary and secondary channels for liquidity access." },
+              { step: "05", title: "Settle", text: "Execute auditable transfers and settlement across approved rails." },
+            ].map((stage, index) => (
+              <Rv key={stage.step} d={index * 0.04}>
+                <article className="stage-card">
+                  <div
+                    style={{
+                      width: 32,
+                      height: 32,
+                      borderRadius: 999,
+                      display: "grid",
+                      placeItems: "center",
+                      border: `1px solid ${C.g}35`,
+                      background: C.gD,
+                      color: C.g,
+                      fontSize: 11,
+                      fontFamily: "var(--mono)",
+                      letterSpacing: "1px",
+                      marginBottom: 10,
+                    }}
+                  >
+                    {stage.step}
+                  </div>
+                  <h3 style={{ margin: "0 0 8px", fontSize: 15 }}>{stage.title}</h3>
+                  <p style={{ margin: 0, color: C.w2, fontSize: 13, lineHeight: 1.65 }}>{stage.text}</p>
+                </article>
+              </Rv>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section style={{ padding: "0 0 84px" }}>
+        <div className="about-wrap">
+          <div className="market-grid">
+            <Rv>
+              <MarketImage
+                src="/images/about/about_image.jpeg"
+                alt="Institutional market operations"
+                fallbackPath="/public/images/about/about_image.jpeg"
+              />
+            </Rv>
+            <Rv d={0.08}>
+              <MarketImage
+                src="/images/about/about_people.jpg"
+                alt="Global partnerships and market collaboration"
+                fallbackPath="/public/images/about/about_people.jpg"
+              />
+            </Rv>
+          </div>
+        </div>
+      </section>
+
+      <section style={{ padding: "0 0 120px" }}>
+        <div className="about-wrap">
+          <Rv>
+            <Gc p="56px 34px" style={{ textAlign: "center", position: "relative" }}>
+              <div
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  background: `radial-gradient(ellipse at center, ${C.g}09, transparent 62%)`,
+                  pointerEvents: "none",
+                }}
+              />
+              <div style={{ position: "relative", zIndex: 1 }}>
+                <h2
+                  style={{
+                    margin: "0 0 14px",
+                    fontSize: "clamp(32px,4.6vw,56px)",
+                    letterSpacing: "-2px",
+                    fontFamily: "var(--display)",
+                  }}
+                >
+                  Building the institutional standard for <span style={grdT}>global market inclusion</span>
+                </h2>
+                <p style={{ margin: "0 auto 30px", maxWidth: 820, color: C.w2, lineHeight: 1.85, fontSize: 16 }}>
+                  If your institution is expanding into new markets or bringing local opportunities to global capital,
+                  Sereel provides the infrastructure, controls, and regulatory posture to scale with confidence.
+                </p>
+                <Link to="/contact" className="sb" style={{ padding: "16px 42px", fontSize: 15, textDecoration: "none" }}>
+                  Schedule Strategic Consultation
+                </Link>
+              </div>
+            </Gc>
+          </Rv>
+        </div>
       </section>
     </>
   );

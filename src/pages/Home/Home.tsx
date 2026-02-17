@@ -6,7 +6,24 @@ export const Home = () => {
   return (
     <>
       <SEO
-        description="Leading RWA tokenization platform and institutional tokenization infrastructure. Security token issuance, CMTA tokenization, enterprise digital asset custody, bond tokenization, and Canton Network tokenization solutions for institutional DeFi infrastructure."
+        description="Sereel provides institutional-grade tokenization infrastructure for asset managers, banks, exchanges, and family offices. CMTA-compliant. Multi-chain. Production-ready."
+        keywords={[
+          "RWA tokenization platform",
+          "Institutional tokenization infrastructure",
+          "Security token issuance",
+          "CMTA tokenization",
+          "Enterprise digital asset custody",
+          "Bond tokenization platform",
+          "Regulation S/D token issuance",
+          "Multi-chain tokenization",
+          "Canton Network tokenization",
+          "Institutional DeFi infrastructure",
+          "Real world asset tokenization",
+          "Private credit tokenization",
+          "Treasury tokenization",
+          "Stablecoin issuance platform",
+          "Tokenized securities platform",
+        ]}
         canonical="/"
       />
       <GradientProvider>

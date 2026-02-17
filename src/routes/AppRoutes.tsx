@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Navigate, Route, Routes } from "react-router-dom";
 import { Home } from "../pages/Home/Home";
 import { About } from "../pages/About/About";
 import { Contact } from "../pages/Contact/Contact";
@@ -22,8 +22,6 @@ import { Exchanges } from "../pages/solutions/Exchanges";
 import { Banks } from "../pages/solutions/Banks";
 import { FamilyOffices } from "../pages/solutions/FamilyOffices";
 import { Developers } from "../pages/Developers/Developers";
-import { Docs } from "../pages/Developers/Docs";
-import { ApiReference } from "../pages/Developers/ApiReference";
 import { Whitepapers } from "../pages/Resources/Whitepapers";
 import { Careers } from "../pages/Company/Careers";
 import { Advisory } from "../pages/Advisory/Advisory";
@@ -55,8 +53,8 @@ const AppRoutes = () => {
         <Route path="/solutions/banks" element={<Banks />} />
         <Route path="/solutions/family-offices" element={<FamilyOffices />} />
         <Route path="/developers" element={<Developers />} />
-        <Route path="/developers/docs" element={<Docs />} />
-        <Route path="/developers/api-reference" element={<ApiReference />} />
+        <Route path="/developers/docs" element={<Navigate to="/developers" replace />} />
+        <Route path="/developers/api-reference" element={<Navigate to="/developers" replace />} />
         <Route path="/resources/whitepapers" element={<Whitepapers />} />
         <Route path="/careers" element={<Careers />} />
         <Route path="/advisory" element={<Advisory />} />

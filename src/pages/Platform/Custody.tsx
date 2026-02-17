@@ -2,11 +2,18 @@ import { Link } from "react-router-dom";
 import { V4Layout } from "../../components/V4/V4Layout";
 import { MeshBg, Gc, Rv } from "../../components/V4/shared";
 import { C, grdT } from "../../components/V4/theme";
+import { SEO } from "../../components/SEO/SEO";
 
 export function Custody() {
   return (
-    <V4Layout>
-      <section style={{
+    <>
+      <SEO
+        title="Enterprise Digital Asset Custody | Institutional Key Management"
+        description="Enterprise EOA wallets and multi-signature solutions with Shamir Secret Sharing recovery. Built for institutional security requirements and regulatory compliance."
+        canonical="/platform/custody"
+      />
+      <V4Layout>
+        <section style={{
         minHeight: "80vh", display: "flex", alignItems: "center",
         padding: "120px clamp(16px,4vw,56px) 60px", position: "relative",
       }}>
@@ -82,6 +89,7 @@ export function Custody() {
           </div>
         </Rv>
       </section>
-    </V4Layout>
+      </V4Layout>
+    </>
   );
 }

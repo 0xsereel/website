@@ -74,10 +74,10 @@ export function APIs() {
               Start <span style={grdT}>building</span>
             </h2>
             <p style={{ fontSize: 16, color: C.m, marginBottom: 40, lineHeight: 1.8 }}>
-              Get API credentials and access our comprehensive developer documentation.
+              Developer documentation is currently being refreshed. Contact us for direct integration support and API onboarding.
             </p>
-            <Link to="/developers/docs" style={{ textDecoration: "none" }}>
-              <button className="sb" style={{ padding: "16px 44px", fontSize: 15 }}>View Documentation</button>
+            <Link to="/developers" style={{ textDecoration: "none" }}>
+              <button className="sb" style={{ padding: "16px 44px", fontSize: 15 }}>Developer Portal Coming Soon</button>
             </Link>
           </div>
         </Rv>

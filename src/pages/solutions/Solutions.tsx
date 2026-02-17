@@ -145,7 +145,6 @@ export function Solutions() {
               { title: "Enterprise Security", desc: "MPC, HSM, multi-sig, and role-based access with complete audit trails." },
               { title: "T+0 Settlement", desc: "Instant atomic settlement with smart contract DVP and clearing." },
               { title: "24/7 Operations", desc: "Always-on infrastructure with 99.97% uptime SLA." },
-              { title: "White Label", desc: "Fully customizable branding and UI to match your corporate identity." },
             ].map((item, i) => (
               <Rv key={i} d={i * 0.06}>
                 <Gc p="24px 20px" style={{ height: "100%" }}>

@@ -28,7 +28,6 @@ export function V4Nav() {
                 {[
                     { label: "Platform", to: "/platform" },
                     { label: "Solutions", to: "/solutions" },
-                    { label: "Developers", to: "/developers" },
                     { label: "Advisory", to: "/advisory" },
                 ].map(item => (
                     <Link key={item.label} to={item.to} style={{ color: C.m, textDecoration: "none", fontSize: 13, fontWeight: 500, transition: "color 0.2s", fontFamily: "var(--body)" }}

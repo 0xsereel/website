@@ -21,7 +21,7 @@ export const Tokenization = () => {
     <>
       <SEO
         title="Security Token Issuance | CMTA Tokenization | Bond Tokenization Platform - Sereel"
-        description="Security token issuance with CMTA tokenization and bond tokenization platform. Multi-chain tokenization for real world asset tokenization, private credit tokenization, treasury tokenization, and stablecoin issuance. Regulation S/D token issuance across Canton Network with institutional DeFi infrastructure."
+        description="Deploy security tokens across Ethereum, Solana, IOTA, Starknet, and Canton Network using the CMTA standard. Tokenize bonds, securities, stablecoins, and private credit compliantly."
         keywords={['security token issuance', 'CMTA tokenization', 'bond tokenization platform', 'multi-chain tokenization', 'real world asset tokenization', 'private credit tokenization', 'treasury tokenization', 'stablecoin issuance platform', 'Regulation S token issuance', 'Regulation D token issuance', 'Canton Network tokenization', 'tokenized securities platform']}
         canonical="/solutions/tokenization"
       />

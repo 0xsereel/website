@@ -35,8 +35,6 @@ export function V4Footer() {
                     { 
                         t: "Resources", 
                         l: [
-                            { label: "Docs", to: "/developers/docs" },
-                            { label: "API Reference", to: "/developers/api-reference" },
                             { label: "Blog", to: "/blog" },
                             { label: "Whitepapers", to: "/resources/whitepapers" }
                         ] 

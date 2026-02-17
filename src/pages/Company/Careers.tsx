@@ -33,55 +33,17 @@ export function Careers() {
         <Rv>
           <div className="sl">Open Positions</div>
           <h2 style={{ fontSize: "clamp(30px,4vw,46px)", fontWeight: 800, letterSpacing: "-2px", lineHeight: 1.02, fontFamily: "var(--display)", marginBottom: 48 }}>
-            Open <span style={{ color: C.m }}>opportunities.</span>
+            No current <span style={{ color: C.m }}>openings.</span>
           </h2>
         </Rv>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 16 }}>
-          {[
-            {
-              title: "Senior Backend Engineer",
-              dept: "Engineering",
-              location: "Remote / Zurich",
-              desc: "Build scalable APIs for custody, tokenization, and settlement. Work with Rust, Go, and distributed systems.",
-            },
-            {
-              title: "Smart Contract Engineer",
-              dept: "Engineering",
-              location: "Remote / New York",
-              desc: "Design and audit security token contracts. Expertise in Solidity, formal verification, and protocol security.",
-            },
-            {
-              title: "Compliance Manager",
-              dept: "Legal & Compliance",
-              location: "Remote / London",
-              desc: "Lead regulatory strategy and implementation. Experience with MiFID II, MiCA, and securities regulations.",
-            },
-            {
-              title: "Product Manager",
-              dept: "Product",
-              location: "Remote / San Francisco",
-              desc: "Define custody and trading product roadmap. Bridge institutional finance requirements with blockchain capabilities.",
-            },
-          ].map((job, i) => (
-            <Rv key={i} d={i * 0.06}>
-              <Gc p="28px">
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "start", marginBottom: 12 }}>
-                  <div>
-                    <h3 style={{ fontSize: 20, fontWeight: 700, color: C.w, marginBottom: 6 }}>{job.title}</h3>
-                    <div style={{ display: "flex", gap: 16, fontSize: 13, color: C.d }}>
-                      <span>{job.dept}</span>
-                      <span>•</span>
-                      <span>{job.location}</span>
-                    </div>
-                  </div>
-                  <button className="so" style={{ padding: "10px 24px", fontSize: 13 }}>Apply</button>
-                </div>
-                <p style={{ fontSize: 14.5, color: C.m, lineHeight: 1.75 }}>{job.desc}</p>
-              </Gc>
-            </Rv>
-          ))}
-        </div>
+        <Rv>
+          <Gc p="28px">
+            <p style={{ fontSize: 15, color: C.m, lineHeight: 1.8, margin: 0 }}>
+              We do not have any active openings at the moment. You can still reach out and share your profile for future roles.
+            </p>
+          </Gc>
+        </Rv>
       </section>
 
       <section style={{ padding: "120px clamp(16px,4vw,56px)", textAlign: "center", position: "relative" }}>
@@ -92,7 +54,7 @@ export function Careers() {
               Join our <span style={grdT}>team</span>
             </h2>
             <p style={{ fontSize: 16, color: C.m, marginBottom: 40, lineHeight: 1.8 }}>
-              Don't see a role that fits? Send us your resume and we'll keep you in mind for future opportunities.
+              We are not hiring right now. Send us your profile and we will contact you when relevant roles open.
             </p>
             <Link to="/contact" style={{ textDecoration: "none" }}>
               <button className="sb" style={{ padding: "16px 44px", fontSize: 15 }}>Get in Touch</button>
