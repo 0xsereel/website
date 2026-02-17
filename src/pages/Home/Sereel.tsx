@@ -741,7 +741,7 @@ export function Sereel() {
                 </div>
                 <div className="hero-metrics">
                   <div className="hero-metric">
-                    <strong>10</strong>
+                    <strong>10+</strong>
                     <span>Supported Networks</span>
                   </div>
                   <div className="hero-metric">
