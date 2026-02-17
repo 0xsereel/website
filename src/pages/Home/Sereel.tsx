@@ -706,7 +706,7 @@ export function Sereel() {
           <span style={{ fontWeight: 800, letterSpacing: "-0.35px", fontSize: 19, fontFamily: "var(--display)" }}>sereel</span>
         </Link>
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <a href="#platform" className="so" style={{ padding: "8px 14px", fontSize: 12 }}>Platform</a>
+          <Link to="/platform" className="so" style={{ padding: "8px 14px", fontSize: 12 }}>Platform</Link>
           <a href="#segments" className="so" style={{ padding: "8px 14px", fontSize: 12 }}>Clients</a>
           <Link to="/blog" className="so" style={{ padding: "8px 14px", fontSize: 12 }}>Blog</Link>
           <Link to="/contact" className="sb" style={{ padding: "8px 14px", fontSize: 12 }}>Schedule Consultation</Link>
