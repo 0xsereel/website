@@ -147,7 +147,7 @@ export const PrivacyPolicy = () => {
               <li><strong>Withdraw Consent:</strong> Where processing is based on consent, you may withdraw consent at any time.</li>
             </ul>
             <p>
-              To exercise any of these rights, please contact us at team@sereel.com. We will respond to your request within the timeframe required by applicable law.
+              To exercise any of these rights, please contact us at privacy@sereel.com. We will respond to your request within the timeframe required by applicable law.
             </p>
             <p>
               Please note that certain rights may be limited where we have a legal obligation to retain data, particularly in connection with regulatory compliance, AML/CTF requirements, or ongoing investigations.
@@ -190,7 +190,7 @@ export const PrivacyPolicy = () => {
           <section className="space-y-4">
             <h2>13. Data Protection Officer</h2>
             <p>For privacy-related inquiries, concerns, or to exercise your data protection rights, please contact:</p>
-            <p><strong>Sereel Technologies Inc.</strong><br />Email: team@sereel.com<br />Website: https://sereel.com</p>
+            <p><strong>Sereel Technologies Inc.</strong><br />Email: privacy@sereel.com<br />Website: https://sereel.com</p>
           </section>
 
           <section className="space-y-4">
