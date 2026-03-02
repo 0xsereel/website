@@ -8,6 +8,8 @@ import { Entities } from "../pages/Entities/Entities";
 import { Partnerships } from "../pages/Partnerships/Partnerships";
 import { Repositories } from "../pages/Repositories/Repositories";
 import { Editor } from "../pages/Editor/Editor";
+import { Terms } from "../pages/Terms/Terms";
+import { PrivacyPolicy } from "../pages/PrivacyPolicy/PrivacyPolicy";
 const AppRoutes = () => {
   const isDev = import.meta.env.DEV;
 
@@ -22,6 +24,8 @@ const AppRoutes = () => {
         <Route path="/entities" element={<Entities />} />
         <Route path="/partnerships" element={<Partnerships />} />
         <Route path="/repositories" element={<Repositories />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         {isDev && <Route path="/editor" element={<Editor />} />}
       </Routes>
     </Router>

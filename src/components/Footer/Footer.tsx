@@ -37,6 +37,8 @@ export const Footer = () => {
               <div className="flex flex-col space-y-2 sm:space-y-3">
                 <Link to="/blog" className="min-h-[44px] flex items-center justify-center lg:justify-start hover:text-[#1CA36E] transition-colors text-sm sm:text-base">Blog</Link>
                 <Link to="/repositories" className="min-h-[44px] flex items-center justify-center lg:justify-start hover:text-[#1CA36E] transition-colors text-sm sm:text-base">Research Repository</Link>
+                <Link to="/terms" className="min-h-[44px] flex items-center justify-center lg:justify-start hover:text-[#1CA36E] transition-colors text-sm sm:text-base">Terms of Use</Link>
+                <Link to="/privacy-policy" className="min-h-[44px] flex items-center justify-center lg:justify-start hover:text-[#1CA36E] transition-colors text-sm sm:text-base">Privacy Policy</Link>
               </div>
             </div>
           </div>
