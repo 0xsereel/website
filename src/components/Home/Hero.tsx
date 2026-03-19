@@ -199,13 +199,15 @@ export const Hero = () => {
                 }}
                 animate={{
                   filter: [
-                    "brightness(1.1) drop-shadow(0 0 30px rgba(28, 163, 110, 0.6))",
-                    "brightness(1.2) drop-shadow(0 0 50px rgba(28, 163, 110, 0.8))",
-                    "brightness(1.1) drop-shadow(0 0 30px rgba(28, 163, 110, 0.6))",
+                    "brightness(1.05) drop-shadow(0 0 26px rgba(28, 163, 110, 0.45))",
+                    "brightness(1.1) drop-shadow(0 0 32px rgba(28, 163, 110, 0.55))",
+                    "brightness(1.12) drop-shadow(0 0 38px rgba(28, 163, 110, 0.65))",
+                    "brightness(1.1) drop-shadow(0 0 32px rgba(28, 163, 110, 0.55))",
+                    "brightness(1.05) drop-shadow(0 0 26px rgba(28, 163, 110, 0.45))",
                   ],
                 }}
                 transition={{
-                  duration: 3,
+                  duration: 8,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
@@ -219,13 +221,15 @@ export const Hero = () => {
                 }}
                 animate={{
                   boxShadow: [
-                    "0 0 200px 100px rgba(28, 163, 110, 0.3)",
-                    "0 0 300px 140px rgba(28, 163, 110, 0.5)",
-                    "0 0 200px 100px rgba(28, 163, 110, 0.3)",
+                    "0 0 220px 120px rgba(28, 163, 110, 0.28)",
+                    "0 0 260px 150px rgba(28, 163, 110, 0.38)",
+                    "0 0 300px 170px rgba(28, 163, 110, 0.46)",
+                    "0 0 260px 150px rgba(28, 163, 110, 0.38)",
+                    "0 0 220px 120px rgba(28, 163, 110, 0.28)",
                   ],
                 }}
                 transition={{
-                  duration: 3,
+                  duration: 10,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
