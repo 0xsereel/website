@@ -1,7 +1,7 @@
 // src/pages/Entities/Entities.tsx
 import { Footer } from "../../components/Footer/Footer";
 import { Header } from "../../components/Header/Header";
-import { MobileMenu } from "../../components/Header/MobileMenu";
+import { MobileMenu } from "../../components/Header/MobileMenu"; 
 import { motion } from "framer-motion";
 import { AnimatedSection } from "../../components/Animation/AnimatedSection";
 import { AnimatedCard } from "../../components/Animation/AnimatedCard";
