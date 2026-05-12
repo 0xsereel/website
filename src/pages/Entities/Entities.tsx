@@ -19,7 +19,7 @@ export const Entities = () => {
       </section>
 
       <section className="section">
-        <div className="locations" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
+        <div className="locations three">
           {entities.map((entity) => (
             <div className="loc" key={entity.name}>
               <div className="name">{entity.name}</div>

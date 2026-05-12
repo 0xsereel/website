@@ -12,6 +12,11 @@ interface Blog {
 
 const typedBlogs: Blog[] = blogs as Blog[];
 
+const normalizeImagePath = (path: string) => {
+  const cleaned = path.replace(/\\/g, "/");
+  return cleaned.startsWith("/") ? cleaned : `/${cleaned}`;
+};
+
 export const BlogPageContent = () => {
   const featured = typedBlogs[0];
   const rest = typedBlogs.slice(1);
@@ -56,7 +61,7 @@ export const BlogPageContent = () => {
               style={
                 featured.image
                   ? {
-                      backgroundImage: `url(${featured.image})`,
+                      backgroundImage: `url(${normalizeImagePath(featured.image)})`,
                       backgroundSize: "cover",
                       backgroundPosition: "center",
                     }
@@ -75,7 +80,7 @@ export const BlogPageContent = () => {
                   style={
                     blog.image
                       ? {
-                          backgroundImage: `url(${blog.image})`,
+                          backgroundImage: `url(${normalizeImagePath(blog.image)})`,
                           backgroundSize: "cover",
                           backgroundPosition: "center",
                         }

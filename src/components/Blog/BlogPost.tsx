@@ -35,11 +35,12 @@ export const BlogPost = () => {
       setImageSrc("images/blog/Sereel_con_logo.jpg");
       setTimeout(() => {
         try {
+          const normalized = blog.image.replace(/\\/g, "/");
           const paths = [
-            blog.image,
-            blog.image.startsWith("/") ? blog.image.substring(1) : blog.image,
-            `../public/${blog.image.replace(/^\//, "")}`,
-            `${window.location.origin}/${blog.image.replace(/^\//, "")}`,
+            normalized.startsWith("/") ? normalized : `/${normalized}`,
+            normalized.startsWith("/") ? normalized.substring(1) : normalized,
+            `../public/${normalized.replace(/^\//, "")}`,
+            `${window.location.origin}/${normalized.replace(/^\//, "")}`,
           ];
           const tryNextPath = (index: number) => {
             if (index >= paths.length) return;

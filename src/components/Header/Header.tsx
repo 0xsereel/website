@@ -33,7 +33,7 @@ export const Header = () => {
           </Link>
           <button
             onClick={() => setIsMobileMenuOpen(true)}
-            className="pill ghost lg:hidden"
+            className="pill ghost menu-btn"
             aria-label="Open menu"
             style={{ padding: "0 14px" }}
           >

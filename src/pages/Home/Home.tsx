@@ -9,14 +9,18 @@ export const Home = () => {
   const [fade, setFade] = useState(false);
 
   useEffect(() => {
+    let timeout: ReturnType<typeof setTimeout>;
     const interval = setInterval(() => {
       setFade(true);
-      setTimeout(() => {
+      timeout = setTimeout(() => {
         setCityIndex((i) => (i + 1) % citiesList.length);
         setFade(false);
       }, 400);
     }, 2400);
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+      clearTimeout(timeout);
+    };
   }, []);
 
   return (
@@ -148,7 +152,7 @@ export const Home = () => {
         </div>
       </section>
 
-      <main className="wrap">
+      <div className="wrap">
         <section className="build" id="build">
           <div className="sec-head">
             <div>
@@ -432,7 +436,7 @@ export const Home = () => {
             </div>
           </div>
         </section>
-      </main>
+      </div>
 
       <section className="quote">
         <div className="wrap">
@@ -448,7 +452,7 @@ export const Home = () => {
         </div>
       </section>
 
-      <main className="wrap">
+      <div className="wrap">
         <section className="faq">
           <div className="sec-head">
             <div>
@@ -511,9 +515,9 @@ export const Home = () => {
             </details>
           </div>
         </section>
-      </main>
+      </div>
 
-      <main className="wrap">
+      <div className="wrap">
         <section className="end" id="end">
           <div className="card">
             <span className="mono lit">[ Let&apos;s begin ]</span>
@@ -530,7 +534,7 @@ export const Home = () => {
             </div>
           </div>
         </section>
-      </main>
+      </div>
     </>
   );
 };

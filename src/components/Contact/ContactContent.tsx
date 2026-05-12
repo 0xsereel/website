@@ -33,7 +33,7 @@ export const ContactContent = () => {
     setResult("Sending...");
 
     const data = {
-      access_key: "4a825a6a-442e-4605-a310-96c8ad3f0854",
+      access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY,
       name: form.fname + " " + form.lname,
       email: form.email,
       institution: form.firm,
