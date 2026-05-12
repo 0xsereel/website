@@ -110,11 +110,12 @@ export const About = () => {
             </h2>
           </div>
           <p className="lede">
-            Blockchain engineers, capital-markets veterans, and regulatory
-            operators. Builders who have shipped at financial institutions.
+            Blockchain engineers and fintech operators advised by capital
+            markets veterans. Builders who have shipped and contributed to the
+            on-chain economy. Architects of next-gen finance.
           </p>
         </div>
-        <div className="team-photo">[ Team photo placeholder ]</div>
+        <img src="/images/team/image.png" alt="Sereel team" style={{ width: "100%", borderRadius: 18, border: "1px solid var(--rule-2)", marginTop: 48 }} />
       </section>
     </main>
   );

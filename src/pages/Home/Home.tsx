@@ -96,9 +96,6 @@ export const Home = () => {
             </div>
 
             <div className="logo-stage">
-              <div className="ring"></div>
-              <div className="ring r2"></div>
-              <div className="ring r3"></div>
               <img src="/assets/glowing-logo.png" alt="Sereel logo" />
             </div>
           </div>
