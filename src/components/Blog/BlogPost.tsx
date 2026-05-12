@@ -1,11 +1,9 @@
-// src/components/Blog/BlogPost.tsx
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import blogs from "../../Blog Data/Blogs.json";
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
 
 interface Blog {
   id: number;
@@ -23,7 +21,6 @@ export const BlogPost = () => {
   const [blog, setBlog] = useState<Blog | null>(null);
   const [imageLoaded, setImageLoaded] = useState(false);
 
-  // Find blog post on mount or when ID changes
   useEffect(() => {
     if (id) {
       const foundBlog = typedBlogs.find((blog) => blog.id === parseInt(id));
@@ -36,7 +33,6 @@ export const BlogPost = () => {
   useEffect(() => {
     if (blog) {
       setImageSrc("images/blog/Sereel_con_logo.jpg");
-
       setTimeout(() => {
         try {
           const paths = [
@@ -45,10 +41,8 @@ export const BlogPost = () => {
             `../public/${blog.image.replace(/^\//, "")}`,
             `${window.location.origin}/${blog.image.replace(/^\//, "")}`,
           ];
-
           const tryNextPath = (index: number) => {
             if (index >= paths.length) return;
-
             const img = new Image();
             img.onload = () => {
               setImageSrc(paths[index]);
@@ -57,7 +51,6 @@ export const BlogPost = () => {
             img.onerror = () => tryNextPath(index + 1);
             img.src = paths[index];
           };
-
           tryNextPath(0);
         } catch (error) {
           console.error("Error in image loading:", error);
@@ -69,287 +62,84 @@ export const BlogPost = () => {
 
   if (!id || !blog) {
     return (
-      <div className="w-full h-screen flex items-center justify-center bg-black">
-        <motion.div
-          className="text-center"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          <motion.div
-            className="text-6xl mb-4"
-            transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-          >
-            🔍
-          </motion.div>
-          <h2 className="text-2xl font-gilroy-bold text-white mb-2">Blog not found</h2>
-          <p className="text-[#D5D5D5]">The article you're looking for doesn't exist</p>
-        </motion.div>
-      </div>
+      <main className="wrap" style={{ padding: "120px 0", textAlign: "center" }}>
+        <p className="mono" style={{ fontSize: 24 }}>Blog not found</p>
+        <Link className="pill" to="/blog" style={{ marginTop: 24 }}>
+          <span className="dot"></span>Back to Journal
+        </Link>
+      </main>
     );
   }
 
   return (
-    <div className="w-full bg-black min-h-screen">
-      {/* Hero Section */}
-      <motion.div
-        className="w-full h-[400px] bg-gradient-to-br from-[#1CA36E]/10 via-black to-[#1CA36E]/5 flex items-center justify-center relative overflow-hidden"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-      >
-        {/* Animated background
-        <motion.div
-          className="absolute inset-0"
-          animate={{
-            background: [
-              "radial-gradient(circle at 25% 25%, rgba(28, 163, 110, 0.1) 0%, transparent 50%)",
-              "radial-gradient(circle at 75% 75%, rgba(28, 163, 110, 0.1) 0%, transparent 50%)",
-              "radial-gradient(circle at 25% 75%, rgba(28, 163, 110, 0.1) 0%, transparent 50%)",
-              "radial-gradient(circle at 25% 25%, rgba(28, 163, 110, 0.1) 0%, transparent 50%)",
-            ],
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        /> */}
+    <main className="wrap">
+      <section className="page-hero">
+        <div className="mono eyebrow lit">[ Journal ]</div>
+        <h1>{blog.title}</h1>
+        <p className="lede" style={{ marginTop: 16 }}>
+          <span className="mono">{blog.date}</span>
+        </p>
+      </section>
 
-        <motion.div
-          className="text-center px-5 relative z-10 max-w-4xl mx-auto"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <motion.h1 
-            className="lg:text-5xl text-3xl font-gilroy-bold mb-4 leading-tight text-white"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            {blog.title}
-          </motion.h1>
-          <motion.p 
-            className="text-[#969696] text-lg"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            {blog.date}
-          </motion.p>
-        </motion.div>
-      </motion.div>
-
-      {/* Content Section */}
-      <div className="w-full bg-black py-20">
-        <div className="w-[90%] max-w-4xl mx-auto">
-          
-          {/* Featured Image */}
-          <motion.div
-            className="mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <motion.div
-              className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#1CA36E]/10 to-white/5 border border-[#202026]"
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              {!imageLoaded && (
-                <motion.div
-                  className="w-full h-[400px] flex items-center justify-center"
-                  animate={{ opacity: [0.5, 1, 0.5] }}
-                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <div className="text-4xl">📸</div>
-                </motion.div>
-              )}
-              
-              <motion.img
-                src={imageSrc}
-                alt={blog.title}
-                className="w-full max-h-[500px] object-cover rounded-2xl"
-                initial={{ opacity: 0, scale: 1.1 }}
-                animate={{ opacity: imageLoaded ? 1 : 0, scale: 1 }}
-                transition={{ duration: 0.8 }}
-                whileHover={{ scale: 1.02 }}
-              />
-              
-              {/* Image overlay effect */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"
-                whileHover={{ opacity: 1 }}
-              />
-            </motion.div>
-          </motion.div>
-
-          {/* Article Content */}
-          <motion.div
-            className="blog-content"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <motion.div
-              className="prose prose-lg max-w-none w-full"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <ReactMarkdown
-                remarkPlugins={[remarkGfm]}
-                rehypePlugins={[rehypeRaw]}
-                components={{
-                  a: ({ href, children }) => (
-                    <motion.a
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[#1CA36E] underline hover:text-[#00FFB2] transition-colors duration-300"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      {children}
-                    </motion.a>
-                  ),
-                  h1: ({ children }) => (
-                    <motion.h1
-                      className="text-4xl font-gilroy-bold mb-6 mt-8 text-white"
-                      whileHover={{ 
-                        textShadow: "0 0 20px rgba(28, 163, 110, 0.8)",
-                        color: "#1CA36E"
-                      }}
-                    >
-                      {children}
-                    </motion.h1>
-                  ),
-                  h2: ({ children }) => (
-                    <motion.h2
-                      className="text-3xl font-gilroy-bold mb-4 mt-8 text-white"
-                      whileHover={{ 
-                        textShadow: "0 0 20px rgba(28, 163, 110, 0.8)",
-                        color: "#1CA36E"
-                      }}
-                    >
-                      {children}
-                    </motion.h2>
-                  ),
-                  h3: ({ children }) => (
-                    <motion.h3
-                      className="text-2xl font-gilroy-bold mb-3 mt-6 text-white"
-                      whileHover={{ 
-                        textShadow: "0 0 20px rgba(28, 163, 110, 0.8)",
-                        color: "#1CA36E"
-                      }}
-                    >
-                      {children}
-                    </motion.h3>
-                  ),
-                  p: ({ children }) => (
-                    <p
-                      className="text-[#D5D5D5] mb-4 leading-relaxed"
-                    >
-                      {children}
-                    </p>
-                  ),
-                  ul: ({ children }) => (
-                    <ul
-                      className="list-disc pl-6 mb-4 space-y-2"
-                    >
-                      {children}
-                    </ul>
-                  ),
-                  ol: ({ children }) => (
-                    <ol
-                      className="list-decimal pl-6 mb-4 space-y-2"
-                    >
-                      {children}
-                    </ol>
-                  ),
-                  li: ({ children }) => (
-                    <li
-                      className="text-[#D5D5D5]"
-                    >
-                      {children}
-                    </li>
-                  ),
-                  blockquote: ({ children }) => (
-                    <motion.blockquote
-                      className="border-l-4 border-[#1CA36E] pl-4 italic text-[#1CA36E] bg-[#1CA36E]/5 p-4 rounded-r-lg my-6"
-                      whileHover={{ 
-                        backgroundColor: "rgba(28, 163, 110, 0.1)",
-                        borderColor: "#00FFB2"
-                      }}
-                    >
-                      {children}
-                    </motion.blockquote>
-                  ),
-                  code: ({ children }) => (
-                    <motion.code
-                      className="bg-[#202026] text-[#1CA36E] px-2 py-1 rounded text-sm font-mono"
-                      whileHover={{ 
-                        backgroundColor: "rgba(28, 163, 110, 0.1)",
-                        color: "#00FFB2"
-                      }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      {children}
-                    </motion.code>
-                  ),
-                  pre: ({ children }) => (
-                    <motion.pre
-                      className="bg-[#202026] p-4 rounded-lg overflow-x-auto mb-4 border border-[#1CA36E]/20"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8 }}
-                      viewport={{ once: true }}
-                      whileHover={{ 
-                        borderColor: "rgba(28, 163, 110, 0.5)",
-                        backgroundColor: "rgba(28, 163, 110, 0.05)"
-                      }}
-                    >
-                      {children}
-                    </motion.pre>
-                  ),
+      <section className="section">
+        {blog.image && (
+          <div style={{ marginBottom: 48 }}>
+            {!imageLoaded && (
+              <div
+                style={{
+                  width: "100%",
+                  aspectRatio: "16/9",
+                  borderRadius: 18,
+                  border: "1px dashed var(--rule-2)",
+                  background: "var(--bg-2)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  color: "var(--muted)",
+                  fontFamily: "var(--mono)",
+                  fontSize: 11,
+                  textTransform: "uppercase",
                 }}
               >
-                {blog.content}
-              </ReactMarkdown>
-            </motion.div>
-          </motion.div>
-
-          {/* Back to Blog Button */}
-          <motion.div
-            className="mt-12 text-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-          >
-            <motion.a
-              href="/blog"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-[#1CA36E] to-[#00FFB2] text-white px-8 py-3 rounded-full font-gilroy-medium hover:from-[#00FFB2] hover:to-[#1CA36E] transition-all duration-300"
-              whileHover={{ 
-                scale: 1.05,
-                boxShadow: "0 0 30px rgba(28, 163, 110, 0.6)"
+                Loading image...
+              </div>
+            )}
+            <img
+              src={imageSrc}
+              alt={blog.title}
+              style={{
+                width: "100%",
+                borderRadius: 18,
+                border: "1px solid var(--rule-2)",
+                display: imageLoaded ? "block" : "none",
               }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <motion.svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                animate={{ x: [-2, 2, -2] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <path d="M19 12H5M12 19l-7-7 7-7" />
-              </motion.svg>
-              Back to Blogs
-            </motion.a>
-          </motion.div>
+              onLoad={() => setImageLoaded(true)}
+            />
+          </div>
+        )}
+
+        <div className="blog-content">
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            rehypePlugins={[rehypeRaw]}
+            components={{
+              a: ({ href, children }) => (
+                <a href={href} target="_blank" rel="noopener noreferrer">
+                  {children}
+                </a>
+              ),
+            }}
+          >
+            {blog.content}
+          </ReactMarkdown>
         </div>
-      </div>
-    </div>
+
+        <div style={{ marginTop: 48 }}>
+          <Link className="pill" to="/blog">
+            <span className="dot"></span>Back to Journal
+          </Link>
+        </div>
+      </section>
+    </main>
   );
 };

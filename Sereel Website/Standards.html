@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Standards — Sereel</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Anybody:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+  .spec-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  @media (max-width:880px){.spec-grid{grid-template-columns:1fr}}
+  .spec-card{border:1px solid var(--rule-2);border-radius:18px;padding:40px;background:linear-gradient(180deg, rgba(111,229,165,0.04), transparent 60%);position:relative;overflow:hidden}
+  .spec-card .badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);padding:6px 12px;border:1px solid rgba(111,229,165,0.3);border-radius:999px;background:rgba(111,229,165,0.05)}
+  .spec-card h3{font-family:var(--display);font-weight:600;font-size:56px;line-height:0.95;letter-spacing:-0.02em;text-transform:uppercase;margin:20px 0 8px}
+  .spec-card .sub{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:24px}
+  .spec-card p{color:var(--ink-2);font-size:15px;line-height:1.6;margin-bottom:20px}
+  .spec-card ul{list-style:none;display:flex;flex-direction:column;gap:10px;border-top:1px solid var(--rule);padding-top:20px}
+  .spec-card ul li{display:flex;gap:12px;font-size:14px;color:var(--ink-2);align-items:baseline}
+  .spec-card ul li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--glow);flex-shrink:0;transform:translateY(2px)}
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--accent);border-bottom:1px solid var(--rule-2);margin-top:60px}
+  .twocol .col{padding:40px 32px}
+  .twocol .col + .col{border-left:1px solid var(--rule)}
+  .twocol h3{font-family:var(--display);font-weight:600;font-size:28px;letter-spacing:-0.01em;margin-bottom:24px;text-transform:uppercase}
+  .twocol ul{list-style:none}
+  .twocol li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:14px 0;border-bottom:1px dashed var(--rule);font-size:15px}
+  .twocol li:last-child{border-bottom:0}
+  .twocol li .left{display:flex;align-items:center;gap:12px}
+  .twocol li .glyph{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--glow);flex-shrink:0}
+  .twocol li .meta{font-family:var(--mono);font-size:10px;letter-spacing:0.14em;color:var(--muted);text-transform:uppercase;text-align:right}
+  @media (max-width:820px){.twocol{grid-template-columns:1fr}.twocol .col+.col{border-left:0;border-top:1px solid var(--rule)}}
+</style></head><body>
+
+<nav class="top"><div class="wrap row">
+  <a class="brand" href="Sereel.html"><img src="assets/glowing-logo.png" alt=""><span class="name">SEREEL</span></a>
+  <div class="links"><a href="Standards.html" class="active">Standards</a><a href="About.html">About</a><a href="Blog.html">Blog</a></div>
+  <a class="pill" href="Contact.html"><span class="dot"></span>Contact</a>
+</div></nav>
+
+<main class="wrap">
+  <section class="page-hero">
+    <div class="mono eyebrow lit">[ Standards ]</div>
+    <h1>Open rails.<br><span class="lit">Institutional</span> standards.</h1>
+    <p class="lede">We deploy on the standards your counsel already recognizes. No proprietary lock in. No re-papering when you scale.</p>
+  </section>
+
+  <section class="section">
+    <div class="spec-grid">
+      <div class="spec-card">
+        <span class="badge">● Standard 01</span>
+        <h3>CMTA<br><span class="glow-text">CMTAT</span></h3>
+        <div class="sub">Capital Markets &amp; Technology Association</div>
+        <p>The Swiss tokenization framework adopted by major banks and recognized by Singapore's Project Guardian. Sereel is one of the few engineering teams certified to deploy on it.</p>
+        <ul>
+          <li>Reference implementation for tokenized securities under Swiss DLT law</li>
+          <li>40+ institutional members including UBS, SIX, and Sygnum</li>
+          <li>Native compliance modules: transfer restrictions, snapshots, freeze</li>
+          <li>Composable with ERC-3643 for permissioned transferability</li>
+          <li>Audited, open source, and version-locked at the protocol layer</li>
+        </ul>
+      </div>
+      <div class="spec-card">
+        <span class="badge">● Standard 02</span>
+        <h3>ERC<br><span class="glow-text">3643</span></h3>
+        <div class="sub">Permissioned Token Standard / T-REX</div>
+        <p>The leading EVM standard for compliant security tokens. Identity-on-chain through ONCHAINID, with modular compliance enforced at the contract layer.</p>
+        <ul>
+          <li>Built-in eligibility checks: KYC, accreditation, jurisdiction</li>
+          <li>ONCHAINID identity portability across issuers and chains</li>
+          <li>Backed by Tokeny, Apex, ING, and 20+ regulated issuers</li>
+          <li>Sereel deploys CMTAT + ERC-3643 hybrid contracts</li>
+          <li>Recovery, partitioning, and forced-transfer hooks built in</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="twocol">
+      <div class="col">
+        <h3>Networks</h3>
+        <ul>
+          <li><div class="left"><span class="glyph"></span>Ethereum</div><span class="meta">EVM</span></li>
+          <li><div class="left"><span class="glyph"></span>Arbitrum</div><span class="meta">EVM · L2</span></li>
+          <li><div class="left"><span class="glyph"></span>Base</div><span class="meta">EVM · L2</span></li>
+          <li><div class="left"><span class="glyph"></span>Polygon</div><span class="meta">EVM</span></li>
+          <li><div class="left"><span class="glyph"></span>Optimism</div><span class="meta">EVM · L2</span></li>
+          <li><div class="left"><span class="glyph"></span>Solana</div><span class="meta">SVM</span></li>
+          <li><div class="left"><span class="glyph"></span>Starknet</div><span class="meta">ZK</span></li>
+          <li><div class="left"><span class="glyph"></span>IOTA</div><span class="meta">DAG</span></li>
+          <li><div class="left"><span class="glyph"></span>Canton Network</div><span class="meta">Privacy</span></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>Jurisdictions</h3>
+        <ul>
+          <li><div class="left"><span class="glyph"></span>Kenya VASP Act</div><span class="meta">KE</span></li>
+          <li><div class="left"><span class="glyph"></span>Botswana VASP Act</div><span class="meta">BW</span></li>
+          <li><div class="left"><span class="glyph"></span>Rwanda VASP Act</div><span class="meta">RW</span></li>
+          <li><div class="left"><span class="glyph"></span>Regulation S</div><span class="meta">Non-US</span></li>
+          <li><div class="left"><span class="glyph"></span>Regulation D</div><span class="meta">US · Accredited</span></li>
+          <li><div class="left"><span class="glyph"></span>MiCA</div><span class="meta">EU</span></li>
+          <li><div class="left"><span class="glyph"></span>Swiss DLT</div><span class="meta">CH</span></li>
+          <li><div class="left"><span class="glyph"></span>MAS Guidelines</div><span class="meta">SG</span></li>
+          <li><div class="left"><span class="glyph"></span>Custom Counsel</div><span class="meta">Bespoke</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">
+  <div class="row">
+    <div class="col" style="max-width:280px"><div class="brand" style="margin-bottom:14px"><img src="assets/glowing-logo.png" alt=""><span class="name">SEREEL</span></div><span class="mono">Institutional tokenization infrastructure</span></div>
+    <div class="col"><h4>Company</h4><ul><li><a href="About.html">About</a></li><li><a href="#">Entities</a></li><li><a href="#">Partnerships</a></li></ul></div>
+    <div class="col"><h4>Resources</h4><ul><li><a href="Blog.html">Blog</a></li><li><a href="#">Research Repository</a></li><li><a href="Standards.html">Standards</a></li></ul></div>
+    <div class="col"><h4>Contact</h4><ul><li><a href="mailto:team@sereel.com">team@sereel.com</a></li><li><a href="#">LinkedIn</a></li><li><a href="#">X / Twitter</a></li></ul></div>
+  </div>
+  <div class="legal"><span>© Sereel Technologies, Inc. 2026</span><span>v 26.05 · All Rights Reserved</span></div>
+</div></footer>
+</body></html>
