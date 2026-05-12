@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Reveal } from "../../components/Reveal";
 
-const citiesList = ["Chicago", "Nairobi", "Zürich", "Kigali"];
+const citiesList = ["Chicago", "Nairobi", "Zürich", "Kigali", "Gaborone"];
 
 export const Home = () => {
   const [cityIndex, setCityIndex] = useState(0);

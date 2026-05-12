@@ -70,12 +70,12 @@ export const About = () => {
             </h2>
           </div>
           <p className="lede">
-            We have established a presence in four countries across three
+            We have established a presence in five countries across three
             continents, aligned with regulatory regimes that matter for
             institutional tokenization. Built for regulatory interoperability.
           </p>
         </div>
-        <div className="locations">
+        <div className="locations five">
           <div className="loc">
             <div className="name lit" style={{ color: "var(--accent)" }}>
               Chicago
@@ -93,6 +93,10 @@ export const About = () => {
           <div className="loc">
             <div className="name">Kigali</div>
             <div className="country mono">Rwanda · VASP</div>
+          </div>
+          <div className="loc">
+            <div className="name">Gaborone</div>
+            <div className="country mono">Botswana · VASP</div>
           </div>
         </div>
       </section>
