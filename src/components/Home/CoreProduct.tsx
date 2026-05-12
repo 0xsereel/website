@@ -34,7 +34,7 @@ export const CoreProduct = () => {
       capabilities: [
         "Enterprise EOA and custodied wallets with institutional security",
         "Multi-signature governance with approval workflows",
-        "Shamir Secret Sharing for distributed key recovery",
+        "Distributed key recovery and continuity planning",
         "Complete audit trails and compliance reporting",
         "Role-based access control for treasury operations",
       ],

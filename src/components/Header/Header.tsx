@@ -1,81 +1,47 @@
-import { FaBars } from "react-icons/fa";
+import { Link, useLocation } from "react-router-dom";
 import { useGlobal } from "../../contexts/globals";
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 
 export const Header = () => {
-  const logoPath = "/images/Hero/glowing_seree_logo.svg";
-
   const { setIsMobileMenuOpen } = useGlobal();
+  const location = useLocation();
+
+  const linkClass = (path: string) => {
+    const base = location.pathname === path || location.pathname.startsWith(path + "/")
+      ? "active"
+      : "";
+    return base;
+  };
 
   return (
-    <header className="w-full fixed top-0 z-50 items-center justify-between flex flex-col safe-area-padding bg-black bg-opacity-80 backdrop-blur-sm" style={{ padding: 'clamp(0.75rem, 2vw, 1rem)' }}>
-      {" "}
-      <div className="w-full items-center justify-between flex">
-        <div className="flex gap-4 items-center">
-          {/* Logo */}
-
-          <Link to="/" className="flex items-center gap-3 min-h-[44px]">
-            <img 
-              className="w-[40px] h-[40px] sm:w-[45px] sm:h-[45px] lg:w-[50px] lg:h-[50px]" 
-              src={logoPath} 
-              alt="Sereel Logo" 
-            />
-
-            <h3 className="text-lg sm:text-xl lg:text-2xl font-gilroy-bold">Sereel</h3>
+    <nav className="top">
+      <div className="wrap row">
+        <div className="nav-group">
+          <Link className="brand" to="/">
+            <img src="/assets/glowing-logo.png" alt="Sereel" />
+            <span className="name">SEREEL</span>
           </Link>
-
-          {/* Menu Buttons  */}
-
-          <div className="font-gilroy-medium lg:flex gap-3 xl:gap-5 ml-2 lg:ml-3 text-sm lg:text-md hidden">
-            <div>
-              <Link
-                to="/about"
-                className="flex gap-2 items-center cursor-pointer min-h-[44px] px-3 py-2"
-                aria-label="About Us page"
-              >
-                <p>About Us</p>
-              </Link>
-            </div>
-
-            <div>
-              <Link
-                to="/blog"
-                className="flex gap-2 items-center cursor-pointer min-h-[44px] px-3 py-2"
-                aria-label="Blog page"
-              >
-                <p>Blog</p>
-              </Link>
-            </div>
+          <div className="links">
+            <Link to="/standards" className={linkClass("/standards")}>Standards</Link>
+            <Link to="/about" className={linkClass("/about")}>About</Link>
+            <Link to="/blog" className={linkClass("/blog")}>Blog</Link>
           </div>
         </div>
-
-        <div>
-          {/* contact us button */}
-          <Link
-            to="/contact"
-            className="w-[120px] lg:w-[150px] h-[40px] lg:h-[50px] border-2 border-[#3A3A45] rounded-full hidden lg:flex items-center justify-center hover:border-[#1CA36E] transition-colors duration-300 min-h-[44px] text-sm lg:text-base"
-            aria-label="Contact Us"
-          >
-            <motion.span
-              whileHover={{
-                textShadow: "0 0 10px rgba(28, 163, 110, 0.8)",
-              }}
-              className="text-white hover:text-[#1CA36E] transition-colors duration-300"
-            >
-              Contact Us
-            </motion.span>
+        <div className="nav-actions">
+          <Link className="pill" to="/contact">
+            <span className="dot"></span>
+            Contact
           </Link>
-
-          <button 
-            onClick={() => setIsMobileMenuOpen(true)} 
-            className="lg:hidden min-h-[44px] min-w-[44px] flex items-center justify-center"
-            aria-label="Open mobile menu"
+          <button
+            onClick={() => setIsMobileMenuOpen(true)}
+            className="pill ghost menu-btn"
+            aria-label="Open menu"
+            style={{ padding: "0 14px" }}
           >
-            <FaBars size={24} aria-hidden="true" />
+            <span className="dot"></span>
+            Menu
           </button>
         </div>
       </div>
-    </header>
+    </nav>
   );
 };

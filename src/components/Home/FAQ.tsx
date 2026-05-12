@@ -28,7 +28,7 @@ const faqs: FAQItem[] = [
   {
     question: "How does enterprise custody security work?",
     answer:
-      "Our enterprise wallet infrastructure features EOA wallets with institutional security architecture, multi-signature governance with configurable approval workflows, Shamir Secret Sharing for distributed key recovery, complete audit trails, and role-based access control for treasury operations.",
+      "Our enterprise wallet infrastructure features EOA wallets with institutional security architecture, multi-signature governance with configurable approval workflows, complete audit trails, and role-based access control for treasury operations.",
   },
   {
     question: "What is Canton Network and why does privacy matter?",
