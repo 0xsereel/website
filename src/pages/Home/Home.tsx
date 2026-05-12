@@ -27,7 +27,7 @@ export const Home = () => {
             <div className="left">
               <span className="mono">Sereel Technologies</span>
               <span className="mono est">
-                Established{" "}
+                established in{" "}
                 <span className={`city ${fade ? "fade" : ""}`}>
                   {citiesList[cityIndex]}
                 </span>
@@ -92,7 +92,7 @@ export const Home = () => {
                     <b>CMTA</b>
                   </span>
                   <span className="label">
-                    <b>CMTA</b> Recognized Tokenization Experts
+                    <b>CMTA</b> &amp; ERC3643 Standard Experts
                   </span>
                 </a>
               </Reveal>
@@ -124,9 +124,9 @@ export const Home = () => {
             </div>
             <div className="cell">
               <div className="k display">
-                CMTA<span className="lit">T</span>
+                CMTA <span className="lit">&amp;</span> ERC-3643
               </div>
-              <div className="v mono">Standard</div>
+              <div className="v mono">Standard Experts</div>
             </div>
           </div>
         </section>
@@ -168,9 +168,8 @@ export const Home = () => {
               <div className="num">01 / Custody</div>
               <div className="name">Enterprise wallet infrastructure</div>
               <div className="desc">
-                Institutional grade EOAs and custodied wallets. Multi-sig
-                governance, Shamir recovery, and full audit trails. Out of the
-                box.
+                Institutional-grade EOAs and custodied wallets built for
+                treasury operations and compliance.
               </div>
               <div className="tags">
                 <span className="tag">EOA</span>
@@ -495,10 +494,8 @@ export const Home = () => {
                 <span className="plus">+</span>
               </summary>
               <div className="a">
-                Enterprise EOAs with multi-signature governance and configurable
-                approval workflows. Shamir Secret Sharing for distributed
-                recovery. Role-based access for treasury operations, and full
-                audit trails for compliance.
+                Secure multisig wallets built for institutional treasury
+                operations and compliance.
               </div>
             </details>
             <details>

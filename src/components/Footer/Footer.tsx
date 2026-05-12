@@ -39,7 +39,7 @@ export const Footer = () => {
         </div>
         <div className="legal">
           <span>© Sereel Technologies, Inc. 2026</span>
-          <span>v 26.05 · All Rights Reserved</span>
+          <span>All Rights Reserved</span>
         </div>
       </div>
     </footer>

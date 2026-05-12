@@ -21,11 +21,6 @@ export const About = () => {
               Why we <span className="lit">build.</span>
             </h2>
           </div>
-          <p className="lede">
-            $25 trillion sits idle in bank accounts while cross-border payments
-            take days and cost billions. The financial world is not
-            interoperable with the blockchain world. We are building the bridge.
-          </p>
         </div>
 
         <div className="about-body">
