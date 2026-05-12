@@ -1,6 +1,6 @@
 export const Entities = () => {
   const entities = [
-    { name: "Sereel Technologies, Inc.", location: "Delaware, USA" },
+    { name: "Sereel Technologies, Inc.", location: "Chicago, Illinois" },
     { name: "Sereel Technologies Botswana", location: "Gaborone, Botswana" },
     { name: "Sereel Technologies Kenya", location: "Nairobi, Kenya" },
   ];

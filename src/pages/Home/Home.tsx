@@ -49,7 +49,7 @@ export const Home = () => {
               <Reveal>
                 <p className="sub">
                   Custody, issuance, and market rails for asset managers, banks,
-                  and family offices. Compliant by construction. Settled on chain.
+                  and family offices. Compliant by construction.
                 </p>
               </Reveal>
               <Reveal>
@@ -63,8 +63,11 @@ export const Home = () => {
                 </div>
               </Reveal>
               <Reveal>
-                <div
+                <a
                   className="seal"
+                  href="https://cmta.ch/certification/recognized-experts"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="CMTA Recognized Tokenization Experts"
                 >
                   <span className="stamp">
@@ -91,7 +94,7 @@ export const Home = () => {
                   <span className="label">
                     <b>CMTA</b> Recognized Tokenization Experts
                   </span>
-                </div>
+                </a>
               </Reveal>
             </div>
 

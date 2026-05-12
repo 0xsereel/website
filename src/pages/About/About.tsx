@@ -75,8 +75,9 @@ export const About = () => {
             </h2>
           </div>
           <p className="lede">
-            Four offices across three continents, aligned with the regulatory
-            regimes that matter for institutional tokenization.
+            We have established a presence in four countries across three
+            continents, aligned with regulatory regimes that matter for
+            institutional tokenization. Built for regulatory interoperability.
           </p>
         </div>
         <div className="locations">

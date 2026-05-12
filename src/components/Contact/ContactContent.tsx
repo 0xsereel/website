@@ -169,7 +169,7 @@ export const ContactContent = () => {
               </div>
             </div>
             <div className="card">
-              <div className="mono label">Offices</div>
+              <div className="mono label">Locations</div>
               <div className="locs">
                 <span>Chicago</span>
                 <span>Nairobi</span>
