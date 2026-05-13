@@ -140,9 +140,9 @@ export const Home = () => {
         <div className="wrap row">
           <span className="mono">Trusted by</span>
           <div className="by">
-            <span className="name"><a href="https://www.globetech.com/" target="_blank" rel="noopener noreferrer">Globetec Asset Managers</a></span>
+            <span className="name"><a href="https://globetec.co.ke/" target="_blank" rel="noopener noreferrer">Globetec Asset Managers</a></span>
             <span className="name"><a href="https://growtokens.io/" target="_blank" rel="noopener noreferrer">Growtokens</a></span>
-            <span className="name"><a href="https://futurewealthgroup.ch/rtners.com/" target="_blank" rel="noopener noreferrer">Future Wealth Group</a></span>
+            <span className="name"><a href="https://futurewealthgroup.ch/" target="_blank" rel="noopener noreferrer">Future Wealth Group</a></span>
             <span className="name"><a href="https://fe.global/" target="_blank" rel="noopener noreferrer">Future Energy Global</a></span>
             <span className="name"><a href="https://www.fimcorpcapital.co.za/" target="_blank" rel="noopener noreferrer">FirmCorp Partners</a></span>
           </div>
