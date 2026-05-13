@@ -32,8 +32,17 @@ export const Footer = () => {
             <h4>Contact</h4>
             <ul>
               <li><a href="mailto:team@sereel.com">team@sereel.com</a></li>
-              <li><span>LinkedIn</span></li>
-              <li><span>X / Twitter</span></li>
+              <li>
+                  <a href="https://www.linkedin.com/company/0xsereel" target="_blank" rel="noopener noreferrer">
+                    LinkedIn
+                  </a>
+                </li>
+
+              <li>
+                  <a href="https://x.com/0xSereel" target="_blank" rel="noopener noreferrer">
+                    X / Twitter
+                  </a>
+              </li>
             </ul>
           </div>
         </div>
