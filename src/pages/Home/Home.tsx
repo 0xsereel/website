@@ -144,7 +144,7 @@ export const Home = () => {
             <span className="name"><a href="https://growtokens.io/" target="_blank" rel="noopener noreferrer">Growtokens</a></span>
             <span className="name"><a href="https://futurewealthgroup.ch/" target="_blank" rel="noopener noreferrer">Future Wealth Group</a></span>
             <span className="name"><a href="https://fe.global/" target="_blank" rel="noopener noreferrer">Future Energy Global</a></span>
-            <span className="name"><a href="https://www.fimcorpcapital.co.za/" target="_blank" rel="noopener noreferrer">FirmCorp Partners</a></span>
+            <span className="name">FirmCorp Partners</span>
           </div>
           <Link className="mono lit" to="/about">
             Partners →
