@@ -529,7 +529,7 @@ export const Home = () => {
                 <span className="dot"></span>Schedule consultation
               </Link>
               <span className="mono">
-                team@sereel.com · Chicago · Nairobi · Zürich · Kigali
+                team@sereel.com · Chicago · Nairobi · Zürich · Kigali · Gaborone
               </span>
             </div>
           </div>

@@ -175,6 +175,7 @@ export const ContactContent = () => {
                 <span>Nairobi</span>
                 <span>Zürich</span>
                 <span>Kigali</span>
+                <span>Gaborone</span>
               </div>
             </div>
             <div className="card">
