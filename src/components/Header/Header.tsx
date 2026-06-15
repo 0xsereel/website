@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useGlobal } from "../../contexts/globals";
 
 export const Header = () => {
-  const { setIsMobileMenuOpen } = useGlobal();
+  const { isMobileMenuOpen, setIsMobileMenuOpen } = useGlobal();
   const location = useLocation();
 
   const linkClass = (path: string) => {
@@ -27,7 +27,7 @@ export const Header = () => {
           </div>
         </div>
         <div className="nav-actions">
-          <Link className="pill" to="/contact">
+          <Link className="pill contact-btn" to="/contact">
             <span className="dot"></span>
             Contact
           </Link>
@@ -35,7 +35,8 @@ export const Header = () => {
             onClick={() => setIsMobileMenuOpen(true)}
             className="pill ghost menu-btn"
             aria-label="Open menu"
-            style={{ padding: "0 14px" }}
+            aria-controls="mobile-navigation"
+            aria-expanded={isMobileMenuOpen}
           >
             <span className="dot"></span>
             Menu
