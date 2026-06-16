@@ -12,6 +12,7 @@ import { Repositories } from "../pages/Repositories/Repositories";
 import { Terms } from "../pages/Terms/Terms";
 import { PrivacyPolicy } from "../pages/PrivacyPolicy/PrivacyPolicy";
 import { Editor } from "../pages/Editor/Editor";
+import { FAQ } from "../components/Home/Faq/FAQ";
 
 const AppRoutes = () => {
   const isDev = import.meta.env.DEV;
@@ -24,6 +25,7 @@ const AppRoutes = () => {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/faq" element={<FAQ />} />
           <Route path="/blog/:id" element={<SingleBlog />} />
           <Route path="/standards" element={<Standards />} />
           <Route path="/entities" element={<Entities />} />
