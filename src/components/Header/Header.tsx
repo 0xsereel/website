@@ -24,6 +24,7 @@ export const Header = () => {
             <Link to="/standards" className={linkClass("/standards")}>Standards</Link>
             <Link to="/about" className={linkClass("/about")}>About</Link>
             <Link to="/blog" className={linkClass("/blog")}>Blog</Link>
+            <Link to="/faq" className={linkClass("/faq")}>FAQ</Link>
           </div>
         </div>
         <div className="nav-actions">

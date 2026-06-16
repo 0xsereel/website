@@ -427,7 +427,7 @@ section.trusted { padding: 48px 0; border-bottom: 1px solid var(--rule) }
 }
 .trusted .by .name:hover { color: var(--accent); text-shadow: 0 0 12px var(--glow) }
 
-section.build, section.standards, section.spec, section.faq { padding: 120px 0 60px }
+section.build, section.standards, section.spec, section.faq { padding: 0 0 60px }
 
 .stack { border-top: 1px solid var(--rule-2) }
 .stack .item {
