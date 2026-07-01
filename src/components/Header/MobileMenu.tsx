@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useGlobal } from "../../contexts/globals";
 
@@ -11,8 +12,28 @@ export const MobileMenu = () => {
       : "";
   };
 
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsMobileMenuOpen(false);
+    };
+
+    document.body.classList.add("menu-open");
+    window.addEventListener("keydown", closeOnEscape);
+
+    return () => {
+      document.body.classList.remove("menu-open");
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [isMobileMenuOpen, setIsMobileMenuOpen]);
+
   return (
-    <div className={`mobile-menu ${isMobileMenuOpen ? "open" : "closed"}`}>
+    <div
+      id="mobile-navigation"
+      className={`mobile-menu ${isMobileMenuOpen ? "open" : "closed"}`}
+      aria-hidden={!isMobileMenuOpen}
+    >
       <div className="top">
         <Link className="brand" to="/" onClick={() => setIsMobileMenuOpen(false)}>
           <img src="/assets/glowing-logo.png" alt="Sereel" />
