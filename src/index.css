@@ -290,6 +290,7 @@ section.hero { padding: 32px 0 60px; position: relative }
 .hero-meta .left, .hero-meta .right { display: flex; gap: 24px; align-items: center; flex-wrap: wrap }
 .est { display: inline-flex; gap: 6px; align-items: center }
 .menu-btn { display: flex }
+.menu-btn { padding: 0 14px }
 @media (min-width: 981px){ .menu-btn { display: none } }
 .est .city {
   display: inline-block;
@@ -1036,6 +1037,8 @@ button.submit:hover { box-shadow: 0 0 28px var(--glow) }
 .nav-actions { display: flex; align-items: center; gap: 12px; }
 
 /* ─── Mobile menu ─── */
+body.menu-open { overflow: hidden }
+
 .mobile-menu {
   position: fixed;
   inset: 0;
@@ -1057,6 +1060,45 @@ button.submit:hover { box-shadow: 0 0 28px var(--glow) }
   transition: color .2s;
 }
 .mobile-menu .links-m a:hover, .mobile-menu .links-m a.active { color: var(--accent) }
+
+@media (max-width:720px) {
+  nav.top .row { height: 104px }
+  nav.top .brand,
+  .mobile-menu .brand { gap: 8px }
+  nav.top .brand img,
+  .mobile-menu .brand img {
+    width: 80px;
+    height: 80px;
+  }
+  nav.top .brand .name,
+  .mobile-menu .brand .name { font-size: 22px }
+  .nav-group { min-width: 0; gap: 0 }
+  .nav-actions { flex-shrink: 0; gap: 8px }
+  .mobile-menu { padding: 20px }
+  .mobile-menu .top { margin-bottom: 32px }
+  .mobile-menu .pill { padding: 0 14px }
+}
+
+@media (max-width:560px) {
+  .contact-btn { display: none }
+}
+
+@media (max-width:360px) {
+  .wrap { padding-right: 14px; padding-left: 14px }
+  nav.top .brand img,
+  .mobile-menu .brand img {
+    width: 68px;
+    height: 68px;
+  }
+  nav.top .brand .name,
+  .mobile-menu .brand .name { font-size: 20px }
+  .menu-btn,
+  .mobile-menu .pill {
+    height: 36px;
+    padding: 0 12px;
+    font-size: 11px;
+  }
+}
 
 /* ─── Scrollbar ─── */
 ::-webkit-scrollbar { width: 8px }
