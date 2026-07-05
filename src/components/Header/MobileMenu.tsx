@@ -53,6 +53,7 @@ export const MobileMenu = () => {
         <Link to="/about" className={linkClass("/about")} onClick={() => setIsMobileMenuOpen(false)}>About</Link>
         <Link to="/blog" className={linkClass("/blog")} onClick={() => setIsMobileMenuOpen(false)}>Blog</Link>
         <Link to="/contact" className={linkClass("/contact")} onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
+        <Link to="/faq" className={linkClass("/faq")} onClick={() => setIsMobileMenuOpen(false)}>FAQ</Link>
       </div>
     </div>
   );
