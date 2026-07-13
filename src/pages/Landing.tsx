@@ -1,22 +1,25 @@
-import { BeforeFooter } from "../components/BeforeFooter";
-import { FAQSection } from "../components/FAQSection";
+import { BrandSeparation } from "../components/BrandSeparation";
+import { CTABand } from "../components/CTABand";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { Hero } from "../components/Hero";
-import { MeetTheTeam } from "../components/MeetTheTeam";
-import { WhyEthereun } from "../components/WhyEthereun";
+import { Platform } from "../components/Platform";
+import { ProofStrip } from "../components/ProofStrip";
+import { Standards } from "../components/Standards";
+import { UseCaseLedger } from "../components/UseCaseLedger";
+
 export const Landing = () => {
   return (
-    <section className="w-full">
-
+    <main className="w-full bg-[#0A0E13]">
       <Header />
       <Hero />
-      <WhyEthereun />
-      <MeetTheTeam />
-      <FAQSection />
-      <BeforeFooter />
+      <ProofStrip />
+      <Platform />
+      <UseCaseLedger />
+      <BrandSeparation />
+      <Standards />
+      <CTABand />
       <Footer />
-
-    </section>
-  )
-}
+    </main>
+  );
+};
