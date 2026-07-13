@@ -1,114 +1,92 @@
+// src/components/Home/TrustedBy.tsx
 import { motion } from "framer-motion";
 import { AnimatedSection } from "../Animation/AnimatedSection";
-import { AnimatedCard } from "../Animation/AnimatedCard";
+// import { AnimatedCard } from "../Animation/AnimatedCard";
 import { GlowingText } from "../Animation/GlowingText";
+// import { useParallax } from "../../hooks/useParallax";
 
-interface Partner {
-  name: string;
-  website: string;
-  description: string;
-  logo: string;
-}
+
+const logos = [
+  {
+    image: "/images/blog/Growtoken.jfif",
+    url: "https://growtokens.io/", 
+    name: "Growtoken"
+  },
+  {
+    image: "/images/blog/FWG2.jpg",
+    url: "https://futurewealthgroup.ch/", 
+    name: "FWG"
+  },
+  {
+    image: "/images/blog/future_energy_global_logo.jfif",
+    url: "https://fe.global/", 
+    name: "Future Energy Global"
+  },
+];
 
 export const TrustedBy = () => {
-  const partners: Partner[] = [
-    {
-      name: "Future Wealth Group",
-      website: "futurewealthgroup.ch",
-      description: "Swiss-based investment group empowering global investments.",
-      logo: "/images/partners/future-wealth-group-logo.jpg",
-    },
-    {
-      name: "GrowTokens",
-      website: "growtokens.io",
-      description: "Impact-driven ESG investment platform tokenizing solar energy projects.",
-      logo: "/images/partners/growtokens-logo.jpg",
-    },
-    {
-      name: "Future Energy Global",
-      website: "fe.global",
-      description: "Accelerating sustainable aviation fuel markets through innovative financial ecosystems.",
-      logo: "/images/partners/future-energy-global-logo.jpg",
-    },
-  ];
+    // const { ref, y } = useParallax(0.3);
 
   return (
     <section className="w-full flex items-center justify-center py-12 sm:py-16 lg:py-20 xl:py-24 relative overflow-hidden safe-area-padding">
+      {/* Parallax Background */}
+      {/* <motion.div
+        ref={ref}
+        className="absolute inset-0 bg-gradient-to-br from-[#1CA36E]/5 via-transparent to-[#1CA36E]/10"
+        style={{ y }}
+      /> */}
+
       <div className="w-[95%] max-w-7xl mx-auto relative z-10 responsive-container">
         <AnimatedSection className="w-full flex items-center justify-center flex-col">
-          <motion.h2
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-gilroy-bold text-center max-w-4xl"
+          <motion.h3
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-gilroy-bold"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <GlowingText className="text-[#1CA36E]">Trusted by institutions</GlowingText>{" "}
-            building the future of sustainable finance
-          </motion.h2>
-        </AnimatedSection>
-
-        <AnimatedSection
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mt-12 sm:mt-16"
-          variant="stagger"
-        >
-          {partners.map((partner, index) => (
-            <AnimatedCard
-              key={index}
-              className="w-full border border-[#202026] rounded-xl p-6 sm:p-8 bg-gradient-to-br from-[#1CA36E]/5 to-white/5 hover:border-[#1CA36E]/50 transition-all duration-300 flex flex-col group"
-              delay={index * 0.1}
-            >
-              <motion.div
-                className="w-full h-32 sm:h-40 flex items-center justify-center mb-6 rounded-lg overflow-hidden bg-white/5 p-4"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-              >
-                <img
-                  src={partner.logo}
-                  alt={`${partner.name} logo`}
-                  className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
-                />
-              </motion.div>
-
-              <div className="flex-1 flex flex-col space-y-3">
-                <h3 className="font-gilroy-bold text-xl sm:text-2xl text-white">
-                  {partner.name}
-                </h3>
-                
-                <motion.a
-                  href={`https://${partner.website}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#1CA36E] text-sm sm:text-base hover:underline inline-flex items-center gap-1.5 font-medium"
-                  whileHover={{ x: 5 }}
-                  transition={{ duration: 0.2 }}
+                <GlowingText className="text-[#1CA36E]"> Trusted</GlowingText>{" "} By
+                      
+          </motion.h3>
+           <motion.p
+                className="mt-2 text-center text-[#D5D5D5] text-sm sm:text-base lg:text-lg max-w-2xl mx-auto"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                viewport={{ once: true }}
                 >
-                  {partner.website}
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 12 12"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="inline-block"
-                  >
-                    <path
-                      d="M9 3L3 9M9 3H5M9 3V7"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </motion.a>
-
-                <p className="text-[#D5D5D5] text-sm leading-relaxed">
-                  {partner.description}
-                </p>
-              </div>
-            </AnimatedCard>
-          ))}
+                Trusted by institutions building the future of sustainable finance
+            </motion.p> 
+                  
+          <div className="w-full flex items-center justify-center gap-6 sm:gap-10 lg:gap-16 mt-10 sm:mt-12 lg:mt-14 flex-wrap">
+            {logos.map((logo, index) => (
+              <motion.a
+                key={index}
+                href={logo.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 0.7, scale: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ opacity: 1, scale: 1.05 }}
+              >
+                <div className="relative w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 bg-gray-800/50 rounded-2xl overflow-hidden backdrop-blur-sm">
+                  <img
+                    src={logo.image}
+                    alt={logo.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </motion.a>
+            ))}
+          </div>
+                      
+                  
         </AnimatedSection>
+
+       
       </div>
     </section>
   );
