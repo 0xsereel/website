@@ -12,6 +12,9 @@ export const MobileMenu = () => {
       : "";
   };
 
+  const anchorHref = (id: string) => (location.pathname === "/" ? `#${id}` : `/#${id}`);
+  const closeMenu = () => setIsMobileMenuOpen(false);
+
   useEffect(() => {
     if (!isMobileMenuOpen) return;
 
@@ -31,29 +34,31 @@ export const MobileMenu = () => {
   return (
     <div
       id="mobile-navigation"
-      className={`mobile-menu ${isMobileMenuOpen ? "open" : "closed"}`}
+      className={`mobile-menu marketing-menu ${isMobileMenuOpen ? "open" : "closed"}`}
       aria-hidden={!isMobileMenuOpen}
     >
       <div className="top">
-        <Link className="brand" to="/" onClick={() => setIsMobileMenuOpen(false)}>
+        <Link className="brand" to="/" onClick={closeMenu}>
           <img src="/assets/glowing-logo.png" alt="Sereel" />
           <span className="name">SEREEL</span>
         </Link>
         <button
-          onClick={() => setIsMobileMenuOpen(false)}
-          className="pill ghost"
+          onClick={closeMenu}
+          className="marketing-menu-button"
           aria-label="Close menu"
         >
-          <span className="dot"></span>
           Close
         </button>
       </div>
       <div className="links-m">
-        <Link to="/standards" className={linkClass("/standards")} onClick={() => setIsMobileMenuOpen(false)}>Standards</Link>
-        <Link to="/about" className={linkClass("/about")} onClick={() => setIsMobileMenuOpen(false)}>About</Link>
-        <Link to="/blog" className={linkClass("/blog")} onClick={() => setIsMobileMenuOpen(false)}>Blog</Link>
-        <Link to="/contact" className={linkClass("/contact")} onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
-        <Link to="/faq" className={linkClass("/faq")} onClick={() => setIsMobileMenuOpen(false)}>FAQ</Link>
+        <a href={anchorHref("platform")} onClick={closeMenu}>Control system</a>
+        <a href={anchorHref("served")} onClick={closeMenu}>Dossiers</a>
+        <a href={anchorHref("use-cases")} onClick={closeMenu}>Ledger</a>
+        <Link to="/standards" className={linkClass("/standards")} onClick={closeMenu}>Standards</Link>
+        <Link to="/about" className={linkClass("/about")} onClick={closeMenu}>About</Link>
+        <Link to="/faq" className={linkClass("/faq")} onClick={closeMenu}>FAQ</Link>
+        <Link to="/blog" className={linkClass("/blog")} onClick={closeMenu}>Blog</Link>
+        <Link to="/contact" className={linkClass("/contact")} onClick={closeMenu}>Schedule consultation</Link>
       </div>
     </div>
   );

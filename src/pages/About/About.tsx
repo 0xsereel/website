@@ -4,12 +4,14 @@ export const About = () => {
       <section className="page-hero">
         <div className="mono eyebrow lit">[ About ]</div>
         <h1>
-          Binding traditional
-          <br />&amp; <span className="lit">decentralized</span> finance.
+          The infrastructure layer
+          <br />
+          behind <span className="lit">tokenized</span> finance.
         </h1>
         <p className="lede">
-          Sereel delivers the complete institutional stack. Secure wallets,
-          compliant tokenization, market connectivity, and strategic advisory.
+          Sereel provides compliant rails for issuance, custody, settlement,
+          investor controls, subscriptions, redemptions, and controlled
+          transfers.
         </p>
       </section>
 
@@ -26,17 +28,15 @@ export const About = () => {
         <div className="about-body">
           <p>
             Sereel operates where traditional finance meets digital assets. We
-            enable institutions to tokenize, custody, and trade any asset class
-            across any blockchain network, with{" "}
+            help institutions issue, custody, settle, and manage tokenized
+            financial products with{" "}
             <span className="lit">compliance enforced at the contract layer</span>.
           </p>
           <p>
-            Founded by blockchain engineers and financiers, we are pioneers in
-            turning idle capital into programmable, yield-bearing assets that
-            settle in minutes, not days. Secure enough for financial
-            institutions. Scalable enough for communities and entrepreneurs.
+            Issuers own the asset, documents, investor relationship,
+            obligations, and performance. Sereel owns the rails that make the
+            operating model programmable, controlled, and auditable.
           </p>
-          <p>We are redefining the physics of value.</p>
         </div>
 
         <div className="stat-grid">

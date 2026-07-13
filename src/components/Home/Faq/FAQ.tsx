@@ -35,6 +35,11 @@ const faqSections: FAQSection[] = [
           "No. Sereel is infrastructure for regulated financial products and real-world assets. While blockchain is used as the underlying technology, the focus is institutional investment infrastructure — not speculative cryptocurrency trading.",
       },
       {
+        question: "Is Sereel the issuer or asset sponsor?",
+        answer:
+          "No. Sereel provides the rails for issuance, custody, compliance controls, settlement, subscriptions, redemptions and controlled transfers. The issuer owns the asset, disclosures, investor relationship, obligations and performance.",
+      },
+      {
         question: "Who is Sereel built for?",
         answer:
           "Sereel is designed for asset managers, fund managers, banks, issuers, investment platforms, family offices, institutional investors, real estate developers, private credit managers, distribution partners and compliance teams.",
@@ -75,9 +80,9 @@ const faqSections: FAQSection[] = [
           "Multi-chain deployment helps issuers avoid dependence on one network and supports broader distribution and interoperability. It helps with investor reach, liquidity access, network resilience, ecosystem flexibility and future-proofing — especially as the tokenisation market continues to develop.",
       },
       {
-        question: "Why does Sereel use BSV?",
+        question: "Which networks does Sereel support?",
         answer:
-          "Sereel uses BSV for its low transaction costs, scalability and predictable network economics — making it suitable for enterprise issuance, settlement and recordkeeping where throughput and cost stability matter.",
+          "Sereel supports all EVM-compatible chains, Solana, Canton, Bitcoin, IOTA, public blockchain networks, private blockchain environments and ZKsync Prividium deployments. Network selection depends on the product structure, custody model, privacy requirements, investor access and regulatory needs.",
       },
     ],
   },

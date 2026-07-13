@@ -1,476 +1,558 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Reveal } from "../../components/Reveal";
 
-const citiesList = ["Chicago", "Nairobi", "Zürich", "Kigali", "Gaborone"];
+const railNodes = [
+  "Issuer",
+  "Product Rules",
+  "Custody",
+  "Tokenization",
+  "Subscriptions",
+  "Marketplace / Redemptions",
+  "Whitelisted Investors",
+];
+
+const proofPoints = [
+  "Launch governed products",
+  "Control investor access",
+  "Settle with records",
+  "Distribute through approved rails",
+  "Report lifecycle events",
+];
+
+const trustedPartners = [
+  {
+    name: "Globetec Asset Managers",
+    href: "https://globetec.co.ke/",
+    logo: "/images/partners/globetec-logo.png",
+  },
+  {
+    name: "GrowTokens",
+    href: "https://growtokens.io",
+    logo: "/images/partners/growtokens-logo.png",
+  },
+  {
+    name: "Future Wealth Group",
+    href: "https://futurewealthgroup.ch",
+    logo: "/images/partners/fwg.svg",
+  },
+  {
+    name: "Future Energy Global",
+    href: "https://fe.global",
+    logo: "/images/partners/fe.svg",
+  },
+  {
+    name: "FirmCorp Partners",
+    fallback: "FirmCorp",
+  },
+];
+
+const segments = [
+  {
+    name: "Asset Managers",
+    copy:
+      "Launch tokenized funds with investor gating, custody workflows, subscriptions, redemptions, and controlled secondary transfers.",
+    layers: ["Tokenization", "Compliance", "Subscriptions", "Marketplace"],
+  },
+  {
+    name: "Issuers",
+    copy:
+      "Launch tokenized debt, private credit, fixed-income, and structured products through permissioned rails.",
+    layers: ["Product rules", "Tokenization", "Settlement", "Reporting"],
+  },
+  {
+    name: "Custody-First Institutions",
+    copy:
+      "Adopt custody, multisig governance, wallet controls, permissions, and reporting before deploying the full tokenization stack.",
+    layers: ["Custody", "Multisigs", "Approvals", "Audit trails"],
+  },
+  {
+    name: "Fintechs",
+    copy:
+      "Embed compliant issuance and lifecycle workflows into investor-facing products through API-led rails.",
+    layers: ["APIs", "Investor gating", "Settlement", "White label"],
+  },
+  {
+    name: "Broker-Dealers",
+    copy:
+      "Operate permissioned orderbook and transfer workflows with eligibility checks before assets move.",
+    layers: ["Orderbook", "Transfer rules", "Custody", "Redemptions"],
+  },
+  {
+    name: "Family Offices",
+    copy:
+      "Coordinate custody, reporting, controlled transfers, and access to tokenized private-market products.",
+    layers: ["Custody", "Reporting", "Controlled transfers", "Strategy rails"],
+  },
+  {
+    name: "Institutional Strategy Teams",
+    copy:
+      "Run tokenized asset and treasury workflows with custody controls, risk policies, reporting, and settlement records.",
+    layers: ["Custody", "Policy controls", "Execution controls", "Settlement records"],
+  },
+];
+
+const stackLayers = [
+  {
+    title: "Custody + Wallet Controls",
+    detail:
+      "Role-based wallets, multisig approval paths, recovery design, and controlled operations for institutional teams.",
+    control: "Multisig approvals, recovery roles, treasury permissions",
+    record: "Wallet policy dossier",
+    outcome: "Teams can operate assets without losing institutional oversight.",
+  },
+  {
+    title: "Compliance + Transfer Rules",
+    detail:
+      "Investor eligibility, jurisdiction controls, holding restrictions, and permissioned transfer logic.",
+    control: "Eligibility, jurisdiction, holding, and transfer constraints",
+    record: "Transfer-control log",
+    outcome: "Unqualified transfers fail before ownership records move.",
+  },
+  {
+    title: "Tokenization Engine",
+    detail:
+      "Tokenized funds, debt, fixed income, private credit, and structured products with controls legal, operations, and investor teams can audit.",
+    control: "Product terms, ownership registers, issuer controls",
+    record: "Issuance register",
+    outcome: "Products launch with auditable ownership and lifecycle files.",
+  },
+  {
+    title: "Subscriptions + Settlement",
+    detail:
+      "Primary subscriptions, payment coordination, allocation workflows, settlement records, and lifecycle reporting.",
+    control: "Subscriptions, allocations, payment coordination",
+    record: "Subscription book",
+    outcome: "Primary capital movement is traceable from order to record.",
+  },
+  {
+    title: "Marketplace + Redemptions",
+    detail:
+      "Controlled secondary transfers, redemption workflows, orderbook constraints, and issuer-approved exits.",
+    control: "Issuer-approved exits and secondary-transfer constraints",
+    record: "Redemption queue",
+    outcome: "Liquidity workflows stay permissioned and reviewable.",
+  },
+  {
+    title: "Institutional Strategy Infrastructure",
+    detail:
+      "Institutional strategy workflows governed by custody, reporting, settlement, and risk controls.",
+    control: "Custody policy, risk thresholds, settlement reporting",
+    record: "Strategy operating file",
+    outcome: "On-chain strategies operate inside institutional guardrails.",
+  },
+];
+
+const ledgerRows = [
+  {
+    id: "01",
+    useCase: "Tokenized Funds",
+    institution: "Asset managers",
+    layers: "Custody, compliance, subscriptions, redemptions",
+    outcome: "Launch fund units with investor eligibility and lifecycle controls.",
+  },
+  {
+    id: "02",
+    useCase: "Fixed-Income Products",
+    institution: "Issuers and arrangers",
+    layers: "Tokenization, transfer rules, settlement",
+    outcome: "Operate permissioned debt or yield products with auditable ownership records.",
+  },
+  {
+    id: "03",
+    useCase: "Private Credit Products",
+    institution: "Credit managers",
+    layers: "Product rules, reporting, subscriptions",
+    outcome: "Distribute private credit exposure through controlled investor rails.",
+  },
+  {
+    id: "04",
+    useCase: "Custody-First Deployments",
+    institution: "Banks and treasury teams",
+    layers: "Wallet controls, multisigs, approvals, audit trails",
+    outcome: "Adopt institutional custody before broader tokenization rollout.",
+  },
+  {
+    id: "05",
+    useCase: "Controlled Marketplaces",
+    institution: "Broker-dealers and platforms",
+    layers: "Marketplace, eligibility, redemptions",
+    outcome: "Run orderbook workflows where only approved participants can transfer.",
+  },
+  {
+    id: "06",
+    useCase: "Institutional Strategy Workflows",
+    institution: "Strategy and treasury teams",
+    layers: "Custody, strategy controls, settlement",
+    outcome: "Operate tokenized asset and treasury workflows with reporting and operational guardrails.",
+  },
+];
+
+const standards = [
+  {
+    name: "ERC-3643",
+    role: "Permissioned transfer logic",
+    proof:
+      "Eligibility checks and compliance rules can be enforced before transfer execution.",
+  },
+  {
+    name: "CMTAT",
+    role: "Swiss capital markets token framework",
+    proof:
+      "Recognized token architecture for securities-style products and issuer controls.",
+  },
+  {
+    name: "VASP-ready",
+    role: "Regional regulatory coverage",
+    proof:
+      "Deployment models can align with custody, reporting, and digital-asset service rules.",
+  },
+  {
+    name: "Network coverage",
+    role: "Public and private blockchain deployment",
+    proof:
+      "Supports all EVM-compatible chains, Solana, Canton, Bitcoin, IOTA, public networks, private chains, and ZKsync Prividium environments.",
+  },
+];
+
+const issuerResponsibilities = [
+  "Asset",
+  "Disclosures",
+  "Investor relationship",
+  "Obligations",
+  "Product economics and performance",
+];
+
+const sereelResponsibilities = [
+  "Custody and multisig controls",
+  "Tokenization",
+  "Compliance controls",
+  "Settlement",
+  "Subscriptions / redemptions",
+  "Controlled transfers",
+];
+
+const CapitalRailsMap = () => {
+  return (
+    <div className="capital-rails-map" aria-label="Capital rails map">
+      <div className="rails-map-topline">
+        <span>Capital rails map</span>
+        <span>Permissioned flow</span>
+      </div>
+      <div className="rails-track" aria-hidden="true">
+        <span className="rails-line"></span>
+        <span className="rails-pulse pulse-one"></span>
+        <span className="rails-pulse pulse-two"></span>
+      </div>
+      <ol className="rail-nodes">
+        {railNodes.map((node) => (
+          <li key={node}>
+            <span className="node-pin"></span>
+            <span>{node}</span>
+          </li>
+        ))}
+      </ol>
+      <div className="rails-control">
+        <div>
+          <span className="control-label">Sereel rail layer</span>
+          <strong>Rules before movement</strong>
+        </div>
+        <img src="/assets/glowing-logo.png" alt="" aria-hidden="true" />
+      </div>
+    </div>
+  );
+};
 
 export const Home = () => {
-  const [cityIndex, setCityIndex] = useState(0);
-  const [fade, setFade] = useState(false);
-
-  useEffect(() => {
-    let timeout: ReturnType<typeof setTimeout>;
-    const interval = setInterval(() => {
-      setFade(true);
-      timeout = setTimeout(() => {
-        setCityIndex((i) => (i + 1) % citiesList.length);
-        setFade(false);
-      }, 400);
-    }, 2400);
-    return () => {
-      clearInterval(interval);
-      clearTimeout(timeout);
-    };
-  }, []);
+  const [activeSegment, setActiveSegment] = useState(0);
+  const [activeLayer, setActiveLayer] = useState(0);
+  const segment = segments[activeSegment];
+  const layer = stackLayers[activeLayer];
 
   return (
-    <>
-      <main className="wrap">
-        <section className="hero">
-          <div className="hero-meta">
-            <div className="left">
-              <span className="mono">Sereel Technologies</span>
-              <span className="mono est">
-                established in{" "}
-                <span className={`city ${fade ? "fade" : ""}`}>
-                  {citiesList[cityIndex]}
-                </span>
-              </span>
-            </div>
+    <main className="marketing-page">
+      <section className="marketing-hero wrap" aria-labelledby="home-hero-title">
+        <div className="hero-copy">
+          <p className="hero-kicker">Institutional tokenized finance</p>
+          <h1 id="home-hero-title">
+            Compliant rails for{" "}
+            <br />
+            tokenized capital markets.
+          </h1>
+          <p className="hero-subhead">
+            Sereel helps institutions issue, custody, settle, distribute, and
+            manage tokenized financial products and on-chain strategies across
+            public and private blockchain environments.
+          </p>
+          <div className="hero-actions" aria-label="Primary actions">
+            <Link className="market-cta primary" to="/contact">
+              Schedule consultation
+            </Link>
+            <a className="market-cta secondary" href="#platform">
+              View control system
+            </a>
           </div>
+        </div>
 
-          <div className="hero-grid">
-            <div>
-              <Reveal>
-                <h1>
-                  Tokenization,
-                  <br />
-                  built to <span className="lit">institutional</span>
-                  <br />
-                  standard.
-                </h1>
-              </Reveal>
-              <Reveal>
-                <p className="sub">
-                  Custody, issuance, and market rails for asset managers, banks,
-                  and family offices. Compliant by construction.
-                </p>
-              </Reveal>
-              <Reveal>
-                <div className="cta-row">
-                  <Link className="pill lg" to="/contact">
-                    <span className="dot"></span>Schedule consultation
-                  </Link>
-                  <Link className="pill lg ghost" to="/standards">
-                    <span className="dot"></span>See the standards
-                  </Link>
-                </div>
-              </Reveal>
-              <Reveal>
+        <CapitalRailsMap />
+      </section>
+
+      <section className="proof-strip" aria-label="Outcome proof points">
+        <div className="wrap proof-row">
+          {proofPoints.map((point) => (
+            <span key={point}>{point}</span>
+          ))}
+        </div>
+      </section>
+
+      <section className="trusted-rail" aria-labelledby="trusted-title">
+        <div className="wrap trusted-rail-inner">
+          <div>
+            <span className="panel-label">Trusted by</span>
+            <h2 id="trusted-title">Institutions building tokenized finance rails.</h2>
+          </div>
+          <div className="trusted-ledger" aria-label="Trusted partners">
+            {trustedPartners.map((partner) => {
+              const partnerMark = (
+                <>
+                  {partner.logo ? (
+                    <img src={partner.logo} alt="" aria-hidden="true" />
+                  ) : (
+                    <strong className="trusted-wordmark">{partner.fallback}</strong>
+                  )}
+                  <span>{partner.name}</span>
+                </>
+              );
+
+              return partner.href ? (
                 <a
-                  className="seal"
-                  href="https://cmta.ch/certification/recognized-experts"
+                  key={partner.name}
+                  href={partner.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="CMTA Recognized Tokenization Experts"
+                  aria-label={partner.name}
                 >
-                  <span className="stamp">
-                    <svg viewBox="0 0 46 46">
-                      <defs>
-                        <path
-                          id="circ"
-                          d="M 23,23 m -18,0 a 18,18 0 1,1 36,0 a 18,18 0 1,1 -36,0"
-                        />
-                      </defs>
-                      <text
-                        fontFamily="JetBrains Mono"
-                        fontSize="5"
-                        letterSpacing="1.4"
-                        fill="#6FE5A5"
-                      >
-                        <textPath href="#circ" startOffset="0">
-                          · SEREEL · CMTA · 2026 · SEREEL · CMTA · 2026{" "}
-                        </textPath>
-                      </text>
-                    </svg>
-                    <b>CMTA</b>
-                  </span>
-                  <span className="label">
-                    <b>CMTA</b> &amp; ERC3643 Standard Experts
-                  </span>
+                  {partnerMark}
                 </a>
-              </Reveal>
-            </div>
+              ) : (
+                <div
+                  key={partner.name}
+                  className="trusted-partner"
+                  aria-label={partner.name}
+                >
+                  {partnerMark}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
-            <div className="logo-stage">
-              <img src="/assets/glowing-logo.png" alt="Sereel logo" />
-            </div>
+      <section className="marketing-section served-section wrap" id="served">
+        <div className="section-copy compact">
+          <h2>Deployment dossiers</h2>
+          <p>
+            Institutions enter the system from different operating points. Each
+            dossier shows the controls, records, and workflows Sereel can carry.
+          </p>
+        </div>
+
+        <div className="segment-selector">
+          <div
+            className="segment-tabs"
+            role="tablist"
+            aria-label="Deployment dossiers"
+          >
+            {segments.map((item, index) => (
+              <button
+                key={item.name}
+                type="button"
+                role="tab"
+                id={`segment-tab-${index}`}
+                aria-selected={activeSegment === index}
+                aria-controls="segment-panel"
+                className={activeSegment === index ? "active" : ""}
+                onClick={() => setActiveSegment(index)}
+              >
+                {item.name}
+              </button>
+            ))}
           </div>
 
-          <div className="stats">
-            <div className="cell">
-              <div className="k display">
-                <span className="lit">8</span>
-              </div>
-              <div className="v mono">Chains supported</div>
-            </div>
-            <div className="cell">
-              <div className="k display">
-                T<span className="lit">+0</span>
-              </div>
-              <div className="v mono">Settlement</div>
-            </div>
-            <div className="cell">
-              <div className="k display">
-                <span className="lit">9</span>
-              </div>
-              <div className="v mono">Jurisdictions</div>
-            </div>
-            <div className="cell">
-              <div className="k display">
-                CMTA <span className="lit">&amp;</span> ERC-3643
-              </div>
-              <div className="v mono">Standard Experts</div>
+          <div
+            id="segment-panel"
+            className="segment-panel"
+            role="tabpanel"
+            aria-labelledby={`segment-tab-${activeSegment}`}
+          >
+            <span className="panel-label">Deployment dossier</span>
+            <h3>{segment.name}</h3>
+            <p>{segment.copy}</p>
+            <div className="segment-layer-list" aria-label="Rail controls included">
+              {segment.layers.map((item) => (
+                <span key={item}>{item}</span>
+              ))}
             </div>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
 
-      <section className="trusted">
-        <div className="wrap row">
-          <span className="mono">Trusted by</span>
-          <div className="by">
-            <span className="name"><a href="https://globetec.co.ke/" target="_blank" rel="noopener noreferrer">Globetec Asset Managers</a></span>
-            <span className="name"><a href="https://growtokens.io/" target="_blank" rel="noopener noreferrer">Growtokens</a></span>
-            <span className="name"><a href="https://futurewealthgroup.ch/" target="_blank" rel="noopener noreferrer">Future Wealth Group</a></span>
-            <span className="name"><a href="https://fe.global/" target="_blank" rel="noopener noreferrer">Future Energy Global</a></span>
-            <span className="name">FirmCorp Partners</span>
+      <section className="marketing-section stack-section" id="platform">
+        <div className="wrap">
+          <div className="section-copy">
+            <h2>The control system behind tokenized products.</h2>
+            <p>
+              Sereel can run as one operating layer or as specific rails for
+              custody, compliance, tokenization, settlement, marketplace
+              workflows, strategy controls, and public or private chain
+              deployment.
+            </p>
           </div>
-          <Link className="mono lit" to="/about">
-            Partners →
+
+          <div className="layer-system">
+            <div className="layer-list" aria-label="Sereel stack layers">
+              {stackLayers.map((item, index) => (
+                <button
+                  key={item.title}
+                  type="button"
+                  className={activeLayer === index ? "active" : ""}
+                  onClick={() => setActiveLayer(index)}
+                  onFocus={() => setActiveLayer(index)}
+                  onMouseEnter={() => setActiveLayer(index)}
+                  aria-pressed={activeLayer === index}
+                >
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  {item.title}
+                </button>
+              ))}
+            </div>
+
+            <div className="layer-detail" aria-live="polite">
+              <div className="register-head">
+                <span className="panel-label">Workflow register</span>
+                <span className="register-index">
+                  {String(activeLayer + 1).padStart(2, "0")} /{" "}
+                  {String(stackLayers.length).padStart(2, "0")}
+                </span>
+              </div>
+              <h3>{layer.title}</h3>
+              <p>{layer.detail}</p>
+              <div className="workflow-lines">
+                <div className="workflow-line">
+                  <span className="ledger-label">Control</span>
+                  <p>{layer.control}</p>
+                </div>
+                <div className="workflow-line">
+                  <span className="ledger-label">Record</span>
+                  <p>{layer.record}</p>
+                </div>
+                <div className="workflow-line">
+                  <span className="ledger-label">Buyer outcome</span>
+                  <p>{layer.outcome}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="marketing-section ledger-section wrap" id="use-cases">
+        <div className="section-copy compact">
+          <h2>Workflow ledger</h2>
+          <p>
+            Product dossiers for the capital-market workflows Sereel can power.
+          </p>
+        </div>
+
+        <div className="use-case-ledger">
+          {ledgerRows.map((row) => (
+            <article key={row.id} className="ledger-row">
+              <span className="ledger-id">{row.id}</span>
+              <div>
+                <h3>{row.useCase}</h3>
+                <p>{row.institution}</p>
+              </div>
+              <div>
+                <span className="ledger-label">Rail controls used</span>
+                <p>{row.layers}</p>
+              </div>
+              <div>
+                <span className="ledger-label">Outcome</span>
+                <p>{row.outcome}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="marketing-section responsibility-section">
+        <div className="wrap responsibility-grid">
+          <div className="section-copy compact">
+            <h2>Your asset. Your investors. Our rails.</h2>
+            <p>
+              Sereel provides the infrastructure layer for compliant issuance,
+              custody, settlement, investor controls, subscriptions,
+              redemptions, and controlled transfers. Issuers remain responsible
+              for the asset, offering documents, disclosures, investor
+              communications, obligations, product economics, and asset
+              performance. Sereel does not originate, underwrite, recommend, or
+              guarantee issuer assets or returns.
+            </p>
+          </div>
+
+          <div className="responsibility-ledger">
+            <div>
+              <h3>Issuer owns</h3>
+              <ul>
+                {issuerResponsibilities.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3>Sereel powers</h3>
+              <ul>
+                {sereelResponsibilities.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="marketing-section standards-proof wrap">
+        <div className="section-copy">
+          <h2>Standards where they matter. Invisible where they should be.</h2>
+          <p>
+            Sereel deploys recognized token standards and compliance frameworks
+            so institutions can launch without rebuilding legal and technical
+            rails from scratch across public and private networks.
+          </p>
+        </div>
+
+        <div className="standards-ledger">
+          {standards.map((standard) => (
+            <article key={standard.name}>
+              <strong>{standard.name}</strong>
+              <span>{standard.role}</span>
+              <p>{standard.proof}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="marketing-cta-band">
+        <div className="wrap">
+          <h2>Build the rails behind the product.</h2>
+          <p>
+            Bring Sereel into the architecture before legal, custody,
+            distribution, and settlement workflows harden.
+          </p>
+          <Link className="market-cta primary" to="/contact">
+            Schedule consultation
           </Link>
         </div>
       </section>
-
-      <div className="wrap">
-        <section className="build" id="build">
-          <div className="sec-head">
-            <div>
-              <div className="mono eyebrow lit">[ Platform ]</div>
-              <h2>
-                What we <span className="lit">build.</span>
-              </h2>
-            </div>
-            <p className="lede">
-              Four primitives. One platform. Each layer is independently
-              deployable. Pick the parts you need; integrate the rest.
-            </p>
-          </div>
-
-          <div className="stack">
-            <div className="item">
-              <div className="num">01 / Custody</div>
-              <div className="name">Enterprise wallet infrastructure</div>
-              <div className="desc">
-                Institutional-grade EOAs and custodied wallets built for
-                treasury operations and compliance.
-              </div>
-              <div className="tags">
-                <span className="tag">EOA</span>
-                <span className="tag">MPC</span>
-                <span className="tag">SSS</span>
-              </div>
-            </div>
-            <div className="item">
-              <div className="num">02 / Issuance</div>
-              <div className="name">Tokenization engine</div>
-              <div className="desc">
-                Compliant security tokens on the CMTA standard. The
-                institutional benchmark adopted by major Swiss banks.
-              </div>
-              <div className="tags">
-                <span className="tag">CMTAT</span>
-                <span className="tag">ERC-3643</span>
-                <span className="tag">CCIP</span>
-              </div>
-            </div>
-            <div className="item">
-              <div className="num">03 / Coverage</div>
-              <div className="name">Asset &amp; regulatory frameworks</div>
-              <div className="desc">
-                Equity, debt, private credit, stablecoins. African VASP regimes,
-                Reg S, Reg D, MiCA, Swiss DLT, Singapore MAS.
-              </div>
-              <div className="tags">
-                <span className="tag">Kenya VASP</span>
-                <span className="tag">Botswana</span>
-                <span className="tag">Rwanda</span>
-              </div>
-            </div>
-            <div className="item">
-              <div className="num">04 / Markets</div>
-              <div className="name">Settlement &amp; distribution rails</div>
-              <div className="desc">
-                Primary issuance, secondary connectivity, T+0 settlement. OTC
-                and exchange routes to institutional liquidity.
-              </div>
-              <div className="tags">
-                <span className="tag">T+0</span>
-                <span className="tag">OTC</span>
-                <span className="tag">DvP</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="standards" id="standards">
-          <div className="sec-head">
-            <div>
-              <div className="mono eyebrow lit">[ Standards ]</div>
-              <h2>
-                Built on <span className="lit">open</span> rails.
-              </h2>
-            </div>
-            <p className="lede">
-              We ship on the standards your counsel already recognizes. No
-              proprietary lock in. No re-papering when you scale.
-            </p>
-          </div>
-
-          <div className="spec-grid">
-            <div className="spec-card">
-              <span className="badge">● Standard 01</span>
-              <h3>
-                CMTA
-                <br />
-                <span className="glow-text">CMTAT</span>
-              </h3>
-              <div className="sub">
-                Capital Markets &amp; Technology Association
-              </div>
-              <p>
-                The Swiss tokenization framework adopted by major banks and
-                recognized by Singapore&apos;s Project Guardian. Sereel is one of the
-                few engineering teams certified to deploy on it.
-              </p>
-              <ul>
-                <li>
-                  Reference implementation for tokenized securities under Swiss
-                  DLT law
-                </li>
-                <li>
-                  40+ institutional members including UBS, SIX, and Sygnum
-                </li>
-                <li>
-                  Native compliance modules: transfer restrictions, snapshots,
-                  freeze
-                </li>
-                <li>
-                  Composable with ERC-3643 for permissioned transferability
-                </li>
-              </ul>
-            </div>
-            <div className="spec-card">
-              <span className="badge">● Standard 02</span>
-              <h3>
-                ERC
-                <br />
-                <span className="glow-text">3643</span>
-              </h3>
-              <div className="sub">Permissioned Token Standard / T-REX</div>
-              <p>
-                The leading EVM standard for compliant security tokens.
-                Identity-on-chain through ONCHAINID, with modular compliance
-                enforced at the contract layer.
-              </p>
-              <ul>
-                <li>
-                  Built-in eligibility checks: KYC, accreditation, jurisdiction
-                </li>
-                <li>
-                  ONCHAINID identity portability across issuers and chains
-                </li>
-                <li>
-                  Backed by Tokeny, Apex, ING, and 20+ regulated issuers
-                </li>
-                <li>
-                  Sereel deploys CMTAT + ERC-3643 hybrid contracts for
-                  cross-jurisdictional issuances
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section className="standards" style={{ paddingTop: 40 }}>
-          <div className="sec-head">
-            <div>
-              <div className="mono eyebrow lit">[ Coverage ]</div>
-              <h2>
-                Networks &amp; <span className="lit">jurisdictions.</span>
-              </h2>
-            </div>
-            <p className="lede">
-              Where Sereel runs, and the legal frameworks we ship under.
-            </p>
-          </div>
-
-          <div className="twocol">
-            <div className="col">
-              <h3>Networks</h3>
-              <ul>
-                <li>
-                  <div className="left">
-                    <span className="glyph"></span>Ethereum
-                  </div>
-                  <span className="meta">EVM</span>
-                </li>
-                <li>
-                  <div className="left">
-                    <span className="glyph"></span>Arbitrum
-                  </div>
-                  <span className="meta">EVM · L2</span>
-                </li>
-                <li>
-                  <div className="left">
-                    <span className="glyph"></span>Base
-                  </div>
-                  <span className="meta">EVM · L2</span>
-                </li>
-                <li>
-                  <div className="left">
-                    <span className="glyph"></span>Polygon
-                  </div>
-                  <span className="meta">EVM</span>
-                </li>
-                <li>
-                  <div className="left">
-                    <span className="glyph"></span>Optimism
-                  </div>
-                  <span className="meta">EVM · L2</span>
-                </li>
-                <li>
-                  <div className="left">
-                    <span className="glyph"></span>Solana
-                  </div>
-                  <span className="meta">SVM</span>
-                </li>
-                <li>
-                  <div className="left">
-                    <span className="glyph"></span>Starknet
-                  </div>
-                  <span className="meta">ZK</span>
-                </li>
-                <li>
-                  <div className="left">
-                    <span className="glyph"></span>IOTA
-                  </div>
-                  <span className="meta">DAG</span>
-                </li>
-                <li>
-                  <div className="left">
-                    <span className="glyph"></span>Canton Network
-                  </div>
-                  <span className="meta">Privacy</span>
-                </li>
-              </ul>
-            </div>
-            <div className="col">
-              <h3>Jurisdictions</h3>
-              <ul>
-                <li>
-                  <div className="left">
-                    <span className="glyph"></span>Kenya VASP Act
-                  </div>
-                  <span className="meta">KE</span>
-                </li>
-                <li>
-                  <div className="left">
-                    <span className="glyph"></span>Botswana VASP Act
-                  </div>
-                  <span className="meta">BW</span>
-                </li>
-                <li>
-                  <div className="left">
-                    <span className="glyph"></span>Rwanda VASP Act
-                  </div>
-                  <span className="meta">RW</span>
-                </li>
-                <li>
-                  <div className="left">
-                    <span className="glyph"></span>Regulation S
-                  </div>
-                  <span className="meta">Non-US</span>
-                </li>
-                <li>
-                  <div className="left">
-                    <span className="glyph"></span>Regulation D
-                  </div>
-                  <span className="meta">US · Accredited</span>
-                </li>
-                <li>
-                  <div className="left">
-                    <span className="glyph"></span>MiCA
-                  </div>
-                  <span className="meta">EU</span>
-                </li>
-                <li>
-                  <div className="left">
-                    <span className="glyph"></span>Swiss DLT
-                  </div>
-                  <span className="meta">CH</span>
-                </li>
-                <li>
-                  <div className="left">
-                    <span className="glyph"></span>MAS Guidelines
-                  </div>
-                  <span className="meta">SG</span>
-                </li>
-                <li>
-                  <div className="left">
-                    <span className="glyph"></span>Custom Counsel
-                  </div>
-                  <span className="meta">Bespoke</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <section className="quote">
-        <div className="wrap">
-          <p className="pull">
-            The next decade of finance will be{" "}
-            <span className="lit">tokenized.</span> Its infrastructure should
-            look, and behave, like the infrastructure it replaces.
-          </p>
-          <div className="attrib">
-            <span className="mono">/ Sereel thesis</span>
-            <span className="mono lit">2026</span>
-          </div>
-        </div>
-      </section>
-
-
-      <div className="wrap">
-        <section className="end" id="end">
-          <div className="card">
-            <span className="mono lit">[ Let&apos;s begin ]</span>
-            <h2 style={{ marginTop: 16 }}>
-              Architect your <span className="lit">tokenized</span> future.
-            </h2>
-            <div className="row">
-              <Link className="pill lg" to="/contact">
-                <span className="dot"></span>Schedule consultation
-              </Link>
-              <span className="mono">
-                team@sereel.com · Chicago · Nairobi · Zürich · Kigali · Gaborone
-              </span>
-            </div>
-          </div>
-        </section>
-      </div>
-    </>
+    </main>
   );
 };

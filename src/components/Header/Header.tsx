@@ -12,8 +12,10 @@ export const Header = () => {
     return base;
   };
 
+  const anchorHref = (id: string) => (location.pathname === "/" ? `#${id}` : `/#${id}`);
+
   return (
-    <nav className="top">
+    <nav className="top marketing-nav">
       <div className="wrap row">
         <div className="nav-group">
           <Link className="brand" to="/">
@@ -21,25 +23,26 @@ export const Header = () => {
             <span className="name">SEREEL</span>
           </Link>
           <div className="links">
+            <a href={anchorHref("platform")}>Control system</a>
+            <a href={anchorHref("served")}>Dossiers</a>
+            <a href={anchorHref("use-cases")}>Ledger</a>
             <Link to="/standards" className={linkClass("/standards")}>Standards</Link>
             <Link to="/about" className={linkClass("/about")}>About</Link>
-            <Link to="/blog" className={linkClass("/blog")}>Blog</Link>
             <Link to="/faq" className={linkClass("/faq")}>FAQ</Link>
+            <Link to="/blog" className={linkClass("/blog")}>Blog</Link>
           </div>
         </div>
         <div className="nav-actions">
-          <Link className="pill contact-btn" to="/contact">
-            <span className="dot"></span>
-            Contact
+          <Link className="marketing-nav-cta contact-btn" to="/contact">
+            Schedule consultation
           </Link>
           <button
             onClick={() => setIsMobileMenuOpen(true)}
-            className="pill ghost menu-btn"
+            className="marketing-menu-button menu-btn"
             aria-label="Open menu"
             aria-controls="mobile-navigation"
             aria-expanded={isMobileMenuOpen}
           >
-            <span className="dot"></span>
             Menu
           </button>
         </div>

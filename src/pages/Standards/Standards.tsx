@@ -4,13 +4,15 @@ export const Standards = () => {
       <section className="page-hero">
         <div className="mono eyebrow lit">[ Standards ]</div>
         <h1>
-          Open rails.
+          Standards where they matter.
           <br />
-          <span className="lit">Institutional</span> standards.
+          <span className="lit">Invisible</span> where they should be.
         </h1>
         <p className="lede">
-          We deploy on the standards your counsel already recognizes. No
-          proprietary lock in. No re-papering when you scale.
+          Sereel deploys recognized token standards and compliance frameworks so
+          institutions can launch across public and private blockchain
+          environments without rebuilding legal and technical rails from
+          scratch.
         </p>
       </section>
 
@@ -74,33 +76,9 @@ export const Standards = () => {
             <ul>
               <li>
                 <div className="left">
-                  <span className="glyph"></span>Ethereum
+                  <span className="glyph"></span>All EVM-compatible chains
                 </div>
                 <span className="meta">EVM</span>
-              </li>
-              <li>
-                <div className="left">
-                  <span className="glyph"></span>Arbitrum
-                </div>
-                <span className="meta">EVM · L2</span>
-              </li>
-              <li>
-                <div className="left">
-                  <span className="glyph"></span>Base
-                </div>
-                <span className="meta">EVM · L2</span>
-              </li>
-              <li>
-                <div className="left">
-                  <span className="glyph"></span>Polygon
-                </div>
-                <span className="meta">EVM</span>
-              </li>
-              <li>
-                <div className="left">
-                  <span className="glyph"></span>Optimism
-                </div>
-                <span className="meta">EVM · L2</span>
               </li>
               <li>
                 <div className="left">
@@ -110,9 +88,15 @@ export const Standards = () => {
               </li>
               <li>
                 <div className="left">
-                  <span className="glyph"></span>Starknet
+                  <span className="glyph"></span>Canton Network
                 </div>
-                <span className="meta">ZK</span>
+                <span className="meta">Privacy</span>
+              </li>
+              <li>
+                <div className="left">
+                  <span className="glyph"></span>Bitcoin
+                </div>
+                <span className="meta">BTC</span>
               </li>
               <li>
                 <div className="left">
@@ -122,9 +106,21 @@ export const Standards = () => {
               </li>
               <li>
                 <div className="left">
-                  <span className="glyph"></span>Canton Network
+                  <span className="glyph"></span>ZKsync Prividium
                 </div>
-                <span className="meta">Privacy</span>
+                <span className="meta">Private rollup</span>
+              </li>
+              <li>
+                <div className="left">
+                  <span className="glyph"></span>Private blockchain environments
+                </div>
+                <span className="meta">Permissioned</span>
+              </li>
+              <li>
+                <div className="left">
+                  <span className="glyph"></span>Public blockchain networks
+                </div>
+                <span className="meta">Open</span>
               </li>
             </ul>
           </div>
