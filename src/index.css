@@ -87,18 +87,7 @@ body::before {
 }
 
 body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background:
-    linear-gradient(112deg, transparent 0 18%, rgba(111,229,165,0.028) 18.1% 18.22%, transparent 18.34% 72%, rgba(111,229,165,0.022) 72.1% 72.2%, transparent 72.34%),
-    linear-gradient(90deg, transparent 0 9%, rgba(111,229,165,0.035) 9.08% 9.18%, transparent 9.3% 37%, rgba(111,229,165,0.026) 37.08% 37.16%, transparent 37.28% 68%, rgba(111,229,165,0.032) 68.06% 68.16%, transparent 68.28%),
-    radial-gradient(420px 180px at 16% 34%, rgba(111,229,165,0.035), transparent 68%),
-    radial-gradient(360px 140px at 78% 62%, rgba(28,163,110,0.03), transparent 72%);
-  mask-image: linear-gradient(180deg, transparent 0%, black 18%, black 68%, transparent 100%);
-  opacity: 0.9;
+  content: none;
 }
 
 .wrap { max-width: 1600px; margin: 0 auto; padding: 0 48px; position: relative; z-index: 2 }
@@ -1266,10 +1255,7 @@ html { scroll-behavior: smooth }
   pointer-events: none;
   background:
     radial-gradient(ellipse at 78% 34%, rgba(111,229,165,0.115), transparent 34%),
-    radial-gradient(ellipse at 18% 82%, rgba(111,229,165,0.045), transparent 38%),
-    linear-gradient(118deg, transparent 0 53%, rgba(111,229,165,0.13) 53.08% 53.18%, transparent 53.28%),
-    linear-gradient(90deg, transparent 0 67%, rgba(111,229,165,0.08) 67.05% 67.12%, transparent 67.22%),
-    linear-gradient(180deg, rgba(255,255,255,0.03), transparent 38%);
+    radial-gradient(ellipse at 18% 82%, rgba(111,229,165,0.045), transparent 38%);
   mask-image: linear-gradient(180deg, black 0 78%, transparent 100%);
 }
 
@@ -2022,9 +2008,7 @@ html { scroll-behavior: smooth }
 
   .marketing-hero::before {
     background:
-      radial-gradient(ellipse at 84% 12%, rgba(111,229,165,0.08), transparent 36%),
-      linear-gradient(118deg, transparent 0 60%, rgba(111,229,165,0.11) 60.08% 60.2%, transparent 60.3%),
-      linear-gradient(180deg, rgba(255,255,255,0.026), transparent 36%);
+      radial-gradient(ellipse at 84% 12%, rgba(111,229,165,0.08), transparent 36%);
   }
 
   .marketing-hero::after {
