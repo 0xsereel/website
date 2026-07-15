@@ -6,6 +6,8 @@ type TrustedPartner = {
   href?: string;
   logo?: string;
   logoTone?: "color" | "light";
+  logoSize?: "default" | "wide";
+  hideName?: boolean;
 };
 
 type Segment = {
@@ -30,6 +32,8 @@ const trustedPartners: TrustedPartner[] = [
     name: "Globetec Asset Managers",
     href: "https://globetec.co.ke/",
     logo: "/images/partners/globetec-logo.png",
+    logoSize: "wide",
+    hideName: true,
   },
   {
     name: "GrowTokens",
@@ -261,7 +265,7 @@ const PartnerProofLink = ({ partner }: { partner: TrustedPartner }) => {
   const content = (
     <>
       {partner.logo && <img src={partner.logo} alt="" aria-hidden="true" />}
-      <span>{partner.name}</span>
+      {!partner.hideName && <span>{partner.name}</span>}
     </>
   );
 
@@ -271,6 +275,7 @@ const PartnerProofLink = ({ partner }: { partner: TrustedPartner }) => {
         className="partner-proof-link"
         aria-label={partner.name}
         data-logo-tone={partner.logoTone ?? "color"}
+        data-logo-size={partner.logoSize ?? "default"}
       >
         {content}
       </div>
@@ -285,6 +290,7 @@ const PartnerProofLink = ({ partner }: { partner: TrustedPartner }) => {
       aria-label={partner.name}
       className="partner-proof-link"
       data-logo-tone={partner.logoTone ?? "color"}
+      data-logo-size={partner.logoSize ?? "default"}
     >
       {content}
     </a>
