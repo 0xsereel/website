@@ -83,7 +83,7 @@ const segments: Segment[] = [
     slug: "solution-fintechs",
     name: "Fintechs",
     copy:
-      "Embed compliant issuance and lifecycle workflows into investor-facing products through API-led rails.",
+      "Enable access to regulated funds and tokenized products through Sereel's seamless SDK.",
     layers: ["APIs", "Investor gating", "Settlement", "White label"],
   },
   {
@@ -522,7 +522,7 @@ export const Home = () => {
       <section className="marketing-section responsibility-section">
         <div className="wrap responsibility-grid">
           <div className="section-copy compact">
-            <h2>Your asset. Your investors. Our rails.</h2>
+            <h2>Your asset. Your investors. Sereel infrastructure.</h2>
             <p>
               Sereel provides the infrastructure layer for compliant issuance,
               custody, settlement, investor controls, subscriptions,

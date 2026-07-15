@@ -143,7 +143,7 @@ export const navigationMenus: NavigationMenu[] = [
       },
     ],
     feature: {
-      title: "Your product. Your investors. Our rails.",
+      title: "Your product. Your investors. Sereel infrastructure.",
       copy: "Sereel powers the infrastructure. Issuers own the asset.",
       cta: "Explore solutions",
       href: "/#served",

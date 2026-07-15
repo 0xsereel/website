@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import { ThemeToggle } from "../Header/ThemeToggle";
 
 type FooterLink = {
   label: string;
@@ -96,7 +97,10 @@ export const Footer = () => {
 
           <div className="legal">
             <span>© Sereel Technologies, Inc. 2026</span>
-            <span>Infrastructure provider, not issuer or asset sponsor</span>
+            <div className="footer-controls">
+              <span>Infrastructure provider, not issuer or asset sponsor</span>
+              <ThemeToggle className="footer-theme-toggle" />
+            </div>
           </div>
         </div>
       </footer>
@@ -150,7 +154,10 @@ export const Footer = () => {
         </div>
         <div className="legal">
           <span>© Sereel Technologies, Inc. 2026</span>
-          <span>All Rights Reserved</span>
+          <div className="footer-controls">
+            <span>All Rights Reserved</span>
+            <ThemeToggle className="footer-theme-toggle" />
+          </div>
         </div>
       </div>
     </footer>
