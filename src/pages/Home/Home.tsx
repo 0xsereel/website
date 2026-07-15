@@ -1,25 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const railNodes = [
-  "Issuer",
-  "Product Rules",
-  "Custody",
-  "Tokenization",
-  "Subscriptions",
-  "Marketplace / Redemptions",
-  "Whitelisted Investors",
-];
+type TrustedPartner = {
+  name: string;
+  href?: string;
+  logo?: string;
+};
 
-const proofPoints = [
-  "Launch governed products",
-  "Control investor access",
-  "Settle with records",
-  "Distribute through approved rails",
-  "Report lifecycle events",
-];
+type Segment = {
+  slug: string;
+  name: string;
+  copy: string;
+  layers: string[];
+};
 
-const trustedPartners = [
+type StackLayer = {
+  slug: string;
+  aliases?: string[];
+  title: string;
+  detail: string;
+  control: string;
+  record: string;
+  outcome: string;
+};
+
+const trustedPartners: TrustedPartner[] = [
   {
     name: "Globetec Asset Managers",
     href: "https://globetec.co.ke/",
@@ -42,57 +47,64 @@ const trustedPartners = [
   },
   {
     name: "FirmCorp Partners",
-    fallback: "FirmCorp",
   },
 ];
 
-const segments = [
+const segments: Segment[] = [
   {
+    slug: "solution-asset-managers",
     name: "Asset Managers",
     copy:
       "Launch tokenized funds with investor gating, custody workflows, subscriptions, redemptions, and controlled secondary transfers.",
     layers: ["Tokenization", "Compliance", "Subscriptions", "Marketplace"],
   },
   {
-    name: "Issuers",
+    slug: "solution-issuers-arrangers",
+    name: "Issuers & Arrangers",
     copy:
       "Launch tokenized debt, private credit, fixed-income, and structured products through permissioned rails.",
     layers: ["Product rules", "Tokenization", "Settlement", "Reporting"],
   },
   {
-    name: "Custody-First Institutions",
+    slug: "solution-banks-custodians",
+    name: "Banks & Custodians",
     copy:
       "Adopt custody, multisig governance, wallet controls, permissions, and reporting before deploying the full tokenization stack.",
     layers: ["Custody", "Multisigs", "Approvals", "Audit trails"],
   },
   {
+    slug: "solution-fintechs",
     name: "Fintechs",
     copy:
       "Embed compliant issuance and lifecycle workflows into investor-facing products through API-led rails.",
     layers: ["APIs", "Investor gating", "Settlement", "White label"],
   },
   {
-    name: "Broker-Dealers",
+    slug: "solution-broker-dealers-platforms",
+    name: "Broker-Dealers & Platforms",
     copy:
       "Operate permissioned orderbook and transfer workflows with eligibility checks before assets move.",
     layers: ["Orderbook", "Transfer rules", "Custody", "Redemptions"],
   },
   {
-    name: "Family Offices",
+    slug: "solution-family-offices-treasuries",
+    name: "Family Offices & Treasuries",
     copy:
       "Coordinate custody, reporting, controlled transfers, and access to tokenized private-market products.",
     layers: ["Custody", "Reporting", "Controlled transfers", "Strategy rails"],
   },
   {
+    slug: "solution-institutional-strategy-teams",
     name: "Institutional Strategy Teams",
     copy:
-      "Run tokenized asset and treasury workflows with custody controls, risk policies, reporting, and settlement records.",
-    layers: ["Custody", "Policy controls", "Execution controls", "Settlement records"],
+      "Run compliant DeFi strategies with custody controls, risk policies, reporting, and settlement records.",
+    layers: ["Custody", "DeFi strategy rails", "Risk controls", "Settlement records"],
   },
 ];
 
-const stackLayers = [
+const stackLayers: StackLayer[] = [
   {
+    slug: "product-custody",
     title: "Custody + Wallet Controls",
     detail:
       "Role-based wallets, multisig approval paths, recovery design, and controlled operations for institutional teams.",
@@ -101,6 +113,7 @@ const stackLayers = [
     outcome: "Teams can operate assets without losing institutional oversight.",
   },
   {
+    slug: "product-compliance",
     title: "Compliance + Transfer Rules",
     detail:
       "Investor eligibility, jurisdiction controls, holding restrictions, and permissioned transfer logic.",
@@ -109,6 +122,7 @@ const stackLayers = [
     outcome: "Unqualified transfers fail before ownership records move.",
   },
   {
+    slug: "product-tokenization",
     title: "Tokenization Engine",
     detail:
       "Tokenized funds, debt, fixed income, private credit, and structured products with controls legal, operations, and investor teams can audit.",
@@ -117,6 +131,8 @@ const stackLayers = [
     outcome: "Products launch with auditable ownership and lifecycle files.",
   },
   {
+    slug: "product-settlement",
+    aliases: ["product-marketplace-settlement", "product-lifecycle-reporting"],
     title: "Subscriptions + Settlement",
     detail:
       "Primary subscriptions, payment coordination, allocation workflows, settlement records, and lifecycle reporting.",
@@ -125,6 +141,8 @@ const stackLayers = [
     outcome: "Primary capital movement is traceable from order to record.",
   },
   {
+    slug: "product-marketplace",
+    aliases: ["product-controlled-distribution"],
     title: "Marketplace + Redemptions",
     detail:
       "Controlled secondary transfers, redemption workflows, orderbook constraints, and issuer-approved exits.",
@@ -133,6 +151,16 @@ const stackLayers = [
     outcome: "Liquidity workflows stay permissioned and reviewable.",
   },
   {
+    slug: "product-rwa-lending",
+    title: "Tokenized RWA Lending",
+    detail:
+      "Borrowing and lending rails for eligible tokenized real-world assets with custody, eligibility, collateral, and settlement controls.",
+    control: "Borrower eligibility, lender access, collateral permissions",
+    record: "Tokenized lending activity file",
+    outcome: "Institutions can run RWA credit workflows inside permissioned infrastructure.",
+  },
+  {
+    slug: "product-strategy",
     title: "Institutional Strategy Infrastructure",
     detail:
       "Institutional strategy workflows governed by custody, reporting, settlement, and risk controls.",
@@ -181,9 +209,10 @@ const ledgerRows = [
   {
     id: "06",
     useCase: "Institutional Strategy Workflows",
-    institution: "Strategy and treasury teams",
-    layers: "Custody, strategy controls, settlement",
-    outcome: "Operate tokenized asset and treasury workflows with reporting and operational guardrails.",
+    institution: "Institutions implementing compliant DeFi strategies",
+    layers: "Custody, DeFi strategy controls, settlement",
+    outcome:
+      "Implement compliant DeFi strategies with reporting and operational guardrails.",
   },
 ];
 
@@ -206,12 +235,6 @@ const standards = [
     proof:
       "Deployment models can align with custody, reporting, and digital-asset service rules.",
   },
-  {
-    name: "Network coverage",
-    role: "Public and private blockchain deployment",
-    proof:
-      "Supports all EVM-compatible chains, Solana, Canton, Bitcoin, IOTA, public networks, private chains, and ZKsync Prividium environments.",
-  },
 ];
 
 const issuerResponsibilities = [
@@ -231,34 +254,32 @@ const sereelResponsibilities = [
   "Controlled transfers",
 ];
 
-const CapitalRailsMap = () => {
+const PartnerProofLink = ({ partner }: { partner: TrustedPartner }) => {
+  const content = (
+    <>
+      {partner.logo && <img src={partner.logo} alt="" aria-hidden="true" />}
+      <span>{partner.name}</span>
+    </>
+  );
+
+  if (!partner.href) {
+    return (
+      <div className="partner-proof-link" aria-label={partner.name}>
+        {content}
+      </div>
+    );
+  }
+
   return (
-    <div className="capital-rails-map" aria-label="Capital rails map">
-      <div className="rails-map-topline">
-        <span>Capital rails map</span>
-        <span>Permissioned flow</span>
-      </div>
-      <div className="rails-track" aria-hidden="true">
-        <span className="rails-line"></span>
-        <span className="rails-pulse pulse-one"></span>
-        <span className="rails-pulse pulse-two"></span>
-      </div>
-      <ol className="rail-nodes">
-        {railNodes.map((node) => (
-          <li key={node}>
-            <span className="node-pin"></span>
-            <span>{node}</span>
-          </li>
-        ))}
-      </ol>
-      <div className="rails-control">
-        <div>
-          <span className="control-label">Sereel rail layer</span>
-          <strong>Rules before movement</strong>
-        </div>
-        <img src="/assets/glowing-logo.png" alt="" aria-hidden="true" />
-      </div>
-    </div>
+    <a
+      href={partner.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={partner.name}
+      className="partner-proof-link"
+    >
+      {content}
+    </a>
   );
 };
 
@@ -268,91 +289,90 @@ export const Home = () => {
   const segment = segments[activeSegment];
   const layer = stackLayers[activeLayer];
 
+  useEffect(() => {
+    const syncFromHash = () => {
+      const hash = window.location.hash.replace("#", "");
+      const segmentIndex = segments.findIndex((item) => item.slug === hash);
+      const layerIndex = stackLayers.findIndex(
+        (item) => item.slug === hash || item.aliases?.includes(hash)
+      );
+      const scrollToSection = (id: string) => {
+        const section = document.getElementById(id);
+        if (!section) return;
+
+        window.requestAnimationFrame(() => {
+          section.scrollIntoView({ block: "start" });
+        });
+      };
+
+      if (segmentIndex >= 0) {
+        setActiveSegment(segmentIndex);
+        scrollToSection("served");
+      }
+
+      if (layerIndex >= 0) {
+        setActiveLayer(layerIndex);
+        scrollToSection("platform");
+      }
+
+      if (hash === "standards") {
+        scrollToSection("standards");
+      }
+    };
+
+    syncFromHash();
+    window.addEventListener("hashchange", syncFromHash);
+
+    return () => window.removeEventListener("hashchange", syncFromHash);
+  }, []);
+
+  const selectSegment = (index: number) => {
+    setActiveSegment(index);
+    window.history.replaceState(null, "", `#${segments[index].slug}`);
+  };
+
+  const selectLayer = (index: number) => {
+    setActiveLayer(index);
+    window.history.replaceState(null, "", `#${stackLayers[index].slug}`);
+  };
+
   return (
     <main className="marketing-page">
       <section className="marketing-hero wrap" aria-labelledby="home-hero-title">
         <div className="hero-copy">
-          <p className="hero-kicker">Institutional tokenized finance</p>
-          <h1 id="home-hero-title">
-            Compliant rails for{" "}
-            <br />
-            tokenized capital markets.
-          </h1>
+          <p className="hero-kicker">Tokenized capital markets infrastructure</p>
+          <h1 id="home-hero-title">The rails behind tokenized capital markets.</h1>
           <p className="hero-subhead">
-            Sereel helps institutions issue, custody, settle, distribute, and
-            manage tokenized financial products and on-chain strategies across
-            public and private blockchain environments.
+            Tokenization, custody, compliance, settlement, and market rails for
+            issuer-owned financial products on public and private chains.
           </p>
-          <div className="hero-actions" aria-label="Primary actions">
+          <div className="hero-actions" aria-label="Primary action">
             <Link className="market-cta primary" to="/contact">
               Schedule consultation
             </Link>
-            <a className="market-cta secondary" href="#platform">
-              View control system
-            </a>
           </div>
         </div>
 
-        <CapitalRailsMap />
-      </section>
-
-      <section className="proof-strip" aria-label="Outcome proof points">
-        <div className="wrap proof-row">
-          {proofPoints.map((point) => (
-            <span key={point}>{point}</span>
-          ))}
+        <div className="logo-stage hero-logo-stage" aria-hidden="true">
+          <img src="/images/Hero/glowing_seree_logo_expanded.svg" alt="" />
         </div>
-      </section>
 
-      <section className="trusted-rail" aria-labelledby="trusted-title">
-        <div className="wrap trusted-rail-inner">
-          <div>
-            <span className="panel-label">Trusted by</span>
-            <h2 id="trusted-title">Institutions building tokenized finance rails.</h2>
-          </div>
-          <div className="trusted-ledger" aria-label="Trusted partners">
-            {trustedPartners.map((partner) => {
-              const partnerMark = (
-                <>
-                  {partner.logo ? (
-                    <img src={partner.logo} alt="" aria-hidden="true" />
-                  ) : (
-                    <strong className="trusted-wordmark">{partner.fallback}</strong>
-                  )}
-                  <span>{partner.name}</span>
-                </>
-              );
-
-              return partner.href ? (
-                <a
-                  key={partner.name}
-                  href={partner.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={partner.name}
-                >
-                  {partnerMark}
-                </a>
-              ) : (
-                <div
-                  key={partner.name}
-                  className="trusted-partner"
-                  aria-label={partner.name}
-                >
-                  {partnerMark}
-                </div>
-              );
-            })}
+        <div className="hero-bottom-rail" aria-label="Sereel proof">
+          <span className="proof-label">Working with</span>
+          <div className="partner-row" aria-label="Institutions and partners">
+            {trustedPartners.map((partner) => (
+              <PartnerProofLink key={partner.name} partner={partner} />
+            ))}
           </div>
         </div>
       </section>
 
       <section className="marketing-section served-section wrap" id="served">
         <div className="section-copy compact">
-          <h2>Deployment dossiers</h2>
+          <h2>Use cases</h2>
           <p>
             Institutions enter the system from different operating points. Each
-            dossier shows the controls, records, and workflows Sereel can carry.
+            use case shows the controls, records, and workflows Sereel can carry.
           </p>
         </div>
 
@@ -360,18 +380,18 @@ export const Home = () => {
           <div
             className="segment-tabs"
             role="tablist"
-            aria-label="Deployment dossiers"
+            aria-label="Use cases"
           >
             {segments.map((item, index) => (
               <button
                 key={item.name}
                 type="button"
                 role="tab"
-                id={`segment-tab-${index}`}
+                id={item.slug}
                 aria-selected={activeSegment === index}
                 aria-controls="segment-panel"
                 className={activeSegment === index ? "active" : ""}
-                onClick={() => setActiveSegment(index)}
+                onClick={() => selectSegment(index)}
               >
                 {item.name}
               </button>
@@ -382,9 +402,9 @@ export const Home = () => {
             id="segment-panel"
             className="segment-panel"
             role="tabpanel"
-            aria-labelledby={`segment-tab-${activeSegment}`}
+            aria-labelledby={segment.slug}
           >
-            <span className="panel-label">Deployment dossier</span>
+            <span className="panel-label">Use case</span>
             <h3>{segment.name}</h3>
             <p>{segment.copy}</p>
             <div className="segment-layer-list" aria-label="Rail controls included">
@@ -414,8 +434,9 @@ export const Home = () => {
                 <button
                   key={item.title}
                   type="button"
+                  id={item.slug}
                   className={activeLayer === index ? "active" : ""}
-                  onClick={() => setActiveLayer(index)}
+                  onClick={() => selectLayer(index)}
                   onFocus={() => setActiveLayer(index)}
                   onMouseEnter={() => setActiveLayer(index)}
                   aria-pressed={activeLayer === index}
@@ -520,13 +541,13 @@ export const Home = () => {
         </div>
       </section>
 
-      <section className="marketing-section standards-proof wrap">
+      <section className="marketing-section standards-proof wrap" id="standards">
         <div className="section-copy">
           <h2>Standards where they matter. Invisible where they should be.</h2>
           <p>
             Sereel deploys recognized token standards and compliance frameworks
             so institutions can launch without rebuilding legal and technical
-            rails from scratch across public and private networks.
+            rails from scratch.
           </p>
         </div>
 
