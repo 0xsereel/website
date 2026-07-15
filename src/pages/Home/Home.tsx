@@ -5,6 +5,7 @@ type TrustedPartner = {
   name: string;
   href?: string;
   logo?: string;
+  logoTone?: "color" | "light";
 };
 
 type Segment = {
@@ -39,11 +40,13 @@ const trustedPartners: TrustedPartner[] = [
     name: "Future Wealth Group",
     href: "https://futurewealthgroup.ch",
     logo: "/images/partners/fwg.svg",
+    logoTone: "light",
   },
   {
     name: "Future Energy Global",
     href: "https://fe.global",
     logo: "/images/partners/fe.svg",
+    logoTone: "light",
   },
   {
     name: "FirmCorp Partners",
@@ -264,7 +267,11 @@ const PartnerProofLink = ({ partner }: { partner: TrustedPartner }) => {
 
   if (!partner.href) {
     return (
-      <div className="partner-proof-link" aria-label={partner.name}>
+      <div
+        className="partner-proof-link"
+        aria-label={partner.name}
+        data-logo-tone={partner.logoTone ?? "color"}
+      >
         {content}
       </div>
     );
@@ -277,6 +284,7 @@ const PartnerProofLink = ({ partner }: { partner: TrustedPartner }) => {
       rel="noopener noreferrer"
       aria-label={partner.name}
       className="partner-proof-link"
+      data-logo-tone={partner.logoTone ?? "color"}
     >
       {content}
     </a>
