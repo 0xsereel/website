@@ -42,6 +42,46 @@ export const Header = () => {
     setOpenMenu(null);
   }, [location.pathname, location.hash]);
 
+  const isHome = location.pathname === "/";
+  const [brandReveal, setBrandReveal] = useState(isHome ? 0 : 1);
+
+  useEffect(() => {
+    if (!isHome) {
+      setBrandReveal(1);
+      return;
+    }
+
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const stage = document.querySelector(".hero-logo-stage");
+      const navBottom = navRef.current?.getBoundingClientRect().bottom ?? 78;
+      if (!stage || getComputedStyle(stage).display === "none") {
+        setBrandReveal(1);
+        return;
+      }
+      const fadeRange = 240;
+      const stageBottom = stage.getBoundingClientRect().bottom;
+      const reveal = Math.min(
+        1,
+        Math.max(0, (navBottom + fadeRange - stageBottom) / fadeRange)
+      );
+      setBrandReveal(reveal);
+    };
+    const onScroll = () => {
+      if (!frame) frame = window.requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      if (frame) window.cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, [isHome]);
+
   useEffect(() => {
     const closeOnEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") setOpenMenu(null);
@@ -153,7 +193,11 @@ export const Header = () => {
       <div className="wrap row">
         <div className="nav-group">
           <Link className="brand" to="/">
-            <img src="/assets/glowing-logo.png" alt="Sereel" />
+            <img
+              src="/assets/glowing-logo.png"
+              alt="Sereel"
+              style={{ opacity: brandReveal }}
+            />
             <span className="name">SEREEL</span>
           </Link>
           <div className="institutional-links" aria-label="Primary navigation">

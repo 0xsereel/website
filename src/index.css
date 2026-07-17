@@ -256,6 +256,10 @@ nav.top .row {
   max-width: clamp(280px, 24vw, 440px);
 }
 
+.about-hero .hero-logo-stage img {
+  transform: scale(2.4);
+}
+
 @media (max-width: 1040px) {
   .about-hero { grid-template-columns: 1fr; }
 }
@@ -1442,6 +1446,8 @@ html { scroll-behavior: smooth }
   display: block;
   width: 100%;
   height: auto;
+  transform: scale(2.2);
+  transform-origin: center;
   animation: none;
   filter:
     brightness(0.98)

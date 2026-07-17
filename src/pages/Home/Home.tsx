@@ -381,13 +381,6 @@ export const Home = () => {
             </div>
 
             <div className="layer-detail" aria-live="polite">
-              <div className="register-head">
-                <span className="panel-label">Workflow register</span>
-                <span className="register-index">
-                  {String(activeLayer + 1).padStart(2, "0")} /{" "}
-                  {String(stackLayers.length).padStart(2, "0")}
-                </span>
-              </div>
               <h3>{layer.title}</h3>
               <p>{layer.detail}</p>
               <div className="workflow-lines">

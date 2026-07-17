@@ -159,7 +159,7 @@ export const navigationMenus: NavigationMenu[] = [
         items: [
           { title: "Blog", href: "/blog" },
           {
-            title: "Whitepapers",
+            title: "Whitepaper",
             href: "/whitepapers/sereel-whitepaper.pdf",
             asset: true,
           },

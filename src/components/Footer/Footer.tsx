@@ -43,7 +43,7 @@ export const Footer = () => {
       title: "Resources",
       links: [
         { label: "Blog", to: "/blog" },
-        { label: "Whitepapers", href: "/whitepapers/sereel-whitepaper.pdf", asset: true },
+        { label: "Whitepaper", href: "/whitepapers/sereel-whitepaper.pdf", asset: true },
         { label: "Standards", to: "/standards" },
         { label: "FAQ", to: "/faq" },
       ],
