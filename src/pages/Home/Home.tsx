@@ -281,7 +281,6 @@ export const Home = () => {
     <main className="marketing-page">
       <section className="marketing-hero wrap" aria-labelledby="home-hero-title">
         <div className="hero-copy">
-          <p className="hero-kicker">Tokenized capital markets infrastructure</p>
           <h1 id="home-hero-title">The rails behind tokenized capital markets.</h1>
           <p className="hero-subhead">
             Tokenization, custody, compliance, settlement, and market rails for
