@@ -198,7 +198,14 @@ export const Header = () => {
               alt="Sereel"
               style={{ opacity: brandReveal }}
             />
-            <span className="name">SEREEL</span>
+            <span
+              className="name"
+              style={{
+                transform: `translateX(${-39 * (1 - brandReveal)}px)`,
+              }}
+            >
+              SEREEL
+            </span>
           </Link>
           <div className="institutional-links" aria-label="Primary navigation">
             {navigationMenus.map((menu) => (

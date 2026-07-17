@@ -1396,20 +1396,7 @@ html { scroll-behavior: smooth }
 }
 
 .marketing-hero::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 44%;
-  right: clamp(28px, 9vw, 160px);
-  width: 7px;
-  height: 7px;
-  border-radius: 999px;
-  background: var(--accent);
-  box-shadow:
-    0 0 14px rgba(22,139,96,0.28),
-    0 0 38px rgba(22,139,96,0.12);
-  opacity: 0;
-  transform: translate3d(-360px, 40px, 0);
+  content: none;
 }
 
 .hero-copy {
