@@ -1,15 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-type TrustedPartner = {
-  name: string;
-  href?: string;
-  logo?: string;
-  logoTone?: "color" | "light";
-  logoSize?: "default" | "wide";
-  hideName?: boolean;
-};
-
 type Segment = {
   slug: string;
   name: string;
@@ -26,36 +17,6 @@ type StackLayer = {
   record: string;
   outcome: string;
 };
-
-const trustedPartners: TrustedPartner[] = [
-  {
-    name: "Globetec Asset Managers",
-    href: "https://globetec.co.ke/",
-    logo: "/images/partners/globetec-logo.png",
-    logoSize: "wide",
-    hideName: true,
-  },
-  {
-    name: "GrowTokens",
-    href: "https://growtokens.io",
-    logo: "/images/partners/growtokens-logo.png",
-  },
-  {
-    name: "Future Wealth Group",
-    href: "https://futurewealthgroup.ch",
-    logo: "/images/partners/fwg.svg",
-    logoTone: "light",
-  },
-  {
-    name: "Future Energy Global",
-    href: "https://fe.global",
-    logo: "/images/partners/fe.svg",
-    logoTone: "light",
-  },
-  {
-    name: "FirmCorp Partners",
-  },
-];
 
 const segments: Segment[] = [
   {
@@ -123,7 +84,7 @@ const stackLayers: StackLayer[] = [
     slug: "product-compliance",
     title: "Compliance + Transfer Rules",
     detail:
-      "Investor eligibility, jurisdiction controls, holding restrictions, and permissioned transfer logic.",
+      "Issuer-defined investor eligibility, jurisdiction controls, holding restrictions, and permissioned transfer logic.",
     control: "Eligibility, jurisdiction, holding, and transfer constraints",
     record: "Transfer-control log",
     outcome: "Unqualified transfers fail before ownership records move.",
@@ -132,7 +93,7 @@ const stackLayers: StackLayer[] = [
     slug: "product-tokenization",
     title: "Tokenization Engine",
     detail:
-      "Tokenized funds, debt, fixed income, private credit, and structured products with controls legal, operations, and investor teams can audit.",
+      "Issuers launch tokenized funds, debt, fixed income, private credit, and structured products with controls their legal, operations, and investor teams can audit.",
     control: "Product terms, ownership registers, issuer controls",
     record: "Issuance register",
     outcome: "Products launch with auditable ownership and lifecycle files.",
@@ -142,7 +103,7 @@ const stackLayers: StackLayer[] = [
     aliases: ["product-marketplace-settlement", "product-lifecycle-reporting"],
     title: "Subscriptions + Settlement",
     detail:
-      "Primary subscriptions, payment coordination, allocation workflows, settlement records, and lifecycle reporting.",
+      "Fund managers run primary subscriptions, payment coordination, allocation workflows, settlement records, and lifecycle reporting through Sereel.",
     control: "Subscriptions, allocations, payment coordination",
     record: "Subscription book",
     outcome: "Primary capital movement is traceable from order to record.",
@@ -229,18 +190,21 @@ const standards = [
     role: "Permissioned transfer logic",
     proof:
       "Eligibility checks and compliance rules can be enforced before transfer execution.",
+    href: "/standards",
   },
   {
     name: "CMTAT",
     role: "Swiss capital markets token framework",
     proof:
       "Recognized token architecture for securities-style products and issuer controls.",
+    href: "/standards",
   },
   {
     name: "VASP-ready",
     role: "Regional regulatory coverage",
     proof:
       "Deployment models can align with custody, reporting, and digital-asset service rules.",
+    href: "/standards",
   },
 ];
 
@@ -258,44 +222,7 @@ const sereelResponsibilities = [
   "Compliance controls",
   "Settlement",
   "Subscriptions / redemptions",
-  "Controlled transfers",
 ];
-
-const PartnerProofLink = ({ partner }: { partner: TrustedPartner }) => {
-  const content = (
-    <>
-      {partner.logo && <img src={partner.logo} alt="" aria-hidden="true" />}
-      {!partner.hideName && <span>{partner.name}</span>}
-    </>
-  );
-
-  if (!partner.href) {
-    return (
-      <div
-        className="partner-proof-link"
-        aria-label={partner.name}
-        data-logo-tone={partner.logoTone ?? "color"}
-        data-logo-size={partner.logoSize ?? "default"}
-      >
-        {content}
-      </div>
-    );
-  }
-
-  return (
-    <a
-      href={partner.href}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={partner.name}
-      className="partner-proof-link"
-      data-logo-tone={partner.logoTone ?? "color"}
-      data-logo-size={partner.logoSize ?? "default"}
-    >
-      {content}
-    </a>
-  );
-};
 
 export const Home = () => {
   const [activeSegment, setActiveSegment] = useState(0);
@@ -370,15 +297,6 @@ export const Home = () => {
         <div className="logo-stage hero-logo-stage" aria-hidden="true">
           <img src="/images/Hero/glowing_seree_logo_expanded.svg" alt="" />
         </div>
-
-        <div className="hero-bottom-rail" aria-label="Sereel proof">
-          <span className="proof-label">Working with</span>
-          <div className="partner-row" aria-label="Institutions and partners">
-            {trustedPartners.map((partner) => (
-              <PartnerProofLink key={partner.name} partner={partner} />
-            ))}
-          </div>
-        </div>
       </section>
 
       <section className="marketing-section served-section wrap" id="served">
@@ -386,7 +304,8 @@ export const Home = () => {
           <h2>Use cases</h2>
           <p>
             Institutions enter the system from different operating points. Each
-            use case shows the controls, records, and workflows Sereel can carry.
+            use case shows the controls, records, and workflows institutions run
+            through Sereel.
           </p>
         </div>
 
@@ -494,7 +413,8 @@ export const Home = () => {
         <div className="section-copy compact">
           <h2>Workflow ledger</h2>
           <p>
-            Product dossiers for the capital-market workflows Sereel can power.
+            Product dossiers for the capital-market workflows issuers and fund
+            managers run on Sereel.
           </p>
         </div>
 
@@ -568,7 +488,9 @@ export const Home = () => {
         <div className="standards-ledger">
           {standards.map((standard) => (
             <article key={standard.name}>
-              <strong>{standard.name}</strong>
+              <strong>
+                <Link to={standard.href}>{standard.name}</Link>
+              </strong>
               <span>{standard.role}</span>
               <p>{standard.proof}</p>
             </article>

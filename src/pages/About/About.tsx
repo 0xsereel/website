@@ -77,9 +77,7 @@ export const About = () => {
         </div>
         <div className="locations five">
           <div className="loc">
-            <div className="name lit" style={{ color: "var(--accent)" }}>
-              Chicago
-            </div>
+            <div className="name">Chicago</div>
             <div className="country mono">USA · Capital markets</div>
           </div>
           <div className="loc">
@@ -115,7 +113,6 @@ export const About = () => {
             on-chain economy. Architects of next-gen finance.
           </p>
         </div>
-        <img src="/images/team/image.png" alt="Sereel team" style={{ width: "100%", borderRadius: 18, border: "1px solid var(--rule-2)", marginTop: 48 }} />
       </section>
     </main>
   );

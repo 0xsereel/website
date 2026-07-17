@@ -11,10 +11,10 @@ export type ThemeMode = "dark" | "light";
 const THEME_STORAGE_KEY = "sereel-theme";
 
 const getInitialTheme = (): ThemeMode => {
-  if (typeof window === "undefined") return "dark";
+  if (typeof window === "undefined") return "light";
 
   const storedTheme = window.localStorage.getItem(THEME_STORAGE_KEY);
-  return storedTheme === "light" || storedTheme === "dark" ? storedTheme : "dark";
+  return storedTheme === "light" || storedTheme === "dark" ? storedTheme : "light";
 };
 
 interface GlobalContextType {

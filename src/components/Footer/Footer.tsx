@@ -52,7 +52,6 @@ export const Footer = () => {
       title: "Company",
       links: [
         { label: "About", to: "/about" },
-        { label: "Partners", to: "/partnerships" },
         { label: "Contact", to: "/contact" },
       ],
     },
@@ -123,7 +122,6 @@ export const Footer = () => {
             <ul>
               <li><Link to="/about">About</Link></li>
               <li><Link to="/entities">Entities</Link></li>
-              <li><Link to="/partnerships">Partnerships</Link></li>
             </ul>
           </div>
           <div className="col">

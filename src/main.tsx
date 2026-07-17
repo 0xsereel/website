@@ -6,7 +6,7 @@ import App from "./App.tsx";
 import { GlobalProvider } from "./contexts/globals.tsx";
 
 const storedTheme = window.localStorage.getItem("sereel-theme");
-const initialTheme = storedTheme === "light" ? "light" : "dark";
+const initialTheme = storedTheme === "dark" ? "dark" : "light";
 document.documentElement.dataset.theme = initialTheme;
 document.documentElement.style.colorScheme = initialTheme;
 

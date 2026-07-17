@@ -1,4 +1,10 @@
-import { type FocusEvent, useEffect, useRef, useState } from "react";
+import {
+  type CSSProperties,
+  type FocusEvent,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useGlobal } from "../../contexts/globals";
 import {
@@ -11,9 +17,26 @@ export const Header = () => {
   const { isMobileMenuOpen, setIsMobileMenuOpen } = useGlobal();
   const location = useLocation();
   const [openMenu, setOpenMenu] = useState<NavigationMenuKey | null>(null);
+  const [panelLeft, setPanelLeft] = useState(0);
   const navRef = useRef<HTMLElement | null>(null);
+  const triggerRefs = useRef<Record<string, HTMLButtonElement | null>>({});
 
   const activeMenu = navigationMenus.find((menu) => menu.key === openMenu);
+
+  useEffect(() => {
+    if (!openMenu) return;
+    const updatePanelLeft = () => {
+      const nav = navRef.current;
+      const trigger = triggerRefs.current[openMenu];
+      if (!nav || !trigger) return;
+      const left =
+        trigger.getBoundingClientRect().left - nav.getBoundingClientRect().left;
+      setPanelLeft(left);
+    };
+    updatePanelLeft();
+    window.addEventListener("resize", updatePanelLeft);
+    return () => window.removeEventListener("resize", updatePanelLeft);
+  }, [openMenu]);
 
   useEffect(() => {
     setOpenMenu(null);
@@ -55,7 +78,7 @@ export const Header = () => {
       );
     }
     if (key === "company") {
-      return ["/about", "/partnerships", "/contact"].some((path) =>
+      return ["/about", "/contact"].some((path) =>
         location.pathname === path || location.pathname.startsWith(`${path}/`)
       );
     }
@@ -138,6 +161,9 @@ export const Header = () => {
               <button
                 key={menu.key}
                 id={`nav-trigger-${menu.key}`}
+                ref={(el) => {
+                  triggerRefs.current[menu.key] = el;
+                }}
                 type="button"
                 className={`institutional-nav-trigger ${
                   isTopLevelActive(menu.key) ? "active" : ""
@@ -175,6 +201,7 @@ export const Header = () => {
           className={`institutional-mega-panel is-${activeMenu.key} ${
             activeMenu.compact ? "is-compact" : ""
           }`}
+          style={{ "--panel-left": `${panelLeft}px` } as CSSProperties}
           role="region"
           aria-labelledby={`nav-trigger-${activeMenu.key}`}
         >

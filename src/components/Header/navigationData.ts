@@ -179,7 +179,6 @@ export const navigationMenus: NavigationMenu[] = [
         title: "Company",
         items: [
           { title: "About", href: "/about" },
-          { title: "Partners", href: "/partnerships" },
           { title: "Contact", href: "/contact" },
         ],
       },
