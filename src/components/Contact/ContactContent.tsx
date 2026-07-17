@@ -174,8 +174,6 @@ export const ContactContent = () => {
                 <span>Chicago</span>
                 <span>Nairobi</span>
                 <span>Zürich</span>
-                <span>Kigali</span>
-                <span>Gaborone</span>
               </div>
             </div>
           </div>

@@ -1,18 +1,24 @@
 export const About = () => {
   return (
     <main className="wrap">
-      <section className="page-hero">
-        <div className="mono eyebrow lit">[ About ]</div>
-        <h1>
-          The infrastructure layer
-          <br />
-          behind <span className="lit">tokenized</span> finance.
-        </h1>
-        <p className="lede">
-          Sereel provides compliant rails for issuance, custody, settlement,
-          investor controls, subscriptions, redemptions, and controlled
-          transfers.
-        </p>
+      <section className="page-hero about-hero">
+        <div>
+          <div className="mono eyebrow lit">[ About ]</div>
+          <h1>
+            The infrastructure layer
+            <br />
+            behind <span className="lit">tokenized</span> finance.
+          </h1>
+          <p className="lede">
+            Sereel provides compliant rails for issuance, custody, settlement,
+            investor controls, subscriptions, redemptions, and controlled
+            transfers.
+          </p>
+        </div>
+
+        <div className="logo-stage hero-logo-stage" aria-hidden="true">
+          <img src="/images/Hero/glowing_seree_logo_expanded.svg" alt="" />
+        </div>
       </section>
 
       <section className="section">
@@ -70,12 +76,12 @@ export const About = () => {
             </h2>
           </div>
           <p className="lede">
-            We have established a presence in five countries across three
+            We have established a presence in three countries across three
             continents, aligned with regulatory regimes that matter for
             institutional tokenization. Built for regulatory interoperability.
           </p>
         </div>
-        <div className="locations five">
+        <div className="locations three">
           <div className="loc">
             <div className="name">Chicago</div>
             <div className="country mono">USA · Capital markets</div>
@@ -88,30 +94,6 @@ export const About = () => {
             <div className="name">Zürich</div>
             <div className="country mono">CH · Standards &amp; banks</div>
           </div>
-          <div className="loc">
-            <div className="name">Kigali</div>
-            <div className="country mono">Rwanda · VASP</div>
-          </div>
-          <div className="loc">
-            <div className="name">Gaborone</div>
-            <div className="country mono">Botswana · VASP</div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="sec-head">
-          <div>
-            <div className="mono eyebrow lit">[ Team ]</div>
-            <h2>
-              The people <span className="lit">behind it.</span>
-            </h2>
-          </div>
-          <p className="lede">
-            Blockchain engineers and fintech operators advised by capital
-            markets veterans. Builders who have shipped and contributed to the
-            on-chain economy. Architects of next-gen finance.
-          </p>
         </div>
       </section>
     </main>
