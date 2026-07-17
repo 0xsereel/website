@@ -84,15 +84,15 @@ export const About = () => {
         <div className="locations three">
           <div className="loc">
             <div className="name">Chicago</div>
-            <div className="country mono">USA · Capital markets</div>
+            <div className="country mono">USA</div>
           </div>
           <div className="loc">
             <div className="name">Nairobi</div>
-            <div className="country mono">Kenya · East Africa HQ</div>
+            <div className="country mono">Kenya</div>
           </div>
           <div className="loc">
             <div className="name">Zürich</div>
-            <div className="country mono">CH · Standards &amp; banks</div>
+            <div className="country mono">Switzerland</div>
           </div>
         </div>
       </section>
