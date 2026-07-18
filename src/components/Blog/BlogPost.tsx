@@ -75,7 +75,7 @@ export const BlogPost = () => {
   return (
     <main className="wrap">
       <section className="page-hero">
-        <div className="mono eyebrow lit">[ Journal ]</div>
+        <div className="mono eyebrow lit">Journal</div>
         <h1>{blog.title}</h1>
         <p className="lede" style={{ marginTop: 16 }}>
           <span className="mono">{blog.date}</span>

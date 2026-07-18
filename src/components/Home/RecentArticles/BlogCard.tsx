@@ -40,28 +40,30 @@ const BlogCard = ({ blog, index }: { blog: BlogTypes; index: number }) => {
                 whileHover={{ opacity: 1 }}
               />
               <motion.div
-                className="absolute bottom-0 left-0 right-0 p-4"
+                className="absolute bottom-0 left-0 right-0 px-6 pb-5 pt-4"
+                style={{ display: "flex", justifyContent: "center" }}
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-white font-gilroy-bold text-lg line-clamp-2">
+                <h3 className="text-white font-gilroy-bold text-lg line-clamp-2" style={{ margin: 0, textAlign: "center", maxWidth: 320 }}>
                   {blog.title}
                 </h3>
               </motion.div>
             </motion.div>
           </div>
 
-          <div className="p-6">
+          <div className="px-7 pb-6 pt-5" style={{ textAlign: "center", display: "flex", flexDirection: "column", justifyContent: "space-between", minHeight: 168 }}>
             <motion.div
               className="mb-4"
+              style={{ width: "100%", maxWidth: 320, margin: "0 auto" }}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
               viewport={{ once: true }}
             >
-              <p className="text-[#D5D5D5] text-sm line-clamp-3 leading-relaxed">
+              <p className="text-[#D5D5D5] text-sm line-clamp-3 leading-relaxed" style={{ margin: 0 }}>
                 {blog.summary ||
                   blog.content
                     .substring(0, 150)
@@ -71,7 +73,7 @@ const BlogCard = ({ blog, index }: { blog: BlogTypes; index: number }) => {
             </motion.div>
 
             <motion.div
-              className="flex items-center gap-2 text-[#1CA36E] font-gilroy-medium text-sm group-hover:gap-3 transition-all duration-300"
+              className="flex items-center justify-center gap-2 text-[#1CA36E] font-gilroy-medium text-sm group-hover:gap-3 transition-all duration-300"
               initial={{ opacity: 0, x: -10 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 + 0.4 }}

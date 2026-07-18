@@ -174,14 +174,6 @@ export const ContactContent = () => {
                 <span>Chicago</span>
                 <span>Nairobi</span>
                 <span>Zürich</span>
-                <span>Kigali</span>
-                <span>Gaborone</span>
-              </div>
-            </div>
-            <div className="card">
-              <div className="mono label">Response time</div>
-              <div className="v" style={{ fontSize: 18 }}>
-                Within 1 business day
               </div>
             </div>
           </div>

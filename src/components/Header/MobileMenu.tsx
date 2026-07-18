@@ -1,16 +1,17 @@
-import { useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useGlobal } from "../../contexts/globals";
+import {
+  type NavigationItem,
+  type NavigationMenuKey,
+  navigationMenus,
+} from "./navigationData";
 
 export const MobileMenu = () => {
   const { isMobileMenuOpen, setIsMobileMenuOpen } = useGlobal();
-  const location = useLocation();
+  const [openSection, setOpenSection] = useState<NavigationMenuKey | null>("products");
 
-  const linkClass = (path: string) => {
-    return location.pathname === path || location.pathname.startsWith(path + "/")
-      ? "active"
-      : "";
-  };
+  const closeMenu = () => setIsMobileMenuOpen(false);
 
   useEffect(() => {
     if (!isMobileMenuOpen) return;
@@ -28,32 +29,139 @@ export const MobileMenu = () => {
     };
   }, [isMobileMenuOpen, setIsMobileMenuOpen]);
 
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      setOpenSection("products");
+    }
+  }, [isMobileMenuOpen]);
+
+  const renderMobileItem = (item: NavigationItem) => {
+    const content = (
+      <>
+        <span>
+          {item.title}
+          {item.badge && <span className="institutional-mobile-badge">{item.badge}</span>}
+        </span>
+        {item.description && <small>{item.description}</small>}
+      </>
+    );
+
+    if (!item.href) {
+      return (
+        <span
+          key={item.title}
+          className="institutional-mobile-link is-disabled"
+          aria-disabled="true"
+        >
+          {content}
+        </span>
+      );
+    }
+
+    if (item.asset) {
+      return (
+        <a
+          key={item.title}
+          href={item.href}
+          className="institutional-mobile-link"
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={closeMenu}
+        >
+          {content}
+        </a>
+      );
+    }
+
+    if (item.href.startsWith("/") && !item.href.includes("#")) {
+      return (
+        <Link key={item.title} to={item.href} className="institutional-mobile-link" onClick={closeMenu}>
+          {content}
+        </Link>
+      );
+    }
+
+    return (
+      <a key={item.title} href={item.href} className="institutional-mobile-link" onClick={closeMenu}>
+        {content}
+      </a>
+    );
+  };
+
   return (
     <div
       id="mobile-navigation"
-      className={`mobile-menu ${isMobileMenuOpen ? "open" : "closed"}`}
+      className={`institutional-mobile-menu ${isMobileMenuOpen ? "open" : "closed"}`}
       aria-hidden={!isMobileMenuOpen}
+      role="dialog"
+      aria-modal={isMobileMenuOpen}
+      aria-label="Sereel navigation"
+      onMouseDown={(event) => {
+        if (event.target === event.currentTarget) closeMenu();
+      }}
     >
-      <div className="top">
-        <Link className="brand" to="/" onClick={() => setIsMobileMenuOpen(false)}>
-          <img src="/assets/glowing-logo.png" alt="Sereel" />
-          <span className="name">SEREEL</span>
+      <div className="institutional-mobile-panel" onMouseDown={(event) => event.stopPropagation()}>
+        <div className="institutional-mobile-top">
+          <Link className="brand" to="/" onClick={closeMenu}>
+            <img src="/assets/glowing-logo.png" alt="Sereel" />
+            <span className="name">SEREEL</span>
+          </Link>
+          <button
+            onClick={closeMenu}
+            className="institutional-menu-button"
+            aria-label="Close menu"
+          >
+            Close
+          </button>
+        </div>
+
+        <nav className="institutional-mobile-sections" aria-label="Mobile navigation">
+          {navigationMenus.map((menu) => {
+            const isOpen = openSection === menu.key;
+
+            return (
+              <section className="institutional-mobile-section" key={menu.key}>
+                <button
+                  type="button"
+                  className="institutional-mobile-section-button"
+                  aria-expanded={isOpen}
+                  aria-controls={`mobile-section-${menu.key}`}
+                  onClick={() => setOpenSection(isOpen ? null : menu.key)}
+                >
+                  {menu.label}
+                  <span aria-hidden="true">{isOpen ? "-" : "+"}</span>
+                </button>
+                <div
+                  id={`mobile-section-${menu.key}`}
+                  className="institutional-mobile-section-panel"
+                  hidden={!isOpen}
+                >
+                  {menu.columns.map((column) => (
+                    <div className="institutional-mobile-column" key={column.title}>
+                      <p>{column.title}</p>
+                      <div>{column.items.map((item) => renderMobileItem(item))}</div>
+                    </div>
+                  ))}
+                  {menu.feature && (
+                    <Link
+                      to={menu.feature.href}
+                      className="institutional-mobile-feature"
+                      onClick={closeMenu}
+                    >
+                      <span>{menu.feature.title}</span>
+                      <small>{menu.feature.copy}</small>
+                      <strong>{menu.feature.cta}</strong>
+                    </Link>
+                  )}
+                </div>
+              </section>
+            );
+          })}
+        </nav>
+
+        <Link to="/contact" className="institutional-mobile-cta" onClick={closeMenu}>
+          Schedule consultation
         </Link>
-        <button
-          onClick={() => setIsMobileMenuOpen(false)}
-          className="pill ghost"
-          aria-label="Close menu"
-        >
-          <span className="dot"></span>
-          Close
-        </button>
-      </div>
-      <div className="links-m">
-        <Link to="/standards" className={linkClass("/standards")} onClick={() => setIsMobileMenuOpen(false)}>Standards</Link>
-        <Link to="/about" className={linkClass("/about")} onClick={() => setIsMobileMenuOpen(false)}>About</Link>
-        <Link to="/blog" className={linkClass("/blog")} onClick={() => setIsMobileMenuOpen(false)}>Blog</Link>
-        <Link to="/contact" className={linkClass("/contact")} onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
-        <Link to="/faq" className={linkClass("/faq")} onClick={() => setIsMobileMenuOpen(false)}>FAQ</Link>
       </div>
     </div>
   );

@@ -24,16 +24,13 @@ export const BlogPageContent = () => {
   return (
     <main className="wrap">
       <section className="page-hero">
-        <div className="mono eyebrow lit">[ Journal ]</div>
+        <div className="mono eyebrow lit">Journal</div>
         <h1>
-          Field notes from
-          <br />
-          the <span className="lit">tokenization</span> stack.
+          Research for tokenized capital markets.
         </h1>
         <p className="lede">
-          Insights from the forefront of institutional blockchain adoption.
-          CMTA, ERC-3643, African VASP regimes, and the rails being laid
-          underneath.
+          Regulatory analysis, infrastructure notes, and market perspective for
+          institutional on-chain finance.
         </p>
       </section>
 
@@ -42,8 +39,8 @@ export const BlogPageContent = () => {
           <article className="feature">
             <div>
               <div className="meta">
-                <span className="mono lit">● Featured</span>
-                <span className="mono">{featured.date || "2026 · 05 · 04"}</span>
+                <span className="mono lit">Featured</span>
+                <span className="mono">{featured.date || "2026-05-04"}</span>
               </div>
               <h2>
                 {featured.title.split(" ").slice(0, -1).join(" ")}{" "}
@@ -53,7 +50,7 @@ export const BlogPageContent = () => {
               </h2>
               <p>{featured.summary || featured.content.substring(0, 160)}...</p>
               <Link className="read" to={`/blog/${featured.id}`}>
-                Read article →
+                Read article
               </Link>
             </div>
             <div
@@ -90,7 +87,7 @@ export const BlogPageContent = () => {
                 <div className="body">
                   <div className="meta">
                     <span className="mono">
-                      {blog.date || "2026 · 04 · 22"}
+                      {blog.date || "2026-04-22"}
                     </span>
                   </div>
                   <h3>{blog.title}</h3>
@@ -100,7 +97,7 @@ export const BlogPageContent = () => {
                       : blog.content.substring(0, 120).replace(/[#*_`]/g, "") +
                         "..."}
                   </p>
-                  <span className="read">Read →</span>
+                  <span className="read">Read</span>
                 </div>
               </Link>
             ))}

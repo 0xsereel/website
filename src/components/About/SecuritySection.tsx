@@ -3,7 +3,6 @@ import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import { GlowingText } from "../Animation/GlowingText";
 import { Button } from "../Button/Button";
 
-// Security Section Component
 const SecuritySection = () => {
   const { ref, isInView } = useScrollAnimation();
 
@@ -63,71 +62,71 @@ const SecuritySection = () => {
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8 }}
     >
-      <div className="w-[95%] max-w-6xl mx-auto">
+      <div className="w-full max-w-7xl mx-auto px-6">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-20"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <h2 className="text-5xl font-bold mb-4">
+          <h2 className="text-5xl lg:text-6xl font-bold mb-6">
             Our <GlowingText className="text-[#1CA36E]">Security</GlowingText> Measures
           </h2>
-          <p className="text-[#D5D5D5] text-xl">
+          <p className="text-[#D5D5D5] text-xl lg:text-2xl font-light">
             Security That Powers Trust
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 mb-20">
           {securityFeatures.map((feature, index) => (
             <motion.div
               key={index}
-              className="bg-gradient-to-br from-[#1CA36E]/5 to-white/5 border border-[#202026] rounded-2xl p-8 relative overflow-hidden group"
+              className="bg-gradient-to-br from-[#0A0A0A] to-black border border-[#202026] rounded-3xl p-10 lg:p-12 relative overflow-hidden group"
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.1 * index }}
               whileHover={{ 
-                scale: 1.02,
-                borderColor: "rgba(28, 163, 110, 0.5)",
-                boxShadow: "0 0 30px rgba(28, 163, 110, 0.2)"
+                scale: 1.01,
+                borderColor: "rgba(28, 163, 110, 0.4)",
+                boxShadow: "0 0 40px rgba(28, 163, 110, 0.15)"
               }}
             >
-              {/* Animated background on hover */}
+              {/* Animated background gradient on hover */}
               <motion.div
-                className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+                className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
                 initial={{ opacity: 0 }}
                 whileHover={{ opacity: 1 }}
               />
               
               <div className="relative z-10">
                 <motion.div
-                  className="w-16 h-16 border border-[#5F5F7138] rounded-full bg-white/5 flex items-center justify-center mb-6 group-hover:border-[#1CA36E] transition-colors duration-300"
+                  className="w-20 h-20 border border-[#5F5F7138] rounded-2xl bg-white/5 flex items-center justify-center mb-8 group-hover:border-[#1CA36E] transition-colors duration-500"
                   whileHover={{ 
                     backgroundColor: "rgba(28, 163, 110, 0.1)",
-                    scale: 1.1
+                    scale: 1.05
                   }}
                   transition={{ duration: 0.3 }}
                 >
                   {feature.icon}
                 </motion.div>
 
-                <h3 className="font-bold text-2xl mb-4 text-white group-hover:text-[#1CA36E] transition-colors duration-300">
+                <h3 className="font-bold text-3xl mb-5 text-white group-hover:text-[#1CA36E] transition-colors duration-500">
                   {feature.title}
                 </h3>
                 
-                <p className="text-[#D5D5D5] mb-6 leading-relaxed group-hover:text-white transition-colors duration-300">
+                <p className="text-[#D5D5D5] text-base mb-8 leading-relaxed group-hover:text-white transition-colors duration-500">
                   {feature.description}
                 </p>
 
-                <div className="mb-6">
-                  <h4 className="font-bold text-lg mb-4 text-white group-hover:text-[#1CA36E] transition-colors duration-300">
+                <div className="mb-8">
+                  <h4 className="font-bold text-xl mb-5 text-white group-hover:text-[#1CA36E] transition-colors duration-500">
                     Key Benefits
                   </h4>
-                  <ul className="space-y-2">
+                  <ul className="space-y-3">
                     {feature.benefits.map((benefit, idx) => (
                       <motion.li
                         key={idx}
-                        className="flex items-start gap-2 text-sm text-[#D5D5D5] group-hover:text-white transition-colors duration-300"
+                        className="flex items-start gap-3 text-sm text-[#D5D5D5] group-hover:text-white transition-colors duration-500"
                         initial={{ opacity: 0, x: -20 }}
                         animate={isInView ? { opacity: 1, x: 0 } : {}}
                         transition={{ duration: 0.5, delay: 0.1 * index + 0.1 * idx }}
@@ -135,8 +134,8 @@ const SecuritySection = () => {
                         <motion.span
                           className="w-2 h-2 bg-[#1CA36E] rounded-full mt-2 flex-shrink-0"
                           animate={{ 
-                            scale: [1, 1.3, 1],
-                            opacity: [0.7, 1, 0.7]
+                            scale: [1, 1.4, 1],
+                            opacity: [0.6, 1, 0.6]
                           }}
                           transition={{ 
                             duration: 2, 
@@ -151,8 +150,8 @@ const SecuritySection = () => {
                 </div>
 
                 <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
                 >
                   <Button
                     onClick={() => window.open(feature.link, "_blank")}
@@ -167,25 +166,33 @@ const SecuritySection = () => {
 
         {/* Call to Action */}
         <motion.div
-          className="mt-16 text-center"
+          className="mt-20"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <motion.div
-            className="bg-gradient-to-br from-[#1CA36E]/10 to-white/5 p-8 rounded-2xl border border-[#1CA36E]/20 relative overflow-hidden"
+            className="bg-gradient-to-br from-[#1CA36E]/8 to-white/3 p-12 lg:p-16 rounded-3xl border border-[#1CA36E]/20 relative overflow-hidden text-center"
             whileHover={{ 
-              boxShadow: "0 0 40px rgba(28, 163, 110, 0.3)",
+              boxShadow: "0 0 60px rgba(28, 163, 110, 0.25)",
               borderColor: "rgba(28, 163, 110, 0.4)"
             }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.4 }}
           >
+            {/* Animated background */}
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-br from-[#1CA36E]/5 to-transparent"
+              animate={{
+                opacity: [0.3, 0.6, 0.3],
+              }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            />
             
             <div className="relative z-10">
-              <h3 className="text-3xl font-bold mb-4">
+              <h3 className="text-4xl lg:text-5xl font-bold mb-6">
                 Ready to Transform Your Institution?
               </h3>
-              <p className="text-[#D5D5D5] text-lg mb-8 max-w-2xl mx-auto">
+              <p className="text-[#D5D5D5] text-lg lg:text-xl mb-10 max-w-3xl mx-auto leading-relaxed">
                 Join leading financial institutions already leveraging Sereel's institutional-grade DeFi infrastructure for next-generation efficiency and security.
               </p>
               <div className="flex justify-center">
