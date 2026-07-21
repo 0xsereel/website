@@ -102,6 +102,9 @@ export const Footer = () => {
             </div>
           </div>
         </div>
+        <div className="footer-wordmark" aria-hidden="true">
+          Sereel<span>.</span>
+        </div>
       </footer>
     );
   }
@@ -157,6 +160,9 @@ export const Footer = () => {
             <ThemeToggle className="footer-theme-toggle" />
           </div>
         </div>
+      </div>
+      <div className="footer-wordmark" aria-hidden="true">
+        Sereel<span>.</span>
       </div>
     </footer>
   );

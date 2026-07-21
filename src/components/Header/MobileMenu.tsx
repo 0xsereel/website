@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { X } from "lucide-react";
 import { useGlobal } from "../../contexts/globals";
 import {
   type NavigationItem,
@@ -103,15 +104,15 @@ export const MobileMenu = () => {
       <div className="institutional-mobile-panel" onMouseDown={(event) => event.stopPropagation()}>
         <div className="institutional-mobile-top">
           <Link className="brand" to="/" onClick={closeMenu}>
-            <img src="/assets/glowing-logo.png" alt="Sereel" />
-            <span className="name">SEREEL</span>
+            <img src="/images/header/logo.png" alt="" />
+            <span className="name">Sereel</span>
           </Link>
           <button
             onClick={closeMenu}
-            className="institutional-menu-button"
+            className="institutional-menu-button mobile-close-button"
             aria-label="Close menu"
           >
-            Close
+            <X size={22} strokeWidth={1.7} aria-hidden="true" />
           </button>
         </div>
 

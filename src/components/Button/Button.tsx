@@ -21,6 +21,11 @@ export const Button = ({
   disabled = false,
   ...props
 }: ButtonProps) => {
+  const isScheduleConsultation =
+    typeof children === "string" &&
+    children.toLowerCase().includes("schedule") &&
+    children.toLowerCase().includes("consultation");
+
   return (
     <motion.button
       type={type}
@@ -58,13 +63,13 @@ export const Button = ({
     >
       <span className="relative z-10 flex items-center justify-center gap-2 whitespace-nowrap text-base sm:text-[15px]">
         {children}
-        <motion.div
+        {!isScheduleConsultation && <motion.div
           animate={{ x: [0, 4, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
           className="text-lg"
         >
           <MdOutlineArrowOutward />
-        </motion.div>
+        </motion.div>}
       </span>
     </motion.button>
   );
