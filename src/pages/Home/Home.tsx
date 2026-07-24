@@ -1,5 +1,5 @@
 import { useEffect,useState } from "react";
-import { motion, useReducedMotion, useScroll, useSpring } from "framer-motion";
+import { useReducedMotion } from "framer-motion";
 import Lenis from "lenis";
 import { HomeHero } from "./components/HomeHero";
 import { UseCasesSection } from "./components/UseCasesSection";
@@ -11,11 +11,9 @@ import { HomeFinalCta } from "./components/HomeFinalCta";
 import { segments,stackLayers } from "./homeData";
 
 export const Home=()=>{
- const [activeSegment,setActiveSegment]=useState(0);
- const [activeLayer,setActiveLayer]=useState(0);
+ const [activeSegment,setActiveSegment]=useState<number>(0);
+ const [activeLayer,setActiveLayer]=useState<number>(0);
  const reduceMotion=useReducedMotion();
- const {scrollYProgress}=useScroll();
- const smoothProgress=useSpring(scrollYProgress,{stiffness:110,damping:28,mass:.35});
 
  useEffect(()=>{
   if(reduceMotion)return;
@@ -50,15 +48,6 @@ export const Home=()=>{
  const selectLayer=(index:number)=>{setActiveLayer(index);window.history.replaceState(null,"",`#${stackLayers[index].slug}`)};
 
  return <main className="marketing-page">
-  <div className="marketing-scroll-progress" aria-hidden="true">
-   <span className="marketing-scroll-track"/>
-   <motion.span
-    className="marketing-scroll-value"
-    style={{scaleY:reduceMotion?scrollYProgress:smoothProgress}}
-   />
-   <i className="marketing-scroll-start">01</i>
-   <i className="marketing-scroll-end">07</i>
-  </div>
   <HomeHero/>
   <UseCasesSection active={activeSegment} onSelect={selectSegment}/>
   <ControlSystemSection active={activeLayer} onSelect={selectLayer}/>

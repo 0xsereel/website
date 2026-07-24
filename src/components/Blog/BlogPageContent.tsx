@@ -125,7 +125,7 @@ export const BlogPageContent = () => {
                     style={{ backgroundImage: `url(${normalizeImagePath(featured.image)})` }}
                     aria-label={`Read ${featured.title}`}
                   >
-                    <span>Featured / {String(featureIndex + 1).padStart(2, "0")}</span>
+                    <span>Featured</span>
                   </Link>
                   <div className="blog-feature-editorial">
                     <div className="blog-story-meta">

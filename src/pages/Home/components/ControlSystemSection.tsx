@@ -118,7 +118,6 @@ export const ControlSystemSection = ({
               }}
               transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
             >
-              <span className="control-card-number">{String(index + 1).padStart(2, "0")}</span>
               <span className="control-card-copy">
                 <strong>{layer.title}</strong>
                 <span>{layer.detail}</span>

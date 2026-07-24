@@ -5,13 +5,32 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
+import {
+  ArrowLeftRight,
+  ChartSpline,
+  Coins,
+  FileText,
+  Landmark,
+  LockKeyhole,
+  RefreshCcw,
+  Scale,
+  ShieldCheck,
+  UsersRound,
+  type LucideIcon,
+} from "lucide-react";
 import { issuerResponsibilities, sereelResponsibilities } from "../homeData";
 
-const BoundaryItems = ({ items }: { items: string[] }) => (
+const issuerIcons: LucideIcon[] = [Landmark, FileText, UsersRound, Scale, ChartSpline];
+const sereelIcons: LucideIcon[] = [LockKeyhole, Coins, ShieldCheck, ArrowLeftRight, RefreshCcw];
+
+const BoundaryItems = ({ items, variant }: { items: string[]; variant: "issuer" | "sereel" }) => (
   <div className="boundary-card-items">
     {items.map((item, index) => (
       <span key={item}>
-        <i>{String(index + 1).padStart(2, "0")}</i>
+        {(() => {
+          const ItemIcon = variant === "issuer" ? issuerIcons[index] : sereelIcons[index];
+          return <ItemIcon className="boundary-item-icon" aria-hidden="true" />;
+        })()}
         <strong>{item}</strong>
       </span>
     ))}
@@ -111,7 +130,7 @@ export const ResponsibilitySection = () => {
             }
           >
             <div className="boundary-card-topline">
-              <span>01 / Ownership domain</span>
+              <span>Ownership domain</span>
             </div>
             <div className="boundary-card-body">
               <div className="boundary-card-title">
@@ -120,7 +139,7 @@ export const ResponsibilitySection = () => {
                 <p>Asset decisions, investor relationships, disclosures, and product obligations stay with the issuer.</p>
                 <BoundaryIllustration variant="issuer" />
               </div>
-              <BoundaryItems items={issuerResponsibilities} />
+              <BoundaryItems items={issuerResponsibilities} variant="issuer" />
             </div>
             <div className="boundary-card-rail" aria-hidden="true">
               <i /><i /><i />
@@ -135,7 +154,7 @@ export const ResponsibilitySection = () => {
             transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="boundary-card-topline">
-              <span>02 / Operating domain</span>
+              <span>Operating domain</span>
             </div>
             <div className="boundary-card-body">
               <div className="boundary-card-title">
@@ -144,7 +163,7 @@ export const ResponsibilitySection = () => {
                 <p>Programmable controls coordinate issuance, custody, compliance, settlement, and lifecycle operations.</p>
                 <BoundaryIllustration variant="sereel" />
               </div>
-              <BoundaryItems items={sereelResponsibilities} />
+              <BoundaryItems items={sereelResponsibilities} variant="sereel" />
             </div>
             <div className="boundary-execution-track" aria-hidden="true">
               <span>Policy verified</span>

@@ -10,7 +10,6 @@ const jurisdictions = [["Kenya VASP Act","KE"],["Botswana VASP Act","BW"],["Rwan
 
 const StandardIllustration = ({ type }: { type: "CMTAT" | "ERC-3643" }) => (
   <svg className={`standard-card-art art-${type.toLowerCase()}`} viewBox="0 0 480 280" fill="none" aria-hidden="true">
-    <path className="standard-art-grid" d="M30 70h420M30 140h420M30 210h420M100 24v232M170 24v232M240 24v232M310 24v232M380 24v232"/>
     {type === "CMTAT" ? <>
       <g className="cmtat-document"><rect x="157" y="48" width="166" height="184" rx="12"/><path d="M184 83h112M184 105h78M184 151h112M184 173h92M184 195h55"/><circle cx="281" cy="192" r="22"/><path d="m270 193 8 8 15-20"/></g>
       <path className="standard-route" d="M34 140h72l51-40M323 100l51 40h72"/>
@@ -35,7 +34,7 @@ export const Standards = () => {
       <div className="standards-card-intro"><span>Core protocols</span><h2>Standards translated into operating controls.</h2><p>Each framework becomes an enforceable part of the product architecture—not a label added after deployment.</p></div>
       <div className="standard-card-grid">
       {standards.map((standard,index)=><motion.article className="standard-card" key={standard.code} initial="hidden" whileInView="visible" viewport={{once:true,amount:.25}} variants={reveal} transition={{delay:index*.08}}>
-        <div className="standard-card-visual"><StandardIllustration type={standard.code as "CMTAT" | "ERC-3643"}/><span>{standard.id} / Core standard</span></div>
+        <div className="standard-card-visual"><StandardIllustration type={standard.code as "CMTAT" | "ERC-3643"}/><span>Core standard</span></div>
         <div className="standard-card-copy"><div className="standard-card-heading"><div><h2>{standard.code}</h2><span>{standard.name}</span></div><i>Verified rail</i></div><p>{standard.copy}</p><ul>{standard.controls.map(control=><li key={control}>{control}</li>)}</ul></div>
       </motion.article>)}
       </div>
