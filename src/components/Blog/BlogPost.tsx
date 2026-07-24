@@ -1,9 +1,11 @@
-import { useParams, Link } from "react-router-dom";
+import { useMemo } from "react";
+import { Link, useParams } from "react-router-dom";
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowLeft, ArrowUpRight, Clock3 } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import blogs from "../../Blog Data/Blogs.json";
-import { useState, useEffect } from "react";
 
 interface Blog {
   id: number;
@@ -11,115 +13,99 @@ interface Blog {
   title: string;
   image: string;
   content: string;
+  summary?: string;
 }
 
-const typedBlogs: Blog[] = blogs as Blog[];
+const typedBlogs = blogs as Blog[];
+
+const normalizeImagePath = (path: string) => {
+  const cleaned = path.replace(/\\/g, "/");
+  return cleaned.startsWith("/") ? cleaned : `/${cleaned}`;
+};
+
+const getCategory = (blog: Blog) => {
+  const value = `${blog.title} ${blog.summary ?? ""}`.toLowerCase();
+  if (value.includes("custod") || value.includes("bitcoin")) return "Custody";
+  if (value.includes("regulat") || value.includes("sec ") || value.includes("vasp")) return "Regulation";
+  if (value.includes("compliance") || value.includes("zero-knowledge")) return "Compliance";
+  if (value.includes("market") || value.includes("liquidity")) return "Markets";
+  return "Tokenization";
+};
+
+const getReadingTime = (content: string) =>
+  Math.max(2, Math.ceil(content.replace(/[#*_`>\n]/g, " ").split(/\s+/).filter(Boolean).length / 220));
 
 export const BlogPost = () => {
   const { id } = useParams();
-  const [imageSrc, setImageSrc] = useState("");
-  const [blog, setBlog] = useState<Blog | null>(null);
-  const [imageLoaded, setImageLoaded] = useState(false);
+  const reduceMotion = useReducedMotion();
+  const blog = typedBlogs.find((entry) => entry.id === Number(id));
 
-  useEffect(() => {
-    if (id) {
-      const foundBlog = typedBlogs.find((blog) => blog.id === parseInt(id));
-      if (foundBlog) {
-        setBlog(foundBlog);
-      }
-    }
-  }, [id]);
-
-  useEffect(() => {
-    if (blog) {
-      setImageSrc("images/blog/Sereel_con_logo.jpg");
-      setTimeout(() => {
-        try {
-          const normalized = blog.image.replace(/\\/g, "/");
-          const paths = [
-            normalized.startsWith("/") ? normalized : `/${normalized}`,
-            normalized.startsWith("/") ? normalized.substring(1) : normalized,
-            `../public/${normalized.replace(/^\//, "")}`,
-            `${window.location.origin}/${normalized.replace(/^\//, "")}`,
-          ];
-          const tryNextPath = (index: number) => {
-            if (index >= paths.length) return;
-            const img = new Image();
-            img.onload = () => {
-              setImageSrc(paths[index]);
-              setImageLoaded(true);
-            };
-            img.onerror = () => tryNextPath(index + 1);
-            img.src = paths[index];
-          };
-          tryNextPath(0);
-        } catch (error) {
-          console.error("Error in image loading:", error);
-          setImageLoaded(true);
-        }
-      }, 200);
-    }
+  const related = useMemo(() => {
+    if (!blog) return [];
+    const category = getCategory(blog);
+    const sameCategory = typedBlogs.filter(
+      (entry) => entry.id !== blog.id && getCategory(entry) === category,
+    );
+    const remaining = typedBlogs.filter(
+      (entry) => entry.id !== blog.id && !sameCategory.some((item) => item.id === entry.id),
+    );
+    return [...sameCategory, ...remaining].slice(0, 2);
   }, [blog]);
 
   if (!id || !blog) {
     return (
-      <main className="wrap" style={{ padding: "120px 0", textAlign: "center" }}>
-        <p className="mono" style={{ fontSize: 24 }}>Blog not found</p>
-        <Link className="pill" to="/blog" style={{ marginTop: 24 }}>
-          <span className="dot"></span>Back to Journal
-        </Link>
+      <main className="blog-article-missing wrap">
+        <p>Article not found.</p>
+        <Link to="/blog"><ArrowLeft size={16} /> Back to Sereel Blog</Link>
       </main>
     );
   }
 
+  const readingTime = getReadingTime(blog.content);
+  const reveal = {
+    hidden: { opacity: 0, y: reduceMotion ? 0 : 22 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
-    <main className="wrap">
-      <section className="page-hero">
-        <div className="mono eyebrow lit">Journal</div>
-        <h1>{blog.title}</h1>
-        <p className="lede" style={{ marginTop: 16 }}>
-          <span className="mono">{blog.date}</span>
-        </p>
-      </section>
-
-      <section className="section">
-        {blog.image && (
-          <div style={{ marginBottom: 48 }}>
-            {!imageLoaded && (
-              <div
-                style={{
-                  width: "100%",
-                  aspectRatio: "16/9",
-                  borderRadius: 18,
-                  border: "1px dashed var(--rule-2)",
-                  background: "var(--bg-2)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  color: "var(--muted)",
-                  fontFamily: "var(--mono)",
-                  fontSize: 11,
-                  textTransform: "uppercase",
-                }}
-              >
-                Loading image...
-              </div>
-            )}
-            <img
-              src={imageSrc}
-              alt={blog.title}
-              style={{
-                width: "100%",
-                borderRadius: 18,
-                border: "1px solid var(--rule-2)",
-                display: imageLoaded ? "block" : "none",
-              }}
-              onLoad={() => setImageLoaded(true)}
-            />
+    <main className="blog-article-page">
+      <article>
+        <motion.header
+          className="blog-article-header blog-article-column"
+          initial="hidden"
+          animate="visible"
+          variants={reveal}
+          transition={{ duration: .7, ease: [.16, 1, .3, 1] }}
+        >
+          <Link className="blog-article-back" to="/blog" aria-label="Back to Sereel Blog">
+            <ArrowLeft size={19} strokeWidth={1.6} />
+          </Link>
+          <div className="blog-article-meta">
+            <span>{getCategory(blog)}</span>
+            <i aria-hidden="true" />
+            <time>{blog.date}</time>
+            <i aria-hidden="true" />
+            <span><Clock3 size={13} /> {readingTime} min read</span>
           </div>
-        )}
+          <h1>{blog.title}</h1>
+          <div className="blog-article-author">
+            <span className="blog-article-author-mark" aria-hidden="true">
+              <img src="/assets/glowing-logo.png" alt="" />
+            </span>
+            <span><strong>Sereel Research</strong><small>Official Blog</small></span>
+          </div>
+        </motion.header>
 
-        <div className="blog-content">
+        <motion.figure
+          className="blog-article-cover blog-article-column"
+          initial={{ opacity: 0, scale: reduceMotion ? 1 : .975 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: .85, delay: .12, ease: [.16, 1, .3, 1] }}
+        >
+          <img src={normalizeImagePath(blog.image)} alt="" />
+        </motion.figure>
+
+        <div className="blog-content blog-article-body blog-article-column">
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeRaw]}
@@ -134,13 +120,34 @@ export const BlogPost = () => {
             {blog.content}
           </ReactMarkdown>
         </div>
+      </article>
 
-        <div style={{ marginTop: 48 }}>
-          <Link className="pill" to="/blog">
-            <span className="dot"></span>Back to Journal
-          </Link>
-        </div>
-      </section>
+      {related.length > 0 && (
+        <section className="blog-article-next blog-article-column" aria-labelledby="next-articles-title">
+          <div className="blog-article-next-head">
+            <h2 id="next-articles-title">Next</h2>
+            <Link to="/blog">View all research <ArrowUpRight size={15} /></Link>
+          </div>
+          <div className="blog-article-next-grid">
+            {related.map((entry) => (
+              <article key={entry.id}>
+                <Link
+                  className="blog-article-next-image"
+                  to={`/blog/${entry.id}`}
+                  aria-label={`Read ${entry.title}`}
+                >
+                  <img src={normalizeImagePath(entry.image)} alt="" />
+                  <span><ArrowUpRight size={17} /></span>
+                </Link>
+                <div className="blog-article-next-meta">
+                  <span>{getCategory(entry)}</span><i /> <time>{entry.date}</time>
+                </div>
+                <h3><Link to={`/blog/${entry.id}`}>{entry.title}</Link></h3>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
     </main>
   );
 };

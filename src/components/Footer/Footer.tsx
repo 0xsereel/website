@@ -103,7 +103,7 @@ export const Footer = () => {
           </div>
         </div>
         <div className="footer-wordmark" aria-hidden="true">
-          Sereel<span>.</span>
+          Sereel
         </div>
       </footer>
     );
@@ -162,7 +162,7 @@ export const Footer = () => {
         </div>
       </div>
       <div className="footer-wordmark" aria-hidden="true">
-        Sereel<span>.</span>
+        Sereel
       </div>
     </footer>
   );

@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { X } from "lucide-react";
+import {
+  MdOutlineKeyboardArrowDown,
+  MdOutlineKeyboardArrowUp,
+} from "react-icons/md";
 import { useGlobal } from "../../contexts/globals";
 import {
   type NavigationItem,
@@ -130,7 +134,13 @@ export const MobileMenu = () => {
                   onClick={() => setOpenSection(isOpen ? null : menu.key)}
                 >
                   {menu.label}
-                  <span aria-hidden="true">{isOpen ? "-" : "+"}</span>
+                  <span aria-hidden="true">
+                    {isOpen ? (
+                      <MdOutlineKeyboardArrowUp />
+                    ) : (
+                      <MdOutlineKeyboardArrowDown />
+                    )}
+                  </span>
                 </button>
                 <div
                   id={`mobile-section-${menu.key}`}

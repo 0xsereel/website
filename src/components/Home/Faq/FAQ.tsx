@@ -246,7 +246,7 @@ export const FAQ = () => {
   const activeSection = faqSections.find(section => section.category === activeCategory) ?? faqSections[0];
   return (
     <main className="resource-page faq-page">
-      <section className="resource-hero wrap"><div><span className="resource-kicker">Institutional primer</span><h1>Clear answers.<br/><em>No abstraction.</em></h1></div><p>Practical guidance for institutions evaluating tokenization, custody, compliance, and market infrastructure.</p></section>
+      <section className="resource-hero wrap"><div><h1>Clear answers.<br/><em>No abstraction.</em></h1></div><p>Practical guidance for institutions evaluating tokenization, custody, compliance, and market infrastructure.</p></section>
       <section className="faq-workspace wrap">
         <nav className="faq-categories" aria-label="FAQ categories">{faqSections.map((section,index)=><button key={section.category} className={activeCategory===section.category?"active":""} onClick={()=>setActiveCategory(section.category)}><span>{String(index+1).padStart(2,"0")}</span>{section.category}<i>{section.items.length}</i></button>)}</nav>
         <motion.div className="faq-answers" key={activeCategory} initial={{opacity:0,y:reduceMotion?0:15}} animate={{opacity:1,y:0}} transition={{duration:.3}}>

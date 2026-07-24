@@ -4,18 +4,34 @@ import { ArrowUpRight } from "lucide-react";
 
 export const ContactContent = () => {
   const [form, setForm] = useState({ fname: "", lname: "", email: "", firm: "", message: "" });
+  const [emailTouched, setEmailTouched] = useState(false);
   const [result, setResult] = useState("");
   const [loading, setLoading] = useState(false);
   const reduceMotion = useReducedMotion();
+  const emailIsValid = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i.test(form.email.trim());
+  const emailError = emailTouched
+    ? !form.email.trim()
+      ? "Work email is required."
+      : !emailIsValid
+        ? "Enter a valid email address, for example name@institution.com."
+        : ""
+    : "";
 
   const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setForm({ ...form, [event.target.name]: event.target.value });
+    const { name, value } = event.target;
+    setForm(current => ({ ...current, [name]: value }));
+    if (name === "email") setEmailTouched(true);
   };
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
+    setEmailTouched(true);
     if (!form.fname || !form.lname || !form.email || !form.message) {
       setResult("Please complete all required fields.");
+      return;
+    }
+    if (!emailIsValid) {
+      setResult("Please enter a valid work email.");
       return;
     }
 
@@ -37,6 +53,7 @@ export const ContactContent = () => {
       if (data.success) {
         setResult("Thank you. We’ll be in touch shortly.");
         setForm({ fname: "", lname: "", email: "", firm: "", message: "" });
+        setEmailTouched(false);
       } else {
         setResult(data.message || "Something went wrong. Please try again.");
       }
@@ -54,7 +71,6 @@ export const ContactContent = () => {
     <main className="contact-redesign">
       <section className="contact-intro wrap">
         <motion.div initial="hidden" animate="visible" variants={reveal} transition={{ duration: .75 }}>
-          <span className="about-label">Start a conversation</span>
           <h1>Build the rails behind your next financial product.</h1>
         </motion.div>
         <motion.div className="contact-intro-note" initial="hidden" animate="visible" variants={reveal} transition={{ duration: .75, delay: .12 }}>
@@ -65,14 +81,34 @@ export const ContactContent = () => {
 
       <section className="contact-workspace">
         <div className="wrap contact-workspace-grid">
-          <motion.form onSubmit={handleSubmit} initial="hidden" whileInView="visible" viewport={{ once: true, amount: .15 }} variants={reveal} transition={{ duration: .7 }}>
+          <motion.form onSubmit={handleSubmit} noValidate initial="hidden" whileInView="visible" viewport={{ once: true, amount: .15 }} variants={reveal} transition={{ duration: .7 }}>
             <div className="contact-form-head"><span>Consultation request</span><small>Fields marked * are required</small></div>
             <div className="row2">
               <div className="field"><label htmlFor="fname">First name *</label><input id="fname" name="fname" autoComplete="given-name" placeholder="Jane" value={form.fname} onChange={handleChange} required /></div>
               <div className="field"><label htmlFor="lname">Last name *</label><input id="lname" name="lname" autoComplete="family-name" placeholder="Smith" value={form.lname} onChange={handleChange} required /></div>
             </div>
             <div className="row2">
-              <div className="field"><label htmlFor="email">Work email *</label><input id="email" type="email" name="email" autoComplete="email" placeholder="jane@institution.com" value={form.email} onChange={handleChange} required /></div>
+              <div className={`field email-field ${emailError ? "has-error" : emailTouched && emailIsValid ? "is-valid" : ""}`}>
+                <label htmlFor="email">Work email *</label>
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  autoComplete="email"
+                  inputMode="email"
+                  spellCheck={false}
+                  placeholder="jane@institution.com"
+                  value={form.email}
+                  onChange={handleChange}
+                  onBlur={() => setEmailTouched(true)}
+                  aria-invalid={Boolean(emailError)}
+                  aria-describedby="email-feedback"
+                  required
+                />
+                <span id="email-feedback" className="field-feedback" aria-live="polite">
+                  {emailError || (emailTouched && emailIsValid ? "Email format verified." : "")}
+                </span>
+              </div>
               <div className="field"><label htmlFor="firm">Institution</label><input id="firm" name="firm" autoComplete="organization" placeholder="Your institution" value={form.firm} onChange={handleChange} /></div>
             </div>
             <div className="field"><label htmlFor="msg">What are you building? *</label><textarea id="msg" name="message" placeholder="Product type, target market, timeline, and infrastructure requirements…" value={form.message} onChange={handleChange} required /></div>
@@ -90,7 +126,6 @@ export const ContactContent = () => {
               <li><span>02</span><div><h2>Control mapping</h2><p>We map custody, compliance, issuance, settlement, and reporting rails.</p></div></li>
               <li><span>03</span><div><h2>Deployment path</h2><p>You receive a practical path from product design to controlled market operation.</p></div></li>
             </ol>
-            <div className="contact-response"><i /><div><strong>Response time</strong><span>Within one business day</span></div></div>
           </motion.aside>
         </div>
       </section>

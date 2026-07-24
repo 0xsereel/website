@@ -1,2 +1,21 @@
 import { Link } from "react-router-dom";
-export const HomeFinalCta=()=> <section className="marketing-cta-band"><div className="cta-marquee" aria-hidden="true">{[0,1].map(group=><div key={group}><span>Build the rails</span><b>✳</b><span>Move capital</span><b>✳</b><span>Build the rails</span><b>✳</b><span>Move capital</span><b>✳</b></div>)}</div><div className="wrap"><h2>Build the rails behind the product.</h2><p>Bring Sereel into the architecture before legal, custody, distribution, and settlement workflows harden.</p><Link className="market-cta primary" to="/contact">Schedule consultation</Link></div></section>;
+
+export const HomeFinalCta = () => (
+  <section className="marketing-cta-band">
+    <div className="cta-marquee" aria-hidden="true">
+      {[0, 1].map((group) => (
+        <div key={group}>
+          <span>Build the rails</span><b>✳</b>
+          <span>Move capital</span><b>✳</b>
+          <span>Build the rails</span><b>✳</b>
+          <span>Move capital</span><b>✳</b>
+        </div>
+      ))}
+    </div>
+    <div className="wrap">
+      <h2>Build the rails behind the product.</h2>
+      <p>Bring Sereel into the architecture before legal, custody, distribution, and settlement workflows harden.</p>
+      <Link className="market-cta primary" to="/contact">Schedule consultation</Link>
+    </div>
+  </section>
+);
