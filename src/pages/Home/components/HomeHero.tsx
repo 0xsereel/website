@@ -41,17 +41,12 @@ export const HomeHero = () => {
         }
       }}
     >
-      <div className="hero-rail-field" aria-hidden="true">
-        <span className="hero-rail rail-one" />
-        <span className="hero-rail rail-two" />
-        <span className="hero-rail rail-three" />
-        <span className="hero-light-sweep" />
-        <span className="hero-circuit-frame" />
-        <span className="hero-data-stream stream-one">
-          {Array.from({ length: 7 }, (_, index) => <i key={index} />)}
-        </span>
-        <span className="hero-data-stream stream-two">
-          {Array.from({ length: 5 }, (_, index) => <i key={index} />)}
+      <div className="hero-atmosphere" aria-hidden="true">
+        <span className="hero-aurora aurora-one" />
+        <span className="hero-aurora aurora-two" />
+        <span className="hero-ambient-glow" />
+        <span className="hero-particles">
+          {Array.from({ length: 9 }, (_, index) => <i key={index} />)}
         </span>
       </div>
       <motion.div

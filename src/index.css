@@ -7183,6 +7183,109 @@ html.lenis body {
   }
 }
 
+/* Landing hero atmospheric field — no technical line overlays */
+.hero-atmosphere {
+  position:absolute;
+  inset:-8%;
+  z-index:-1;
+  overflow:hidden;
+  pointer-events:none;
+}
+.hero-aurora {
+  position:absolute;
+  display:block;
+  filter:blur(48px);
+  opacity:.5;
+  will-change:transform;
+}
+.hero-aurora.aurora-one {
+  top:4%;
+  right:-4%;
+  width:min(58vw,880px);
+  height:min(52vw,760px);
+  border-radius:42% 58% 63% 37%/55% 39% 61% 45%;
+  background:linear-gradient(145deg,rgba(91,235,157,.05),rgba(71,220,141,.3) 48%,rgba(190,250,217,.06));
+  animation:heroAuroraOne 13s ease-in-out infinite alternate;
+}
+.hero-aurora.aurora-two {
+  right:15%;
+  bottom:-28%;
+  width:min(48vw,720px);
+  height:min(35vw,510px);
+  border-radius:61% 39% 44% 56%/45% 63% 37% 55%;
+  background:linear-gradient(115deg,rgba(17,139,91,.04),rgba(36,201,117,.22),rgba(116,241,174,.08));
+  animation:heroAuroraTwo 16s ease-in-out infinite alternate;
+}
+.hero-ambient-glow {
+  position:absolute;
+  top:17%;
+  right:4%;
+  width:min(48vw,700px);
+  height:72%;
+  background:radial-gradient(ellipse at center,rgba(80,229,148,.22),rgba(80,229,148,.055) 43%,transparent 72%);
+  filter:blur(18px);
+  animation:heroAmbientBreathe 6.5s ease-in-out infinite;
+}
+.hero-particles { position:absolute; inset:0; }
+.hero-particles i {
+  position:absolute;
+  display:block;
+  width:5px;
+  height:5px;
+  border-radius:2px;
+  background:rgba(20,151,96,.5);
+  box-shadow:0 0 10px rgba(46,211,126,.35);
+  animation:heroParticleDrift 7s ease-in-out infinite;
+}
+.hero-particles i:nth-child(1) { top:17%; right:27%; }
+.hero-particles i:nth-child(2) { top:31%; right:8%; width:3px; height:8px; animation-delay:-1.2s; }
+.hero-particles i:nth-child(3) { top:48%; right:40%; animation-delay:-2.7s; }
+.hero-particles i:nth-child(4) { top:68%; right:13%; width:7px; height:3px; animation-delay:-4.1s; }
+.hero-particles i:nth-child(5) { top:81%; right:31%; animation-delay:-5.4s; }
+.hero-particles i:nth-child(6) { top:24%; right:53%; width:3px; height:3px; animation-delay:-3.2s; }
+.hero-particles i:nth-child(7) { top:61%; right:55%; width:4px; height:7px; animation-delay:-.7s; }
+.hero-particles i:nth-child(8) { top:88%; right:5%; width:3px; height:3px; animation-delay:-6.1s; }
+.hero-particles i:nth-child(9) { top:10%; right:44%; width:6px; height:3px; animation-delay:-2s; }
+.hero-logo-stage::before {
+  border-radius:48% 52% 58% 42%/44% 55% 45% 56%;
+  background:radial-gradient(ellipse,rgba(54,221,133,.21),rgba(95,235,160,.07) 47%,transparent 72%);
+  filter:blur(30px);
+  transform:none;
+  animation:heroLogoAura 6.8s ease-in-out infinite;
+}
+
+@keyframes heroAuroraOne {
+  from { transform:translate3d(-2%,-2%,0) scale(.96) rotate(-3deg); }
+  to { transform:translate3d(5%,4%,0) scale(1.08) rotate(4deg); }
+}
+@keyframes heroAuroraTwo {
+  from { transform:translate3d(3%,3%,0) scale(1.04) rotate(3deg); }
+  to { transform:translate3d(-6%,-5%,0) scale(.94) rotate(-5deg); }
+}
+@keyframes heroAmbientBreathe {
+  0%,100% { opacity:.6; transform:scale(.94); }
+  50% { opacity:1; transform:scale(1.06); }
+}
+@keyframes heroParticleDrift {
+  0%,100% { opacity:.12; transform:translate3d(0,7px,0) rotate(0); }
+  45% { opacity:.75; transform:translate3d(7px,-8px,0) rotate(90deg); }
+}
+@keyframes heroLogoAura {
+  0%,100% { opacity:.42; transform:scale(.94) rotate(-2deg); }
+  50% { opacity:.82; transform:scale(1.06) rotate(2deg); }
+}
+
+@media (max-width:720px) {
+  .hero-atmosphere { inset:-5% -24%; }
+  .hero-aurora.aurora-one { width:110vw; height:90vw; right:-26%; }
+  .hero-aurora.aurora-two { width:90vw; height:70vw; right:12%; bottom:-8%; }
+  .hero-ambient-glow { right:-16%; width:100vw; }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .hero-aurora,.hero-ambient-glow,.hero-particles i,.hero-logo-stage::before { animation:none; }
+}
+
 @keyframes navVisualSpin { to { transform:rotate(360deg); } }
 @keyframes navStackLeft { 0%,100% { transform:translate(-17px,4px) rotate(-10deg); } 50% { transform:translate(-25px,0) rotate(-14deg); } }
 @keyframes navStackRight { 0%,100% { transform:translate(17px,-4px) rotate(10deg); } 50% { transform:translate(25px,0) rotate(14deg); } }
