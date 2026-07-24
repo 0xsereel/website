@@ -93,13 +93,11 @@ export const ControlSystemSection = ({
               visible: { opacity: 1, y: 0 },
             }}
           >
-            <span className="panel-label">Sereel operating layer</span>
             <h2>The control system behind tokenized products.</h2>
             <p>
               One connected operating layer for custody, compliance, issuance,
               settlement, liquidity, lending, and strategy controls.
             </p>
-            <span className="control-matrix-count">07 integrated controls</span>
           </motion.header>
 
           {stackLayers.map((layer, index) => (

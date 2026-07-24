@@ -8,6 +8,7 @@ const entities = [
     region: "Americas",
     name: "Sereel Technologies, Inc.",
     code: "US / IL",
+    image: "/images/entities/Chicago.jpg",
   },
   {
     city: "Gaborone",
@@ -15,6 +16,7 @@ const entities = [
     region: "Southern Africa",
     name: "Sereel Technologies Botswana",
     code: "BW / GA",
+    image: "/images/entities/Gaborone.jpg",
   },
   {
     city: "Nairobi",
@@ -22,6 +24,7 @@ const entities = [
     region: "East Africa",
     name: "Sereel Technologies Kenya",
     code: "KE / NRB",
+    image: "/images/entities/Nairobi.jpg",
   },
 ];
 
@@ -78,12 +81,12 @@ export const Entities = () => {
                 variants={reveal}
                 transition={{ duration: .65, delay: index * .09 }}
               >
+                <div className="entities-v2-card-image" aria-hidden="true">
+                  <img src={entity.image} alt="" />
+                </div>
                 <div className="entities-v2-card-top">
                   <span>{entity.code.split(" / ")[0]}</span>
                   <span>{entity.region}</span>
-                </div>
-                <div className="entities-v2-card-signal" aria-hidden="true">
-                  <i /><i /><i />
                 </div>
                 <div className="entities-v2-card-copy">
                   <span>{entity.region}</span>
