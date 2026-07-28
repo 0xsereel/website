@@ -1,10 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { X } from "lucide-react";
-import {
-  MdOutlineKeyboardArrowDown,
-  MdOutlineKeyboardArrowUp,
-} from "react-icons/md";
 import { useGlobal } from "../../contexts/globals";
 import {
   type NavigationItem,
@@ -108,15 +103,15 @@ export const MobileMenu = () => {
       <div className="institutional-mobile-panel" onMouseDown={(event) => event.stopPropagation()}>
         <div className="institutional-mobile-top">
           <Link className="brand" to="/" onClick={closeMenu}>
-            <img src="/images/header/logo.png" alt="" />
-            <span className="name">Sereel</span>
+            <img src="/assets/glowing-logo.png" alt="Sereel" />
+            <span className="name">SEREEL</span>
           </Link>
           <button
             onClick={closeMenu}
-            className="institutional-menu-button mobile-close-button"
+            className="institutional-menu-button"
             aria-label="Close menu"
           >
-            <X size={22} strokeWidth={1.7} aria-hidden="true" />
+            Close
           </button>
         </div>
 
@@ -134,13 +129,7 @@ export const MobileMenu = () => {
                   onClick={() => setOpenSection(isOpen ? null : menu.key)}
                 >
                   {menu.label}
-                  <span aria-hidden="true">
-                    {isOpen ? (
-                      <MdOutlineKeyboardArrowUp />
-                    ) : (
-                      <MdOutlineKeyboardArrowDown />
-                    )}
-                  </span>
+                  <span aria-hidden="true">{isOpen ? "-" : "+"}</span>
                 </button>
                 <div
                   id={`mobile-section-${menu.key}`}
