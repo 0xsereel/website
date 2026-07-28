@@ -169,12 +169,6 @@ export const navigationMenus: NavigationMenu[] = [
         ],
       },
     ],
-    feature: {
-      title: "Institutional intelligence",
-      copy: "Research, standards, and operating guidance for tokenized markets.",
-      cta: "Open research",
-      href: "/repositories",
-    },
   },
   {
     key: "company",
@@ -189,11 +183,5 @@ export const navigationMenus: NavigationMenu[] = [
         ],
       },
     ],
-    feature: {
-      title: "Built across markets",
-      copy: "Meet the company building institutional infrastructure for on-chain finance.",
-      cta: "About Sereel",
-      href: "/about",
-    },
   },
 ];

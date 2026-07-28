@@ -1,6 +1,4 @@
-import { useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 interface FAQItem {
   question: string;
@@ -241,20 +239,91 @@ const faqSections: FAQSection[] = [
 ];
 
 export const FAQ = () => {
-  const [activeCategory, setActiveCategory] = useState(faqSections[0].category);
-  const reduceMotion = useReducedMotion();
-  const activeSection = faqSections.find(section => section.category === activeCategory) ?? faqSections[0];
   return (
-    <main className="resource-page faq-page">
-      <section className="resource-hero wrap"><div><h1>Clear answers.<br/><em>No abstraction.</em></h1></div><p>Practical guidance for institutions evaluating tokenization, custody, compliance, and market infrastructure.</p></section>
-      <section className="faq-workspace wrap">
-        <nav className="faq-categories" aria-label="FAQ categories">{faqSections.map((section,index)=><button key={section.category} className={activeCategory===section.category?"active":""} onClick={()=>setActiveCategory(section.category)}><span>{String(index+1).padStart(2,"0")}</span>{section.category}<i>{section.items.length}</i></button>)}</nav>
-        <motion.div className="faq-answers" key={activeCategory} initial={{opacity:0,y:reduceMotion?0:15}} animate={{opacity:1,y:0}} transition={{duration:.3}}>
-          <div className="faq-answers-head"><span>{activeSection.category}</span><small>{activeSection.items.length} questions</small></div>
-          {activeSection.items.map((faq,index)=><details key={faq.question} open={index===0}><summary><span>{faq.question}</span><i>+</i></summary><div>{faq.answer}</div></details>)}
-        </motion.div>
+    <>
+      <main className="wrap">
+        <section className="page-hero">
+          <div className="mono eyebrow lit">[ Primer ]</div>
+          <h1>
+            Questions
+            <br />
+            <span className="lit">Answered</span>.
+          </h1>
+          <p className="lede">
+            A short primer for institutional teams evaluating tokenisation
+            infrastructure.
+          </p>
+        </section>
+
+        {faqSections.map((section, sectionIndex) => (
+          <section
+            key={sectionIndex}
+            className="faq"
+            style={{ paddingTop: sectionIndex === 0 ? "64px" : "0" }}
+          >
+            {/* Category heading */}
+            <motion.div
+              className="mono eyebrow"
+              style={{ marginBottom: "0", paddingBottom: "0" }}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <span className="lit">[ {section.category} ]</span>
+            </motion.div>
+
+            <div className="list">
+              {section.items.map((faq, index) => (
+                <motion.details
+                  key={index}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.35, delay: index * 0.06 }}
+                  viewport={{ once: true }}
+                >
+                  <summary>
+                    {faq.question}
+                    <span className="plus">+</span>
+                  </summary>
+                  <div className="a">{faq.answer}</div>
+                </motion.details>
+              ))}
+            </div>
+          </section>
+        ))}
+      </main>
+
+      {/* CTA */}
+      <section className="section">
+        <div className="wrap">
+          <div className="end">
+            <div className="card">
+              <h2>
+                Still Have <br />
+                <span className="lit">Questions?</span>
+              </h2>
+              <div className="row">
+                <p
+                  style={{
+                    color: "var(--ink-2)",
+                    fontSize: "17px",
+                    lineHeight: "1.6",
+                    maxWidth: "48ch",
+                  }}
+                >
+                  Our team is ready to help you understand how Sereel can
+                  transform your institution's tokenisation strategy.
+                </p>
+                <a href="/contact" className="pill lg">
+                  <span className="dot" />
+                  Contact Our Team
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
-      <section className="resource-cta wrap"><div><span>Need a specific answer?</span><h2>Bring your product and operating questions to our team.</h2></div><Link to="/contact">Start a conversation <i>↗</i></Link></section>
-    </main>
+    </>
   );
 };
