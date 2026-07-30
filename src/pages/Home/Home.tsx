@@ -1,5 +1,46 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import blogs from "../../Blog Data/Blogs.json";
+
+type JournalPost = {
+  id: number;
+  title: string;
+  image: string;
+  content: string;
+  summary?: string;
+  date?: string;
+};
+
+// Blogs.json is maintained newest-first, matching the journal index.
+const latestPost = (blogs as JournalPost[])[0];
+
+const normalizeImagePath = (path: string) => {
+  const cleaned = path.replace(/\\/g, "/");
+  return cleaned.startsWith("/") ? cleaned : `/${cleaned}`;
+};
+
+const EXCERPT_MAX = 190;
+
+// Most summaries in Blogs.json are hard-truncated mid-word, so they are only
+// used when they end on a complete sentence. Otherwise the excerpt is rebuilt
+// from the article body and cut on a sentence break, never inside a word.
+const postExcerpt = (post: JournalPost) => {
+  const summary = post.summary?.trim() ?? "";
+  if (/[.!?]$/.test(summary)) return summary;
+
+  const body = post.content.replace(/\s+/g, " ").trim();
+  if (body.length <= EXCERPT_MAX) return body;
+
+  const head = body.slice(0, EXCERPT_MAX);
+  const sentenceEnd = Math.max(
+    head.lastIndexOf(". "),
+    head.lastIndexOf("! "),
+    head.lastIndexOf("? "),
+  );
+  if (sentenceEnd > 90) return head.slice(0, sentenceEnd + 1);
+
+  return `${head.slice(0, head.lastIndexOf(" "))}…`;
+};
 
 type Segment = {
   slug: string;
@@ -489,6 +530,56 @@ export const Home = () => {
           ))}
         </div>
       </section>
+
+      {latestPost && (
+        <section
+          className="marketing-section journal-section wrap"
+          id="journal"
+          aria-labelledby="home-journal-title"
+        >
+          <div className="section-copy compact">
+            <h2 id="home-journal-title">Latest from the journal</h2>
+            <p>
+              Regulatory analysis, infrastructure notes, and market perspective
+              for institutional on-chain finance.
+            </p>
+          </div>
+
+          <article className="journal-feature">
+            <Link
+              className="journal-cover"
+              to={`/blog/${latestPost.id}`}
+              tabIndex={-1}
+              aria-hidden="true"
+            >
+              <img
+                src={normalizeImagePath(latestPost.image)}
+                alt=""
+                loading="lazy"
+              />
+            </Link>
+
+            <div className="journal-body">
+              <div className="journal-meta">
+                <span className="ledger-label">Latest</span>
+                {latestPost.date && <span>{latestPost.date}</span>}
+              </div>
+              <h3>
+                <Link to={`/blog/${latestPost.id}`}>{latestPost.title}</Link>
+              </h3>
+              <p>{postExcerpt(latestPost)}</p>
+              <div className="journal-actions">
+                <Link className="market-cta secondary" to={`/blog/${latestPost.id}`}>
+                  Read article
+                </Link>
+                <Link className="journal-all" to="/blog">
+                  All articles
+                </Link>
+              </div>
+            </div>
+          </article>
+        </section>
+      )}
 
       <section className="marketing-cta-band">
         <div className="wrap">
