@@ -492,11 +492,7 @@ export const Home = () => {
 
       <section className="marketing-cta-band">
         <div className="wrap">
-          <h2>Build the rails behind the product.</h2>
-          <p>
-            Bring Sereel into the architecture before legal, custody,
-            distribution, and settlement workflows harden.
-          </p>
+          <h2>Sereel helps you safely &amp; compliantly manage tokenized assets.</h2>
           <Link className="market-cta primary" to="/contact">
             Schedule consultation
           </Link>

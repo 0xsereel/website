@@ -1992,7 +1992,7 @@ html { scroll-behavior: smooth }
 
 .marketing-cta-band .wrap {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.6fr) auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: 28px;
   align-items: center;
 }
@@ -2003,12 +2003,6 @@ html { scroll-behavior: smooth }
   line-height: 1.02;
   letter-spacing: -0.035em;
   color: var(--ink);
-}
-
-.marketing-cta-band p {
-  color: var(--ink-2);
-  font-size: 16px;
-  line-height: 1.55;
 }
 
 .marketing-footer {
