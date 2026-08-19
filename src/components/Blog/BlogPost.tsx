@@ -15,6 +15,9 @@ interface Blog {
 
 const typedBlogs: Blog[] = blogs as Blog[];
 
+// Posts whose header image is square (~1:1) and renders too tall at full width
+const SQUARE_HEADER_IMAGE_IDS = [6, 8, 15, 21, 22];
+
 export const BlogPost = () => {
   const { id } = useParams();
   const [imageSrc, setImageSrc] = useState("");
@@ -109,7 +112,8 @@ export const BlogPost = () => {
               src={imageSrc}
               alt={blog.title}
               style={{
-                width: "100%",
+                width: SQUARE_HEADER_IMAGE_IDS.includes(blog.id) ? "40%" : "100%",
+                margin: SQUARE_HEADER_IMAGE_IDS.includes(blog.id) ? "0 auto" : undefined,
                 borderRadius: 18,
                 border: "1px solid var(--rule-2)",
                 display: imageLoaded ? "block" : "none",
