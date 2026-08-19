@@ -1090,6 +1090,74 @@ button.submit:hover { box-shadow: 0 0 28px var(--glow) }
 .blog-content strong { color: var(--ink); font-weight: 600 }
 .blog-content h2 + p, .blog-content h3 + p { margin-top: 0.5rem }
 
+.blog-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 15px;
+  line-height: 1.6;
+  border: 2px solid var(--rule-2);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.blog-content thead th {
+  background: var(--accent);
+  color: #001A0C;
+  text-align: left;
+  padding: 14px 16px;
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: normal;
+  word-break: break-word;
+  border: 1px solid var(--accent-deep);
+}
+
+.blog-content tbody td {
+  padding: 16px;
+  vertical-align: top;
+  border: 1px solid var(--rule);
+  color: var(--ink-2);
+}
+
+.blog-content thead th:first-child,
+.blog-content tbody td:first-child {
+  border-left: 2px solid var(--rule-2);
+}
+
+.blog-content thead th:last-child,
+.blog-content tbody td:last-child {
+  border-right: 2px solid var(--rule-2);
+}
+
+.blog-content tbody tr:nth-child(even) {
+  background: rgba(111,229,165,0.03);
+}
+
+.blog-content table a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.blog-content table a:hover {
+  color: var(--accent-deep);
+}
+
+@media (max-width: 720px) {
+  .blog-content table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .blog-content thead th,
+  .blog-content tbody td {
+    white-space: normal;
+  }
+}
+
 .nav-group { display: flex; align-items: center; gap: 48px; }
 .nav-actions { display: flex; align-items: center; gap: 12px; }
 
