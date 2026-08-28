@@ -1,3 +1,5 @@
+import { SEO } from "../../components/SEO";
+
 export const Entities = () => {
   const entities = [
     { name: "Sereel Technologies, Inc.", location: "Chicago, Illinois" },
@@ -7,6 +9,11 @@ export const Entities = () => {
 
   return (
     <main className="wrap">
+      <SEO
+        title="Global Entities & Company Structure"
+        description="Sereel's global corporate structure: Sereel Technologies, Inc. in Chicago, Sereel Technologies Botswana in Gaborone, and Sereel Technologies Kenya in Nairobi."
+        canonical="/entities"
+      />
       <section className="page-hero">
         <div className="mono eyebrow lit">[ Entities ]</div>
         <h1>

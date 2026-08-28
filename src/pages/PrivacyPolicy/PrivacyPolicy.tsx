@@ -1,6 +1,13 @@
+import { SEO } from "../../components/SEO";
+
 export const PrivacyPolicy = () => {
   return (
     <main className="wrap">
+      <SEO
+        title="Privacy Policy"
+        description="How Sereel Technologies collects, uses, discloses, and safeguards information across our website, digital asset platform, APIs, and related services."
+        canonical="/privacy-policy"
+      />
       <section className="page-hero">
         <div className="mono eyebrow lit">[ Legal ]</div>
         <h1>Privacy Policy</h1>

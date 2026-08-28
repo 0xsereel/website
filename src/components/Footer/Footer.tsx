@@ -53,6 +53,8 @@ export const Footer = () => {
       links: [
         { label: "About", to: "/about" },
         { label: "Contact", to: "/contact" },
+        { label: "Privacy Policy", to: "/privacy-policy" },
+        { label: "Terms of Use", to: "/terms" },
       ],
     },
   ];
@@ -122,6 +124,9 @@ export const Footer = () => {
             <ul>
               <li><Link to="/about">About</Link></li>
               <li><Link to="/entities">Entities</Link></li>
+              <li><Link to="/contact">Contact</Link></li>
+              <li><Link to="/privacy-policy">Privacy Policy</Link></li>
+              <li><Link to="/terms">Terms of Use</Link></li>
             </ul>
           </div>
           <div className="col">

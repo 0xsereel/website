@@ -1,6 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import blogs from "../../Blog Data/Blogs.json";
+import { SEO } from "../../components/SEO";
+import {
+  generateOrganizationSchema,
+  generateWebSiteSchema,
+} from "../../components/SEO/StructuredData";
+import { getBlogPath, normalizeImagePath } from "../../utils/blog";
 
 type JournalPost = {
   id: number;
@@ -9,15 +15,13 @@ type JournalPost = {
   content: string;
   summary?: string;
   date?: string;
+  slug?: string;
+  description?: string;
+  imageAlt?: string;
 };
 
 // Blogs.json is maintained newest-first, matching the journal index.
 const latestPost = (blogs as JournalPost[])[0];
-
-const normalizeImagePath = (path: string) => {
-  const cleaned = path.replace(/\\/g, "/");
-  return cleaned.startsWith("/") ? cleaned : `/${cleaned}`;
-};
 
 const EXCERPT_MAX = 190;
 
@@ -25,6 +29,7 @@ const EXCERPT_MAX = 190;
 // used when they end on a complete sentence. Otherwise the excerpt is rebuilt
 // from the article body and cut on a sentence break, never inside a word.
 const postExcerpt = (post: JournalPost) => {
+  if (post.description) return post.description;
   const summary = post.summary?.trim() ?? "";
   if (/[.!?]$/.test(summary)) return summary;
 
@@ -320,6 +325,10 @@ export const Home = () => {
 
   return (
     <main className="marketing-page">
+      <SEO
+        canonical="/"
+        structuredData={[generateOrganizationSchema(), generateWebSiteSchema()]}
+      />
       <section className="marketing-hero wrap" aria-labelledby="home-hero-title">
         <div className="hero-copy">
           <h1 id="home-hero-title">The rails behind tokenized capital markets.</h1>
@@ -548,13 +557,13 @@ export const Home = () => {
           <article className="journal-feature">
             <Link
               className="journal-cover"
-              to={`/blog/${latestPost.id}`}
+              to={getBlogPath(latestPost)}
               tabIndex={-1}
               aria-hidden="true"
             >
               <img
                 src={normalizeImagePath(latestPost.image)}
-                alt=""
+                alt={latestPost.imageAlt ?? ""}
                 loading="lazy"
               />
             </Link>
@@ -565,11 +574,11 @@ export const Home = () => {
                 {latestPost.date && <span>{latestPost.date}</span>}
               </div>
               <h3>
-                <Link to={`/blog/${latestPost.id}`}>{latestPost.title}</Link>
+                <Link to={getBlogPath(latestPost)}>{latestPost.title}</Link>
               </h3>
               <p>{postExcerpt(latestPost)}</p>
               <div className="journal-actions">
-                <Link className="market-cta secondary" to={`/blog/${latestPost.id}`}>
+                <Link className="market-cta secondary" to={getBlogPath(latestPost)}>
                   Read article
                 </Link>
                 <Link className="journal-all" to="/blog">

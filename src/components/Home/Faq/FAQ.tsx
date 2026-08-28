@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { SEO } from "../../SEO";
 
 interface FAQItem {
   question: string;
@@ -238,9 +239,30 @@ const faqSections: FAQSection[] = [
   },
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqSections
+    .flatMap((section) => section.items)
+    .map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+};
+
 export const FAQ = () => {
   return (
     <>
+      <SEO
+        title="FAQ — Tokenization Questions Answered"
+        description="Answers to common questions about Sereel, tokenization, blockchain settlement, custody, compliance, and institutional adoption of tokenized assets."
+        canonical="/faq"
+        structuredData={faqSchema}
+      />
       <main className="wrap">
         <section className="page-hero">
           <div className="mono eyebrow lit">[ Primer ]</div>

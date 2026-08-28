@@ -52,10 +52,10 @@ export function generateOrganizationSchema(props: OrganizationSchemaProps = {}) 
   const {
     name = SITE_CONFIG.name,
     url = SITE_CONFIG.url,
-    logo = `${SITE_CONFIG.url}/images/Hero/glowing_seree_logo_expanded.svg`,
+    logo = `${SITE_CONFIG.url}/images/Hero/glowing-seree-logo.png`,
     description = SITE_CONFIG.defaultDescription,
     sameAs = [
-      `https://twitter.com/${SITE_CONFIG.social.twitter.replace('@', '')}`,
+      `https://x.com/${SITE_CONFIG.social.twitter.replace('@', '')}`,
       `https://www.linkedin.com/company/${SITE_CONFIG.social.linkedin}`,
     ],
     contactPoint,
@@ -93,7 +93,7 @@ export function generateArticleSchema(props: ArticleSchemaProps) {
     author,
     publisher = {
       name: SITE_CONFIG.name,
-      logo: `${SITE_CONFIG.url}/images/Hero/glowing_seree_logo_expanded.svg`,
+      logo: `${SITE_CONFIG.url}/images/Hero/glowing-seree-logo.png`,
     },
     url,
     articleSection,
@@ -186,19 +186,13 @@ export function generateBreadcrumbSchema(items: Array<{ name: string; url: strin
 }
 
 export function generateWebSiteSchema() {
+  // No SearchAction: the site has no /search route, and declaring one that
+  // does not exist is a false claim to crawlers.
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: SITE_CONFIG.name,
     url: SITE_CONFIG.url,
     description: SITE_CONFIG.defaultDescription,
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `${SITE_CONFIG.url}/search?q={search_term_string}`,
-      },
-      'query-input': 'required name=search_term_string',
-    },
   };
 }

@@ -1,0 +1,7 @@
+# Allow all crawlers, including AI search and answer engines
+# (GPTBot, ClaudeBot, PerplexityBot, OAI-SearchBot, etc.) — Sereel wants
+# visibility in both classic search and AI answers.
+User-agent: *
+Allow: /
+
+Sitemap: https://www.sereel.com/sitemap.xml
