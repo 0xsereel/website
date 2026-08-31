@@ -1,8 +1,12 @@
 export const SITE_CONFIG = {
   name: 'Sereel',
-  url: 'https://sereel.com',
-  defaultTitle: 'Sereel - RWA Tokenization Platform | Institutional Tokenization Infrastructure',
-  defaultDescription: 'Leading RWA tokenization platform and institutional tokenization infrastructure. Security token issuance, CMTA tokenization, enterprise digital asset custody, bond tokenization, and Canton Network tokenization solutions for institutional DeFi.',
+  // Canonical host. Apex + http variants 301 to this host via vercel.json —
+  // keep the two in sync if the canonical ever changes.
+  url: 'https://www.sereel.com',
+  // Keep these identical to the static tags in index.html — crawlers that do
+  // not execute JS see index.html, JS-rendering crawlers see these.
+  defaultTitle: 'Sereel - Institutional-Grade Digital Asset Infrastructure',
+  defaultDescription: 'Sereel provides institutional-grade tokenization infrastructure for asset managers, banks, exchanges, and family offices. CMTA-compliant. Multi-chain. Production-ready.',
   defaultKeywords: [
     'RWA tokenization platform',
     'institutional tokenization infrastructure',
@@ -23,8 +27,8 @@ export const SITE_CONFIG = {
   ],
   author: 'Sereel',
   social: {
-    twitter: '@sereel',
-    linkedin: 'sereel',
+    twitter: '@0xSereel',
+    linkedin: '0xsereel',
   },
 } as const;
 
@@ -33,11 +37,12 @@ export const DEFAULT_OG_CONFIG = {
   siteName: SITE_CONFIG.name,
   locale: 'en_US',
   image: {
-    url: '/images/Hero/glowing_seree_logo_expanded.svg',
-    alt: 'Sereel Logo',
+    // Social scrapers do not support SVG og:images — must stay a raster 1200x630.
+    url: '/images/Hero/og-preview.png',
+    alt: 'Sereel — institutional-grade tokenization infrastructure',
     width: 1200,
     height: 630,
-    type: 'image/svg+xml',
+    type: 'image/png',
   },
 } as const;
 
@@ -45,7 +50,7 @@ export const DEFAULT_TWITTER_CONFIG = {
   card: 'summary_large_image' as const,
   site: SITE_CONFIG.social.twitter,
   creator: SITE_CONFIG.social.twitter,
-  image: '/images/Hero/glowing_seree_logo_expanded.svg',
+  image: '/images/Hero/og-preview.png',
 } as const;
 
 export interface PageMetaConfig {
@@ -214,10 +219,10 @@ export function generateOrganizationSchema() {
     '@type': 'Organization',
     name: SITE_CONFIG.name,
     url: SITE_CONFIG.url,
-    logo: `${SITE_CONFIG.url}/images/Hero/glowing_seree_logo_expanded.svg`,
+    logo: `${SITE_CONFIG.url}/images/Hero/glowing-seree-logo.png`,
     description: SITE_CONFIG.defaultDescription,
     sameAs: [
-      `https://twitter.com/${SITE_CONFIG.social.twitter.replace('@', '')}`,
+      `https://x.com/${SITE_CONFIG.social.twitter.replace('@', '')}`,
       `https://www.linkedin.com/company/${SITE_CONFIG.social.linkedin}`,
     ],
   };
@@ -231,23 +236,32 @@ export interface BlogArticleData {
   content: string;
   summary?: string;
   author?: string;
+  slug?: string;
+  description?: string;
+  tags?: string[];
+}
+
+export function getBlogArticleUrl(article: Pick<BlogArticleData, 'id' | 'slug'>): string {
+  return `${SITE_CONFIG.url}/blog/${article.slug ?? article.id}`;
+}
+
+export function getBlogImageUrl(image: string): string {
+  if (image.startsWith('http')) return image;
+  const normalized = image.replace(/\\/g, '/').replace(/^\//, '');
+  return `${SITE_CONFIG.url}/${normalized}`;
 }
 
 export function generateArticleSchema(article: BlogArticleData) {
-  const imageUrl = article.image.startsWith('http')
-    ? article.image
-    : `${SITE_CONFIG.url}/${article.image.replace(/^\//, '')}`;
+  const publishedDate = article.date ? parsePublishedDate(article.date) : undefined;
 
-  const publishedDate = article.date ? parsePublishedDate(article.date) : new Date().toISOString();
-  
   return {
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'BlogPosting',
     headline: article.title,
-    description: article.summary || extractSummary(article.content),
-    image: imageUrl,
-    datePublished: publishedDate,
-    dateModified: publishedDate,
+    description: article.description || article.summary || extractSummary(article.content),
+    image: getBlogImageUrl(article.image),
+    ...(publishedDate ? { datePublished: publishedDate, dateModified: publishedDate } : {}),
+    ...(article.tags && article.tags.length > 0 ? { keywords: article.tags.join(', ') } : {}),
     author: {
       '@type': 'Organization',
       name: article.author || SITE_CONFIG.author,
@@ -259,17 +273,17 @@ export function generateArticleSchema(article: BlogArticleData) {
       url: SITE_CONFIG.url,
       logo: {
         '@type': 'ImageObject',
-        url: `${SITE_CONFIG.url}/images/Hero/glowing_seree_logo_expanded.svg`,
+        url: `${SITE_CONFIG.url}/images/Hero/glowing-seree-logo.png`,
       },
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `${SITE_CONFIG.url}/blog/${article.id}`,
+      '@id': getBlogArticleUrl(article),
     },
   };
 }
 
-function parsePublishedDate(dateString: string): string {
+export function parsePublishedDate(dateString: string): string {
   const monthMap: { [key: string]: string } = {
     January: '01', February: '02', March: '03', April: '04',
     May: '05', June: '06', July: '07', August: '08',
@@ -284,7 +298,10 @@ function parsePublishedDate(dateString: string): string {
     return `${year}-${monthNum}-${dayNum}T00:00:00Z`;
   }
 
-  return new Date().toISOString();
+  // Never fall back to "now": a malformed date must not publish today's
+  // timestamp into datePublished on every render.
+  const parsed = new Date(dateString);
+  return isNaN(parsed.getTime()) ? dateString : parsed.toISOString();
 }
 
 function extractSummary(content: string): string {
@@ -311,18 +328,16 @@ export function generateBlogListingSchema(articles: BlogArticleData[]) {
       url: SITE_CONFIG.url,
       logo: {
         '@type': 'ImageObject',
-        url: `${SITE_CONFIG.url}/images/Hero/glowing_seree_logo_expanded.svg`,
+        url: `${SITE_CONFIG.url}/images/Hero/glowing-seree-logo.png`,
       },
     },
     blogPost: articles.slice(0, 10).map((article) => ({
       '@type': 'BlogPosting',
       headline: article.title,
-      description: article.summary || extractSummary(article.content),
-      url: `${SITE_CONFIG.url}/blog/${article.id}`,
-      datePublished: article.date ? parsePublishedDate(article.date) : new Date().toISOString(),
-      image: article.image.startsWith('http')
-        ? article.image
-        : `${SITE_CONFIG.url}/${article.image.replace(/^\//, '')}`,
+      description: article.description || article.summary || extractSummary(article.content),
+      url: getBlogArticleUrl(article),
+      ...(article.date ? { datePublished: parsePublishedDate(article.date) } : {}),
+      image: getBlogImageUrl(article.image),
     })),
   };
 }

@@ -12,6 +12,7 @@ import { Terms } from "../pages/Terms/Terms";
 import { PrivacyPolicy } from "../pages/PrivacyPolicy/PrivacyPolicy";
 import { Editor } from "../pages/Editor/Editor";
 import { FAQ } from "../components/Home/Faq/FAQ";
+import { NotFound } from "../pages/NotFound/NotFound";
 
 const AppRoutes = () => {
   const isDev = import.meta.env.DEV;
@@ -25,13 +26,14 @@ const AppRoutes = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/faq" element={<FAQ />} />
-          <Route path="/blog/:id" element={<SingleBlog />} />
+          <Route path="/blog/:slug" element={<SingleBlog />} />
           <Route path="/standards" element={<Standards />} />
           <Route path="/entities" element={<Entities />} />
           <Route path="/repositories" element={<Repositories />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           {isDev && <Route path="/editor" element={<Editor />} />}
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </Router>

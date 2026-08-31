@@ -1,28 +1,25 @@
-import blogs from "../../Blog Data/Blogs.json";
 import { Link } from "react-router-dom";
-
-interface Blog {
-  id: number;
-  title: string;
-  image: string;
-  content: string;
-  summary: string;
-  date?: string;
-}
-
-const typedBlogs: Blog[] = blogs as Blog[];
-
-const normalizeImagePath = (path: string) => {
-  const cleaned = path.replace(/\\/g, "/");
-  return cleaned.startsWith("/") ? cleaned : `/${cleaned}`;
-};
+import { SEO } from "../SEO";
+import { generateBlogListingSchema } from "../../utils/seo";
+import {
+  blogEntries,
+  getBlogPath,
+  normalizeImagePath,
+} from "../../utils/blog";
 
 export const BlogPageContent = () => {
-  const featured = typedBlogs[0];
-  const rest = typedBlogs.slice(1);
+  const featured = blogEntries[0];
+  const rest = blogEntries.slice(1);
 
   return (
     <main className="wrap">
+      <SEO
+        title="Journal — Tokenized Capital Markets Research"
+        description="Regulatory analysis, infrastructure notes, and market perspective for institutional on-chain finance, from the Sereel research team."
+        canonical="/blog"
+        structuredData={generateBlogListingSchema(blogEntries)}
+      />
+
       <section className="page-hero">
         <div className="mono eyebrow lit">Journal</div>
         <h1>
@@ -40,7 +37,7 @@ export const BlogPageContent = () => {
             <div>
               <div className="meta">
                 <span className="mono lit">Featured</span>
-                <span className="mono">{featured.date || "2026-05-04"}</span>
+                <span className="mono">{featured.date}</span>
               </div>
               <h2>
                 {featured.title.split(" ").slice(0, -1).join(" ")}{" "}
@@ -48,13 +45,15 @@ export const BlogPageContent = () => {
                   {featured.title.split(" ").slice(-1)[0]}
                 </span>
               </h2>
-              <p>{featured.summary || featured.content.substring(0, 160)}...</p>
-              <Link className="read" to={`/blog/${featured.id}`}>
+              <p>{featured.description || featured.summary}</p>
+              <Link className="read" to={getBlogPath(featured)}>
                 Read article
               </Link>
             </div>
             <div
               className="cover"
+              role="img"
+              aria-label={featured.imageAlt || featured.title}
               style={
                 featured.image
                   ? {
@@ -71,9 +70,11 @@ export const BlogPageContent = () => {
         {rest.length > 0 && (
           <div className="grid">
             {rest.map((blog) => (
-              <Link className="card" to={`/blog/${blog.id}`} key={blog.id}>
+              <Link className="card" to={getBlogPath(blog)} key={blog.id}>
                 <div
                   className="cover"
+                  role="img"
+                  aria-label={blog.imageAlt || blog.title}
                   style={
                     blog.image
                       ? {
@@ -86,17 +87,10 @@ export const BlogPageContent = () => {
                 />
                 <div className="body">
                   <div className="meta">
-                    <span className="mono">
-                      {blog.date || "2026-04-22"}
-                    </span>
+                    <span className="mono">{blog.date}</span>
                   </div>
                   <h3>{blog.title}</h3>
-                  <p>
-                    {blog.summary
-                      ? blog.summary.substring(0, 120) + "..."
-                      : blog.content.substring(0, 120).replace(/[#*_`]/g, "") +
-                        "..."}
-                  </p>
+                  <p>{blog.description || blog.summary}</p>
                   <span className="read">Read</span>
                 </div>
               </Link>
@@ -104,7 +98,7 @@ export const BlogPageContent = () => {
           </div>
         )}
 
-        {typedBlogs.length === 0 && (
+        {blogEntries.length === 0 && (
           <div style={{ textAlign: "center", padding: "80px 0", color: "var(--muted)" }}>
             <p className="mono">No articles found.</p>
           </div>

@@ -1,6 +1,13 @@
+import { SEO } from "../../components/SEO";
+
 export const Terms = () => {
   return (
     <main className="wrap">
+      <SEO
+        title="Terms of Use"
+        description="The terms governing access to and use of Sereel's website, digital asset management platform, APIs, and related services."
+        canonical="/terms"
+      />
       <section className="page-hero">
         <div className="mono eyebrow lit">[ Legal ]</div>
         <h1>Terms of Use</h1>
