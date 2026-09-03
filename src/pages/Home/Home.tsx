@@ -179,51 +179,6 @@ const stackLayers: StackLayer[] = [
   },
 ];
 
-const ledgerRows = [
-  {
-    id: "01",
-    useCase: "Tokenized Funds",
-    institution: "Asset managers",
-    layers: "Custody, compliance, subscriptions, redemptions",
-    outcome: "Launch fund units with investor eligibility and lifecycle controls.",
-  },
-  {
-    id: "02",
-    useCase: "Fixed-Income Products",
-    institution: "Issuers and arrangers",
-    layers: "Tokenization, transfer rules, settlement",
-    outcome: "Operate permissioned debt or yield products with auditable ownership records.",
-  },
-  {
-    id: "03",
-    useCase: "Private Credit Products",
-    institution: "Credit managers",
-    layers: "Product rules, reporting, subscriptions",
-    outcome: "Distribute private credit exposure through controlled investor rails.",
-  },
-  {
-    id: "04",
-    useCase: "Custody-First Deployments",
-    institution: "Banks and treasury teams",
-    layers: "Wallet controls, multisigs, approvals, audit trails",
-    outcome: "Adopt institutional custody before broader tokenization rollout.",
-  },
-  {
-    id: "05",
-    useCase: "Controlled Marketplaces",
-    institution: "Broker-dealers and platforms",
-    layers: "Marketplace, eligibility, redemptions",
-    outcome: "Run orderbook workflows where only approved participants can transfer.",
-  },
-  {
-    id: "06",
-    useCase: "Institutional Strategy Workflows",
-    institution: "Institutions implementing compliant DeFi strategies",
-    layers: "Custody, DeFi strategy controls, settlement",
-    outcome:
-      "Implement compliant DeFi strategies with reporting and operational guardrails.",
-  },
-];
 
 const standards = [
   {
@@ -439,36 +394,6 @@ export const Home = () => {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="marketing-section ledger-section wrap" id="use-cases">
-        <div className="section-copy compact">
-          <h2>Workflow ledger</h2>
-          <p>
-            Product dossiers for the capital-market workflows issuers and fund
-            managers run on Sereel.
-          </p>
-        </div>
-
-        <div className="use-case-ledger">
-          {ledgerRows.map((row) => (
-            <article key={row.id} className="ledger-row">
-              <span className="ledger-id">{row.id}</span>
-              <div>
-                <h3>{row.useCase}</h3>
-                <p>{row.institution}</p>
-              </div>
-              <div>
-                <span className="ledger-label">Rail controls used</span>
-                <p>{row.layers}</p>
-              </div>
-              <div>
-                <span className="ledger-label">Outcome</span>
-                <p>{row.outcome}</p>
-              </div>
-            </article>
-          ))}
         </div>
       </section>
 
