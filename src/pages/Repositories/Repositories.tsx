@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { SEO } from "../../components/SEO";
 
 interface ResearchPaper {
   title: string;
@@ -68,6 +69,11 @@ export const Repositories = () => {
 
   return (
     <main className="wrap">
+      <SEO
+        title="Research Repository"
+        description="Foundational research and papers behind Sereel's institutional digital asset infrastructure — from the Ethereum whitepaper to zero-knowledge proof systems."
+        canonical="/repositories"
+      />
       <section className="page-hero">
         <div className="mono eyebrow lit">[ Research ]</div>
         <h1>

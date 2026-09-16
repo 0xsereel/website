@@ -1,6 +1,13 @@
+import { SEO } from "../../components/SEO";
+
 export const About = () => {
   return (
     <main className="wrap">
+      <SEO
+        title="About — Tokenized Finance Infrastructure"
+        description="Sereel builds compliant rails for issuance, custody, settlement, and lifecycle management of tokenized financial products, operating from Chicago, Nairobi, and Zürich."
+        canonical="/about"
+      />
       <section className="page-hero about-hero">
         <div>
           <div className="mono eyebrow lit">[ About ]</div>

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { AnimatedCard } from "../../Animation/AnimatedCard";
+import { getBlogPath } from "../../../utils/blog";
 
 export interface BlogTypes {
   id: number;
@@ -9,13 +10,14 @@ export interface BlogTypes {
   image: string;
   content: string;
   summary?: string;
+  slug?: string;
 }
 
 // Enhanced Blog Card Component
 const BlogCard = ({ blog, index }: { blog: BlogTypes; index: number }) => {
   return (
     <AnimatedCard className="lg:w-[400px] w-full group" delay={index * 0.1}>
-      <Link to={`/blog/${blog.id}`} className="block">
+      <Link to={getBlogPath(blog)} className="block">
         <motion.div
           className="bg-gradient-to-br from-[#1CA36E]/5 to-white/5 rounded-xl overflow-hidden border border-[#202026] hover:border-[#1CA36E]/50 transition-all duration-300"
           whileHover={{ y: -5 }}

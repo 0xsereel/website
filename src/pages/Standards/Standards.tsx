@@ -1,6 +1,13 @@
+import { SEO } from "../../components/SEO";
+
 export const Standards = () => {
   return (
     <main className="wrap">
+      <SEO
+        title="Token Standards & Compliance Frameworks"
+        description="The recognized token standards and compliance frameworks Sereel deploys so institutions can launch across public and private blockchain environments."
+        canonical="/standards"
+      />
       <section className="page-hero">
         <div className="mono eyebrow lit">[ Standards ]</div>
         <h1>
