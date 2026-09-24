@@ -16,7 +16,7 @@ import {
 } from "../../utils/blog";
 
 // Posts whose header image is square (~1:1) and renders too tall at full width
-const SQUARE_HEADER_IMAGE_IDS = [6, 8, 15, 21, 22];
+const SQUARE_HEADER_IMAGE_IDS = [6, 8, 15, 21, 22, 24];
 
 export const BlogPost = () => {
   const { slug } = useParams();
