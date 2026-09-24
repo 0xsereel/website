@@ -16,7 +16,7 @@ import {
 } from "../../utils/blog";
 
 // Posts whose header image is square (~1:1) and renders too tall at full width
-const SQUARE_HEADER_IMAGE_IDS = [6, 8, 15, 21, 22];
+const SQUARE_HEADER_IMAGE_IDS = [6, 8, 15, 21, 22, 24];
 
 export const BlogPost = () => {
   const { slug } = useParams();
@@ -107,7 +107,7 @@ export const BlogPost = () => {
               // The page h1 is the post title above; demote any h1 in the
               // markdown body so each page has exactly one h1.
               h1: ({ children }) => <h2>{children}</h2>,
-              a: ({ href, children }) => {
+              a: ({ href, children, className }) => {
                 const isInternal =
                   href &&
                   (href.startsWith("/") ||
@@ -115,10 +115,14 @@ export const BlogPost = () => {
                     href.startsWith("https://sereel.com"));
                 if (isInternal) {
                   const path = href.replace(/^https?:\/\/(www\.)?sereel\.com/, "");
-                  return <Link to={path || "/"}>{children}</Link>;
+                  return (
+                    <Link to={path || "/"} className={className}>
+                      {children}
+                    </Link>
+                  );
                 }
                 return (
-                  <a href={href} target="_blank" rel="noopener noreferrer">
+                  <a href={href} target="_blank" rel="noopener noreferrer" className={className}>
                     {children}
                   </a>
                 );
