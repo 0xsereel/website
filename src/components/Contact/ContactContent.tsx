@@ -173,7 +173,7 @@ export const ContactContent = () => {
               <div className="locs">
                 <span>Chicago</span>
                 <span>Nairobi</span>
-                <span>Zürich</span>
+                <span>Kigali</span>
               </div>
             </div>
           </div>

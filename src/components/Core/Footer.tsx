@@ -66,7 +66,7 @@ export function Footer() {
           flexWrap: "wrap",
         }}
       >
-        <p style={{ margin: 0, fontSize: 11, color: C.d }}>© 2026 Sereel. All rights reserved.</p>
+        <p style={{ margin: 0, fontSize: 11, color: C.d }}>© 2026 Sereel Technologies Inc. All rights reserved.</p>
         <div style={{ display: "flex", gap: 14 }}>
           <a href="https://x.com/0xSereel" target="_blank" rel="noreferrer" style={{ color: C.d, textDecoration: "none", fontSize: 12 }}>
             X

@@ -97,7 +97,7 @@ export const Footer = () => {
           </div>
 
           <div className="legal">
-            <span>© Sereel Technologies, Inc. 2026</span>
+            <span>© 2026 Sereel Technologies Inc. All rights reserved.</span>
             <div className="footer-controls">
               <span>Infrastructure provider, not issuer or asset sponsor</span>
               <ThemeToggle className="footer-theme-toggle" />
@@ -156,9 +156,8 @@ export const Footer = () => {
           </div>
         </div>
         <div className="legal">
-          <span>© Sereel Technologies, Inc. 2026</span>
+          <span>© 2026 Sereel Technologies Inc. All rights reserved.</span>
           <div className="footer-controls">
-            <span>All Rights Reserved</span>
             <ThemeToggle className="footer-theme-toggle" />
           </div>
         </div>

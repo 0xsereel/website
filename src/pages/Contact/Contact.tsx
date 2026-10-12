@@ -6,7 +6,7 @@ export const Contact = () => {
     <>
       <SEO
         title="Contact"
-        description="Talk to the Sereel team about tokenization, custody, compliance, and settlement infrastructure for your institution. Offices in Chicago, Nairobi, and Zürich."
+        description="Talk to the Sereel team about tokenization, custody, compliance, and settlement infrastructure for your institution. Offices in Chicago, Nairobi, and Kigali."
         canonical="/contact"
       />
       <ContactContent />

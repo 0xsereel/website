@@ -5,7 +5,7 @@ export const About = () => {
     <main className="wrap">
       <SEO
         title="About — Tokenized Finance Infrastructure"
-        description="Sereel builds compliant rails for issuance, custody, settlement, and lifecycle management of tokenized financial products, operating from Chicago, Nairobi, and Zürich."
+        description="Sereel builds compliant rails for issuance, custody, settlement, and lifecycle management of tokenized financial products, operating from Chicago, Nairobi, and Kigali."
         canonical="/about"
       />
       <section className="page-hero about-hero">
@@ -83,7 +83,7 @@ export const About = () => {
             </h2>
           </div>
           <p className="lede">
-            We have established a presence in three countries across three
+            We have established a presence in three countries across two
             continents, aligned with regulatory regimes that matter for
             institutional tokenization. Built for regulatory interoperability.
           </p>
@@ -98,8 +98,8 @@ export const About = () => {
             <div className="country mono">Kenya</div>
           </div>
           <div className="loc">
-            <div className="name">Zürich</div>
-            <div className="country mono">Switzerland</div>
+            <div className="name">Kigali</div>
+            <div className="country mono">Rwanda</div>
           </div>
         </div>
       </section>
