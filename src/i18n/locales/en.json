@@ -1,0 +1,1250 @@
+{
+  "common": {
+    "scheduleConsultation": "Schedule consultation",
+    "menu": "Menu",
+    "openMenu": "Open menu",
+    "close": "Close",
+    "closeMenu": "Close menu",
+    "featured": "Featured",
+    "changeLanguage": "Change language"
+  },
+  "nav": {
+    "products": {
+      "label": "Products",
+      "columns": {
+        "core": {
+          "title": "Core Products",
+          "items": {
+            "tokenization": {
+              "title": "Tokenization-as-a-Service",
+              "description": "Launch tokenized financial products on compliant rails."
+            },
+            "custody": {
+              "title": "Custody",
+              "description": "Safekeeping, wallet controls, and operational permissions for digital assets and tokenized instruments."
+            },
+            "compliance": {
+              "title": "Compliance Layer",
+              "description": "Investor eligibility, jurisdiction rules, and transfer restrictions enforced at the asset level."
+            }
+          }
+        },
+        "infrastructure": {
+          "title": "Market Infrastructure",
+          "items": {
+            "marketplace": {
+              "title": "Marketplace & Settlement",
+              "description": "Subscriptions, redemptions, controlled transfers, and settlement workflows."
+            },
+            "lifecycle": {
+              "title": "Lifecycle & Reporting",
+              "description": "Holder records, audit trails, lifecycle events, and operational reporting."
+            },
+            "distribution": {
+              "title": "Controlled Distribution",
+              "description": "Permissioned access and transfer workflows for eligible investors."
+            }
+          }
+        },
+        "advanced": {
+          "title": "Advanced Rails",
+          "items": {
+            "lending": {
+              "title": "Tokenized RWA Lending",
+              "description": "Borrowing and lending infrastructure for eligible tokenized real-world assets."
+            },
+            "strategy": {
+              "title": "On-chain Strategy Infrastructure",
+              "description": "Infrastructure for compliant institutional on-chain and DeFi strategies."
+            },
+            "standards": {
+              "title": "Standards-Based Issuance",
+              "description": "ERC-3643, CMTAT, and regional compliance frameworks."
+            }
+          }
+        }
+      },
+      "feature": {
+        "title": "Launch on Sereel rails",
+        "copy": "Issuer-owned products. Sereel-powered infrastructure.",
+        "cta": "Schedule consultation"
+      }
+    },
+    "solutions": {
+      "label": "Solutions",
+      "columns": {
+        "main": {
+          "title": "Solutions",
+          "items": {
+            "assetManagers": "Asset Managers",
+            "issuers": "Issuers & Arrangers",
+            "banks": "Banks & Custodians",
+            "brokerDealers": "Broker-Dealers & Platforms",
+            "familyOffices": "Family Offices & Treasuries",
+            "strategyTeams": {
+              "title": "Institutional Strategy Teams",
+              "description": "For institutions looking to run compliant DeFi strategies."
+            }
+          }
+        }
+      },
+      "feature": {
+        "title": "Your product. Your investors. Sereel infrastructure.",
+        "copy": "Sereel powers the infrastructure. Issuers own the asset.",
+        "cta": "Explore solutions"
+      }
+    },
+    "resources": {
+      "label": "Resources",
+      "columns": {
+        "main": {
+          "title": "Resources",
+          "items": {
+            "blog": "Blog",
+            "whitepaper": "Whitepaper",
+            "standards": "Standards",
+            "faq": "FAQ",
+            "research": "Research Repository"
+          }
+        }
+      }
+    },
+    "company": {
+      "label": "Company",
+      "columns": {
+        "main": {
+          "title": "Company",
+          "items": {
+            "about": "About",
+            "contact": "Contact"
+          }
+        }
+      }
+    }
+  },
+  "footer": {
+    "tagline": "Compliant rails for tokenized capital markets.",
+    "copyright": "© 2026 Sereel Technologies Inc. All rights reserved.",
+    "disclaimer": "Infrastructure provider, not issuer or asset sponsor",
+    "groups": {
+      "products": {
+        "title": "Products",
+        "tokenization": "Tokenization-as-a-Service",
+        "custody": "Custody",
+        "marketplace": "Marketplace & Settlement",
+        "compliance": "Compliance Layer",
+        "lending": "Tokenized RWA Lending"
+      },
+      "solutions": {
+        "title": "Solutions",
+        "assetManagers": "Asset Managers",
+        "issuers": "Issuers & Arrangers",
+        "banks": "Banks & Custodians",
+        "brokerDealers": "Broker-Dealers & Platforms",
+        "familyOffices": "Family Offices & Treasuries",
+        "strategyTeams": "Institutional Strategy Teams"
+      },
+      "resources": {
+        "title": "Resources",
+        "blog": "Blog",
+        "whitepaper": "Whitepaper",
+        "standards": "Standards",
+        "faq": "FAQ"
+      },
+      "company": {
+        "title": "Company",
+        "about": "About",
+        "contact": "Contact",
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Use"
+      }
+    }
+  },
+  "notFound": {
+    "seo": {
+      "title": "Page Not Found"
+    },
+    "heading": "Page not found.",
+    "body": "The page you are looking for doesn't exist or has moved.",
+    "backHome": "Back to Home",
+    "readJournal": "Read the Journal"
+  },
+  "entities": {
+    "seo": {
+      "title": "Global Entities & Company Structure",
+      "description": "Sereel's global corporate structure: Sereel Technologies, Inc. in Chicago, Sereel Technologies Botswana in Gaborone, and Sereel Technologies Kenya in Nairobi."
+    },
+    "eyebrow": "Entities",
+    "headingStart": "Global",
+    "headingHighlight": "Company Structure",
+    "lede": "As a global company, we have a growing number of entities strategically positioned worldwide.",
+    "locations": {
+      "chicago": "Chicago, Illinois",
+      "gaborone": "Gaborone, Botswana",
+      "nairobi": "Nairobi, Kenya"
+    }
+  },
+  "about": {
+    "seo": {
+      "title": "About — Tokenized Finance Infrastructure",
+      "description": "Sereel builds compliant rails for issuance, custody, settlement, and lifecycle management of tokenized financial products, operating from Chicago, Nairobi, and Kigali."
+    },
+    "eyebrow": "About",
+    "hero": {
+      "headingStart": "The infrastructure layer",
+      "headingMiddle": "behind",
+      "headingHighlight": "tokenized",
+      "headingEnd": "finance.",
+      "lede": "Sereel provides compliant rails for issuance, custody, settlement, investor controls, subscriptions, redemptions, and controlled transfers."
+    },
+    "mission": {
+      "eyebrow": "Mission",
+      "headingStart": "Why we",
+      "headingHighlight": "build.",
+      "paragraph1Start": "Sereel operates where traditional finance meets digital assets. We help institutions issue, custody, settle, and manage tokenized financial products with",
+      "paragraph1Highlight": "compliance enforced at the contract layer",
+      "paragraph2": "Issuers own the asset, documents, investor relationship, obligations, and performance. Sereel owns the rails that make the operating model programmable, controlled, and auditable."
+    },
+    "stats": {
+      "market": "Tokenized RWA market",
+      "chains": "Chain ecosystems",
+      "settlement": "Settlement target"
+    },
+    "footprint": {
+      "eyebrow": "Footprint",
+      "headingStart": "Where we",
+      "headingHighlight": "operate.",
+      "lede": "We have established a presence in three countries across two continents, aligned with regulatory regimes that matter for institutional tokenization. Built for regulatory interoperability.",
+      "locations": {
+        "chicago": {
+          "city": "Chicago",
+          "country": "USA"
+        },
+        "nairobi": {
+          "city": "Nairobi",
+          "country": "Kenya"
+        },
+        "kigali": {
+          "city": "Kigali",
+          "country": "Rwanda"
+        }
+      }
+    }
+  },
+  "contact": {
+    "seo": {
+      "title": "Contact",
+      "description": "Talk to the Sereel team about tokenization, custody, compliance, and settlement infrastructure for your institution. Offices in Chicago, Nairobi, and Kigali."
+    },
+    "eyebrow": "Contact",
+    "hero": {
+      "headingStart": "Let's",
+      "headingHighlight": "talk.",
+      "lede": "Tell us about your tokenization needs. We respond within one business day."
+    },
+    "form": {
+      "fields": {
+        "firstName": {
+          "label": "First name",
+          "placeholder": "Jane"
+        },
+        "lastName": {
+          "label": "Last name",
+          "placeholder": "Smith"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "jane@yourfirm.com"
+        },
+        "institution": {
+          "label": "Institution",
+          "placeholder": "Your firm"
+        },
+        "message": {
+          "label": "Message",
+          "placeholder": "What are you looking to tokenize?"
+        }
+      },
+      "submit": "Send message →",
+      "errors": {
+        "required": "Please fill all the required fields"
+      },
+      "status": {
+        "sending": "Sending...",
+        "success": "Thank you for contacting us!",
+        "genericError": "Something went wrong. Please try again.",
+        "networkError": "An error occurred. Please try again."
+      }
+    },
+    "info": {
+      "emailLabel": "Email",
+      "locationsLabel": "Locations",
+      "locations": {
+        "chicago": "Chicago",
+        "nairobi": "Nairobi",
+        "kigali": "Kigali"
+      }
+    }
+  },
+  "faq": {
+    "seo": {
+      "title": "FAQ — Tokenization Questions Answered",
+      "description": "Answers to common questions about Sereel, tokenization, blockchain settlement, custody, compliance, and institutional adoption of tokenized assets."
+    },
+    "eyebrow": "Primer",
+    "heading": {
+      "line1": "Questions",
+      "highlight": "Answered"
+    },
+    "lede": "A short primer for institutional teams evaluating tokenisation infrastructure.",
+    "sections": {
+      "aboutSereel": {
+        "title": "About Sereel",
+        "items": {
+          "whatIsSereel": {
+            "question": "What is Sereel?",
+            "answer": "Sereel provides institutional-grade infrastructure for the issuance, management, distribution and lifecycle administration of tokenised real-world assets and investment products. It helps regulated institutions, asset managers, issuers and investment platforms bring traditional financial products onto blockchain infrastructure while maintaining compliance, governance and investor protections. Sereel does not change the underlying asset — it modernises how ownership, transfers, reporting and settlement are managed."
+          },
+          "whatIsTokenisation": {
+            "question": "What is tokenisation?",
+            "answer": "Tokenisation is the process of representing ownership rights in a real-world asset or investment product as a secure digital record on blockchain infrastructure. Examples include real estate, private credit, money market funds, infrastructure projects, commodities, fixed income products, structured products and private equity interests. The underlying asset remains unchanged — tokenisation creates a more efficient framework for ownership and distribution."
+          },
+          "doesTokenisationChangeValue": {
+            "question": "Does tokenisation change the value of an asset?",
+            "answer": "No. Tokenisation does not create value by itself. The value of a tokenised asset remains linked to the underlying asset, investment product or cash flow it represents. What changes is how ownership is recorded, transferred, administered and reported."
+          },
+          "isCryptocurrencyPlatform": {
+            "question": "Is Sereel a cryptocurrency platform?",
+            "answer": "No. Sereel is infrastructure for regulated financial products and real-world assets. While blockchain is used as the underlying technology, the focus is institutional investment infrastructure — not speculative cryptocurrency trading."
+          },
+          "isIssuerOrSponsor": {
+            "question": "Is Sereel the issuer or asset sponsor?",
+            "answer": "No. Sereel provides the rails for issuance, custody, compliance controls, settlement, subscriptions, redemptions and controlled transfers. The issuer owns the asset, disclosures, investor relationship, obligations and performance."
+          },
+          "whoIsBuiltFor": {
+            "question": "Who is Sereel built for?",
+            "answer": "Sereel is designed for asset managers, fund managers, banks, issuers, investment platforms, family offices, institutional investors, real estate developers, private credit managers, distribution partners and compliance teams."
+          }
+        }
+      },
+      "whyBlockchain": {
+        "title": "Why Blockchain?",
+        "items": {
+          "whyBlockchainForInvestments": {
+            "question": "Why use blockchain for investment products?",
+            "answer": "Traditional financial infrastructure can be slow, fragmented and heavily dependent on manual reconciliation. Blockchain enables faster settlement, better transparency, immutable ownership records, automated corporate actions, reduced administrative burden, stronger audit trails and broader accessibility. Sereel uses blockchain to improve infrastructure, not to replace legal and regulatory frameworks."
+          },
+          "whyNotDatabase": {
+            "question": "Why not simply use a traditional database?",
+            "answer": "Traditional databases depend on a central party to maintain trust and reconcile records. Blockchain provides a shared source of truth that can be independently verified by multiple stakeholders — issuers, investors, custodians, administrators and regulators — all needing consistent records."
+          },
+          "benefitOfInstantSettlement": {
+            "question": "What is the benefit of instant settlement?",
+            "answer": "Traditional securities settlement often takes multiple days. Blockchain-based settlement can allow ownership and payment to move together, reducing delay and counterparty risk. This improves capital efficiency, liquidity management, investor onboarding, operational speed and settlement certainty."
+          }
+        }
+      },
+      "multiChain": {
+        "title": "Multi-Chain Infrastructure",
+        "items": {
+          "whyMultiChain": {
+            "question": "Why is Sereel multi-chain?",
+            "answer": "No single blockchain fits every institution, market or use case. Sereel's multi-chain approach gives issuers access to different ecosystems, liquidity pools and investor communities while keeping the same compliance and governance logic across deployments."
+          },
+          "whyMultiChainMattersForRwa": {
+            "question": "Why does multi-chain deployment matter for RWAs?",
+            "answer": "Multi-chain deployment helps issuers avoid dependence on one network and supports broader distribution and interoperability. It helps with investor reach, liquidity access, network resilience, ecosystem flexibility and future-proofing — especially as the tokenisation market continues to develop."
+          },
+          "whichNetworksSupported": {
+            "question": "Which networks does Sereel support?",
+            "answer": "Sereel supports all EVM-compatible chains, Solana, Canton, Bitcoin, IOTA, public blockchain networks, private blockchain environments and ZKsync Prividium deployments. Network selection depends on the product structure, custody model, privacy requirements, investor access and regulatory needs."
+          }
+        }
+      },
+      "securityCustodyRecovery": {
+        "title": "Security, Custody & Recovery",
+        "items": {
+          "howAssetsSecured": {
+            "question": "How are tokenised assets secured?",
+            "answer": "Security is built in layers and may include institutional custody, multi-signature controls, multi-party computation (MPC), hardware security modules, role-based permissions, audit trails and governance controls. The design is intended to meet institutional expectations, not retail crypto standards."
+          },
+          "whatIsMultiSig": {
+            "question": "What is multi-signature security?",
+            "answer": "Multi-signature security requires more than one authorised approval before a transaction can proceed. This reduces single-point failure risk, internal fraud risk, operational errors and key compromise exposure."
+          },
+          "whatIsMpcCustody": {
+            "question": "What is MPC custody?",
+            "answer": "MPC (multi-party computation) distributes cryptographic control without exposing a full private key in one place. That strengthens security while supporting controlled operations and recovery processes."
+          },
+          "whatIfKeyLost": {
+            "question": "What happens if a private key is lost?",
+            "answer": "Recovery procedures can be built into the custody and governance model, including multi-signature recovery, MPC recovery, backup signers, governance-approved recovery workflows and institutional custody support. Recovery terms should always be defined before issuance."
+          },
+          "doesSereelCustodyAssets": {
+            "question": "Does Sereel custody client assets?",
+            "answer": "No. Custody remains with approved custodians, regulated providers or the designated legal structure for the product. Sereel provides infrastructure rather than taking ownership of investor assets."
+          },
+          "whatIfSereelCeasesOperations": {
+            "question": "What happens if Sereel ceases operations?",
+            "answer": "Token records remain on-chain. Investor rights continue to be governed by the legal structure, transaction documents and the asset's governing terms — rather than by one software provider alone."
+          }
+        }
+      },
+      "complianceLegal": {
+        "title": "Compliance & Legal Structure",
+        "items": {
+          "areTokenisedAssetsLegal": {
+            "question": "Are tokenised assets legal?",
+            "answer": "In many jurisdictions, tokenised assets are recognised under existing securities, trust, property or investment laws. Tokenisation usually updates the ownership record and transfer process — it does not replace the legal rights attached to the asset."
+          },
+          "howSereelSupportsCompliance": {
+            "question": "How does Sereel support compliance?",
+            "answer": "Sereel can support KYC checks, AML controls, investor whitelisting, jurisdiction restrictions, transfer restrictions, investor eligibility checks and compliance reporting. These controls can be embedded into the issuance and transfer process."
+          },
+          "canEligibilityBeEnforced": {
+            "question": "Can investor eligibility rules be enforced?",
+            "answer": "Yes. Issuers can define rules such as accredited investor only, institutional only, geographic restrictions, holding period restrictions and investor concentration limits. Transfers can then be restricted automatically to qualified wallets and approved investors."
+          },
+          "whoDeterminesJurisdiction": {
+            "question": "Who determines the governing jurisdiction?",
+            "answer": "The issuer does. The legal structure, governing law and investor terms are established during issuance and remain enforceable independent of the blockchain layer."
+          }
+        }
+      },
+      "tokenisedAssetsProducts": {
+        "title": "Tokenised Assets & Products",
+        "items": {
+          "whatAssetsCanBeTokenised": {
+            "question": "What kinds of assets can be tokenised?",
+            "answer": "Sereel may support a wide range of asset classes including real estate, private credit, funds, fixed income products, commodities, infrastructure assets, structured products, private equity interests, revenue-linked instruments and alternative investment products."
+          },
+          "canFundsBeTokenised": {
+            "question": "Can traditional funds be tokenised?",
+            "answer": "Yes. Traditional funds, including private funds and other collective investment structures, can be represented through tokenised ownership records."
+          },
+          "canTokenisationImproveLiquidity": {
+            "question": "Can tokenisation improve liquidity?",
+            "answer": "Potentially, yes. Tokenisation can support fractional ownership, smaller ticket sizes, broader investor access and secondary market participation. However, liquidity still depends on market demand, investor participation and the availability of compliant trading venues."
+          },
+          "whatIsFractionalOwnership": {
+            "question": "What is fractional ownership?",
+            "answer": "Fractional ownership means an asset is divided into smaller ownership units. This can lower entry thresholds and make it easier for more investors to participate."
+          }
+        }
+      },
+      "institutionalInfrastructure": {
+        "title": "Institutional Infrastructure",
+        "items": {
+          "whatMakesInstitutionalGrade": {
+            "question": "What makes Sereel institutional-grade?",
+            "answer": "Sereel is designed around compliance-first architecture, secure custody integrations, governance controls, institutional settlement standards, API-based integrations, auditability, scalability and regulatory adaptability. The platform is intended for professional market participants and regulated use cases."
+          },
+          "howIntegratesWithExistingSystems": {
+            "question": "How does Sereel integrate with existing systems?",
+            "answer": "Sereel can connect through APIs to existing systems such as fund administration platforms, transfer agents, custodians, banking systems, reporting tools, treasury systems and investment platforms — helping institutions adopt tokenisation without replacing their entire operating stack."
+          },
+          "canBeWhiteLabelled": {
+            "question": "Can Sereel be white-labelled?",
+            "answer": "Yes. Institutions can launch products under their own brand while Sereel provides the infrastructure behind the scenes."
+          },
+          "howCorporateActionsManaged": {
+            "question": "How are corporate actions managed?",
+            "answer": "Corporate actions can be automated through programmable workflows covering coupon payments, dividend distributions, interest payments, redemptions, maturity events and investor notifications — reducing manual work and improving consistency."
+          }
+        }
+      },
+      "riskGovernance": {
+        "title": "Risk & Governance",
+        "items": {
+          "mainRisks": {
+            "question": "What are the main risks users should understand?",
+            "answer": "Like any financial infrastructure, tokenisation carries risks including regulatory change, market liquidity limitations, technology failure, custody risk, smart contract risk and jurisdictional complexity. These risks should be clearly disclosed in offering and legal documents."
+          },
+          "howUpgradesHandled": {
+            "question": "How are upgrades handled?",
+            "answer": "Where applicable, upgrades should be governed through a clear approval process. Critical compliance and ownership rules should remain tightly controlled, with changes made only under defined governance procedures."
+          },
+          "areTokensValidIfPlatformChanges": {
+            "question": "Are tokens still valid if the platform changes?",
+            "answer": "Yes, provided the legal structure and issuance terms remain in place. The token is a record of ownership, but the enforceable rights come from the legal documentation behind the product."
+          }
+        }
+      },
+      "gettingStarted": {
+        "title": "Getting Started",
+        "items": {
+          "whatIssuerNeedsToLaunch": {
+            "question": "What does an issuer need to launch a tokenised product?",
+            "answer": "Typically, an issuer will need a defined asset or fund structure, legal and regulatory review, investor eligibility rules, custody and recovery design, a distribution plan, a reporting framework, governance approvals and a technical integration plan."
+          },
+          "canSupportSimpleAndComplex": {
+            "question": "Can Sereel support both simple and complex products?",
+            "answer": "Yes. Sereel can support simpler products such as single-asset issuance, as well as more complex structures involving fund administration, distribution rules, compliance logic and lifecycle events."
+          },
+          "whatIsSereelBuilding": {
+            "question": "What is Sereel building?",
+            "answer": "Sereel is building the institutional infrastructure layer for tokenised capital markets — connecting traditional finance and blockchain-based market infrastructure in a way that is compliant, secure and practical for real-world use."
+          }
+        }
+      }
+    },
+    "cta": {
+      "heading": {
+        "line1": "Still Have",
+        "highlight": "Questions?"
+      },
+      "description": "Our team is ready to help you understand how Sereel can transform your institution's tokenisation strategy.",
+      "button": "Contact Our Team"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "The rails behind tokenized capital markets.",
+      "subhead": "Tokenization, custody, compliance, settlement, and market rails for issuer-owned financial products on public and private chains.",
+      "primaryActionLabel": "Primary action"
+    },
+    "cta": {
+      "scheduleConsultation": "Schedule consultation"
+    },
+    "useCases": {
+      "heading": "Use cases",
+      "description": "Institutions enter the system from different operating points. Each use case shows the controls, records, and workflows institutions run through Sereel.",
+      "panelLabel": "Use case",
+      "railLabel": "Rail controls included",
+      "segments": {
+        "assetManagers": {
+          "name": "Asset Managers",
+          "copy": "Launch tokenized funds with investor gating, custody workflows, subscriptions, redemptions, and controlled secondary transfers.",
+          "layers": [
+            "Tokenization",
+            "Compliance",
+            "Subscriptions",
+            "Marketplace"
+          ]
+        },
+        "issuersArrangers": {
+          "name": "Issuers & Arrangers",
+          "copy": "Launch tokenized debt, private credit, fixed-income, and structured products through permissioned rails.",
+          "layers": [
+            "Product rules",
+            "Tokenization",
+            "Settlement",
+            "Reporting"
+          ]
+        },
+        "banksCustodians": {
+          "name": "Banks & Custodians",
+          "copy": "Adopt custody, multisig governance, wallet controls, permissions, and reporting before deploying the full tokenization stack.",
+          "layers": [
+            "Custody",
+            "Multisigs",
+            "Approvals",
+            "Audit trails"
+          ]
+        },
+        "fintechs": {
+          "name": "Fintechs",
+          "copy": "Enable access to regulated funds and tokenized products through Sereel's seamless SDK.",
+          "layers": [
+            "APIs",
+            "Investor gating",
+            "Settlement",
+            "White label"
+          ]
+        },
+        "brokerDealersPlatforms": {
+          "name": "Broker-Dealers & Platforms",
+          "copy": "Operate permissioned orderbook and transfer workflows with eligibility checks before assets move.",
+          "layers": [
+            "Orderbook",
+            "Transfer rules",
+            "Custody",
+            "Redemptions"
+          ]
+        },
+        "familyOfficesTreasuries": {
+          "name": "Family Offices & Treasuries",
+          "copy": "Coordinate custody, reporting, controlled transfers, and access to tokenized private-market products.",
+          "layers": [
+            "Custody",
+            "Reporting",
+            "Controlled transfers",
+            "Strategy rails"
+          ]
+        },
+        "institutionalStrategyTeams": {
+          "name": "Institutional Strategy Teams",
+          "copy": "Run compliant DeFi strategies with custody controls, risk policies, reporting, and settlement records.",
+          "layers": [
+            "Custody",
+            "DeFi strategy rails",
+            "Risk controls",
+            "Settlement records"
+          ]
+        }
+      }
+    },
+    "platform": {
+      "heading": "The control system behind tokenized products.",
+      "description": "Sereel can run as one operating layer or as specific rails for custody, compliance, tokenization, settlement, marketplace workflows, strategy controls, and public or private chain deployment.",
+      "layerListLabel": "Sereel stack layers",
+      "controlLabel": "Control",
+      "recordLabel": "Record",
+      "outcomeLabel": "Buyer outcome",
+      "layers": {
+        "custody": {
+          "title": "Custody + Wallet Controls",
+          "detail": "Role-based wallets, multisig approval paths, recovery design, and controlled operations for institutional teams.",
+          "control": "Multisig approvals, recovery roles, treasury permissions",
+          "record": "Wallet policy dossier",
+          "outcome": "Teams can operate assets without losing institutional oversight."
+        },
+        "compliance": {
+          "title": "Compliance + Transfer Rules",
+          "detail": "Issuer-defined investor eligibility, jurisdiction controls, holding restrictions, and permissioned transfer logic.",
+          "control": "Eligibility, jurisdiction, holding, and transfer constraints",
+          "record": "Transfer-control log",
+          "outcome": "Unqualified transfers fail before ownership records move."
+        },
+        "tokenization": {
+          "title": "Tokenization Engine",
+          "detail": "Issuers launch tokenized funds, debt, fixed income, private credit, and structured products with controls their legal, operations, and investor teams can audit.",
+          "control": "Product terms, ownership registers, issuer controls",
+          "record": "Issuance register",
+          "outcome": "Products launch with auditable ownership and lifecycle files."
+        },
+        "settlement": {
+          "title": "Subscriptions + Settlement",
+          "detail": "Fund managers run primary subscriptions, payment coordination, allocation workflows, settlement records, and lifecycle reporting through Sereel.",
+          "control": "Subscriptions, allocations, payment coordination",
+          "record": "Subscription book",
+          "outcome": "Primary capital movement is traceable from order to record."
+        },
+        "marketplace": {
+          "title": "Marketplace + Redemptions",
+          "detail": "Controlled secondary transfers, redemption workflows, orderbook constraints, and issuer-approved exits.",
+          "control": "Issuer-approved exits and secondary-transfer constraints",
+          "record": "Redemption queue",
+          "outcome": "Liquidity workflows stay permissioned and reviewable."
+        },
+        "rwaLending": {
+          "title": "Tokenized RWA Lending",
+          "detail": "Borrowing and lending rails for eligible tokenized real-world assets with custody, eligibility, collateral, and settlement controls.",
+          "control": "Borrower eligibility, lender access, collateral permissions",
+          "record": "Tokenized lending activity file",
+          "outcome": "Institutions can run RWA credit workflows inside permissioned infrastructure."
+        },
+        "strategy": {
+          "title": "Institutional Strategy Infrastructure",
+          "detail": "Institutional strategy workflows governed by custody, reporting, settlement, and risk controls.",
+          "control": "Custody policy, risk thresholds, settlement reporting",
+          "record": "Strategy operating file",
+          "outcome": "On-chain strategies operate inside institutional guardrails."
+        }
+      }
+    },
+    "responsibility": {
+      "heading": "Your asset. Your investors. Sereel infrastructure.",
+      "description": "Sereel provides the infrastructure layer for compliant issuance, custody, settlement, investor controls, subscriptions, redemptions, and controlled transfers. Issuers remain responsible for the asset, offering documents, disclosures, investor communications, obligations, product economics, and asset performance. Sereel does not originate, underwrite, recommend, or guarantee issuer assets or returns.",
+      "issuerHeading": "Issuer owns",
+      "sereelHeading": "Sereel powers",
+      "issuerItems": [
+        "Asset",
+        "Disclosures",
+        "Investor relationship",
+        "Obligations",
+        "Product economics and performance"
+      ],
+      "sereelItems": [
+        "Custody and multisig controls",
+        "Tokenization",
+        "Compliance controls",
+        "Settlement",
+        "Subscriptions / redemptions"
+      ]
+    },
+    "standards": {
+      "heading": "Standards where they matter. Invisible where they should be.",
+      "description": "Sereel deploys recognized token standards and compliance frameworks so institutions can launch without rebuilding legal and technical rails from scratch.",
+      "items": {
+        "erc3643": {
+          "role": "Permissioned transfer logic",
+          "proof": "Eligibility checks and compliance rules can be enforced before transfer execution."
+        },
+        "cmtat": {
+          "role": "Swiss capital markets token framework",
+          "proof": "Recognized token architecture for securities-style products and issuer controls."
+        },
+        "vaspReady": {
+          "role": "Regional regulatory coverage",
+          "proof": "Deployment models can align with custody, reporting, and digital-asset service rules."
+        }
+      }
+    },
+    "journal": {
+      "heading": "Latest from the journal",
+      "description": "Regulatory analysis, infrastructure notes, and market perspective for institutional on-chain finance.",
+      "latestLabel": "Latest",
+      "readArticle": "Read article",
+      "allArticles": "All articles"
+    },
+    "ctaBand": {
+      "heading": "Sereel helps you safely & compliantly manage tokenized assets."
+    }
+  },
+  "privacy": {
+    "seo": {
+      "title": "Privacy Policy",
+      "description": "How Sereel Technologies collects, uses, discloses, and safeguards information across our website, digital asset platform, APIs, and related services."
+    },
+    "eyebrow": "Legal",
+    "heading": "Privacy Policy",
+    "lastUpdated": "Last Updated: March 2, 2026",
+    "sections": {
+      "introduction": {
+        "heading": "1. Introduction",
+        "body1": "Sereel Technologies Inc. (\"Sereel,\" \"we,\" \"us,\" or \"our\") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you access our website at https://sereel.com, our digital asset management platform, APIs, and related services (collectively, the \"Services\").",
+        "body2": "By using our Services, you consent to the practices described in this Privacy Policy. If you do not agree, please do not use the Services."
+      },
+      "collection": {
+        "heading": "2. Information We Collect",
+        "provided": {
+          "heading": "2.1 Information You Provide",
+          "items": {
+            "account": {
+              "label": "Account Information:",
+              "text": "Name, email address, company name, job title, and other registration details."
+            },
+            "business": {
+              "label": "Business Information:",
+              "text": "Entity name, jurisdiction of incorporation, business registration details, and authorized representative information for institutional clients."
+            },
+            "communications": {
+              "label": "Communications:",
+              "text": "Information you provide when contacting us, submitting support requests, or communicating through the Services."
+            },
+            "transaction": {
+              "label": "Transaction Data:",
+              "text": "Records of digital asset transactions, token issuance details, and related operational data processed through our platform."
+            }
+          }
+        },
+        "automatic": {
+          "heading": "2.2 Information Collected Automatically",
+          "items": {
+            "usage": {
+              "label": "Usage Data:",
+              "text": "Pages visited, features used, timestamps, referral URLs, and interaction patterns within the Services."
+            },
+            "device": {
+              "label": "Device and Technical Data:",
+              "text": "IP address, browser type and version, operating system, device identifiers, and general location information derived from your IP address."
+            },
+            "log": {
+              "label": "Log Data:",
+              "text": "Server logs, error reports, and performance data related to your use of the Services."
+            }
+          }
+        },
+        "thirdParty": {
+          "heading": "2.3 Information from Third Parties",
+          "items": {
+            "identity": {
+              "label": "Identity Verification Data:",
+              "text1": "We use third-party Know Your Customer (KYC) and Know Your Business (KYB) providers to verify user and entity identities as required by applicable regulations. These providers collect and process sensitive identity information (such as government-issued ID documents, biometric data, proof of address, and sanctions screening results) directly.",
+              "boldNote": "Sereel does not store sensitive identity documents or biometric data on our systems.",
+              "text2": "We receive only verification status, risk scores, and summary results necessary to maintain compliance records."
+            },
+            "blockchain": {
+              "label": "Blockchain Data:",
+              "text": "Publicly available on-chain transaction data associated with wallet addresses used in connection with the Services."
+            },
+            "analytics": {
+              "label": "Analytics Providers:",
+              "text": "Aggregated and anonymized usage data from third-party analytics services."
+            }
+          }
+        }
+      },
+      "use": {
+        "heading": "3. How We Use Your Information",
+        "intro": "We use the information we collect for the following purposes:",
+        "items": {
+          "providing": {
+            "label": "Providing the Services:",
+            "text": "To operate, maintain, and improve our digital asset infrastructure and platform."
+          },
+          "compliance": {
+            "label": "Compliance and Regulatory Obligations:",
+            "text": "To meet applicable legal, regulatory, and licensing requirements, including anti-money laundering (AML), counter-terrorism financing (CTF), and sanctions screening obligations across the jurisdictions in which we operate."
+          },
+          "identityVerification": {
+            "label": "Identity Verification:",
+            "text": "To coordinate with third-party KYC/KYB providers to verify the identity and eligibility of users and their organizations."
+          },
+          "security": {
+            "label": "Security:",
+            "text": "To detect, prevent, and respond to fraud, unauthorized access, and other security incidents."
+          },
+          "communications": {
+            "label": "Communications:",
+            "text": "To respond to inquiries, send service-related notifications, and provide customer support."
+          },
+          "analytics": {
+            "label": "Analytics and Improvement:",
+            "text": "To understand how the Services are used and to improve functionality, performance, and user experience."
+          },
+          "legal": {
+            "label": "Legal Purposes:",
+            "text": "To enforce our Terms of Use, comply with legal obligations, and protect our rights and the rights of others."
+          }
+        }
+      },
+      "sharing": {
+        "heading": "4. How We Share Your Information",
+        "intro": "We do not sell your personal information. We may share your information in the following circumstances:",
+        "serviceProviders": {
+          "heading": "4.1 Third-Party Service Providers",
+          "intro": "We share information with trusted third-party providers who perform services on our behalf, including:",
+          "items": {
+            "kyc": {
+              "label": "KYC/KYB Verification Providers:",
+              "text": "To conduct identity verification and compliance screening. These providers operate under their own privacy policies and data processing agreements."
+            },
+            "cloud": {
+              "label": "Cloud Infrastructure Providers:",
+              "text": "For hosting, data storage, and computing services."
+            },
+            "analytics": {
+              "label": "Analytics Providers:",
+              "text": "For usage analytics and performance monitoring."
+            },
+            "communication": {
+              "label": "Communication Providers:",
+              "text": "For email delivery and customer support tools."
+            }
+          },
+          "footer": "All service providers are contractually obligated to use your information only for the purposes of providing services to Sereel and to maintain appropriate security measures."
+        },
+        "legalDisclosure": {
+          "heading": "4.2 Legal and Regulatory Disclosure",
+          "intro": "We may disclose your information where required by law, regulation, legal process, or governmental request, including:",
+          "items": {
+            "subpoenas": "Responding to subpoenas, court orders, or regulatory inquiries",
+            "amlCtf": "Complying with AML/CTF reporting obligations",
+            "lawEnforcement": "Cooperating with law enforcement or regulatory authorities in any jurisdiction where we operate"
+          }
+        },
+        "businessTransfers": {
+          "heading": "4.3 Business Transfers",
+          "body": "In the event of a merger, acquisition, reorganization, or sale of assets, your information may be transferred as part of that transaction. We will provide notice before your information becomes subject to a different privacy policy."
+        },
+        "consent": {
+          "heading": "4.4 With Your Consent",
+          "body": "We may share your information with third parties when you have given us explicit consent to do so."
+        }
+      },
+      "retention": {
+        "heading": "5. Data Retention",
+        "intro": "We retain your information for as long as necessary to:",
+        "items": {
+          "provide": "Provide the Services and maintain your account",
+          "comply": "Comply with legal, regulatory, and licensing obligations (including record-keeping requirements that may extend for several years after account closure)",
+          "resolve": "Resolve disputes and enforce our agreements"
+        },
+        "footer": "When information is no longer needed for these purposes, we securely delete or anonymize it in accordance with our data retention policies."
+      },
+      "security": {
+        "heading": "6. Data Security",
+        "intro": "We implement appropriate technical and organizational measures to protect your information, including:",
+        "items": {
+          "encryption": "Encryption of data in transit and at rest",
+          "access": "Access controls and authentication mechanisms",
+          "assessments": "Regular security assessments and monitoring",
+          "incident": "Incident response procedures",
+          "standards": "Compliance with industry standards including SOC 2 and ISO 27001 frameworks"
+        },
+        "footer": "While we strive to protect your information, no method of electronic transmission or storage is completely secure. We cannot guarantee absolute security, but we are committed to maintaining industry-standard protections."
+      },
+      "internationalTransfers": {
+        "heading": "7. International Data Transfers",
+        "intro": "Sereel operates across multiple jurisdictions, including the United States, Kenya, Nigeria, the Netherlands, and Botswana. Your information may be transferred to and processed in countries other than your country of residence. When we transfer data internationally, we implement appropriate safeguards, including:",
+        "items": {
+          "scc": "Standard contractual clauses or equivalent mechanisms approved by applicable data protection authorities",
+          "dpa": "Data processing agreements with all third-party providers",
+          "compliance": "Compliance with applicable data transfer regulations in each jurisdiction"
+        }
+      },
+      "rights": {
+        "heading": "8. Your Rights",
+        "intro": "Depending on your jurisdiction, you may have the following rights regarding your personal information:",
+        "items": {
+          "access": {
+            "label": "Access:",
+            "text": "Request a copy of the personal information we hold about you."
+          },
+          "correction": {
+            "label": "Correction:",
+            "text": "Request correction of inaccurate or incomplete information."
+          },
+          "deletion": {
+            "label": "Deletion:",
+            "text": "Request deletion of your personal information, subject to legal and regulatory retention requirements."
+          },
+          "restriction": {
+            "label": "Restriction:",
+            "text": "Request that we restrict processing of your information in certain circumstances."
+          },
+          "portability": {
+            "label": "Portability:",
+            "text": "Request a portable copy of your information in a structured, commonly used format."
+          },
+          "objection": {
+            "label": "Objection:",
+            "text": "Object to processing of your information for certain purposes."
+          },
+          "withdrawConsent": {
+            "label": "Withdraw Consent:",
+            "text": "Where processing is based on consent, you may withdraw consent at any time."
+          }
+        },
+        "contact": "To exercise any of these rights, please contact us at privacy@sereel.com. We will respond to your request within the timeframe required by applicable law.",
+        "limitation": "Please note that certain rights may be limited where we have a legal obligation to retain data, particularly in connection with regulatory compliance, AML/CTF requirements, or ongoing investigations."
+      },
+      "cookies": {
+        "heading": "9. Cookies and Tracking Technologies",
+        "intro": "We may use cookies and similar tracking technologies to collect usage data and improve the Services. These may include:",
+        "items": {
+          "essential": {
+            "label": "Essential Cookies:",
+            "text": "Required for the operation of the Services."
+          },
+          "analytics": {
+            "label": "Analytics Cookies:",
+            "text": "Used to understand how visitors interact with the Services."
+          },
+          "preference": {
+            "label": "Preference Cookies:",
+            "text": "Used to remember your settings and preferences."
+          }
+        },
+        "footer": "You can manage cookie preferences through your browser settings. Disabling certain cookies may affect the functionality of the Services."
+      },
+      "childrensPrivacy": {
+        "heading": "10. Children's Privacy",
+        "body": "Our Services are not directed to individuals under the age of 18 (or the applicable age of majority in your jurisdiction). We do not knowingly collect personal information from children. If we become aware that we have collected information from a child, we will take steps to delete it promptly."
+      },
+      "thirdPartyLinks": {
+        "heading": "11. Third-Party Links",
+        "body": "The Services may contain links to third-party websites, services, or applications. We are not responsible for the privacy practices of these third parties. We encourage you to review the privacy policies of any third-party services you access through our platform."
+      },
+      "changes": {
+        "heading": "12. Changes to This Privacy Policy",
+        "body1": "We may update this Privacy Policy from time to time. We will notify you of material changes by posting the updated policy on our website and updating the \"Last Updated\" date. We may also provide additional notice for significant changes, such as email notification to account holders.",
+        "body2": "Your continued use of the Services after changes are posted constitutes acceptance of the revised Privacy Policy."
+      },
+      "dpo": {
+        "heading": "13. Data Protection Officer",
+        "intro": "For privacy-related inquiries, concerns, or to exercise your data protection rights, please contact:",
+        "emailLabel": "Email:",
+        "websiteLabel": "Website:"
+      },
+      "jurisdictional": {
+        "heading": "14. Jurisdiction-Specific Disclosures",
+        "eeaUk": {
+          "heading": "European Economic Area (EEA) and United Kingdom",
+          "intro": "If you are located in the EEA or UK, we process your personal data under the following legal bases as defined by the General Data Protection Regulation (GDPR):",
+          "items": {
+            "contract": {
+              "label": "Contract Performance:",
+              "text": "Processing necessary to provide the Services you have requested."
+            },
+            "legalObligation": {
+              "label": "Legal Obligation:",
+              "text": "Processing required to comply with applicable laws and regulations."
+            },
+            "legitimateInterests": {
+              "label": "Legitimate Interests:",
+              "text": "Processing necessary for our legitimate business interests, including security, fraud prevention, and service improvement, where these interests are not overridden by your rights."
+            },
+            "consent": {
+              "label": "Consent:",
+              "text": "Where you have provided explicit consent for specific processing activities."
+            }
+          }
+        },
+        "kenya": {
+          "heading": "Kenya",
+          "body": "We comply with the Kenya Data Protection Act (2019) and process personal data in accordance with its principles, including lawfulness, data minimization, and purpose limitation."
+        },
+        "botswana": {
+          "heading": "Botswana",
+          "body": "We comply with the Botswana Data Protection Act and applicable regulations governing data processing and protection."
+        },
+        "unitedStates": {
+          "heading": "United States",
+          "body": "We comply with applicable U.S. federal and state privacy laws. Residents of certain states (including California, Virginia, Colorado, and Connecticut) may have additional rights under their respective state privacy laws. To exercise these rights, please contact us at privacy@sereel.com."
+        }
+      }
+    }
+  },
+  "standards": {
+    "seo": {
+      "title": "Token Standards & Compliance Frameworks",
+      "description": "The recognized token standards and compliance frameworks Sereel deploys so institutions can launch across public and private blockchain environments."
+    },
+    "eyebrow": "Standards",
+    "hero": {
+      "titleStart": "Standards where they matter.",
+      "titleHighlight": "Invisible",
+      "titleEnd": "where they should be.",
+      "lede": "Sereel deploys recognized token standards and compliance frameworks so institutions can launch across public and private blockchain environments without rebuilding legal and technical rails from scratch."
+    },
+    "cards": {
+      "cmtat": {
+        "badge": "Standard 01",
+        "sub": "Capital Markets & Technology Association",
+        "body": "The Swiss tokenization framework adopted by major banks and recognized by Singapore's Project Guardian. Sereel is one of the few engineering teams certified to deploy on it.",
+        "bullets": {
+          "referenceImplementation": "Reference implementation for tokenized securities under Swiss DLT law",
+          "members": "40+ institutional members including UBS, SIX, and Sygnum",
+          "complianceModules": "Native compliance modules: transfer restrictions, snapshots, freeze",
+          "composable": "Composable with ERC-3643 for permissioned transferability",
+          "audited": "Audited, open source, and version-locked at the protocol layer"
+        }
+      },
+      "erc3643": {
+        "badge": "Standard 02",
+        "sub": "Permissioned Token Standard / T-REX",
+        "body": "The leading EVM standard for compliant security tokens. Identity-on-chain through ONCHAINID, with modular compliance enforced at the contract layer.",
+        "bullets": {
+          "eligibilityChecks": "Built-in eligibility checks: KYC, accreditation, jurisdiction",
+          "onchainid": "ONCHAINID identity portability across issuers and chains",
+          "backers": "Backed by Tokeny, Apex, ING, and 20+ regulated issuers",
+          "hybrid": "Sereel deploys CMTAT + ERC-3643 hybrid contracts",
+          "hooks": "Recovery, partitioning, and forced-transfer hooks built in"
+        }
+      }
+    },
+    "networks": {
+      "heading": "Networks",
+      "items": {
+        "evm": "All EVM-compatible chains",
+        "privacy": "Privacy",
+        "privateRollup": "Private rollup",
+        "privateBlockchain": "Private blockchain environments",
+        "permissioned": "Permissioned",
+        "publicBlockchain": "Public blockchain networks",
+        "open": "Open"
+      }
+    },
+    "jurisdictions": {
+      "heading": "Jurisdictions",
+      "items": {
+        "kenya": "Kenya VASP Act",
+        "botswana": "Botswana VASP Act",
+        "rwanda": "Rwanda VASP Act",
+        "nonUs": "Non-US",
+        "usAccredited": "US · Accredited",
+        "swissDlt": "Swiss DLT",
+        "masGuidelines": "MAS Guidelines",
+        "customCounsel": "Custom Counsel",
+        "bespoke": "Bespoke"
+      }
+    }
+  },
+  "terms": {
+    "seo": {
+      "title": "Terms of Use",
+      "description": "The terms governing access to and use of Sereel's website, digital asset management platform, APIs, and related services."
+    },
+    "eyebrow": "Legal",
+    "hero": {
+      "title": "Terms of Use",
+      "lastUpdated": "Last Updated: March 2, 2026"
+    },
+    "sections": {
+      "introduction": {
+        "heading": "1. Introduction",
+        "body1": "Welcome to Sereel Technologies Inc. (\"Sereel,\" \"we,\" \"us,\" or \"our\"). These Terms of Use (\"Terms\") govern your access to and use of our website at https://sereel.com, our digital asset management platform, APIs, and any related services (collectively, the \"Services\").",
+        "body2": "By accessing or using our Services, you agree to be bound by these Terms. If you do not agree, you must not access or use the Services."
+      },
+      "aboutServices": {
+        "heading": "2. About Our Services",
+        "intro": "Sereel provides blockchain-based digital asset infrastructure and capital markets technology services for institutional clients, including but not limited to:",
+        "bullets": {
+          "tokenization": "Tokenization of real-world assets using compliant smart contract standards (e.g., ERC-3643)",
+          "issuance": "Digital securities issuance and lifecycle management",
+          "compliance": "Compliance engine services for regulated digital assets",
+          "api": "API access for integration with client platforms and systems"
+        },
+        "outro": "Our Services are designed for institutional and professional use, including funds, asset managers, and financial intermediaries."
+      },
+      "eligibility": {
+        "heading": "3. Eligibility",
+        "intro": "To use our Services, you must:",
+        "bullets": {
+          "age": "Be at least 18 years of age (or the age of majority in your jurisdiction)",
+          "authority": "Have the legal authority to enter into these Terms on behalf of yourself or the entity you represent",
+          "jurisdiction": "Not be located in, or a resident of, any jurisdiction where the use of our Services would be prohibited by applicable law or regulation",
+          "sanctions": "Not be listed on any applicable sanctions list, including those maintained by the U.S. Office of Foreign Assets Control (OFAC), the United Nations, or the European Union"
+        },
+        "outro": "If you are accessing the Services on behalf of an organization, you represent and warrant that you have the authority to bind that organization to these Terms."
+      },
+      "accountSecurity": {
+        "heading": "4. Account Registration and Security",
+        "intro": "Certain features of the Services may require you to create an account. You agree to:",
+        "bullets": {
+          "accurateInfo": "Provide accurate, current, and complete information during registration",
+          "confidentiality": "Maintain the security and confidentiality of your login credentials",
+          "notify": "Promptly notify us of any unauthorized access or use of your account",
+          "responsibility": "Accept responsibility for all activities that occur under your account"
+        },
+        "outro": "We reserve the right to suspend or terminate accounts that violate these Terms or that we reasonably believe pose a security risk."
+      },
+      "acceptableUse": {
+        "heading": "5. Acceptable Use",
+        "intro": "You agree not to use the Services to:",
+        "bullets": {
+          "violateLaw": "Violate any applicable law, regulation, or third-party right",
+          "financialCrime": "Engage in money laundering, terrorist financing, fraud, or any other financial crime",
+          "circumvent": "Circumvent or attempt to circumvent any compliance controls, identity verification processes, or security measures",
+          "reverseEngineer": "Reverse engineer, decompile, or disassemble any part of the Services",
+          "malware": "Introduce malicious software, viruses, or any code designed to disrupt the Services",
+          "unauthorizedIssuance": "Use the Services for unauthorized token issuance or to facilitate unregistered securities offerings",
+          "interfere": "Interfere with or disrupt the integrity or performance of the Services",
+          "unauthorizedAccess": "Access or attempt to access another user's account without authorization",
+          "automatedMeans": "Use automated means (bots, scrapers, etc.) to access the Services without our prior written consent"
+        }
+      },
+      "intellectualProperty": {
+        "heading": "6. Intellectual Property",
+        "body1": "All content, software, technology, trademarks, and other intellectual property associated with the Services are and remain the exclusive property of Sereel Technologies Inc. or our licensors. Nothing in these Terms grants you any right, title, or interest in our intellectual property, except for the limited right to use the Services as expressly permitted herein.",
+        "body2": "You retain ownership of any data or content you submit through the Services, but you grant us a limited, non-exclusive license to use, process, and store such data as necessary to provide the Services to you."
+      },
+      "thirdPartyServices": {
+        "heading": "7. Third-Party Services",
+        "intro": "Our Services integrate with or rely upon third-party providers, including but not limited to:",
+        "bullets": {
+          "kyc": "Know Your Customer (KYC) and Know Your Business (KYB) identity verification providers",
+          "blockchain": "Blockchain networks and smart contract protocols",
+          "cloud": "Cloud infrastructure and hosting providers",
+          "payment": "Payment processors"
+        },
+        "outro": "We are not responsible for the availability, accuracy, or practices of third-party services. Your use of third-party services may be subject to their own terms and conditions, which you are responsible for reviewing and accepting."
+      },
+      "digitalAssetRisks": {
+        "heading": "8. Digital Assets and Blockchain Risks",
+        "intro": "You acknowledge and understand that:",
+        "bullets": {
+          "irreversible": {
+            "lead": "Blockchain transactions are irreversible.",
+            "body": "Once a transaction is confirmed on a blockchain network, it generally cannot be reversed or undone."
+          },
+          "volatile": {
+            "lead": "Digital assets are volatile.",
+            "body": "The value of tokenized assets and digital securities may fluctuate significantly."
+          },
+          "regulatory": {
+            "lead": "Regulatory uncertainty exists.",
+            "body": "The legal and regulatory landscape for digital assets varies by jurisdiction and is evolving. Compliance requirements may change."
+          },
+          "smartContracts": {
+            "lead": "Smart contracts carry risk.",
+            "body": "While we employ rigorous compliance standards, smart contracts may contain vulnerabilities or behave unexpectedly under certain conditions."
+          },
+          "network": {
+            "lead": "Network risks exist.",
+            "body": "Blockchain networks may experience congestion, forks, or other disruptions beyond our control."
+          }
+        },
+        "outro": "Sereel does not provide investment advice, and nothing in our Services constitutes an offer to buy or sell securities in any jurisdiction."
+      },
+      "feesAndPayment": {
+        "heading": "9. Fees and Payment",
+        "intro": "Fees for the Services are set forth in your applicable service agreement or order form. Unless otherwise agreed in writing:",
+        "bullets": {
+          "currency": "All fees are quoted in the currency specified in your agreement",
+          "nonRefundable": "Fees are non-refundable except as expressly stated in your agreement",
+          "modify": "We reserve the right to modify fees with reasonable prior notice"
+        }
+      },
+      "disclaimers": {
+        "heading": "10. Disclaimers",
+        "body": "THE SERVICES ARE PROVIDED ON AN \"AS IS\" AND \"AS AVAILABLE\" BASIS. TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, SEREEL DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.",
+        "intro": "We do not warrant that:",
+        "bullets": {
+          "uninterrupted": "The Services will be uninterrupted, error-free, or secure",
+          "defects": "Any defects will be corrected",
+          "requirements": "The Services will meet your specific requirements",
+          "accuracy": "Any information provided through the Services is accurate or complete"
+        }
+      },
+      "liability": {
+        "heading": "11. Limitation of Liability",
+        "body1": "TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL SEREEL, ITS DIRECTORS, OFFICERS, EMPLOYEES, AGENTS, OR AFFILIATES BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, OR GOODWILL, ARISING OUT OF OR RELATED TO YOUR USE OF OR INABILITY TO USE THE SERVICES.",
+        "body2": "OUR TOTAL AGGREGATE LIABILITY FOR ANY CLAIMS ARISING OUT OF OR RELATED TO THESE TERMS OR THE SERVICES SHALL NOT EXCEED THE GREATER OF (A) THE AMOUNTS YOU PAID TO US IN THE TWELVE (12) MONTHS PRECEDING THE CLAIM, OR (B) ONE HUNDRED U.S. DOLLARS ($100)."
+      },
+      "indemnification": {
+        "heading": "12. Indemnification",
+        "intro": "You agree to indemnify, defend, and hold harmless Sereel and its officers, directors, employees, and agents from and against any claims, damages, losses, liabilities, costs, and expenses (including reasonable attorneys' fees) arising out of or related to:",
+        "bullets": {
+          "use": "Your use of the Services",
+          "violationTerms": "Your violation of these Terms",
+          "violationLaw": "Your violation of any applicable law or regulation",
+          "content": "Any content or data you submit through the Services"
+        }
+      },
+      "termination": {
+        "heading": "13. Termination",
+        "intro": "We may suspend or terminate your access to the Services at any time, with or without cause, and with or without notice. Upon termination:",
+        "bullets": {
+          "cease": "Your right to access and use the Services will immediately cease",
+          "retainData": "We may retain data as required by applicable law or regulation",
+          "survive": "Provisions that by their nature should survive termination will survive, including Sections 6, 10, 11, 12, and 15"
+        },
+        "outro": "You may terminate your use of the Services at any time by discontinuing access and providing written notice to us."
+      },
+      "modifications": {
+        "heading": "14. Modifications to Terms",
+        "body": "We reserve the right to modify these Terms at any time. We will provide notice of material changes by posting the updated Terms on our website and updating the \"Last Updated\" date. Your continued use of the Services after changes are posted constitutes acceptance of the revised Terms."
+      },
+      "governingLaw": {
+        "heading": "15. Governing Law and Dispute Resolution",
+        "body1": "These Terms are governed by and construed in accordance with the laws of the State of Delaware, United States, without regard to its conflict of law principles.",
+        "body2": "Any dispute arising out of or related to these Terms or the Services shall first be submitted to good-faith negotiation between the parties. If the dispute is not resolved within thirty (30) days, it shall be resolved by binding arbitration administered by the American Arbitration Association (AAA) in accordance with its Commercial Arbitration Rules. The arbitration shall take place in Wilmington, Delaware, unless otherwise agreed by the parties."
+      },
+      "generalProvisions": {
+        "heading": "16. General Provisions",
+        "bullets": {
+          "entireAgreement": {
+            "lead": "Entire Agreement.",
+            "body": "These Terms, together with any applicable service agreements, constitute the entire agreement between you and Sereel regarding the Services."
+          },
+          "severability": {
+            "lead": "Severability.",
+            "body": "If any provision of these Terms is found unenforceable, the remaining provisions will continue in full force and effect."
+          },
+          "waiver": {
+            "lead": "Waiver.",
+            "body": "Our failure to enforce any right or provision of these Terms shall not constitute a waiver of that right or provision."
+          },
+          "assignment": {
+            "lead": "Assignment.",
+            "body": "You may not assign these Terms without our prior written consent. We may assign these Terms without restriction."
+          },
+          "forceMajeure": {
+            "lead": "Force Majeure.",
+            "body": "Sereel shall not be liable for any failure or delay in performance resulting from causes beyond our reasonable control, including but not limited to blockchain network disruptions, regulatory changes, natural disasters, or acts of government."
+          }
+        }
+      },
+      "contact": {
+        "heading": "17. Contact Us",
+        "intro": "If you have questions about these Terms, please contact us at:",
+        "email": "Email: legal@sereel.com",
+        "website": "Website: https://sereel.com"
+      }
+    }
+  }
+}

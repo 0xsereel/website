@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import blogs from "../../Blog Data/Blogs.json";
 import { SEO } from "../../components/SEO";
 import {
@@ -7,6 +8,7 @@ import {
   generateWebSiteSchema,
 } from "../../components/SEO/StructuredData";
 import { getBlogPath, normalizeImagePath } from "../../utils/blog";
+import { useLang } from "../../i18n/LanguageProvider";
 
 type JournalPost = {
   id: number;
@@ -64,170 +66,97 @@ type StackLayer = {
   outcome: string;
 };
 
-const segments: Segment[] = [
-  {
-    slug: "solution-asset-managers",
-    name: "Asset Managers",
-    copy:
-      "Launch tokenized funds with investor gating, custody workflows, subscriptions, redemptions, and controlled secondary transfers.",
-    layers: ["Tokenization", "Compliance", "Subscriptions", "Marketplace"],
-  },
-  {
-    slug: "solution-issuers-arrangers",
-    name: "Issuers & Arrangers",
-    copy:
-      "Launch tokenized debt, private credit, fixed-income, and structured products through permissioned rails.",
-    layers: ["Product rules", "Tokenization", "Settlement", "Reporting"],
-  },
-  {
-    slug: "solution-banks-custodians",
-    name: "Banks & Custodians",
-    copy:
-      "Adopt custody, multisig governance, wallet controls, permissions, and reporting before deploying the full tokenization stack.",
-    layers: ["Custody", "Multisigs", "Approvals", "Audit trails"],
-  },
-  {
-    slug: "solution-fintechs",
-    name: "Fintechs",
-    copy:
-      "Enable access to regulated funds and tokenized products through Sereel's seamless SDK.",
-    layers: ["APIs", "Investor gating", "Settlement", "White label"],
-  },
-  {
-    slug: "solution-broker-dealers-platforms",
-    name: "Broker-Dealers & Platforms",
-    copy:
-      "Operate permissioned orderbook and transfer workflows with eligibility checks before assets move.",
-    layers: ["Orderbook", "Transfer rules", "Custody", "Redemptions"],
-  },
-  {
-    slug: "solution-family-offices-treasuries",
-    name: "Family Offices & Treasuries",
-    copy:
-      "Coordinate custody, reporting, controlled transfers, and access to tokenized private-market products.",
-    layers: ["Custody", "Reporting", "Controlled transfers", "Strategy rails"],
-  },
-  {
-    slug: "solution-institutional-strategy-teams",
-    name: "Institutional Strategy Teams",
-    copy:
-      "Run compliant DeFi strategies with custody controls, risk policies, reporting, and settlement records.",
-    layers: ["Custody", "DeFi strategy rails", "Risk controls", "Settlement records"],
-  },
+type SegmentMeta = { slug: string; key: string };
+
+type StackLayerMeta = { slug: string; aliases?: string[]; key: string };
+
+type StandardMeta = { key: string; name: string; href: string };
+
+const segmentMeta: SegmentMeta[] = [
+  { slug: "solution-asset-managers", key: "assetManagers" },
+  { slug: "solution-issuers-arrangers", key: "issuersArrangers" },
+  { slug: "solution-banks-custodians", key: "banksCustodians" },
+  { slug: "solution-fintechs", key: "fintechs" },
+  { slug: "solution-broker-dealers-platforms", key: "brokerDealersPlatforms" },
+  { slug: "solution-family-offices-treasuries", key: "familyOfficesTreasuries" },
+  { slug: "solution-institutional-strategy-teams", key: "institutionalStrategyTeams" },
 ];
 
-const stackLayers: StackLayer[] = [
-  {
-    slug: "product-custody",
-    title: "Custody + Wallet Controls",
-    detail:
-      "Role-based wallets, multisig approval paths, recovery design, and controlled operations for institutional teams.",
-    control: "Multisig approvals, recovery roles, treasury permissions",
-    record: "Wallet policy dossier",
-    outcome: "Teams can operate assets without losing institutional oversight.",
-  },
-  {
-    slug: "product-compliance",
-    title: "Compliance + Transfer Rules",
-    detail:
-      "Issuer-defined investor eligibility, jurisdiction controls, holding restrictions, and permissioned transfer logic.",
-    control: "Eligibility, jurisdiction, holding, and transfer constraints",
-    record: "Transfer-control log",
-    outcome: "Unqualified transfers fail before ownership records move.",
-  },
-  {
-    slug: "product-tokenization",
-    title: "Tokenization Engine",
-    detail:
-      "Issuers launch tokenized funds, debt, fixed income, private credit, and structured products with controls their legal, operations, and investor teams can audit.",
-    control: "Product terms, ownership registers, issuer controls",
-    record: "Issuance register",
-    outcome: "Products launch with auditable ownership and lifecycle files.",
-  },
+const stackLayerMeta: StackLayerMeta[] = [
+  { slug: "product-custody", key: "custody" },
+  { slug: "product-compliance", key: "compliance" },
+  { slug: "product-tokenization", key: "tokenization" },
   {
     slug: "product-settlement",
     aliases: ["product-marketplace-settlement", "product-lifecycle-reporting"],
-    title: "Subscriptions + Settlement",
-    detail:
-      "Fund managers run primary subscriptions, payment coordination, allocation workflows, settlement records, and lifecycle reporting through Sereel.",
-    control: "Subscriptions, allocations, payment coordination",
-    record: "Subscription book",
-    outcome: "Primary capital movement is traceable from order to record.",
+    key: "settlement",
   },
   {
     slug: "product-marketplace",
     aliases: ["product-controlled-distribution"],
-    title: "Marketplace + Redemptions",
-    detail:
-      "Controlled secondary transfers, redemption workflows, orderbook constraints, and issuer-approved exits.",
-    control: "Issuer-approved exits and secondary-transfer constraints",
-    record: "Redemption queue",
-    outcome: "Liquidity workflows stay permissioned and reviewable.",
+    key: "marketplace",
   },
-  {
-    slug: "product-rwa-lending",
-    title: "Tokenized RWA Lending",
-    detail:
-      "Borrowing and lending rails for eligible tokenized real-world assets with custody, eligibility, collateral, and settlement controls.",
-    control: "Borrower eligibility, lender access, collateral permissions",
-    record: "Tokenized lending activity file",
-    outcome: "Institutions can run RWA credit workflows inside permissioned infrastructure.",
-  },
-  {
-    slug: "product-strategy",
-    title: "Institutional Strategy Infrastructure",
-    detail:
-      "Institutional strategy workflows governed by custody, reporting, settlement, and risk controls.",
-    control: "Custody policy, risk thresholds, settlement reporting",
-    record: "Strategy operating file",
-    outcome: "On-chain strategies operate inside institutional guardrails.",
-  },
+  { slug: "product-rwa-lending", key: "rwaLending" },
+  { slug: "product-strategy", key: "strategy" },
 ];
 
-
-const standards = [
-  {
-    name: "ERC-3643",
-    role: "Permissioned transfer logic",
-    proof:
-      "Eligibility checks and compliance rules can be enforced before transfer execution.",
-    href: "/standards",
-  },
-  {
-    name: "CMTAT",
-    role: "Swiss capital markets token framework",
-    proof:
-      "Recognized token architecture for securities-style products and issuer controls.",
-    href: "/standards",
-  },
-  {
-    name: "VASP-ready",
-    role: "Regional regulatory coverage",
-    proof:
-      "Deployment models can align with custody, reporting, and digital-asset service rules.",
-    href: "/standards",
-  },
-];
-
-const issuerResponsibilities = [
-  "Asset",
-  "Disclosures",
-  "Investor relationship",
-  "Obligations",
-  "Product economics and performance",
-];
-
-const sereelResponsibilities = [
-  "Custody and multisig controls",
-  "Tokenization",
-  "Compliance controls",
-  "Settlement",
-  "Subscriptions / redemptions",
+const standardMeta: StandardMeta[] = [
+  { key: "erc3643", name: "ERC-3643", href: "/standards" },
+  { key: "cmtat", name: "CMTAT", href: "/standards" },
+  { key: "vaspReady", name: "VASP-ready", href: "/standards" },
 ];
 
 export const Home = () => {
+  const { t } = useTranslation();
+  const { localize } = useLang();
   const [activeSegment, setActiveSegment] = useState(0);
   const [activeLayer, setActiveLayer] = useState(0);
+
+  const segments: Segment[] = useMemo(
+    () =>
+      segmentMeta.map((meta) => ({
+        slug: meta.slug,
+        name: t(`home.useCases.segments.${meta.key}.name`),
+        copy: t(`home.useCases.segments.${meta.key}.copy`),
+        layers: t(`home.useCases.segments.${meta.key}.layers`, {
+          returnObjects: true,
+        }) as string[],
+      })),
+    [t],
+  );
+
+  const stackLayers: StackLayer[] = useMemo(
+    () =>
+      stackLayerMeta.map((meta) => ({
+        slug: meta.slug,
+        aliases: meta.aliases,
+        title: t(`home.platform.layers.${meta.key}.title`),
+        detail: t(`home.platform.layers.${meta.key}.detail`),
+        control: t(`home.platform.layers.${meta.key}.control`),
+        record: t(`home.platform.layers.${meta.key}.record`),
+        outcome: t(`home.platform.layers.${meta.key}.outcome`),
+      })),
+    [t],
+  );
+
+  const standards = useMemo(
+    () =>
+      standardMeta.map((meta) => ({
+        name: meta.name,
+        role: t(`home.standards.items.${meta.key}.role`),
+        proof: t(`home.standards.items.${meta.key}.proof`),
+        href: meta.href,
+      })),
+    [t],
+  );
+
+  const issuerResponsibilities = t("home.responsibility.issuerItems", {
+    returnObjects: true,
+  }) as string[];
+  const sereelResponsibilities = t("home.responsibility.sereelItems", {
+    returnObjects: true,
+  }) as string[];
+
   const segment = segments[activeSegment];
   const layer = stackLayers[activeLayer];
 
@@ -266,7 +195,7 @@ export const Home = () => {
     window.addEventListener("hashchange", syncFromHash);
 
     return () => window.removeEventListener("hashchange", syncFromHash);
-  }, []);
+  }, [segments, stackLayers]);
 
   const selectSegment = (index: number) => {
     setActiveSegment(index);
@@ -281,19 +210,17 @@ export const Home = () => {
   return (
     <main className="marketing-page">
       <SEO
-        canonical="/"
+        canonical={localize("/")}
+        hreflangPath="/"
         structuredData={[generateOrganizationSchema(), generateWebSiteSchema()]}
       />
       <section className="marketing-hero wrap" aria-labelledby="home-hero-title">
         <div className="hero-copy">
-          <h1 id="home-hero-title">The rails behind tokenized capital markets.</h1>
-          <p className="hero-subhead">
-            Tokenization, custody, compliance, settlement, and market rails for
-            issuer-owned financial products on public and private chains.
-          </p>
-          <div className="hero-actions" aria-label="Primary action">
-            <Link className="market-cta primary" to="/contact">
-              Schedule consultation
+          <h1 id="home-hero-title">{t("home.hero.title")}</h1>
+          <p className="hero-subhead">{t("home.hero.subhead")}</p>
+          <div className="hero-actions" aria-label={t("home.hero.primaryActionLabel")}>
+            <Link className="market-cta primary" to={localize("/contact")}>
+              {t("home.cta.scheduleConsultation")}
             </Link>
           </div>
         </div>
@@ -305,23 +232,19 @@ export const Home = () => {
 
       <section className="marketing-section served-section wrap" id="served">
         <div className="section-copy compact">
-          <h2>Use cases</h2>
-          <p>
-            Institutions enter the system from different operating points. Each
-            use case shows the controls, records, and workflows institutions run
-            through Sereel.
-          </p>
+          <h2>{t("home.useCases.heading")}</h2>
+          <p>{t("home.useCases.description")}</p>
         </div>
 
         <div className="segment-selector">
           <div
             className="segment-tabs"
             role="tablist"
-            aria-label="Use cases"
+            aria-label={t("home.useCases.heading")}
           >
             {segments.map((item, index) => (
               <button
-                key={item.name}
+                key={item.slug}
                 type="button"
                 role="tab"
                 id={item.slug}
@@ -341,10 +264,10 @@ export const Home = () => {
             role="tabpanel"
             aria-labelledby={segment.slug}
           >
-            <span className="panel-label">Use case</span>
+            <span className="panel-label">{t("home.useCases.panelLabel")}</span>
             <h3>{segment.name}</h3>
             <p>{segment.copy}</p>
-            <div className="segment-layer-list" aria-label="Rail controls included">
+            <div className="segment-layer-list" aria-label={t("home.useCases.railLabel")}>
               {segment.layers.map((item) => (
                 <span key={item}>{item}</span>
               ))}
@@ -356,20 +279,15 @@ export const Home = () => {
       <section className="marketing-section stack-section" id="platform">
         <div className="wrap">
           <div className="section-copy">
-            <h2>The control system behind tokenized products.</h2>
-            <p>
-              Sereel can run as one operating layer or as specific rails for
-              custody, compliance, tokenization, settlement, marketplace
-              workflows, strategy controls, and public or private chain
-              deployment.
-            </p>
+            <h2>{t("home.platform.heading")}</h2>
+            <p>{t("home.platform.description")}</p>
           </div>
 
           <div className="layer-system">
-            <div className="layer-list" aria-label="Sereel stack layers">
+            <div className="layer-list" aria-label={t("home.platform.layerListLabel")}>
               {stackLayers.map((item, index) => (
                 <button
-                  key={item.title}
+                  key={item.slug}
                   type="button"
                   id={item.slug}
                   className={activeLayer === index ? "active" : ""}
@@ -389,15 +307,15 @@ export const Home = () => {
               <p>{layer.detail}</p>
               <div className="workflow-lines">
                 <div className="workflow-line">
-                  <span className="ledger-label">Control</span>
+                  <span className="ledger-label">{t("home.platform.controlLabel")}</span>
                   <p>{layer.control}</p>
                 </div>
                 <div className="workflow-line">
-                  <span className="ledger-label">Record</span>
+                  <span className="ledger-label">{t("home.platform.recordLabel")}</span>
                   <p>{layer.record}</p>
                 </div>
                 <div className="workflow-line">
-                  <span className="ledger-label">Buyer outcome</span>
+                  <span className="ledger-label">{t("home.platform.outcomeLabel")}</span>
                   <p>{layer.outcome}</p>
                 </div>
               </div>
@@ -409,21 +327,13 @@ export const Home = () => {
       <section className="marketing-section responsibility-section">
         <div className="wrap responsibility-grid">
           <div className="section-copy compact">
-            <h2>Your asset. Your investors. Sereel infrastructure.</h2>
-            <p>
-              Sereel provides the infrastructure layer for compliant issuance,
-              custody, settlement, investor controls, subscriptions,
-              redemptions, and controlled transfers. Issuers remain responsible
-              for the asset, offering documents, disclosures, investor
-              communications, obligations, product economics, and asset
-              performance. Sereel does not originate, underwrite, recommend, or
-              guarantee issuer assets or returns.
-            </p>
+            <h2>{t("home.responsibility.heading")}</h2>
+            <p>{t("home.responsibility.description")}</p>
           </div>
 
           <div className="responsibility-ledger">
             <div>
-              <h3>Issuer owns</h3>
+              <h3>{t("home.responsibility.issuerHeading")}</h3>
               <ul>
                 {issuerResponsibilities.map((item) => (
                   <li key={item}>{item}</li>
@@ -431,7 +341,7 @@ export const Home = () => {
               </ul>
             </div>
             <div>
-              <h3>Sereel powers</h3>
+              <h3>{t("home.responsibility.sereelHeading")}</h3>
               <ul>
                 {sereelResponsibilities.map((item) => (
                   <li key={item}>{item}</li>
@@ -444,19 +354,15 @@ export const Home = () => {
 
       <section className="marketing-section standards-proof wrap" id="standards">
         <div className="section-copy">
-          <h2>Standards where they matter. Invisible where they should be.</h2>
-          <p>
-            Sereel deploys recognized token standards and compliance frameworks
-            so institutions can launch without rebuilding legal and technical
-            rails from scratch.
-          </p>
+          <h2>{t("home.standards.heading")}</h2>
+          <p>{t("home.standards.description")}</p>
         </div>
 
         <div className="standards-ledger">
           {standards.map((standard) => (
             <article key={standard.name}>
               <strong>
-                <Link to={standard.href}>{standard.name}</Link>
+                <Link to={localize(standard.href)}>{standard.name}</Link>
               </strong>
               <span>{standard.role}</span>
               <p>{standard.proof}</p>
@@ -472,11 +378,8 @@ export const Home = () => {
           aria-labelledby="home-journal-title"
         >
           <div className="section-copy compact">
-            <h2 id="home-journal-title">Latest from the journal</h2>
-            <p>
-              Regulatory analysis, infrastructure notes, and market perspective
-              for institutional on-chain finance.
-            </p>
+            <h2 id="home-journal-title">{t("home.journal.heading")}</h2>
+            <p>{t("home.journal.description")}</p>
           </div>
 
           <article className="journal-feature">
@@ -495,7 +398,7 @@ export const Home = () => {
 
             <div className="journal-body">
               <div className="journal-meta">
-                <span className="ledger-label">Latest</span>
+                <span className="ledger-label">{t("home.journal.latestLabel")}</span>
                 {latestPost.date && <span>{latestPost.date}</span>}
               </div>
               <h3>
@@ -504,10 +407,10 @@ export const Home = () => {
               <p>{postExcerpt(latestPost)}</p>
               <div className="journal-actions">
                 <Link className="market-cta secondary" to={getBlogPath(latestPost)}>
-                  Read article
+                  {t("home.journal.readArticle")}
                 </Link>
                 <Link className="journal-all" to="/blog">
-                  All articles
+                  {t("home.journal.allArticles")}
                 </Link>
               </div>
             </div>
@@ -517,9 +420,9 @@ export const Home = () => {
 
       <section className="marketing-cta-band">
         <div className="wrap">
-          <h2>Sereel helps you safely &amp; compliantly manage tokenized assets.</h2>
-          <Link className="market-cta primary" to="/contact">
-            Schedule consultation
+          <h2>{t("home.ctaBand.heading")}</h2>
+          <Link className="market-cta primary" to={localize("/contact")}>
+            {t("home.cta.scheduleConsultation")}
           </Link>
         </div>
       </section>

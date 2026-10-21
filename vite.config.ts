@@ -19,6 +19,20 @@ const staticRoutes = [
   "/privacy-policy",
 ];
 
+// Routes with a French version at /fr<path>. Keep in sync with
+// src/i18n/routes.ts TRANSLATED_PATHS and the /fr routes in AppRoutes.tsx.
+const translatedRoutes = [
+  "/",
+  "/about",
+  "/contact",
+  "/faq",
+  "/standards",
+  "/entities",
+  "/terms",
+  "/privacy-policy",
+];
+const frRoutes = translatedRoutes.map((path) => (path === "/" ? "/fr" : `/fr${path}`));
+
 // Emit lastmod only where we honestly know it (blog post dates). Google
 // ignores changefreq/priority and distrusts inaccurate lastmod, so static
 // routes carry no lastmod rather than a fake build timestamp.
@@ -47,6 +61,10 @@ function sitemapPlugin(): Plugin {
 
       const urls = [
         ...staticRoutes.map((loc) => ({
+          loc,
+          lastmod: undefined as string | undefined,
+        })),
+        ...frRoutes.map((loc) => ({
           loc,
           lastmod: undefined as string | undefined,
         })),

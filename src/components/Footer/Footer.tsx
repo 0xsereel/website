@@ -1,5 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { ThemeToggle } from "../Header/ThemeToggle";
+import { useLang } from "../../i18n/LanguageProvider";
 
 type FooterLink = {
   label: string;
@@ -15,46 +17,48 @@ type FooterGroup = {
 
 export const Footer = () => {
   const location = useLocation();
+  const { t } = useTranslation();
+  const { localize } = useLang();
   const isBlogPage =
     location.pathname === "/blog" || location.pathname.startsWith("/blog/");
   const footerGroups: FooterGroup[] = [
     {
-      title: "Products",
+      title: t("footer.groups.products.title"),
       links: [
-        { label: "Tokenization-as-a-Service", href: "/#product-tokenization" },
-        { label: "Custody", href: "/#product-custody" },
-        { label: "Marketplace & Settlement", href: "/#product-marketplace-settlement" },
-        { label: "Compliance Layer", href: "/#product-compliance" },
-        { label: "Tokenized RWA Lending", href: "/#product-rwa-lending" },
+        { label: t("footer.groups.products.tokenization"), href: "/#product-tokenization" },
+        { label: t("footer.groups.products.custody"), href: "/#product-custody" },
+        { label: t("footer.groups.products.marketplace"), href: "/#product-marketplace-settlement" },
+        { label: t("footer.groups.products.compliance"), href: "/#product-compliance" },
+        { label: t("footer.groups.products.lending"), href: "/#product-rwa-lending" },
       ],
     },
     {
-      title: "Solutions",
+      title: t("footer.groups.solutions.title"),
       links: [
-        { label: "Asset Managers", href: "/#solution-asset-managers" },
-        { label: "Issuers & Arrangers", href: "/#solution-issuers-arrangers" },
-        { label: "Banks & Custodians", href: "/#solution-banks-custodians" },
-        { label: "Broker-Dealers & Platforms", href: "/#solution-broker-dealers-platforms" },
-        { label: "Family Offices & Treasuries", href: "/#solution-family-offices-treasuries" },
-        { label: "Institutional Strategy Teams", href: "/#solution-institutional-strategy-teams" },
+        { label: t("footer.groups.solutions.assetManagers"), href: "/#solution-asset-managers" },
+        { label: t("footer.groups.solutions.issuers"), href: "/#solution-issuers-arrangers" },
+        { label: t("footer.groups.solutions.banks"), href: "/#solution-banks-custodians" },
+        { label: t("footer.groups.solutions.brokerDealers"), href: "/#solution-broker-dealers-platforms" },
+        { label: t("footer.groups.solutions.familyOffices"), href: "/#solution-family-offices-treasuries" },
+        { label: t("footer.groups.solutions.strategyTeams"), href: "/#solution-institutional-strategy-teams" },
       ],
     },
     {
-      title: "Resources",
+      title: t("footer.groups.resources.title"),
       links: [
-        { label: "Blog", to: "/blog" },
-        { label: "Whitepaper", href: "/whitepapers/sereel-whitepaper.pdf", asset: true },
-        { label: "Standards", to: "/standards" },
-        { label: "FAQ", to: "/faq" },
+        { label: t("footer.groups.resources.blog"), to: "/blog" },
+        { label: t("footer.groups.resources.whitepaper"), href: "/whitepapers/sereel-whitepaper.pdf", asset: true },
+        { label: t("footer.groups.resources.standards"), to: "/standards" },
+        { label: t("footer.groups.resources.faq"), to: "/faq" },
       ],
     },
     {
-      title: "Company",
+      title: t("footer.groups.company.title"),
       links: [
-        { label: "About", to: "/about" },
-        { label: "Contact", to: "/contact" },
-        { label: "Privacy Policy", to: "/privacy-policy" },
-        { label: "Terms of Use", to: "/terms" },
+        { label: t("footer.groups.company.about"), to: "/about" },
+        { label: t("footer.groups.company.contact"), to: "/contact" },
+        { label: t("footer.groups.company.privacy"), to: "/privacy-policy" },
+        { label: t("footer.groups.company.terms"), to: "/terms" },
       ],
     },
   ];
@@ -65,11 +69,11 @@ export const Footer = () => {
         <div className="wrap">
           <div className="marketing-footer-grid">
             <div className="marketing-footer-brand">
-              <Link className="brand" to="/">
+              <Link className="brand" to={localize("/")}>
                 <img src="/assets/glowing-logo.png" alt="" />
                 <span className="name">SEREEL</span>
               </Link>
-              <p>Compliant rails for tokenized capital markets.</p>
+              <p>{t("footer.tagline")}</p>
             </div>
 
             {footerGroups.map((group) => (
@@ -79,10 +83,10 @@ export const Footer = () => {
                   {group.links.map((link) => (
                     <li key={link.label}>
                       {"to" in link && link.to ? (
-                        <Link to={link.to}>{link.label}</Link>
+                        <Link to={localize(link.to)}>{link.label}</Link>
                       ) : (
                         <a
-                          href={link.href ?? "#"}
+                          href={link.asset ? link.href ?? "#" : localize(link.href ?? "#")}
                           target={link.asset ? "_blank" : undefined}
                           rel={link.asset ? "noopener noreferrer" : undefined}
                         >
@@ -97,9 +101,9 @@ export const Footer = () => {
           </div>
 
           <div className="legal">
-            <span>© 2026 Sereel Technologies Inc. All rights reserved.</span>
+            <span>{t("footer.copyright")}</span>
             <div className="footer-controls">
-              <span>Infrastructure provider, not issuer or asset sponsor</span>
+              <span>{t("footer.disclaimer")}</span>
               <ThemeToggle className="footer-theme-toggle" />
             </div>
           </div>

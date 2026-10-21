@@ -1,14 +1,20 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useGlobal } from "../../contexts/globals";
+import { useLang } from "../../i18n/LanguageProvider";
 import {
   type NavigationItem,
   type NavigationMenuKey,
-  navigationMenus,
+  buildNavigationMenus,
 } from "./navigationData";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 export const MobileMenu = () => {
   const { isMobileMenuOpen, setIsMobileMenuOpen } = useGlobal();
+  const { t } = useTranslation();
+  const { localize } = useLang();
+  const navigationMenus = useMemo(() => buildNavigationMenus(t), [t]);
   const [openSection, setOpenSection] = useState<NavigationMenuKey | null>("products");
 
   const closeMenu = () => setIsMobileMenuOpen(false);
@@ -75,14 +81,14 @@ export const MobileMenu = () => {
 
     if (item.href.startsWith("/") && !item.href.includes("#")) {
       return (
-        <Link key={item.title} to={item.href} className="institutional-mobile-link" onClick={closeMenu}>
+        <Link key={item.title} to={localize(item.href)} className="institutional-mobile-link" onClick={closeMenu}>
           {content}
         </Link>
       );
     }
 
     return (
-      <a key={item.title} href={item.href} className="institutional-mobile-link" onClick={closeMenu}>
+      <a key={item.title} href={localize(item.href)} className="institutional-mobile-link" onClick={closeMenu}>
         {content}
       </a>
     );
@@ -102,17 +108,20 @@ export const MobileMenu = () => {
     >
       <div className="institutional-mobile-panel" onMouseDown={(event) => event.stopPropagation()}>
         <div className="institutional-mobile-top">
-          <Link className="brand" to="/" onClick={closeMenu}>
+          <Link className="brand" to={localize("/")} onClick={closeMenu}>
             <img src="/assets/glowing-logo.png" alt="Sereel" />
             <span className="name">SEREEL</span>
           </Link>
-          <button
-            onClick={closeMenu}
-            className="institutional-menu-button"
-            aria-label="Close menu"
-          >
-            Close
-          </button>
+          <div className="institutional-mobile-top-actions">
+            <LanguageSwitcher />
+            <button
+              onClick={closeMenu}
+              className="institutional-menu-button"
+              aria-label={t("common.closeMenu")}
+            >
+              {t("common.close")}
+            </button>
+          </div>
         </div>
 
         <nav className="institutional-mobile-sections" aria-label="Mobile navigation">
@@ -144,7 +153,7 @@ export const MobileMenu = () => {
                   ))}
                   {menu.feature && (
                     <Link
-                      to={menu.feature.href}
+                      to={localize(menu.feature.href)}
                       className="institutional-mobile-feature"
                       onClick={closeMenu}
                     >
@@ -159,8 +168,8 @@ export const MobileMenu = () => {
           })}
         </nav>
 
-        <Link to="/contact" className="institutional-mobile-cta" onClick={closeMenu}>
-          Schedule consultation
+        <Link to={localize("/contact")} className="institutional-mobile-cta" onClick={closeMenu}>
+          {t("common.scheduleConsultation")}
         </Link>
       </div>
     </div>

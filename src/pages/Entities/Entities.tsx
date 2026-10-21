@@ -1,28 +1,30 @@
+import { useTranslation } from "react-i18next";
 import { SEO } from "../../components/SEO";
+import { useLang } from "../../i18n/LanguageProvider";
 
 export const Entities = () => {
+  const { t } = useTranslation();
+  const { localize } = useLang();
   const entities = [
-    { name: "Sereel Technologies, Inc.", location: "Chicago, Illinois" },
-    { name: "Sereel Technologies Botswana", location: "Gaborone, Botswana" },
-    { name: "Sereel Technologies Kenya", location: "Nairobi, Kenya" },
+    { name: "Sereel Technologies, Inc.", location: t("entities.locations.chicago") },
+    { name: "Sereel Technologies Botswana", location: t("entities.locations.gaborone") },
+    { name: "Sereel Technologies Kenya", location: t("entities.locations.nairobi") },
   ];
 
   return (
     <main className="wrap">
       <SEO
-        title="Global Entities & Company Structure"
-        description="Sereel's global corporate structure: Sereel Technologies, Inc. in Chicago, Sereel Technologies Botswana in Gaborone, and Sereel Technologies Kenya in Nairobi."
-        canonical="/entities"
+        title={t("entities.seo.title")}
+        description={t("entities.seo.description")}
+        canonical={localize("/entities")}
+        hreflangPath="/entities"
       />
       <section className="page-hero">
-        <div className="mono eyebrow lit">[ Entities ]</div>
+        <div className="mono eyebrow lit">[ {t("entities.eyebrow")} ]</div>
         <h1>
-          Global <span className="lit">Company</span> Structure
+          {t("entities.headingStart")} <span className="lit">{t("entities.headingHighlight")}</span>
         </h1>
-        <p className="lede">
-          As a global company, we have a growing number of entities
-          strategically positioned worldwide.
-        </p>
+        <p className="lede">{t("entities.lede")}</p>
       </section>
 
       <section className="section">

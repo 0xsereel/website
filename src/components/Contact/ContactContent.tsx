@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export const ContactContent = () => {
+  const { t } = useTranslation();
   const [form, setForm] = useState({
     fname: "",
     lname: "",
@@ -9,6 +11,7 @@ export const ContactContent = () => {
     message: "",
   });
   const [result, setResult] = useState("");
+  const [resultStatus, setResultStatus] = useState<"" | "info" | "success" | "error">("");
   const [loading, setLoading] = useState(false);
 
   const handleChange = (
@@ -25,12 +28,14 @@ export const ContactContent = () => {
       form.email === "" ||
       form.message === ""
     ) {
-      setResult("Please fill all the required fields");
+      setResult(t("contact.form.errors.required"));
+      setResultStatus("error");
       return;
     }
 
     setLoading(true);
-    setResult("Sending...");
+    setResult(t("contact.form.status.sending"));
+    setResultStatus("info");
 
     const data = {
       access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY,
@@ -53,15 +58,18 @@ export const ContactContent = () => {
       const resultData = await response.json();
 
       if (resultData.success) {
-        setResult("Thank you for contacting us!");
+        setResult(t("contact.form.status.success"));
+        setResultStatus("success");
         setForm({ fname: "", lname: "", email: "", firm: "", message: "" });
       } else {
         setResult(
-          resultData.message || "Something went wrong. Please try again."
+          resultData.message || t("contact.form.status.genericError")
         );
+        setResultStatus("error");
       }
     } catch {
-      setResult("An error occurred. Please try again.");
+      setResult(t("contact.form.status.networkError"));
+      setResultStatus("error");
     } finally {
       setLoading(false);
     }
@@ -70,14 +78,11 @@ export const ContactContent = () => {
   return (
     <main className="wrap">
       <section className="page-hero">
-        <div className="mono eyebrow lit">[ Contact ]</div>
+        <div className="mono eyebrow lit">[ {t("contact.eyebrow")} ]</div>
         <h1>
-          Let&apos;s <span className="lit">talk.</span>
+          {t("contact.hero.headingStart")} <span className="lit">{t("contact.hero.headingHighlight")}</span>
         </h1>
-        <p className="lede">
-          Tell us about your tokenization needs. We respond within one business
-          day.
-        </p>
+        <p className="lede">{t("contact.hero.lede")}</p>
       </section>
 
       <section className="section">
@@ -85,22 +90,22 @@ export const ContactContent = () => {
           <form onSubmit={handleSubmit}>
             <div className="row2">
               <div className="field">
-                <label htmlFor="fname">First name</label>
+                <label htmlFor="fname">{t("contact.form.fields.firstName.label")}</label>
                 <input
                   id="fname"
                   name="fname"
-                  placeholder="Jane"
+                  placeholder={t("contact.form.fields.firstName.placeholder")}
                   value={form.fname}
                   onChange={handleChange}
                   required
                 />
               </div>
               <div className="field">
-                <label htmlFor="lname">Last name</label>
+                <label htmlFor="lname">{t("contact.form.fields.lastName.label")}</label>
                 <input
                   id="lname"
                   name="lname"
-                  placeholder="Smith"
+                  placeholder={t("contact.form.fields.lastName.placeholder")}
                   value={form.lname}
                   onChange={handleChange}
                   required
@@ -108,48 +113,48 @@ export const ContactContent = () => {
               </div>
             </div>
             <div className="field">
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email">{t("contact.form.fields.email.label")}</label>
               <input
                 id="email"
                 type="email"
                 name="email"
-                placeholder="jane@yourfirm.com"
+                placeholder={t("contact.form.fields.email.placeholder")}
                 value={form.email}
                 onChange={handleChange}
                 required
               />
             </div>
             <div className="field">
-              <label htmlFor="firm">Institution</label>
+              <label htmlFor="firm">{t("contact.form.fields.institution.label")}</label>
               <input
                 id="firm"
                 name="firm"
-                placeholder="Your firm"
+                placeholder={t("contact.form.fields.institution.placeholder")}
                 value={form.firm}
                 onChange={handleChange}
               />
             </div>
             <div className="field">
-              <label htmlFor="msg">Message</label>
+              <label htmlFor="msg">{t("contact.form.fields.message.label")}</label>
               <textarea
                 id="msg"
                 name="message"
-                placeholder="What are you looking to tokenize?"
+                placeholder={t("contact.form.fields.message.placeholder")}
                 value={form.message}
                 onChange={handleChange}
                 required
               />
             </div>
             <button className="submit" type="submit" disabled={loading}>
-              {loading ? "Sending..." : "Send message →"}
+              {loading ? t("contact.form.status.sending") : t("contact.form.submit")}
             </button>
             {result && (
               <span
                 className="mono"
                 style={{
-                  color: result.includes("Thank you")
+                  color: resultStatus === "success"
                     ? "var(--accent)"
-                    : result.includes("error") || result.includes("Please")
+                    : resultStatus === "error"
                     ? "#ff6b6b"
                     : "var(--ink-2)",
                   marginTop: 8,
@@ -163,17 +168,17 @@ export const ContactContent = () => {
 
           <div className="info">
             <div className="card">
-              <div className="mono label">Email</div>
+              <div className="mono label">{t("contact.info.emailLabel")}</div>
               <div className="v">
                 <a href="mailto:team@sereel.com">team@sereel.com</a>
               </div>
             </div>
             <div className="card">
-              <div className="mono label">Locations</div>
+              <div className="mono label">{t("contact.info.locationsLabel")}</div>
               <div className="locs">
-                <span>Chicago</span>
-                <span>Nairobi</span>
-                <span>Kigali</span>
+                <span>{t("contact.info.locations.chicago")}</span>
+                <span>{t("contact.info.locations.nairobi")}</span>
+                <span>{t("contact.info.locations.kigali")}</span>
               </div>
             </div>
           </div>

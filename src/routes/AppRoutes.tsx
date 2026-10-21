@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Layout } from "../components/Layout";
+import { LanguageProvider } from "../i18n/LanguageProvider";
 import { Home } from "../pages/Home/Home";
 import { About } from "../pages/About/About";
 import { Contact } from "../pages/Contact/Contact";
@@ -19,23 +20,36 @@ const AppRoutes = () => {
 
   return (
     <Router>
-      <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/faq" element={<FAQ />} />
-          <Route path="/blog/:slug" element={<SingleBlog />} />
-          <Route path="/standards" element={<Standards />} />
-          <Route path="/entities" element={<Entities />} />
-          <Route path="/repositories" element={<Repositories />} />
-          <Route path="/terms" element={<Terms />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          {isDev && <Route path="/editor" element={<Editor />} />}
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
+      <LanguageProvider>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/blog/:slug" element={<SingleBlog />} />
+            <Route path="/standards" element={<Standards />} />
+            <Route path="/entities" element={<Entities />} />
+            <Route path="/repositories" element={<Repositories />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            {isDev && <Route path="/editor" element={<Editor />} />}
+
+            {/* French — same components, rendered localized via i18n + LanguageProvider */}
+            <Route path="/fr" element={<Home />} />
+            <Route path="/fr/about" element={<About />} />
+            <Route path="/fr/contact" element={<Contact />} />
+            <Route path="/fr/faq" element={<FAQ />} />
+            <Route path="/fr/standards" element={<Standards />} />
+            <Route path="/fr/entities" element={<Entities />} />
+            <Route path="/fr/terms" element={<Terms />} />
+            <Route path="/fr/privacy-policy" element={<PrivacyPolicy />} />
+
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      </LanguageProvider>
     </Router>
   );
 };

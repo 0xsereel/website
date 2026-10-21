@@ -2,20 +2,28 @@ import {
   type CSSProperties,
   type FocusEvent,
   useEffect,
+  useMemo,
   useRef,
   useState,
 } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useGlobal } from "../../contexts/globals";
+import { useLang } from "../../i18n/LanguageProvider";
+import { stripLangPrefix } from "../../i18n/routes";
 import {
   type NavigationItem,
   type NavigationMenuKey,
-  navigationMenus,
+  buildNavigationMenus,
 } from "./navigationData";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 export const Header = () => {
   const { isMobileMenuOpen, setIsMobileMenuOpen } = useGlobal();
   const location = useLocation();
+  const { t } = useTranslation();
+  const { localize } = useLang();
+  const navigationMenus = useMemo(() => buildNavigationMenus(t), [t]);
   const [openMenu, setOpenMenu] = useState<NavigationMenuKey | null>(null);
   const [panelLeft, setPanelLeft] = useState(0);
   const navRef = useRef<HTMLElement | null>(null);
@@ -42,7 +50,7 @@ export const Header = () => {
     setOpenMenu(null);
   }, [location.pathname, location.hash]);
 
-  const isHome = location.pathname === "/";
+  const isHome = stripLangPrefix(location.pathname) === "/";
   const [brandReveal, setBrandReveal] = useState(isHome ? 0 : 1);
 
   useEffect(() => {
@@ -112,14 +120,15 @@ export const Header = () => {
 
   const isTopLevelActive = (key: NavigationMenuKey) => {
     if (openMenu === key) return true;
+    const path = stripLangPrefix(location.pathname);
     if (key === "resources") {
-      return ["/blog", "/faq", "/repositories", "/standards"].some((path) =>
-        location.pathname === path || location.pathname.startsWith(`${path}/`)
+      return ["/blog", "/faq", "/repositories", "/standards"].some((p) =>
+        path === p || path.startsWith(`${p}/`)
       );
     }
     if (key === "company") {
-      return ["/about", "/contact"].some((path) =>
-        location.pathname === path || location.pathname.startsWith(`${path}/`)
+      return ["/about", "/contact"].some((p) =>
+        path === p || path.startsWith(`${p}/`)
       );
     }
     return false;
@@ -170,14 +179,14 @@ export const Header = () => {
 
     if (item.href.startsWith("/") && !item.href.includes("#")) {
       return (
-        <Link key={item.title} to={item.href} className={className} onClick={closeMenu}>
+        <Link key={item.title} to={localize(item.href)} className={className} onClick={closeMenu}>
           {content}
         </Link>
       );
     }
 
     return (
-      <a key={item.title} href={item.href} className={className} onClick={closeMenu}>
+      <a key={item.title} href={localize(item.href)} className={className} onClick={closeMenu}>
         {content}
       </a>
     );
@@ -192,7 +201,7 @@ export const Header = () => {
     >
       <div className="wrap row">
         <div className="nav-group">
-          <Link className="brand" to="/">
+          <Link className="brand" to={localize("/")}>
             <img
               src="/assets/glowing-logo.png"
               alt="Sereel"
@@ -232,17 +241,18 @@ export const Header = () => {
           </div>
         </div>
         <div className="nav-actions">
-          <Link className="institutional-nav-cta contact-btn" to="/contact">
-            Schedule consultation
+          <LanguageSwitcher />
+          <Link className="institutional-nav-cta contact-btn" to={localize("/contact")}>
+            {t("common.scheduleConsultation")}
           </Link>
           <button
             onClick={() => setIsMobileMenuOpen(true)}
             className="institutional-menu-button menu-btn"
-            aria-label="Open menu"
+            aria-label={t("common.openMenu")}
             aria-controls="mobile-navigation"
             aria-expanded={isMobileMenuOpen}
           >
-            Menu
+            {t("common.menu")}
           </button>
         </div>
       </div>
@@ -268,10 +278,10 @@ export const Header = () => {
               ))}
               {activeMenu.feature && (
                 <div className="institutional-feature-panel">
-                  <p className="institutional-feature-kicker">Featured</p>
+                  <p className="institutional-feature-kicker">{t("common.featured")}</p>
                   <h3>{activeMenu.feature.title}</h3>
                   <p>{activeMenu.feature.copy}</p>
-                  <Link to={activeMenu.feature.href} onClick={closeMenu}>
+                  <Link to={localize(activeMenu.feature.href)} onClick={closeMenu}>
                     {activeMenu.feature.cta}
                   </Link>
                 </div>

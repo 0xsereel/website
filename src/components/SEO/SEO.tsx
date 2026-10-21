@@ -6,6 +6,12 @@ export interface SEOProps {
   description?: string;
   keywords?: string[];
   canonical?: string;
+  /**
+   * Base (English) path for a page that has a French version at /fr<path>
+   * (e.g. "/about"). Emits hreflang alternate links for en, fr, and
+   * x-default. Omit for pages with no French version (blog, repositories).
+   */
+  hreflangPath?: string;
   noIndex?: boolean;
   noFollow?: boolean;
   openGraph?: {
@@ -41,7 +47,7 @@ export interface SEOProps {
 type TagSpec =
   | { kind: 'meta-name'; key: string; content: string }
   | { kind: 'meta-property'; key: string; content: string }
-  | { kind: 'link'; rel: string; href: string }
+  | { kind: 'link'; rel: string; href: string; hreflang?: string }
   | { kind: 'jsonld'; json: string };
 
 const MANAGED_ATTR = 'data-seo';
@@ -52,6 +58,7 @@ function buildTagSpecs(props: SEOProps): { pageTitle: string; specs: TagSpec[] }
     description = SITE_CONFIG.defaultDescription,
     keywords = [],
     canonical,
+    hreflangPath,
     noIndex = false,
     noFollow = false,
     openGraph = {},
@@ -101,6 +108,15 @@ function buildTagSpecs(props: SEOProps): { pageTitle: string; specs: TagSpec[] }
     { kind: 'meta-name', key: 'twitter:description', content: twitter.description || description },
     { kind: 'meta-name', key: 'twitter:image', content: twitterImage },
   ];
+
+  if (hreflangPath) {
+    const frPath = hreflangPath === '/' ? '/fr' : `/fr${hreflangPath}`;
+    specs.push(
+      { kind: 'link', rel: 'alternate', hreflang: 'en', href: `${SITE_CONFIG.url}${hreflangPath}` },
+      { kind: 'link', rel: 'alternate', hreflang: 'fr', href: `${SITE_CONFIG.url}${frPath}` },
+      { kind: 'link', rel: 'alternate', hreflang: 'x-default', href: `${SITE_CONFIG.url}${hreflangPath}` },
+    );
+  }
 
   if (ogType === 'article' && openGraph.article) {
     const { publishedTime, modifiedTime, author, section, tags } = openGraph.article;
@@ -179,16 +195,28 @@ function applyTagSpecs(pageTitle: string, specs: TagSpec[]): () => void {
         );
       }
     } else if (spec.kind === 'link') {
-      upsert(
-        `link[rel="${spec.rel}"]`,
-        () => {
-          const el = document.createElement('link');
-          el.setAttribute('rel', spec.rel);
-          return el;
-        },
-        'href',
-        spec.href,
-      );
+      if (spec.hreflang) {
+        // Multiple alternates share rel="alternate" — always create fresh,
+        // distinguished by hreflang, rather than upserting a single match.
+        const el = document.createElement('link');
+        el.setAttribute('rel', spec.rel);
+        el.setAttribute('hreflang', spec.hreflang);
+        el.setAttribute('href', spec.href);
+        el.setAttribute(MANAGED_ATTR, '1');
+        head.appendChild(el);
+        created.push(el);
+      } else {
+        upsert(
+          `link[rel="${spec.rel}"]`,
+          () => {
+            const el = document.createElement('link');
+            el.setAttribute('rel', spec.rel);
+            return el;
+          },
+          'href',
+          spec.href,
+        );
+      }
     } else {
       const el = document.createElement('script');
       el.setAttribute('type', 'application/ld+json');
