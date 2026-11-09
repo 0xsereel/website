@@ -9,152 +9,29 @@
     "changeLanguage": "Changer de langue"
   },
   "nav": {
-    "products": {
-      "label": "Produits",
-      "columns": {
-        "core": {
-          "title": "Produits principaux",
-          "items": {
-            "tokenization": {
-              "title": "Tokenisation en tant que service",
-              "description": "Lancez des produits financiers tokenisés sur des rails conformes."
-            },
-            "custody": {
-              "title": "Conservation",
-              "description": "Conservation, contrôle des portefeuilles et permissions opérationnelles pour les actifs numériques et instruments tokenisés."
-            },
-            "compliance": {
-              "title": "Couche de conformité",
-              "description": "Éligibilité des investisseurs, règles de juridiction et restrictions de transfert appliquées au niveau de l'actif."
-            }
-          }
-        },
-        "infrastructure": {
-          "title": "Infrastructure de marché",
-          "items": {
-            "marketplace": {
-              "title": "Marché & règlement",
-              "description": "Souscriptions, rachats, transferts contrôlés et flux de règlement."
-            },
-            "lifecycle": {
-              "title": "Cycle de vie & reporting",
-              "description": "Registres des détenteurs, pistes d'audit, événements de cycle de vie et reporting opérationnel."
-            },
-            "distribution": {
-              "title": "Distribution contrôlée",
-              "description": "Accès et flux de transfert autorisés pour les investisseurs éligibles."
-            }
-          }
-        },
-        "advanced": {
-          "title": "Rails avancés",
-          "items": {
-            "lending": {
-              "title": "Prêts sur actifs réels tokenisés",
-              "description": "Infrastructure d'emprunt et de prêt pour les actifs du monde réel tokenisés éligibles."
-            },
-            "strategy": {
-              "title": "Infrastructure de stratégie on-chain",
-              "description": "Infrastructure pour des stratégies institutionnelles on-chain et DeFi conformes."
-            },
-            "standards": {
-              "title": "Émission basée sur des normes",
-              "description": "ERC-3643, CMTAT et cadres de conformité régionaux."
-            }
-          }
-        }
-      },
-      "feature": {
-        "title": "Lancez-vous sur les rails Sereel",
-        "copy": "Produits détenus par l'émetteur. Infrastructure propulsée par Sereel.",
-        "cta": "Planifier une consultation"
-      }
-    },
-    "solutions": {
-      "label": "Solutions",
-      "columns": {
-        "main": {
-          "title": "Solutions",
-          "items": {
-            "assetManagers": "Gestionnaires d'actifs",
-            "issuers": "Émetteurs et arrangeurs",
-            "banks": "Banques et dépositaires",
-            "brokerDealers": "Courtiers-négociants et plateformes",
-            "familyOffices": "Family offices et trésoreries",
-            "strategyTeams": {
-              "title": "Équipes de stratégie institutionnelle",
-              "description": "Pour les institutions souhaitant exécuter des stratégies DeFi conformes."
-            }
-          }
-        }
-      },
-      "feature": {
-        "title": "Votre produit. Vos investisseurs. L'infrastructure Sereel.",
-        "copy": "Sereel propulse l'infrastructure. Les émetteurs détiennent l'actif.",
-        "cta": "Découvrir les solutions"
-      }
-    },
-    "resources": {
-      "label": "Ressources",
-      "columns": {
-        "main": {
-          "title": "Ressources",
-          "items": {
-            "blog": "Blog",
-            "whitepaper": "Livre blanc",
-            "standards": "Normes",
-            "faq": "FAQ",
-            "research": "Dépôt de recherche"
-          }
-        }
-      }
-    },
-    "company": {
-      "label": "Entreprise",
-      "columns": {
-        "main": {
-          "title": "Entreprise",
-          "items": {
-            "about": "À propos",
-            "contact": "Contact"
-          }
-        }
-      }
-    }
+    "primary": "Navigation principale",
+    "mobileLabel": "Navigation Sereel",
+    "verticals": "Verticales",
+    "verified": "Sereel Verified",
+    "about": "À propos",
+    "contact": "Contact",
+    "viewListings": "Voir les offres"
   },
   "footer": {
-    "tagline": "Des rails conformes pour les marchés de capitaux tokenisés.",
+    "tagline": "Une émission vérifiable, au service de l'économie réelle.",
     "copyright": "© 2026 Sereel Technologies Inc. Tous droits réservés.",
-    "disclaimer": "Fournisseur d'infrastructure, ni émetteur ni promoteur d'actifs",
+    "notice": "Les informations de ce site sont fournies à titre général et ne constituent ni une offre de vente ni une sollicitation d'offre d'achat de titres. Les offres sont réservées aux investisseurs éligibles, sur la base de leur documentation d'offre, et ne sont pas disponibles dans toutes les juridictions.",
     "groups": {
-      "products": {
-        "title": "Produits",
-        "tokenization": "Tokenisation en tant que service",
-        "custody": "Conservation",
-        "marketplace": "Marché & règlement",
-        "compliance": "Couche de conformité",
-        "lending": "Prêts sur actifs réels tokenisés"
-      },
-      "solutions": {
-        "title": "Solutions",
-        "assetManagers": "Gestionnaires d'actifs",
-        "issuers": "Émetteurs et arrangeurs",
-        "banks": "Banques et dépositaires",
-        "brokerDealers": "Courtiers-négociants et plateformes",
-        "familyOffices": "Family offices et trésoreries",
-        "strategyTeams": "Équipes de stratégie institutionnelle"
-      },
-      "resources": {
-        "title": "Ressources",
-        "blog": "Blog",
-        "whitepaper": "Livre blanc",
-        "standards": "Normes",
-        "faq": "FAQ"
+      "sereel": {
+        "title": "Sereel"
       },
       "company": {
         "title": "Entreprise",
-        "about": "À propos",
-        "contact": "Contact",
+        "blog": "Blog",
+        "faq": "FAQ"
+      },
+      "legal": {
+        "title": "Mentions légales",
         "privacy": "Politique de confidentialité",
         "terms": "Conditions d'utilisation"
       }
@@ -169,52 +46,336 @@
     "backHome": "Retour à l'accueil",
     "readJournal": "Lire le Journal"
   },
-  "entities": {
+  "home": {
     "seo": {
-      "title": "Entités mondiales et structure de l'entreprise",
-      "description": "La structure mondiale de Sereel : Sereel Technologies, Inc. à Chicago, Sereel Technologies Botswana à Gaborone, et Sereel Technologies Kenya à Nairobi."
+      "title": "Émission vérifiable pour l'économie réelle",
+      "description": "Sereel est la couche d'attestation et de distribution des fonds de revenu fixe tokenisés : conformité, reporting et fiscalité automatisés sur les parts de fonds."
     },
-    "eyebrow": "Entités",
-    "headingStart": "Structure mondiale",
-    "headingHighlight": "de l'entreprise",
-    "lede": "En tant qu'entreprise mondiale, nous disposons d'un nombre croissant d'entités stratégiquement positionnées à travers le monde.",
-    "locations": {
-      "chicago": "Chicago, Illinois",
-      "gaborone": "Gaborone, Botswana",
-      "nairobi": "Nairobi, Kenya"
+    "hero": {
+      "title": "Une émission vérifiable, au service de l'économie réelle.",
+      "subhead": "Sereel est la couche d'attestation et de distribution des fonds de revenu fixe tokenisés. Nous automatisons la conformité, le reporting, la fiscalité et plus encore sur les parts de fonds, pour que les gérants se concentrent sur la gestion de leurs fonds et que les allocateurs y accèdent facilement et les intègrent à leurs portefeuilles.",
+      "viewListings": "Voir les offres",
+      "talk": "Nous contacter",
+      "scroll": "Défiler"
+    },
+    "story": {
+      "issue": {
+        "eyebrow": "Ce que nous émettons",
+        "heading": "Quatre verticales, une même façon de rendre compte."
+      },
+      "check": {
+        "eyebrow": "Comment vérifier",
+        "heading": "Chaque fonds Sereel Verified est signé à la source.",
+        "body": "Le trustee et l'administrateur du fonds signent chacun la VNI, et les soldes des actifs proviennent directement du dépositaire.",
+        "link": "Comment fonctionne Sereel Verified"
+      },
+      "settle": {
+        "eyebrow": "Pourquoi tokeniser",
+        "heading": "Des parts de fonds qui se règlent et circulent comme il se doit.",
+        "items": {
+          "settlement": {
+            "title": "Règlement T+0",
+            "line": "Les souscriptions et les transferts se règlent le jour même, pas plusieurs jours plus tard."
+          },
+          "transfers": {
+            "title": "Transferts secondaires",
+            "line": "Les porteurs peuvent céder leurs parts à d'autres investisseurs éligibles, dans le cadre des conditions du fonds."
+          },
+          "liquidity": {
+            "title": "Liquidité instantanée limitée",
+            "line": "Lorsque le fonds le prévoit, les porteurs peuvent racheter une partie de leur position instantanément, dans des limites fixées."
+          }
+        },
+        "link": "Comment fonctionne l'accès"
+      }
+    },
+    "benefits": {
+      "heading": "Ce que reçoivent les allocateurs",
+      "items": {
+        "compliant": {
+          "title": "Émission conforme",
+          "line": "Les règles d'éligibilité et de transfert sont appliquées dans le contrat."
+        },
+        "reporting": {
+          "title": "Reporting en continu",
+          "line": "VNI, positions et documents se mettent à jour dès leur signature."
+        },
+        "pricing": {
+          "title": "Prix transparents",
+          "line": "Chaque VNI indique ses données, ses signataires et sa date de calcul."
+        },
+        "custodians": {
+          "title": "Dépositaires réglementés",
+          "line": "Les actifs sont détenus par des dépositaires réglementés, nommés sur chaque fiche."
+        },
+        "access": {
+          "title": "Accès réservé aux investisseurs qualifiés",
+          "line": "Les offres sont ouvertes aux investisseurs qualifiés après un bref examen."
+        },
+        "documents": {
+          "title": "Documents réunis",
+          "line": "Prospectus, conditions et rapports réunis dans un même portail."
+        }
+      }
+    },
+    "flow": {
+      "heading": "Comment un fonds Sereel Verified rend compte",
+      "aria": "Le dépositaire, l'administrateur du fonds et le trustee transmettent des données signées à Sereel, qui les publie sur la fiche avec la mention Sereel Verified.",
+      "link": "En savoir plus sur Sereel Verified",
+      "nodes": {
+        "custodian": {
+          "title": "Dépositaire",
+          "sub": "Soldes des actifs"
+        },
+        "administrator": {
+          "title": "Administrateur du fonds",
+          "sub": "Signe la VNI"
+        },
+        "trustee": {
+          "title": "Trustee",
+          "sub": "Signe la VNI"
+        },
+        "sereel": {
+          "title": "Sereel",
+          "sub": "Contrôle et enregistre"
+        },
+        "listing": {
+          "title": "La fiche",
+          "sub": "Ce que voient les allocateurs"
+        }
+      }
+    },
+    "listingsBand": {
+      "heading": "Consulter les offres",
+      "lede": "Les offres sont ouvertes aux investisseurs qualifiés. Présentez-vous, nous examinerons votre demande et vous répondrons par e-mail."
+    }
+  },
+  "verticals": {
+    "seo": {
+      "title": "Dette privée, capital-risque, revenu fixe, projets",
+      "description": "Sereel émet en dette privée, capital-risque, revenu fixe et financement de projets, chaque fonds rendant compte selon la même norme signée et reliée au dépositaire."
+    },
+    "eyebrow": "Verticales",
+    "heading": "Quatre verticales, une seule norme de reporting.",
+    "lede": "Chaque verticale utilise une structure adaptée à ses actifs. Toutes rendent compte de la même façon, avec les signatures du trustee et de l'administrateur et les soldes du dépositaire.",
+    "diagramAria": "Structure de l'investissement, de l'actif sous-jacent aux investisseurs",
+    "typical": "Structures courantes",
+    "reportingLine": "Soldes du dépositaire, signatures de l'administrateur et du trustee",
+    "steps": {
+      "asset": "Sous-jacent",
+      "vehicle": "Émis via",
+      "investors": "Détenu par",
+      "reporting": "Reporting"
+    },
+    "items": {
+      "privateCredit": {
+        "name": "Dette privée",
+        "line": "Prêts et créances accordés à des entreprises, émis sous forme de notes.",
+        "asset": "Prêts et créances",
+        "vehicle": "Une cellule émettrice de notes",
+        "investors": "Investisseurs qualifiés",
+        "structures": [
+          "Notes senior",
+          "Notes adossées à des créances",
+          "Notes à partage de revenus"
+        ]
+      },
+      "ventureCapital": {
+        "name": "Capital-risque",
+        "line": "Parts de fonds et de SPV dans des entreprises en amorçage et en croissance.",
+        "asset": "Actions d'entreprises",
+        "vehicle": "Un fonds ou un SPV",
+        "investors": "Investisseurs qualifiés",
+        "structures": [
+          "Parts de fonds",
+          "Parts de SPV",
+          "Fonds régis par un pacte d'associés"
+        ]
+      },
+      "fixedIncome": {
+        "name": "Revenu fixe",
+        "line": "Notes à coupon et parts de fonds obligataires et monétaires.",
+        "asset": "Obligations et instruments monétaires",
+        "vehicle": "Un fonds ou une série de notes",
+        "investors": "Investisseurs qualifiés",
+        "structures": [
+          "Parts de fonds",
+          "Notes à coupon fixe",
+          "Notes à taux variable"
+        ]
+      },
+      "projectFinance": {
+        "name": "Financement de projets",
+        "line": "Projets d'infrastructure et d'énergie aux revenus contractuels.",
+        "asset": "Projets d'infrastructure et d'énergie",
+        "vehicle": "Un SPV de projet",
+        "investors": "Investisseurs qualifiés",
+        "structures": [
+          "Obligations de projet",
+          "Notes à partage de revenus",
+          "Notes garanties"
+        ]
+      }
+    },
+    "cta": {
+      "heading": "Consultez les offres disponibles, ou confiez-nous un actif à émettre.",
+      "issuer": "Émettre avec Sereel"
+    }
+  },
+  "verified": {
+    "seo": {
+      "title": "Sereel Verified",
+      "description": "La mention Sereel Verified indique que la VNI d'un fonds est signée par son trustee et son administrateur et reliée aux soldes du dépositaire."
+    },
+    "eyebrow": "Sereel Verified",
+    "heading": "Sachez qui se tient derrière les chiffres.",
+    "lede": "La coche verte Sereel Verified signifie que trois parties indépendantes se tiennent derrière la dernière VNI d'un fonds : le trustee et l'administrateur l'ont signée, et les soldes des actifs proviennent du dépositaire.",
+    "badge": "Sereel Verified",
+    "sample": "Exemple",
+    "sampleAria": "Exemple du panneau Sereel Verified",
+    "note": "Confirme l'origine des chiffres et leurs signataires. Ni une notation, ni une recommandation, ni un conseil.",
+    "checks": {
+      "trustee": {
+        "label": "Signature du trustee",
+        "detail": "Signée par le trustee"
+      },
+      "administrator": {
+        "label": "Signature de l'administrateur",
+        "detail": "Signée par l'administrateur du fonds"
+      },
+      "custodian": {
+        "label": "VNI reliée au dépositaire",
+        "detail": "Soldes fournis par le dépositaire"
+      }
+    },
+    "how": {
+      "eyebrow": "Fonctionnement",
+      "heading": "Des données signées par trois parties, publiées sur la fiche."
+    },
+    "states": {
+      "eyebrow": "États de la mention",
+      "heading": "Un contrôle en retard est affiché, jamais masqué.",
+      "verified": {
+        "body": "Les trois contrôles sont à jour pour le cycle de reporting du fonds."
+      },
+      "lapsed": {
+        "pill": "Vérification expirée",
+        "detail": "En retard depuis la dernière date de reporting",
+        "body": "Un contrôle est en retard. La fiche indique lequel et depuis quand."
+      },
+      "none": {
+        "pill": "Sans mention",
+        "body": "Le fonds ne rend pas compte via Sereel."
+      }
+    },
+    "means": {
+      "heading": "Ce que confirme la mention",
+      "items": [
+        "Le trustee a signé la dernière VNI.",
+        "L'administrateur du fonds a signé la même VNI.",
+        "Les soldes des actifs sous-jacents proviennent du dépositaire."
+      ]
+    },
+    "notMeans": {
+      "heading": "Ce qu'elle n'est pas",
+      "items": [
+        "Une notation de crédit.",
+        "Une recommandation d'investissement.",
+        "Un conseil en investissement, juridique ou fiscal."
+      ]
+    },
+    "managers": {
+      "eyebrow": "Pour les gérants",
+      "heading": "Faites vérifier votre fonds.",
+      "lede": "Présentez-nous votre fonds, son trustee, son administrateur et son dépositaire, et nous vous accompagnerons dans l'intégration."
+    },
+    "managerForm": {
+      "name": "Votre nom",
+      "email": "E-mail professionnel",
+      "firm": "Société",
+      "fund": "Fonds ou verticale",
+      "submit": "Engager la conversation",
+      "success": "Merci. Nous reviendrons vers vous rapidement.",
+      "error": "Veuillez indiquer votre nom, votre e-mail et votre société, puis réessayer."
+    }
+  },
+  "listings": {
+    "seo": {
+      "title": "Voir les offres",
+      "description": "Les offres Sereel sont ouvertes aux investisseurs qualifiés. Demandez un accès, nous examinerons votre demande et vous répondrons par e-mail."
+    },
+    "eyebrow": "Offres",
+    "heading": "Voir les offres.",
+    "lede": "Les offres sont ouvertes aux investisseurs qualifiés après un bref examen par notre équipe.",
+    "steps": {
+      "request": {
+        "title": "Demander un accès",
+        "line": "Indiquez votre e-mail professionnel, votre société et votre pays."
+      },
+      "review": {
+        "title": "Nous l'examinons",
+        "line": "Notre équipe confirme votre éligibilité."
+      },
+      "access": {
+        "title": "Connexion",
+        "line": "Vous recevez une invitation pour consulter les offres."
+      }
+    },
+    "form": {
+      "email": "E-mail professionnel",
+      "firm": "Société",
+      "country": "Pays",
+      "attestation": "Je confirme être un investisseur qualifié (qualified purchaser), ou agir pour le compte de l'un d'eux.",
+      "submit": "Demander un accès",
+      "sending": "Envoi…",
+      "success": "Merci. Nous examinerons votre demande et vous répondrons par e-mail.",
+      "notice": "Demander un accès ne constitue pas une offre d'achat ou de vente de titres.",
+      "errors": {
+        "required": "Veuillez remplir tous les champs et confirmer votre statut.",
+        "network": "Une erreur est survenue. Veuillez réessayer ou écrire à team@sereel.com."
+      }
     }
   },
   "about": {
     "seo": {
-      "title": "À propos — Infrastructure de la finance tokenisée",
-      "description": "Sereel conçoit une infrastructure conforme pour l'émission, la conservation, le règlement et la gestion du cycle de vie des produits financiers tokenisés, depuis Chicago, Nairobi et Kigali."
+      "title": "À propos de Sereel",
+      "description": "Sereel est la couche d'émission et de reporting des investissements dans l'économie réelle, présente à Chicago, Nairobi et Kigali."
     },
     "eyebrow": "À propos",
     "hero": {
-      "headingStart": "La couche d'infrastructure",
-      "headingMiddle": "derrière la finance",
-      "headingHighlight": "tokenisée",
-      "headingEnd": "",
-      "lede": "Sereel fournit une infrastructure conforme pour l'émission, la conservation, le règlement, le contrôle des investisseurs, les souscriptions, les rachats et les transferts contrôlés."
+      "headingStart": "La couche d'émission et de reporting des",
+      "headingHighlight": "investissements dans l'économie réelle.",
+      "lede": "Sereel structure, émet et rend compte des investissements en dette privée, capital-risque, revenu fixe et financement de projets, pour que les allocateurs puissent vérifier ce qu'ils détiennent."
     },
     "mission": {
       "eyebrow": "Mission",
-      "headingStart": "Pourquoi nous",
-      "headingHighlight": "construisons.",
-      "paragraph1Start": "Sereel opère à la croisée de la finance traditionnelle et des actifs numériques. Nous aidons les institutions à émettre, conserver, régler et gérer des produits financiers tokenisés, avec",
-      "paragraph1Highlight": "une conformité intégrée au niveau du contrat",
-      "paragraph2": "Les émetteurs sont propriétaires de l'actif, des documents, de la relation investisseur, des obligations et de la performance. Sereel fournit l'infrastructure qui rend ce modèle opérationnel programmable, contrôlé et auditable."
+      "heading": "Pourquoi nous construisons.",
+      "paragraph1": "Sereel opère à la rencontre de la finance traditionnelle et des actifs numériques. Nous aidons les institutions à émettre, régler et gérer des investissements dont la conformité est appliquée au niveau du contrat.",
+      "paragraph2": "Les émetteurs détiennent l'actif, la documentation, la relation investisseur et la performance. Sereel fournit l'infrastructure qui rend le modèle opérationnel contrôlé, auditable et vérifiable."
     },
-    "stats": {
-      "market": "Marché des actifs réels (RWA) tokenisés",
-      "chains": "Écosystèmes blockchain",
-      "settlement": "Objectif de règlement"
+    "credentials": {
+      "eyebrow": "Références",
+      "heading": "Reconnus par les organismes qui fixent les normes.",
+      "link": "Voir sur cmta.ch",
+      "items": {
+        "cmta": {
+          "title": "CMTA Recognized Expert",
+          "detail": "Prestataire technologique de la Capital Markets and Technology Association, l'un des six au monde."
+        },
+        "canton": {
+          "title": "Validateur du Canton Network",
+          "detail": "Nous exploitons un validateur sur le Canton Network."
+        },
+        "vacc": {
+          "title": "Virtual Assets Chamber",
+          "detail": "Membre du comité des normes de la Virtual Assets Chamber."
+        }
+      }
     },
     "footprint": {
-      "eyebrow": "Empreinte",
+      "eyebrow": "Implantations",
       "headingStart": "Où nous",
       "headingHighlight": "opérons.",
-      "lede": "Nous sommes présents dans trois pays sur deux continents, en phase avec les régimes réglementaires qui comptent pour la tokenisation institutionnelle. Conçu pour l'interopérabilité réglementaire.",
       "locations": {
         "chicago": {
           "city": "Chicago",
@@ -234,13 +395,13 @@
   "contact": {
     "seo": {
       "title": "Contact",
-      "description": "Échangez avec l'équipe Sereel sur la tokenisation, la conservation, la conformité et l'infrastructure de règlement pour votre institution. Bureaux à Chicago, Nairobi et Kigali."
+      "description": "Échangez avec l'équipe Sereel sur nos offres, Sereel Verified ou une émission avec Sereel. Bureaux à Chicago, Nairobi et Kigali."
     },
     "eyebrow": "Contact",
     "hero": {
       "headingStart": "",
       "headingHighlight": "Parlons-en.",
-      "lede": "Parlez-nous de vos besoins en tokenisation. Nous répondons sous un jour ouvré."
+      "lede": "Dites-nous dans quoi vous souhaitez investir ou ce que vous souhaitez émettre. Nous répondons sous un jour ouvré."
     },
     "form": {
       "fields": {
@@ -262,7 +423,7 @@
         },
         "message": {
           "label": "Message",
-          "placeholder": "Que souhaitez-vous tokeniser ?"
+          "placeholder": "De quoi souhaitez-vous parler ?"
         }
       },
       "submit": "Envoyer le message →",
@@ -495,201 +656,6 @@
       },
       "description": "Notre équipe est prête à vous aider à comprendre comment Sereel peut transformer la stratégie de tokenisation de votre institution.",
       "button": "Contacter notre équipe"
-    }
-  },
-  "home": {
-    "hero": {
-      "title": "Les rails derrière les marchés de capitaux tokenisés.",
-      "subhead": "Tokenisation, conservation, conformité, règlement et rails de marché pour des produits financiers détenus par leur émetteur, sur chaînes publiques et privées.",
-      "primaryActionLabel": "Action principale"
-    },
-    "cta": {
-      "scheduleConsultation": "Planifier une consultation"
-    },
-    "useCases": {
-      "heading": "Cas d'usage",
-      "description": "Les institutions entrent dans le système par différents points d'intervention. Chaque cas d'usage présente les contrôles, les registres et les workflows que les institutions exécutent via Sereel.",
-      "panelLabel": "Cas d'usage",
-      "railLabel": "Contrôles de rail inclus",
-      "segments": {
-        "assetManagers": {
-          "name": "Gestionnaires d'actifs",
-          "copy": "Lancez des fonds tokenisés avec filtrage des investisseurs, workflows de conservation, souscriptions, rachats et transferts secondaires contrôlés.",
-          "layers": [
-            "Tokenisation",
-            "Conformité",
-            "Souscriptions",
-            "Marketplace"
-          ]
-        },
-        "issuersArrangers": {
-          "name": "Émetteurs et arrangeurs",
-          "copy": "Lancez de la dette tokenisée, du crédit privé, des produits à revenu fixe et des produits structurés via des rails permissionnés.",
-          "layers": [
-            "Règles produit",
-            "Tokenisation",
-            "Règlement",
-            "Reporting"
-          ]
-        },
-        "banksCustodians": {
-          "name": "Banques et dépositaires",
-          "copy": "Adoptez la conservation, la gouvernance multisignature, les contrôles de portefeuille, les permissions et le reporting avant de déployer l'ensemble de la pile de tokenisation.",
-          "layers": [
-            "Conservation",
-            "Multisignatures",
-            "Approbations",
-            "Pistes d'audit"
-          ]
-        },
-        "fintechs": {
-          "name": "Fintechs",
-          "copy": "Offrez l'accès à des fonds réglementés et à des produits tokenisés grâce au SDK fluide de Sereel.",
-          "layers": [
-            "API",
-            "Filtrage des investisseurs",
-            "Règlement",
-            "Marque blanche"
-          ]
-        },
-        "brokerDealersPlatforms": {
-          "name": "Courtiers-négociants et plateformes",
-          "copy": "Exploitez un carnet d'ordres et des workflows de transfert permissionnés avec des contrôles d'éligibilité avant tout mouvement d'actifs.",
-          "layers": [
-            "Carnet d'ordres",
-            "Règles de transfert",
-            "Conservation",
-            "Rachats"
-          ]
-        },
-        "familyOfficesTreasuries": {
-          "name": "Family offices et trésoreries",
-          "copy": "Coordonnez la conservation, le reporting, les transferts contrôlés et l'accès à des produits tokenisés de marchés privés.",
-          "layers": [
-            "Conservation",
-            "Reporting",
-            "Transferts contrôlés",
-            "Rails de stratégie"
-          ]
-        },
-        "institutionalStrategyTeams": {
-          "name": "Équipes de stratégie institutionnelle",
-          "copy": "Exécutez des stratégies DeFi conformes avec contrôles de conservation, politiques de risque, reporting et registres de règlement.",
-          "layers": [
-            "Conservation",
-            "Rails de stratégie DeFi",
-            "Contrôles de risque",
-            "Registres de règlement"
-          ]
-        }
-      }
-    },
-    "platform": {
-      "heading": "Le système de contrôle derrière les produits tokenisés.",
-      "description": "Sereel peut fonctionner comme une couche opérationnelle unique ou comme des rails spécifiques pour la conservation, la conformité, la tokenisation, le règlement, les workflows de marketplace, les contrôles de stratégie et le déploiement sur chaînes publiques ou privées.",
-      "layerListLabel": "Couches de la pile Sereel",
-      "controlLabel": "Contrôle",
-      "recordLabel": "Registre",
-      "outcomeLabel": "Résultat pour l'acheteur",
-      "layers": {
-        "custody": {
-          "title": "Conservation et contrôles de portefeuille",
-          "detail": "Portefeuilles à rôles définis, parcours d'approbation multisignature, conception de la récupération et opérations contrôlées pour les équipes institutionnelles.",
-          "control": "Approbations multisignature, rôles de récupération, permissions de trésorerie",
-          "record": "Dossier de politique de portefeuille",
-          "outcome": "Les équipes peuvent exploiter les actifs sans perdre la supervision institutionnelle."
-        },
-        "compliance": {
-          "title": "Conformité et règles de transfert",
-          "detail": "Éligibilité des investisseurs définie par l'émetteur, contrôles de juridiction, restrictions de détention et logique de transfert permissionnée.",
-          "control": "Contraintes d'éligibilité, de juridiction, de détention et de transfert",
-          "record": "Journal de contrôle des transferts",
-          "outcome": "Les transferts non conformes échouent avant tout mouvement des registres de propriété."
-        },
-        "tokenization": {
-          "title": "Moteur de tokenisation",
-          "detail": "Les émetteurs lancent des fonds tokenisés, de la dette, du revenu fixe, du crédit privé et des produits structurés avec des contrôles que leurs équipes juridiques, opérationnelles et d'investisseurs peuvent auditer.",
-          "control": "Conditions du produit, registres de propriété, contrôles de l'émetteur",
-          "record": "Registre d'émission",
-          "outcome": "Les produits sont lancés avec des dossiers de propriété et de cycle de vie auditables."
-        },
-        "settlement": {
-          "title": "Souscriptions et règlement",
-          "detail": "Les gestionnaires de fonds exécutent les souscriptions primaires, la coordination des paiements, les workflows d'allocation, les registres de règlement et le reporting de cycle de vie via Sereel.",
-          "control": "Souscriptions, allocations, coordination des paiements",
-          "record": "Registre des souscriptions",
-          "outcome": "Le mouvement du capital primaire est traçable, de l'ordre jusqu'au registre."
-        },
-        "marketplace": {
-          "title": "Marketplace et rachats",
-          "detail": "Transferts secondaires contrôlés, workflows de rachat, contraintes de carnet d'ordres et sorties approuvées par l'émetteur.",
-          "control": "Sorties approuvées par l'émetteur et contraintes de transfert secondaire",
-          "record": "File d'attente des rachats",
-          "outcome": "Les workflows de liquidité restent permissionnés et vérifiables."
-        },
-        "rwaLending": {
-          "title": "Prêts tokenisés adossés à des actifs réels (RWA)",
-          "detail": "Rails d'emprunt et de prêt pour les actifs réels tokenisés éligibles, avec contrôles de conservation, d'éligibilité, de collatéral et de règlement.",
-          "control": "Éligibilité de l'emprunteur, accès du prêteur, permissions de collatéral",
-          "record": "Dossier d'activité de prêt tokenisé",
-          "outcome": "Les institutions peuvent exécuter des workflows de crédit RWA au sein d'une infrastructure permissionnée."
-        },
-        "strategy": {
-          "title": "Infrastructure de stratégie institutionnelle",
-          "detail": "Workflows de stratégie institutionnelle régis par la conservation, le reporting, le règlement et les contrôles de risque.",
-          "control": "Politique de conservation, seuils de risque, reporting de règlement",
-          "record": "Dossier d'exploitation de la stratégie",
-          "outcome": "Les stratégies on-chain fonctionnent au sein de garde-fous institutionnels."
-        }
-      }
-    },
-    "responsibility": {
-      "heading": "Votre actif. Vos investisseurs. L'infrastructure Sereel.",
-      "description": "Sereel fournit la couche d'infrastructure pour l'émission conforme, la conservation, le règlement, les contrôles des investisseurs, les souscriptions, les rachats et les transferts contrôlés. Les émetteurs restent responsables de l'actif, des documents d'offre, des informations réglementaires, des communications aux investisseurs, des obligations, de l'économie du produit et de la performance de l'actif. Sereel n'origine, ne garantit l'émission, ne recommande ni ne cautionne les actifs ou les rendements des émetteurs.",
-      "issuerHeading": "L'émetteur possède",
-      "sereelHeading": "Sereel propulse",
-      "issuerItems": [
-        "Actif",
-        "Informations réglementaires",
-        "Relation avec l'investisseur",
-        "Obligations",
-        "Économie et performance du produit"
-      ],
-      "sereelItems": [
-        "Conservation et contrôles multisignature",
-        "Tokenisation",
-        "Contrôles de conformité",
-        "Règlement",
-        "Souscriptions / rachats"
-      ]
-    },
-    "standards": {
-      "heading": "Des normes là où elles comptent. Invisibles là où elles doivent l'être.",
-      "description": "Sereel déploie des normes de tokens reconnues et des cadres de conformité pour permettre aux institutions de se lancer sans reconstruire leurs rails juridiques et techniques à partir de zéro.",
-      "items": {
-        "erc3643": {
-          "role": "Logique de transfert permissionnée",
-          "proof": "Les contrôles d'éligibilité et les règles de conformité peuvent être appliqués avant l'exécution du transfert."
-        },
-        "cmtat": {
-          "role": "Cadre suisse de tokenisation des marchés de capitaux",
-          "proof": "Architecture de token reconnue pour les produits de type valeurs mobilières et les contrôles de l'émetteur."
-        },
-        "vaspReady": {
-          "role": "Couverture réglementaire régionale",
-          "proof": "Les modèles de déploiement peuvent s'aligner sur les règles de conservation, de reporting et de services sur actifs numériques."
-        }
-      }
-    },
-    "journal": {
-      "heading": "Dernier article du journal",
-      "description": "Analyses réglementaires, notes d'infrastructure et perspectives de marché pour la finance institutionnelle on-chain.",
-      "latestLabel": "Dernier",
-      "readArticle": "Lire l'article",
-      "allArticles": "Tous les articles"
-    },
-    "ctaBand": {
-      "heading": "Sereel vous aide à gérer vos actifs tokenisés en toute sécurité et conformité."
     }
   },
   "privacy": {
@@ -985,71 +951,6 @@
           "heading": "États-Unis",
           "body": "Nous nous conformons aux lois fédérales et étatiques américaines applicables en matière de confidentialité. Les résidents de certains États (notamment la Californie, la Virginie, le Colorado et le Connecticut) peuvent disposer de droits supplémentaires en vertu des lois sur la confidentialité de leur État. Pour exercer ces droits, veuillez nous contacter à l'adresse privacy@sereel.com."
         }
-      }
-    }
-  },
-  "standards": {
-    "seo": {
-      "title": "Normes de tokenisation et cadres de conformité",
-      "description": "Les normes de tokenisation reconnues et les cadres de conformité que Sereel déploie pour permettre aux institutions de lancer leurs projets sur des environnements blockchain publics et privés."
-    },
-    "eyebrow": "Normes",
-    "hero": {
-      "titleStart": "Des normes là où elles comptent.",
-      "titleHighlight": "Invisibles",
-      "titleEnd": "là où elles doivent l'être.",
-      "lede": "Sereel déploie des normes de tokenisation reconnues et des cadres de conformité pour permettre aux institutions de lancer leurs projets sur des environnements blockchain publics et privés, sans avoir à reconstruire leurs infrastructures juridiques et techniques depuis zéro."
-    },
-    "cards": {
-      "cmtat": {
-        "badge": "Norme 01",
-        "sub": "Capital Markets & Technology Association",
-        "body": "Le cadre de tokenisation suisse adopté par les grandes banques et reconnu par le Project Guardian de Singapour. Sereel est l'une des rares équipes d'ingénierie certifiées pour déployer sur ce cadre.",
-        "bullets": {
-          "referenceImplementation": "Implémentation de référence pour les titres tokenisés en vertu du droit suisse sur la DLT",
-          "members": "Plus de 40 membres institutionnels, dont UBS, SIX et Sygnum",
-          "complianceModules": "Modules de conformité natifs : restrictions de transfert, snapshots, gel",
-          "composable": "Composable avec ERC-3643 pour une transférabilité permissionnée",
-          "audited": "Audité, open source et verrouillé par version au niveau du protocole"
-        }
-      },
-      "erc3643": {
-        "badge": "Norme 02",
-        "sub": "Norme de jeton permissionné / T-REX",
-        "body": "La norme EVM de référence pour les security tokens conformes. Identité on-chain via ONCHAINID, avec une conformité modulaire appliquée au niveau du contrat.",
-        "bullets": {
-          "eligibilityChecks": "Contrôles d'éligibilité intégrés : KYC, accréditation, juridiction",
-          "onchainid": "Portabilité de l'identité ONCHAINID entre émetteurs et chaînes",
-          "backers": "Soutenu par Tokeny, Apex, ING et plus de 20 émetteurs réglementés",
-          "hybrid": "Sereel déploie des contrats hybrides CMTAT + ERC-3643",
-          "hooks": "Fonctions de récupération, de partitionnement et de transfert forcé intégrées"
-        }
-      }
-    },
-    "networks": {
-      "heading": "Réseaux",
-      "items": {
-        "evm": "Toutes les chaînes compatibles EVM",
-        "privacy": "Confidentialité",
-        "privateRollup": "Rollup privé",
-        "privateBlockchain": "Environnements blockchain privés",
-        "permissioned": "Permissionné",
-        "publicBlockchain": "Réseaux blockchain publics",
-        "open": "Ouvert"
-      }
-    },
-    "jurisdictions": {
-      "heading": "Juridictions",
-      "items": {
-        "kenya": "Loi VASP du Kenya",
-        "botswana": "Loi VASP du Botswana",
-        "rwanda": "Loi VASP du Rwanda",
-        "nonUs": "Hors États-Unis",
-        "usAccredited": "États-Unis · Investisseurs accrédités",
-        "swissDlt": "DLT suisse",
-        "masGuidelines": "Lignes directrices MAS",
-        "customCounsel": "Conseil juridique sur mesure",
-        "bespoke": "Sur mesure"
       }
     }
   },

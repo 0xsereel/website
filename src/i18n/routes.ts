@@ -5,15 +5,16 @@ export const DEFAULT_LANG: Lang = "en";
 /**
  * Routes with a French version at /fr<path>. Keep in sync with the /fr
  * routes registered in routes/AppRoutes.tsx and the sitemap in vite.config.ts.
- * Blog, Repositories, and the dev-only Editor are intentionally English-only.
+ * Blog and the dev-only Editor are intentionally English-only.
  */
 export const TRANSLATED_PATHS: readonly string[] = [
   "/",
+  "/verticals",
+  "/sereel-verified",
+  "/listings",
   "/about",
   "/contact",
   "/faq",
-  "/standards",
-  "/entities",
   "/terms",
   "/privacy-policy",
 ];

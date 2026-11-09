@@ -6,9 +6,9 @@ import { About } from "../pages/About/About";
 import { Contact } from "../pages/Contact/Contact";
 import { Blog } from "../pages/Blog/Blog";
 import { SingleBlog } from "../pages/Blog/SingleBlog";
-import { Standards } from "../pages/Standards/Standards";
-import { Entities } from "../pages/Entities/Entities";
-import { Repositories } from "../pages/Repositories/Repositories";
+import { Verticals } from "../pages/Verticals/Verticals";
+import { SereelVerified } from "../pages/SereelVerified/SereelVerified";
+import { Listings } from "../pages/Listings/Listings";
 import { Terms } from "../pages/Terms/Terms";
 import { PrivacyPolicy } from "../pages/PrivacyPolicy/PrivacyPolicy";
 import { Editor } from "../pages/Editor/Editor";
@@ -24,25 +24,26 @@ const AppRoutes = () => {
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
+            <Route path="/verticals" element={<Verticals />} />
+            <Route path="/sereel-verified" element={<SereelVerified />} />
+            <Route path="/listings" element={<Listings />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/blog/:slug" element={<SingleBlog />} />
-            <Route path="/standards" element={<Standards />} />
-            <Route path="/entities" element={<Entities />} />
-            <Route path="/repositories" element={<Repositories />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             {isDev && <Route path="/editor" element={<Editor />} />}
 
             {/* French — same components, rendered localized via i18n + LanguageProvider */}
             <Route path="/fr" element={<Home />} />
+            <Route path="/fr/verticals" element={<Verticals />} />
+            <Route path="/fr/sereel-verified" element={<SereelVerified />} />
+            <Route path="/fr/listings" element={<Listings />} />
             <Route path="/fr/about" element={<About />} />
             <Route path="/fr/contact" element={<Contact />} />
             <Route path="/fr/faq" element={<FAQ />} />
-            <Route path="/fr/standards" element={<Standards />} />
-            <Route path="/fr/entities" element={<Entities />} />
             <Route path="/fr/terms" element={<Terms />} />
             <Route path="/fr/privacy-policy" element={<PrivacyPolicy />} />
 
