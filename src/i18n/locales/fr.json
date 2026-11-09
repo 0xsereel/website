@@ -6,7 +6,8 @@
     "close": "Fermer",
     "closeMenu": "Fermer le menu",
     "featured": "En vedette",
-    "changeLanguage": "Changer de langue"
+    "changeLanguage": "Changer de langue",
+    "theme": "Thème"
   },
   "nav": {
     "primary": "Navigation principale",

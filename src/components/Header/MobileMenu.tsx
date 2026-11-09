@@ -5,6 +5,7 @@ import { useGlobal } from "../../contexts/globals";
 import { useLang } from "../../i18n/LanguageProvider";
 import { NAV_LINKS } from "./navigationData";
 import { LanguageSwitcher } from "./LanguageSwitcher";
+import { ThemeToggle } from "./ThemeToggle";
 
 export const MobileMenu = () => {
   const { isMobileMenuOpen, setIsMobileMenuOpen } = useGlobal();
@@ -59,6 +60,11 @@ export const MobileMenu = () => {
             </Link>
           ))}
         </nav>
+
+        <div className="mobile-theme-row">
+          <span className="mono">{t("common.theme")}</span>
+          <ThemeToggle />
+        </div>
 
         <Link to={localize("/listings")} className="institutional-mobile-cta" onClick={closeMenu}>
           {t("nav.viewListings")}

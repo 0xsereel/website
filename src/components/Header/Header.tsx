@@ -7,6 +7,7 @@ import { stripLangPrefix } from "../../i18n/routes";
 import { BRAND_REVEAL_EVENT } from "../../utils/brandReveal";
 import { NAV_LINKS } from "./navigationData";
 import { LanguageSwitcher } from "./LanguageSwitcher";
+import { ThemeToggle } from "./ThemeToggle";
 
 export const Header = () => {
   const { isMobileMenuOpen, setIsMobileMenuOpen } = useGlobal();
@@ -52,6 +53,7 @@ export const Header = () => {
           </div>
         </div>
         <div className="nav-actions">
+          <ThemeToggle className="header-theme-toggle" />
           <LanguageSwitcher />
           <Link className="institutional-nav-cta contact-btn" to={localize("/listings")}>
             {t("nav.viewListings")}

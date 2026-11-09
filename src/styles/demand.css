@@ -568,3 +568,18 @@ body::before {
   .reporting-flow-lines path { animation: none }
   .vertical-tile, .vertical-tile:hover { transition: none; transform: none }
 }
+
+/* Theme toggle in the header; on phones it moves into the menu. */
+.nav-actions .header-theme-toggle { flex: 0 0 auto }
+@media (max-width: 640px) { .nav-actions .header-theme-toggle { display: none } }
+.mobile-theme-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
