@@ -127,7 +127,6 @@ body::before {
 .story-halo img { z-index: 0 }
 
 .mark-petal-highlight { fill: var(--accent); }
-:root[data-theme="dark"] .mark-petal-highlight { fill: var(--accent-deep); }
 
 .story-panel {
   position: absolute;
@@ -569,17 +568,10 @@ body::before {
   .vertical-tile, .vertical-tile:hover { transition: none; transform: none }
 }
 
-/* Theme toggle in the header; on phones it moves into the menu. */
+/* Theme toggle sits in the header beside the language switch; on phones it shrinks to one icon. */
 .nav-actions .header-theme-toggle { flex: 0 0 auto }
-@media (max-width: 640px) { .nav-actions .header-theme-toggle { display: none } }
-.mobile-theme-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px 0;
-  border-bottom: 1px solid var(--rule);
-  color: var(--muted);
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+@media (max-width: 640px) {
+  .nav-actions .header-theme-toggle { width: 38px; min-width: 38px; grid-template-columns: 1fr; place-items: center }
+  .nav-actions .header-theme-toggle::before { display: none }
+  .nav-actions .header-theme-toggle .theme-toggle-option[data-active="false"] { display: none }
 }

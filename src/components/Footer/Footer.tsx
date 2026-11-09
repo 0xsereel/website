@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { ThemeToggle } from "../Header/ThemeToggle";
 import { useLang } from "../../i18n/LanguageProvider";
 
 type FooterLink = { label: string; to?: string; href?: string };
@@ -68,9 +67,6 @@ export const Footer = () => {
 
         <div className="legal">
           <span>{t("footer.copyright")}</span>
-          <div className="footer-controls">
-            <ThemeToggle className="footer-theme-toggle" />
-          </div>
         </div>
       </div>
     </footer>

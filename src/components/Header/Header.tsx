@@ -53,8 +53,8 @@ export const Header = () => {
           </div>
         </div>
         <div className="nav-actions">
-          <ThemeToggle className="header-theme-toggle" />
           <LanguageSwitcher />
+          <ThemeToggle className="header-theme-toggle" />
           <Link className="institutional-nav-cta contact-btn" to={localize("/listings")}>
             {t("nav.viewListings")}
           </Link>
