@@ -1,0 +1,121 @@
+{
+  "_comment": "Update by hand when a source publishes. Never estimate: a figure without a source and date is left out (value null). Series feed the sparklines (oldest first).",
+  "updated": "2026-11-09",
+  "markets": [
+    {
+      "id": "kenya",
+      "currency": "KES",
+      "figures": [
+        {
+          "id": "policyRate",
+          "value": 8.75,
+          "unit": "%",
+          "asOf": "2026-10-07",
+          "source": "Central Bank of Kenya",
+          "sourceUrl": "https://www.centralbank.go.ke/2026/10/07/mpc-retains-the-cbr-at-8-75-percent-3/"
+        },
+        {
+          "id": "tbill91",
+          "value": 8.75,
+          "unit": "%",
+          "asOf": "2026-11-05",
+          "source": "Central Bank of Kenya, Weekly Bulletin",
+          "sourceUrl": "https://www.centralbank.go.ke/uploads/weekly_bulletin/1864387498_Weekly%20CBK%20Bulletin%20November%206,%202026.pdf"
+        },
+        {
+          "id": "fxUsd",
+          "value": 129.96,
+          "unit": "KES per USD",
+          "asOf": "2026-11-05",
+          "source": "Central Bank of Kenya, Weekly Bulletin",
+          "sourceUrl": "https://www.centralbank.go.ke/uploads/weekly_bulletin/1864387498_Weekly%20CBK%20Bulletin%20November%206,%202026.pdf",
+          "series": [
+            { "date": "2026-10-23", "value": 129.89 },
+            { "date": "2026-10-26", "value": 129.89 },
+            { "date": "2026-10-27", "value": 129.96 },
+            { "date": "2026-10-28", "value": 129.95 },
+            { "date": "2026-10-29", "value": 129.96 },
+            { "date": "2026-10-30", "value": 129.95 },
+            { "date": "2026-11-02", "value": 129.94 },
+            { "date": "2026-11-03", "value": 129.97 },
+            { "date": "2026-11-04", "value": 129.95 },
+            { "date": "2026-11-05", "value": 129.96 }
+          ]
+        },
+        {
+          "id": "inflation",
+          "value": 7.32,
+          "unit": "%",
+          "asOf": "2026-10-31",
+          "period": "October 2026",
+          "source": "Kenya National Bureau of Statistics, via Central Bank of Kenya",
+          "sourceUrl": "https://www.centralbank.go.ke/inflation-rates/",
+          "series": [
+            { "date": "2025-11-30", "value": 4.46 },
+            { "date": "2025-12-31", "value": 4.49 },
+            { "date": "2026-01-31", "value": 4.40 },
+            { "date": "2026-02-28", "value": 4.25 },
+            { "date": "2026-03-31", "value": 4.39 },
+            { "date": "2026-04-30", "value": 5.59 },
+            { "date": "2026-05-31", "value": 6.68 },
+            { "date": "2026-06-30", "value": 6.41 },
+            { "date": "2026-07-31", "value": 6.49 },
+            { "date": "2026-08-31", "value": 6.59 },
+            { "date": "2026-09-30", "value": 6.76 },
+            { "date": "2026-10-31", "value": 7.32 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rwanda",
+      "currency": "RWF",
+      "figures": [
+        {
+          "id": "policyRate",
+          "value": 8.75,
+          "unit": "%",
+          "asOf": "2026-08-26",
+          "source": "National Bank of Rwanda, via KT Press",
+          "sourceUrl": "https://www.ktpress.rw/2026/08/rwanda-central-bank-raises-key-interest-rate-to-8-75-as-inflation-hits-14-5/",
+          "series": [
+            { "date": "2025-08-20", "value": 6.75 },
+            { "date": "2026-02-19", "value": 7.25 },
+            { "date": "2026-05-21", "value": 8.25 },
+            { "date": "2026-08-26", "value": 8.75 }
+          ]
+        },
+        {
+          "id": "tbill91",
+          "value": null,
+          "unit": "%",
+          "asOf": null,
+          "source": "National Bank of Rwanda",
+          "sourceUrl": null
+        },
+        {
+          "id": "fxUsd",
+          "value": null,
+          "unit": "RWF per USD",
+          "asOf": null,
+          "source": "National Bank of Rwanda",
+          "sourceUrl": null
+        },
+        {
+          "id": "inflation",
+          "value": 17.2,
+          "unit": "%",
+          "asOf": "2026-09-30",
+          "period": "September 2026",
+          "source": "National Institute of Statistics of Rwanda",
+          "sourceUrl": "https://statistics.gov.rw/index%2ephp/node/1836",
+          "series": [
+            { "date": "2026-07-31", "value": 14.5 },
+            { "date": "2026-08-31", "value": 15.7 },
+            { "date": "2026-09-30", "value": 17.2 }
+          ]
+        }
+      ]
+    }
+  ]
+}

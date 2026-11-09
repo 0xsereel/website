@@ -2,14 +2,49 @@
   "redirects": [
     {
       "source": "/:path*",
-      "has": [{ "type": "host", "value": "sereel.com" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "sereel.com"
+        }
+      ],
       "destination": "https://www.sereel.com/:path*",
       "permanent": true
     },
     {
       "source": "/:path*",
-      "has": [{ "type": "host", "value": "askini.sereel.com" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "askini.sereel.com"
+        }
+      ],
       "destination": "https://www.sereel.com/",
+      "permanent": true
+    },
+    {
+      "source": "/standards",
+      "destination": "/sereel-verified",
+      "permanent": true
+    },
+    {
+      "source": "/entities",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/repositories",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/fr/standards",
+      "destination": "/fr/sereel-verified",
+      "permanent": true
+    },
+    {
+      "source": "/fr/entities",
+      "destination": "/fr/about",
       "permanent": true
     }
   ],

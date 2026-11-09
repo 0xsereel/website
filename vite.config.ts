@@ -8,13 +8,14 @@ const HOSTNAME = "https://www.sereel.com";
 // sitemap cannot discover React Router routes on its own. /editor is dev-only.
 const staticRoutes = [
   "/",
+  "/verticals",
+  "/sereel-verified",
+  "/markets",
+  "/listings",
   "/about",
   "/contact",
   "/blog",
   "/faq",
-  "/standards",
-  "/entities",
-  "/repositories",
   "/terms",
   "/privacy-policy",
 ];
@@ -23,11 +24,13 @@ const staticRoutes = [
 // src/i18n/routes.ts TRANSLATED_PATHS and the /fr routes in AppRoutes.tsx.
 const translatedRoutes = [
   "/",
+  "/verticals",
+  "/sereel-verified",
+  "/markets",
+  "/listings",
   "/about",
   "/contact",
   "/faq",
-  "/standards",
-  "/entities",
   "/terms",
   "/privacy-policy",
 ];

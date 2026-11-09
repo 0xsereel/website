@@ -1,21 +1,11 @@
-import {
-  type CSSProperties,
-  type FocusEvent,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, NavLink as RouterNavLink, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useGlobal } from "../../contexts/globals";
 import { useLang } from "../../i18n/LanguageProvider";
 import { stripLangPrefix } from "../../i18n/routes";
-import {
-  type NavigationItem,
-  type NavigationMenuKey,
-  buildNavigationMenus,
-} from "./navigationData";
+import { BRAND_REVEAL_EVENT } from "../../utils/brandReveal";
+import { NAV_LINKS } from "./navigationData";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
 export const Header = () => {
@@ -23,33 +13,9 @@ export const Header = () => {
   const location = useLocation();
   const { t } = useTranslation();
   const { localize } = useLang();
-  const navigationMenus = useMemo(() => buildNavigationMenus(t), [t]);
-  const [openMenu, setOpenMenu] = useState<NavigationMenuKey | null>(null);
-  const [panelLeft, setPanelLeft] = useState(0);
-  const navRef = useRef<HTMLElement | null>(null);
-  const triggerRefs = useRef<Record<string, HTMLButtonElement | null>>({});
 
-  const activeMenu = navigationMenus.find((menu) => menu.key === openMenu);
-
-  useEffect(() => {
-    if (!openMenu) return;
-    const updatePanelLeft = () => {
-      const nav = navRef.current;
-      const trigger = triggerRefs.current[openMenu];
-      if (!nav || !trigger) return;
-      const left =
-        trigger.getBoundingClientRect().left - nav.getBoundingClientRect().left;
-      setPanelLeft(left);
-    };
-    updatePanelLeft();
-    window.addEventListener("resize", updatePanelLeft);
-    return () => window.removeEventListener("resize", updatePanelLeft);
-  }, [openMenu]);
-
-  useEffect(() => {
-    setOpenMenu(null);
-  }, [location.pathname, location.hash]);
-
+  // On the home page the logo story flies the mark into the nav, so the nav
+  // logo stays hidden until the story reports it has arrived.
   const isHome = stripLangPrefix(location.pathname) === "/";
   const [brandReveal, setBrandReveal] = useState(isHome ? 0 : 1);
 
@@ -58,192 +24,37 @@ export const Header = () => {
       setBrandReveal(1);
       return;
     }
-
-    let frame = 0;
-    const update = () => {
-      frame = 0;
-      const stage = document.querySelector(".hero-logo-stage");
-      const navBottom = navRef.current?.getBoundingClientRect().bottom ?? 78;
-      if (!stage || getComputedStyle(stage).display === "none") {
-        setBrandReveal(1);
-        return;
-      }
-      const fadeRange = 240;
-      const stageBottom = stage.getBoundingClientRect().bottom;
-      const reveal = Math.min(
-        1,
-        Math.max(0, (navBottom + fadeRange - stageBottom) / fadeRange)
-      );
-      setBrandReveal(reveal);
-    };
-    const onScroll = () => {
-      if (!frame) frame = window.requestAnimationFrame(update);
-    };
-
-    update();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      if (frame) window.cancelAnimationFrame(frame);
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
+    const onReveal = (event: Event) => setBrandReveal((event as CustomEvent<number>).detail);
+    window.addEventListener(BRAND_REVEAL_EVENT, onReveal);
+    return () => window.removeEventListener(BRAND_REVEAL_EVENT, onReveal);
   }, [isHome]);
 
-  useEffect(() => {
-    const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpenMenu(null);
-    };
-
-    const closeOnOutsideClick = (event: PointerEvent) => {
-      if (!navRef.current?.contains(event.target as Node)) {
-        setOpenMenu(null);
-      }
-    };
-
-    window.addEventListener("keydown", closeOnEscape);
-    document.addEventListener("pointerdown", closeOnOutsideClick);
-
-    return () => {
-      window.removeEventListener("keydown", closeOnEscape);
-      document.removeEventListener("pointerdown", closeOnOutsideClick);
-    };
-  }, []);
-
-  const closeMenu = () => setOpenMenu(null);
-
-  const handleNavBlur = (event: FocusEvent<HTMLElement>) => {
-    if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
-      setOpenMenu(null);
-    }
-  };
-
-  const isTopLevelActive = (key: NavigationMenuKey) => {
-    if (openMenu === key) return true;
-    const path = stripLangPrefix(location.pathname);
-    if (key === "resources") {
-      return ["/blog", "/faq", "/repositories", "/standards"].some((p) =>
-        path === p || path.startsWith(`${p}/`)
-      );
-    }
-    if (key === "company") {
-      return ["/about", "/contact"].some((p) =>
-        path === p || path.startsWith(`${p}/`)
-      );
-    }
-    return false;
-  };
-
-  const renderNavigationItem = (
-    item: NavigationItem,
-    className = "institutional-menu-link"
-  ) => {
-    const content = (
-      <>
-        <span className="institutional-menu-link-title">
-          {item.title}
-          {item.badge && <span className="institutional-menu-badge">{item.badge}</span>}
-        </span>
-        {item.description && (
-          <span className="institutional-menu-link-description">{item.description}</span>
-        )}
-      </>
-    );
-
-    if (!item.href) {
-      return (
-        <span
-          key={item.title}
-          className={`${className} is-disabled`}
-          aria-disabled="true"
-        >
-          {content}
-        </span>
-      );
-    }
-
-    if (item.asset) {
-      return (
-        <a
-          key={item.title}
-          href={item.href}
-          className={className}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={closeMenu}
-        >
-          {content}
-        </a>
-      );
-    }
-
-    if (item.href.startsWith("/") && !item.href.includes("#")) {
-      return (
-        <Link key={item.title} to={localize(item.href)} className={className} onClick={closeMenu}>
-          {content}
-        </Link>
-      );
-    }
-
-    return (
-      <a key={item.title} href={localize(item.href)} className={className} onClick={closeMenu}>
-        {content}
-      </a>
-    );
-  };
-
   return (
-    <nav
-      ref={navRef}
-      className="top institutional-nav"
-      onMouseLeave={closeMenu}
-      onBlur={handleNavBlur}
-    >
+    <nav className="top institutional-nav">
       <div className="wrap row">
         <div className="nav-group">
-          <Link className="brand" to={localize("/")}>
-            <img
-              src="/assets/glowing-logo.png"
-              alt="Sereel"
-              style={{ opacity: brandReveal }}
-            />
-            <span
-              className="name"
-              style={{
-                transform: `translateX(${-39 * (1 - brandReveal)}px)`,
-              }}
-            >
+          <Link className="brand" to={localize("/")} aria-label="Sereel">
+            <img src="/assets/glowing-logo.png" alt="" style={{ opacity: brandReveal }} />
+            <span className="name" style={{ transform: `translateX(${-39 * (1 - brandReveal)}px)` }}>
               SEREEL
             </span>
           </Link>
-          <div className="institutional-links" aria-label="Primary navigation">
-            {navigationMenus.map((menu) => (
-              <button
-                key={menu.key}
-                id={`nav-trigger-${menu.key}`}
-                ref={(el) => {
-                  triggerRefs.current[menu.key] = el;
-                }}
-                type="button"
-                className={`institutional-nav-trigger ${
-                  isTopLevelActive(menu.key) ? "active" : ""
-                }`}
-                aria-haspopup="true"
-                aria-expanded={openMenu === menu.key}
-                aria-controls={`mega-menu-${menu.key}`}
-                onMouseEnter={() => setOpenMenu(menu.key)}
-                onFocus={() => setOpenMenu(menu.key)}
-                onClick={() => setOpenMenu(openMenu === menu.key ? null : menu.key)}
+          <div className="institutional-links" aria-label={t("nav.primary")}>
+            {NAV_LINKS.map((link) => (
+              <RouterNavLink
+                key={link.key}
+                to={localize(link.href)}
+                className={({ isActive }) => `institutional-nav-trigger${isActive ? " active" : ""}`}
               >
-                {menu.label}
-              </button>
+                {t(`nav.${link.key}`)}
+              </RouterNavLink>
             ))}
           </div>
         </div>
         <div className="nav-actions">
           <LanguageSwitcher />
-          <Link className="institutional-nav-cta contact-btn" to={localize("/contact")}>
-            {t("common.scheduleConsultation")}
+          <Link className="institutional-nav-cta contact-btn" to={localize("/listings")}>
+            {t("nav.viewListings")}
           </Link>
           <button
             onClick={() => setIsMobileMenuOpen(true)}
@@ -256,40 +67,6 @@ export const Header = () => {
           </button>
         </div>
       </div>
-      {activeMenu && (
-        <div
-          id={`mega-menu-${activeMenu.key}`}
-          className={`institutional-mega-panel is-${activeMenu.key} ${
-            activeMenu.compact ? "is-compact" : ""
-          }`}
-          style={{ "--panel-left": `${panelLeft}px` } as CSSProperties}
-          role="region"
-          aria-labelledby={`nav-trigger-${activeMenu.key}`}
-        >
-          <div className="institutional-mega-inner">
-            <div className="institutional-mega-grid">
-              {activeMenu.columns.map((column) => (
-                <div className="institutional-mega-column" key={column.title}>
-                  <p className="institutional-mega-column-title">{column.title}</p>
-                  <div className="institutional-mega-list">
-                    {column.items.map((item) => renderNavigationItem(item))}
-                  </div>
-                </div>
-              ))}
-              {activeMenu.feature && (
-                <div className="institutional-feature-panel">
-                  <p className="institutional-feature-kicker">{t("common.featured")}</p>
-                  <h3>{activeMenu.feature.title}</h3>
-                  <p>{activeMenu.feature.copy}</p>
-                  <Link to={localize(activeMenu.feature.href)} onClick={closeMenu}>
-                    {activeMenu.feature.cta}
-                  </Link>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
     </nav>
   );
 };

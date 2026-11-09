@@ -9,152 +9,30 @@
     "changeLanguage": "Change language"
   },
   "nav": {
-    "products": {
-      "label": "Products",
-      "columns": {
-        "core": {
-          "title": "Core Products",
-          "items": {
-            "tokenization": {
-              "title": "Tokenization-as-a-Service",
-              "description": "Launch tokenized financial products on compliant rails."
-            },
-            "custody": {
-              "title": "Custody",
-              "description": "Safekeeping, wallet controls, and operational permissions for digital assets and tokenized instruments."
-            },
-            "compliance": {
-              "title": "Compliance Layer",
-              "description": "Investor eligibility, jurisdiction rules, and transfer restrictions enforced at the asset level."
-            }
-          }
-        },
-        "infrastructure": {
-          "title": "Market Infrastructure",
-          "items": {
-            "marketplace": {
-              "title": "Marketplace & Settlement",
-              "description": "Subscriptions, redemptions, controlled transfers, and settlement workflows."
-            },
-            "lifecycle": {
-              "title": "Lifecycle & Reporting",
-              "description": "Holder records, audit trails, lifecycle events, and operational reporting."
-            },
-            "distribution": {
-              "title": "Controlled Distribution",
-              "description": "Permissioned access and transfer workflows for eligible investors."
-            }
-          }
-        },
-        "advanced": {
-          "title": "Advanced Rails",
-          "items": {
-            "lending": {
-              "title": "Tokenized RWA Lending",
-              "description": "Borrowing and lending infrastructure for eligible tokenized real-world assets."
-            },
-            "strategy": {
-              "title": "On-chain Strategy Infrastructure",
-              "description": "Infrastructure for compliant institutional on-chain and DeFi strategies."
-            },
-            "standards": {
-              "title": "Standards-Based Issuance",
-              "description": "ERC-3643, CMTAT, and regional compliance frameworks."
-            }
-          }
-        }
-      },
-      "feature": {
-        "title": "Launch on Sereel rails",
-        "copy": "Issuer-owned products. Sereel-powered infrastructure.",
-        "cta": "Schedule consultation"
-      }
-    },
-    "solutions": {
-      "label": "Solutions",
-      "columns": {
-        "main": {
-          "title": "Solutions",
-          "items": {
-            "assetManagers": "Asset Managers",
-            "issuers": "Issuers & Arrangers",
-            "banks": "Banks & Custodians",
-            "brokerDealers": "Broker-Dealers & Platforms",
-            "familyOffices": "Family Offices & Treasuries",
-            "strategyTeams": {
-              "title": "Institutional Strategy Teams",
-              "description": "For institutions looking to run compliant DeFi strategies."
-            }
-          }
-        }
-      },
-      "feature": {
-        "title": "Your product. Your investors. Sereel infrastructure.",
-        "copy": "Sereel powers the infrastructure. Issuers own the asset.",
-        "cta": "Explore solutions"
-      }
-    },
-    "resources": {
-      "label": "Resources",
-      "columns": {
-        "main": {
-          "title": "Resources",
-          "items": {
-            "blog": "Blog",
-            "whitepaper": "Whitepaper",
-            "standards": "Standards",
-            "faq": "FAQ",
-            "research": "Research Repository"
-          }
-        }
-      }
-    },
-    "company": {
-      "label": "Company",
-      "columns": {
-        "main": {
-          "title": "Company",
-          "items": {
-            "about": "About",
-            "contact": "Contact"
-          }
-        }
-      }
-    }
+    "primary": "Primary navigation",
+    "mobileLabel": "Sereel navigation",
+    "verticals": "Verticals",
+    "verified": "Sereel Verified",
+    "markets": "Markets",
+    "about": "About",
+    "contact": "Contact",
+    "viewListings": "View listings"
   },
   "footer": {
-    "tagline": "Compliant rails for tokenized capital markets.",
+    "tagline": "Verifiable, real-economy issuance.",
     "copyright": "© 2026 Sereel Technologies Inc. All rights reserved.",
-    "disclaimer": "Infrastructure provider, not issuer or asset sponsor",
+    "notice": "The information on this website is general information and is not an offer to sell, or a solicitation of an offer to buy, any security. Offerings are made only to eligible investors through their offering documents and are not available in every jurisdiction.",
     "groups": {
-      "products": {
-        "title": "Products",
-        "tokenization": "Tokenization-as-a-Service",
-        "custody": "Custody",
-        "marketplace": "Marketplace & Settlement",
-        "compliance": "Compliance Layer",
-        "lending": "Tokenized RWA Lending"
-      },
-      "solutions": {
-        "title": "Solutions",
-        "assetManagers": "Asset Managers",
-        "issuers": "Issuers & Arrangers",
-        "banks": "Banks & Custodians",
-        "brokerDealers": "Broker-Dealers & Platforms",
-        "familyOffices": "Family Offices & Treasuries",
-        "strategyTeams": "Institutional Strategy Teams"
-      },
-      "resources": {
-        "title": "Resources",
-        "blog": "Blog",
-        "whitepaper": "Whitepaper",
-        "standards": "Standards",
-        "faq": "FAQ"
+      "sereel": {
+        "title": "Sereel"
       },
       "company": {
         "title": "Company",
-        "about": "About",
-        "contact": "Contact",
+        "blog": "Blog",
+        "faq": "FAQ"
+      },
+      "legal": {
+        "title": "Legal",
         "privacy": "Privacy Policy",
         "terms": "Terms of Use"
       }
@@ -169,52 +47,347 @@
     "backHome": "Back to Home",
     "readJournal": "Read the Journal"
   },
-  "entities": {
+  "home": {
     "seo": {
-      "title": "Global Entities & Company Structure",
-      "description": "Sereel's global corporate structure: Sereel Technologies, Inc. in Chicago, Sereel Technologies Botswana in Gaborone, and Sereel Technologies Kenya in Nairobi."
+      "title": "Verifiable, real-economy issuance",
+      "description": "Sereel issues private credit, venture capital, fixed income and project finance investments with trustee and administrator signatures and custodian-connected NAV."
     },
-    "eyebrow": "Entities",
-    "headingStart": "Global",
-    "headingHighlight": "Company Structure",
-    "lede": "As a global company, we have a growing number of entities strategically positioned worldwide.",
-    "locations": {
-      "chicago": "Chicago, Illinois",
-      "gaborone": "Gaborone, Botswana",
-      "nairobi": "Nairobi, Kenya"
+    "hero": {
+      "title": "Verifiable, real-economy issuance.",
+      "subhead": "Sereel issues private credit, venture capital, fixed income and project finance investments that allocators can check, with trustee and administrator signatures and a NAV connected to the custodian.",
+      "viewListings": "View listings",
+      "talk": "Talk to us",
+      "scroll": "Scroll"
+    },
+    "story": {
+      "issue": {
+        "eyebrow": "What we issue",
+        "heading": "Four verticals, each reported the same way."
+      },
+      "check": {
+        "eyebrow": "How you can check it",
+        "heading": "Every Sereel Verified fund is signed at the source.",
+        "body": "The trustee and the fund administrator each sign the NAV, and asset balances come straight from the custodian.",
+        "link": "How Sereel Verified works"
+      },
+      "operate": {
+        "eyebrow": "Where we operate",
+        "heading": "The markets we support.",
+        "link": "See all market data"
+      }
+    },
+    "benefits": {
+      "heading": "What allocators get",
+      "items": {
+        "compliant": {
+          "title": "Compliant issuance",
+          "line": "Investor eligibility and transfer rules are enforced in the contract."
+        },
+        "reporting": {
+          "title": "Live reporting",
+          "line": "NAV, holdings and documents update as they are signed."
+        },
+        "pricing": {
+          "title": "Transparent pricing",
+          "line": "Each NAV shows its inputs, its signers and when it was struck."
+        },
+        "custodians": {
+          "title": "Regulated custodians",
+          "line": "Assets are held with regulated custodians, named on every fund page."
+        },
+        "access": {
+          "title": "Qualified-purchaser access",
+          "line": "Listings open to qualified purchasers after a short review."
+        },
+        "documents": {
+          "title": "Documents in one place",
+          "line": "Prospectus, terms and reports sit together in one portal."
+        }
+      }
+    },
+    "flow": {
+      "heading": "How a Sereel Verified fund reports",
+      "aria": "Custodian, fund administrator and trustee send signed data to Sereel, which publishes it to the listing with the Sereel Verified check.",
+      "link": "Read about Sereel Verified",
+      "nodes": {
+        "custodian": {
+          "title": "Custodian",
+          "sub": "Asset balances"
+        },
+        "administrator": {
+          "title": "Fund administrator",
+          "sub": "Signs the NAV"
+        },
+        "trustee": {
+          "title": "Trustee",
+          "sub": "Signs the NAV"
+        },
+        "sereel": {
+          "title": "Sereel",
+          "sub": "Checks and records"
+        },
+        "listing": {
+          "title": "The listing",
+          "sub": "What allocators see"
+        }
+      }
+    },
+    "markets": {
+      "heading": "The markets we support",
+      "lede": "Current figures for Kenya and Rwanda, each with its source and date.",
+      "link": "Open the markets page"
+    },
+    "listingsBand": {
+      "heading": "See the listings",
+      "lede": "Listings are open to qualified purchasers. Tell us who you are and we will review your request and reply by email."
+    }
+  },
+  "verticals": {
+    "seo": {
+      "title": "Private credit, VC, fixed income and project finance",
+      "description": "Sereel issues across private credit, venture capital, fixed income and project finance, with every fund reported through the same signed, custodian-connected standard."
+    },
+    "eyebrow": "Verticals",
+    "heading": "Four verticals, one reporting standard.",
+    "lede": "Each vertical uses a structure suited to its assets. Every one reports the same way, with signatures from the trustee and the administrator and balances from the custodian.",
+    "diagramAria": "How the investment is structured, from the underlying asset to investors",
+    "typical": "Typical structures",
+    "reportingLine": "Custodian balances, administrator and trustee signatures",
+    "steps": {
+      "asset": "Underlying",
+      "vehicle": "Issued through",
+      "investors": "Held by",
+      "reporting": "Reporting"
+    },
+    "items": {
+      "privateCredit": {
+        "name": "Private credit",
+        "line": "Loans and receivables to operating businesses, issued as notes.",
+        "asset": "Loans and receivables",
+        "vehicle": "A note-issuing cell",
+        "investors": "Qualified purchasers",
+        "structures": [
+          "Senior notes",
+          "Receivables notes",
+          "Revenue-share notes"
+        ]
+      },
+      "ventureCapital": {
+        "name": "Venture capital",
+        "line": "Fund interests and SPV units in early and growth-stage companies.",
+        "asset": "Company equity",
+        "vehicle": "A fund or SPV",
+        "investors": "Qualified purchasers",
+        "structures": [
+          "Fund interests",
+          "SPV units",
+          "Partnership-agreement funds"
+        ]
+      },
+      "fixedIncome": {
+        "name": "Fixed income",
+        "line": "Coupon-paying notes and units in bond and money-market funds.",
+        "asset": "Bonds and money-market instruments",
+        "vehicle": "A fund or note series",
+        "investors": "Qualified purchasers",
+        "structures": [
+          "Fund units",
+          "Fixed-coupon notes",
+          "Floating-rate notes"
+        ]
+      },
+      "projectFinance": {
+        "name": "Project finance",
+        "line": "Infrastructure and energy projects with contracted revenue.",
+        "asset": "Infrastructure and energy projects",
+        "vehicle": "A project SPV",
+        "investors": "Qualified purchasers",
+        "structures": [
+          "Project bonds",
+          "Revenue-share notes",
+          "Guaranteed notes"
+        ]
+      }
+    },
+    "cta": {
+      "heading": "See what is listed today, or bring us an asset to issue.",
+      "issuer": "Issue with Sereel"
+    }
+  },
+  "verified": {
+    "seo": {
+      "title": "Sereel Verified",
+      "description": "The Sereel Verified check shows that a fund's NAV is signed by its trustee and administrator and connected to the custodian's balances."
+    },
+    "eyebrow": "Sereel Verified",
+    "heading": "Know who stands behind the numbers.",
+    "lede": "The green Sereel Verified check means three independent parties stand behind a fund's latest NAV: the trustee and the fund administrator have signed it, and the asset balances come from the custodian.",
+    "badge": "Sereel Verified",
+    "sample": "Sample",
+    "sampleAria": "Sample of the Sereel Verified panel",
+    "note": "Confirms where the numbers came from and who signed them. Not a rating, recommendation or advice.",
+    "checks": {
+      "trustee": {
+        "label": "Trustee signature",
+        "detail": "Signed by the trustee"
+      },
+      "administrator": {
+        "label": "Administrator signature",
+        "detail": "Signed by the fund administrator"
+      },
+      "custodian": {
+        "label": "Custodian-connected NAV",
+        "detail": "Balances from the custodian"
+      }
+    },
+    "how": {
+      "eyebrow": "How it works",
+      "heading": "Signed data from three parties, published to the listing."
+    },
+    "states": {
+      "eyebrow": "Badge states",
+      "heading": "A late check is shown, never hidden.",
+      "verified": {
+        "body": "All three checks are current for the fund's reporting cycle."
+      },
+      "lapsed": {
+        "pill": "Verification lapsed",
+        "detail": "Late since the last reporting date",
+        "body": "One check is late. The listing shows which one and since when."
+      },
+      "none": {
+        "pill": "No badge",
+        "body": "The fund does not report through Sereel."
+      }
+    },
+    "means": {
+      "heading": "What the check confirms",
+      "items": [
+        "The trustee signed the latest NAV.",
+        "The fund administrator signed the same NAV.",
+        "The asset balances behind it came from the custodian."
+      ]
+    },
+    "notMeans": {
+      "heading": "What it is not",
+      "items": [
+        "A credit rating.",
+        "A recommendation to invest.",
+        "Investment, legal or tax advice."
+      ]
+    },
+    "managers": {
+      "eyebrow": "For fund managers",
+      "heading": "Get your fund verified.",
+      "lede": "Tell us about your fund and its trustee, administrator and custodian, and we will walk you through onboarding."
+    },
+    "managerForm": {
+      "name": "Your name",
+      "email": "Work email",
+      "firm": "Firm",
+      "fund": "Fund or vertical",
+      "submit": "Start the conversation",
+      "success": "Thank you. We will be in touch shortly.",
+      "error": "Please fill in your name, email and firm, then try again."
+    }
+  },
+  "markets": {
+    "seo": {
+      "title": "The markets we support: Kenya and Rwanda",
+      "description": "Current policy rates, treasury bill yields, exchange rates and inflation for Kenya and Rwanda, the markets Sereel supports, each with its official source."
+    },
+    "eyebrow": "Markets",
+    "heading": "The markets we support.",
+    "lede": "Kenya and Rwanda today. Every figure links to its source and shows when it was published.",
+    "note": "Figures are updated when the source publishes. A figure we cannot source is left out rather than estimated.",
+    "countries": {
+      "kenya": "Kenya",
+      "rwanda": "Rwanda"
+    },
+    "figures": {
+      "policyRate": "Central bank rate",
+      "tbill91": "91-day treasury bill",
+      "fxUsd": "Exchange rate to USD",
+      "inflation": "Inflation, year on year"
+    }
+  },
+  "listings": {
+    "seo": {
+      "title": "View listings",
+      "description": "Sereel listings are open to qualified purchasers. Request access and we will review your request and reply by email."
+    },
+    "eyebrow": "Listings",
+    "heading": "View listings.",
+    "lede": "Listings are open to qualified purchasers after a short review by our team.",
+    "steps": {
+      "request": {
+        "title": "Request access",
+        "line": "Share your work email, firm and country."
+      },
+      "review": {
+        "title": "We review it",
+        "line": "Our team confirms your eligibility."
+      },
+      "access": {
+        "title": "Sign in",
+        "line": "You receive an invitation to the listings."
+      }
+    },
+    "form": {
+      "email": "Work email",
+      "firm": "Firm",
+      "country": "Country",
+      "attestation": "I confirm that I am, or act on behalf of, a qualified purchaser.",
+      "submit": "Request access",
+      "sending": "Sending…",
+      "success": "Thank you. We will review your request and reply by email.",
+      "notice": "Requesting access is not an offer to buy or sell any security.",
+      "errors": {
+        "required": "Please complete every field and confirm your status.",
+        "network": "Something went wrong. Please try again or email team@sereel.com."
+      }
     }
   },
   "about": {
     "seo": {
-      "title": "About — Tokenized Finance Infrastructure",
-      "description": "Sereel builds compliant rails for issuance, custody, settlement, and lifecycle management of tokenized financial products, operating from Chicago, Nairobi, and Kigali."
+      "title": "About Sereel",
+      "description": "Sereel is the issuance and reporting layer for real-economy investments, operating from Chicago, Nairobi and Kigali."
     },
     "eyebrow": "About",
     "hero": {
-      "headingStart": "The infrastructure layer",
-      "headingMiddle": "behind",
-      "headingHighlight": "tokenized",
-      "headingEnd": "finance.",
-      "lede": "Sereel provides compliant rails for issuance, custody, settlement, investor controls, subscriptions, redemptions, and controlled transfers."
+      "headingStart": "The issuance and reporting layer for",
+      "headingHighlight": "real-economy investments.",
+      "lede": "Sereel structures, issues and reports investments in private credit, venture capital, fixed income and project finance, so allocators can check what they own."
     },
     "mission": {
       "eyebrow": "Mission",
-      "headingStart": "Why we",
-      "headingHighlight": "build.",
-      "paragraph1Start": "Sereel operates where traditional finance meets digital assets. We help institutions issue, custody, settle, and manage tokenized financial products with",
-      "paragraph1Highlight": "compliance enforced at the contract layer",
-      "paragraph2": "Issuers own the asset, documents, investor relationship, obligations, and performance. Sereel owns the rails that make the operating model programmable, controlled, and auditable."
+      "heading": "Why we build.",
+      "paragraph1": "Sereel works where traditional finance meets digital assets. We help institutions issue, settle and manage investments with compliance enforced at the contract layer.",
+      "paragraph2": "Issuers own the asset, the documents, the investor relationship and the performance. Sereel owns the rails that keep the operating model controlled, auditable and open to verification."
     },
-    "stats": {
-      "market": "Tokenized RWA market",
-      "chains": "Chain ecosystems",
-      "settlement": "Settlement target"
+    "credentials": {
+      "eyebrow": "Credentials",
+      "heading": "Recognised by the bodies that set the standards.",
+      "link": "View on cmta.ch",
+      "items": {
+        "cmta": {
+          "title": "CMTA Recognized Expert",
+          "detail": "Technology Service Provider for the Capital Markets and Technology Association, one of six worldwide."
+        },
+        "canton": {
+          "title": "Canton Network validator",
+          "detail": "We operate a validator on the Canton Network."
+        },
+        "vacc": {
+          "title": "Virtual Assets Chamber",
+          "detail": "Member of the standards committee of the Virtual Assets Chamber."
+        }
+      }
     },
     "footprint": {
       "eyebrow": "Footprint",
       "headingStart": "Where we",
       "headingHighlight": "operate.",
-      "lede": "We have established a presence in three countries across two continents, aligned with regulatory regimes that matter for institutional tokenization. Built for regulatory interoperability.",
       "locations": {
         "chicago": {
           "city": "Chicago",
@@ -234,13 +407,13 @@
   "contact": {
     "seo": {
       "title": "Contact",
-      "description": "Talk to the Sereel team about tokenization, custody, compliance, and settlement infrastructure for your institution. Offices in Chicago, Nairobi, and Kigali."
+      "description": "Talk to the Sereel team about our listings, Sereel Verified, or issuing with Sereel. Offices in Chicago, Nairobi and Kigali."
     },
     "eyebrow": "Contact",
     "hero": {
       "headingStart": "Let's",
       "headingHighlight": "talk.",
-      "lede": "Tell us about your tokenization needs. We respond within one business day."
+      "lede": "Tell us what you are looking to invest in or issue. We respond within one business day."
     },
     "form": {
       "fields": {
@@ -262,7 +435,7 @@
         },
         "message": {
           "label": "Message",
-          "placeholder": "What are you looking to tokenize?"
+          "placeholder": "What would you like to discuss?"
         }
       },
       "submit": "Send message →",
@@ -495,201 +668,6 @@
       },
       "description": "Our team is ready to help you understand how Sereel can transform your institution's tokenisation strategy.",
       "button": "Contact Our Team"
-    }
-  },
-  "home": {
-    "hero": {
-      "title": "The rails behind tokenized capital markets.",
-      "subhead": "Tokenization, custody, compliance, settlement, and market rails for issuer-owned financial products on public and private chains.",
-      "primaryActionLabel": "Primary action"
-    },
-    "cta": {
-      "scheduleConsultation": "Schedule consultation"
-    },
-    "useCases": {
-      "heading": "Use cases",
-      "description": "Institutions enter the system from different operating points. Each use case shows the controls, records, and workflows institutions run through Sereel.",
-      "panelLabel": "Use case",
-      "railLabel": "Rail controls included",
-      "segments": {
-        "assetManagers": {
-          "name": "Asset Managers",
-          "copy": "Launch tokenized funds with investor gating, custody workflows, subscriptions, redemptions, and controlled secondary transfers.",
-          "layers": [
-            "Tokenization",
-            "Compliance",
-            "Subscriptions",
-            "Marketplace"
-          ]
-        },
-        "issuersArrangers": {
-          "name": "Issuers & Arrangers",
-          "copy": "Launch tokenized debt, private credit, fixed-income, and structured products through permissioned rails.",
-          "layers": [
-            "Product rules",
-            "Tokenization",
-            "Settlement",
-            "Reporting"
-          ]
-        },
-        "banksCustodians": {
-          "name": "Banks & Custodians",
-          "copy": "Adopt custody, multisig governance, wallet controls, permissions, and reporting before deploying the full tokenization stack.",
-          "layers": [
-            "Custody",
-            "Multisigs",
-            "Approvals",
-            "Audit trails"
-          ]
-        },
-        "fintechs": {
-          "name": "Fintechs",
-          "copy": "Enable access to regulated funds and tokenized products through Sereel's seamless SDK.",
-          "layers": [
-            "APIs",
-            "Investor gating",
-            "Settlement",
-            "White label"
-          ]
-        },
-        "brokerDealersPlatforms": {
-          "name": "Broker-Dealers & Platforms",
-          "copy": "Operate permissioned orderbook and transfer workflows with eligibility checks before assets move.",
-          "layers": [
-            "Orderbook",
-            "Transfer rules",
-            "Custody",
-            "Redemptions"
-          ]
-        },
-        "familyOfficesTreasuries": {
-          "name": "Family Offices & Treasuries",
-          "copy": "Coordinate custody, reporting, controlled transfers, and access to tokenized private-market products.",
-          "layers": [
-            "Custody",
-            "Reporting",
-            "Controlled transfers",
-            "Strategy rails"
-          ]
-        },
-        "institutionalStrategyTeams": {
-          "name": "Institutional Strategy Teams",
-          "copy": "Run compliant DeFi strategies with custody controls, risk policies, reporting, and settlement records.",
-          "layers": [
-            "Custody",
-            "DeFi strategy rails",
-            "Risk controls",
-            "Settlement records"
-          ]
-        }
-      }
-    },
-    "platform": {
-      "heading": "The control system behind tokenized products.",
-      "description": "Sereel can run as one operating layer or as specific rails for custody, compliance, tokenization, settlement, marketplace workflows, strategy controls, and public or private chain deployment.",
-      "layerListLabel": "Sereel stack layers",
-      "controlLabel": "Control",
-      "recordLabel": "Record",
-      "outcomeLabel": "Buyer outcome",
-      "layers": {
-        "custody": {
-          "title": "Custody + Wallet Controls",
-          "detail": "Role-based wallets, multisig approval paths, recovery design, and controlled operations for institutional teams.",
-          "control": "Multisig approvals, recovery roles, treasury permissions",
-          "record": "Wallet policy dossier",
-          "outcome": "Teams can operate assets without losing institutional oversight."
-        },
-        "compliance": {
-          "title": "Compliance + Transfer Rules",
-          "detail": "Issuer-defined investor eligibility, jurisdiction controls, holding restrictions, and permissioned transfer logic.",
-          "control": "Eligibility, jurisdiction, holding, and transfer constraints",
-          "record": "Transfer-control log",
-          "outcome": "Unqualified transfers fail before ownership records move."
-        },
-        "tokenization": {
-          "title": "Tokenization Engine",
-          "detail": "Issuers launch tokenized funds, debt, fixed income, private credit, and structured products with controls their legal, operations, and investor teams can audit.",
-          "control": "Product terms, ownership registers, issuer controls",
-          "record": "Issuance register",
-          "outcome": "Products launch with auditable ownership and lifecycle files."
-        },
-        "settlement": {
-          "title": "Subscriptions + Settlement",
-          "detail": "Fund managers run primary subscriptions, payment coordination, allocation workflows, settlement records, and lifecycle reporting through Sereel.",
-          "control": "Subscriptions, allocations, payment coordination",
-          "record": "Subscription book",
-          "outcome": "Primary capital movement is traceable from order to record."
-        },
-        "marketplace": {
-          "title": "Marketplace + Redemptions",
-          "detail": "Controlled secondary transfers, redemption workflows, orderbook constraints, and issuer-approved exits.",
-          "control": "Issuer-approved exits and secondary-transfer constraints",
-          "record": "Redemption queue",
-          "outcome": "Liquidity workflows stay permissioned and reviewable."
-        },
-        "rwaLending": {
-          "title": "Tokenized RWA Lending",
-          "detail": "Borrowing and lending rails for eligible tokenized real-world assets with custody, eligibility, collateral, and settlement controls.",
-          "control": "Borrower eligibility, lender access, collateral permissions",
-          "record": "Tokenized lending activity file",
-          "outcome": "Institutions can run RWA credit workflows inside permissioned infrastructure."
-        },
-        "strategy": {
-          "title": "Institutional Strategy Infrastructure",
-          "detail": "Institutional strategy workflows governed by custody, reporting, settlement, and risk controls.",
-          "control": "Custody policy, risk thresholds, settlement reporting",
-          "record": "Strategy operating file",
-          "outcome": "On-chain strategies operate inside institutional guardrails."
-        }
-      }
-    },
-    "responsibility": {
-      "heading": "Your asset. Your investors. Sereel infrastructure.",
-      "description": "Sereel provides the infrastructure layer for compliant issuance, custody, settlement, investor controls, subscriptions, redemptions, and controlled transfers. Issuers remain responsible for the asset, offering documents, disclosures, investor communications, obligations, product economics, and asset performance. Sereel does not originate, underwrite, recommend, or guarantee issuer assets or returns.",
-      "issuerHeading": "Issuer owns",
-      "sereelHeading": "Sereel powers",
-      "issuerItems": [
-        "Asset",
-        "Disclosures",
-        "Investor relationship",
-        "Obligations",
-        "Product economics and performance"
-      ],
-      "sereelItems": [
-        "Custody and multisig controls",
-        "Tokenization",
-        "Compliance controls",
-        "Settlement",
-        "Subscriptions / redemptions"
-      ]
-    },
-    "standards": {
-      "heading": "Standards where they matter. Invisible where they should be.",
-      "description": "Sereel deploys recognized token standards and compliance frameworks so institutions can launch without rebuilding legal and technical rails from scratch.",
-      "items": {
-        "erc3643": {
-          "role": "Permissioned transfer logic",
-          "proof": "Eligibility checks and compliance rules can be enforced before transfer execution."
-        },
-        "cmtat": {
-          "role": "Swiss capital markets token framework",
-          "proof": "Recognized token architecture for securities-style products and issuer controls."
-        },
-        "vaspReady": {
-          "role": "Regional regulatory coverage",
-          "proof": "Deployment models can align with custody, reporting, and digital-asset service rules."
-        }
-      }
-    },
-    "journal": {
-      "heading": "Latest from the journal",
-      "description": "Regulatory analysis, infrastructure notes, and market perspective for institutional on-chain finance.",
-      "latestLabel": "Latest",
-      "readArticle": "Read article",
-      "allArticles": "All articles"
-    },
-    "ctaBand": {
-      "heading": "Sereel helps you safely & compliantly manage tokenized assets."
     }
   },
   "privacy": {
@@ -985,71 +963,6 @@
           "heading": "United States",
           "body": "We comply with applicable U.S. federal and state privacy laws. Residents of certain states (including California, Virginia, Colorado, and Connecticut) may have additional rights under their respective state privacy laws. To exercise these rights, please contact us at privacy@sereel.com."
         }
-      }
-    }
-  },
-  "standards": {
-    "seo": {
-      "title": "Token Standards & Compliance Frameworks",
-      "description": "The recognized token standards and compliance frameworks Sereel deploys so institutions can launch across public and private blockchain environments."
-    },
-    "eyebrow": "Standards",
-    "hero": {
-      "titleStart": "Standards where they matter.",
-      "titleHighlight": "Invisible",
-      "titleEnd": "where they should be.",
-      "lede": "Sereel deploys recognized token standards and compliance frameworks so institutions can launch across public and private blockchain environments without rebuilding legal and technical rails from scratch."
-    },
-    "cards": {
-      "cmtat": {
-        "badge": "Standard 01",
-        "sub": "Capital Markets & Technology Association",
-        "body": "The Swiss tokenization framework adopted by major banks and recognized by Singapore's Project Guardian. Sereel is one of the few engineering teams certified to deploy on it.",
-        "bullets": {
-          "referenceImplementation": "Reference implementation for tokenized securities under Swiss DLT law",
-          "members": "40+ institutional members including UBS, SIX, and Sygnum",
-          "complianceModules": "Native compliance modules: transfer restrictions, snapshots, freeze",
-          "composable": "Composable with ERC-3643 for permissioned transferability",
-          "audited": "Audited, open source, and version-locked at the protocol layer"
-        }
-      },
-      "erc3643": {
-        "badge": "Standard 02",
-        "sub": "Permissioned Token Standard / T-REX",
-        "body": "The leading EVM standard for compliant security tokens. Identity-on-chain through ONCHAINID, with modular compliance enforced at the contract layer.",
-        "bullets": {
-          "eligibilityChecks": "Built-in eligibility checks: KYC, accreditation, jurisdiction",
-          "onchainid": "ONCHAINID identity portability across issuers and chains",
-          "backers": "Backed by Tokeny, Apex, ING, and 20+ regulated issuers",
-          "hybrid": "Sereel deploys CMTAT + ERC-3643 hybrid contracts",
-          "hooks": "Recovery, partitioning, and forced-transfer hooks built in"
-        }
-      }
-    },
-    "networks": {
-      "heading": "Networks",
-      "items": {
-        "evm": "All EVM-compatible chains",
-        "privacy": "Privacy",
-        "privateRollup": "Private rollup",
-        "privateBlockchain": "Private blockchain environments",
-        "permissioned": "Permissioned",
-        "publicBlockchain": "Public blockchain networks",
-        "open": "Open"
-      }
-    },
-    "jurisdictions": {
-      "heading": "Jurisdictions",
-      "items": {
-        "kenya": "Kenya VASP Act",
-        "botswana": "Botswana VASP Act",
-        "rwanda": "Rwanda VASP Act",
-        "nonUs": "Non-US",
-        "usAccredited": "US · Accredited",
-        "swissDlt": "Swiss DLT",
-        "masGuidelines": "MAS Guidelines",
-        "customCounsel": "Custom Counsel",
-        "bespoke": "Bespoke"
       }
     }
   },
