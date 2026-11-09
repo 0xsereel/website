@@ -13,7 +13,6 @@
     "mobileLabel": "Sereel navigation",
     "verticals": "Verticals",
     "verified": "Sereel Verified",
-    "markets": "Markets",
     "about": "About",
     "contact": "Contact",
     "viewListings": "View listings"
@@ -50,11 +49,11 @@
   "home": {
     "seo": {
       "title": "Verifiable, real-economy issuance",
-      "description": "Sereel issues private credit, venture capital, fixed income and project finance investments with trustee and administrator signatures and custodian-connected NAV."
+      "description": "Sereel is the attestation and distribution layer for tokenized fixed income funds, automating compliance, reporting and tax on fund units."
     },
     "hero": {
       "title": "Verifiable, real-economy issuance.",
-      "subhead": "Sereel issues private credit, venture capital, fixed income and project finance investments that allocators can check, with trustee and administrator signatures and a NAV connected to the custodian.",
+      "subhead": "Sereel is the attestation and distribution layer for tokenized fixed income funds. We automate compliance, reporting, tax and more on fund units, so managers can focus on running their funds and allocators can access them easily and build them into their portfolios.",
       "viewListings": "View listings",
       "talk": "Talk to us",
       "scroll": "Scroll"
@@ -70,10 +69,24 @@
         "body": "The trustee and the fund administrator each sign the NAV, and asset balances come straight from the custodian.",
         "link": "How Sereel Verified works"
       },
-      "operate": {
-        "eyebrow": "Where we operate",
-        "heading": "The markets we support.",
-        "link": "See all market data"
+      "settle": {
+        "eyebrow": "Why tokenized",
+        "heading": "Fund units that settle and move like they should.",
+        "items": {
+          "settlement": {
+            "title": "T+0 settlement",
+            "line": "Subscriptions and transfers settle the same day, not days later."
+          },
+          "transfers": {
+            "title": "Secondary transfers",
+            "line": "Holders can transfer units to other eligible investors, within the fund's terms."
+          },
+          "liquidity": {
+            "title": "Limited instant liquidity",
+            "line": "Where a fund offers it, holders can redeem part of a position instantly, up to set limits."
+          }
+        },
+        "link": "See how access works"
       }
     },
     "benefits": {
@@ -131,11 +144,6 @@
           "sub": "What allocators see"
         }
       }
-    },
-    "markets": {
-      "heading": "The markets we support",
-      "lede": "Current figures for Kenya and Rwanda, each with its source and date.",
-      "link": "Open the markets page"
     },
     "listingsBand": {
       "heading": "See the listings",
@@ -289,26 +297,6 @@
       "submit": "Start the conversation",
       "success": "Thank you. We will be in touch shortly.",
       "error": "Please fill in your name, email and firm, then try again."
-    }
-  },
-  "markets": {
-    "seo": {
-      "title": "The markets we support: Kenya and Rwanda",
-      "description": "Current policy rates, treasury bill yields, exchange rates and inflation for Kenya and Rwanda, the markets Sereel supports, each with its official source."
-    },
-    "eyebrow": "Markets",
-    "heading": "The markets we support.",
-    "lede": "Kenya and Rwanda today. Every figure links to its source and shows when it was published.",
-    "note": "Figures are updated when the source publishes. A figure we cannot source is left out rather than estimated.",
-    "countries": {
-      "kenya": "Kenya",
-      "rwanda": "Rwanda"
-    },
-    "figures": {
-      "policyRate": "Central bank rate",
-      "tbill91": "91-day treasury bill",
-      "fxUsd": "Exchange rate to USD",
-      "inflation": "Inflation, year on year"
     }
   },
   "listings": {

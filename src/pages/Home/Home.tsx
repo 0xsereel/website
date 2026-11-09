@@ -3,7 +3,7 @@ import { SEO } from "../../components/SEO";
 import { generateOrganizationSchema, generateWebSiteSchema } from "../../components/SEO/StructuredData";
 import { useLang } from "../../i18n/LanguageProvider";
 import { LogoStory } from "../../components/Home/LogoStory";
-import { Benefits, ListingsBand, MarketsSection, ReportingSection } from "../../components/Home/HomeSections";
+import { Benefits, ListingsBand, ReportingSection } from "../../components/Home/HomeSections";
 
 export const Home = () => {
   const { t } = useTranslation();
@@ -21,7 +21,6 @@ export const Home = () => {
       <LogoStory />
       <Benefits />
       <ReportingSection />
-      <MarketsSection />
       <ListingsBand />
     </main>
   );

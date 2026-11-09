@@ -8,7 +8,6 @@ import { Blog } from "../pages/Blog/Blog";
 import { SingleBlog } from "../pages/Blog/SingleBlog";
 import { Verticals } from "../pages/Verticals/Verticals";
 import { SereelVerified } from "../pages/SereelVerified/SereelVerified";
-import { Markets } from "../pages/Markets/Markets";
 import { Listings } from "../pages/Listings/Listings";
 import { Terms } from "../pages/Terms/Terms";
 import { PrivacyPolicy } from "../pages/PrivacyPolicy/PrivacyPolicy";
@@ -27,7 +26,6 @@ const AppRoutes = () => {
             <Route path="/" element={<Home />} />
             <Route path="/verticals" element={<Verticals />} />
             <Route path="/sereel-verified" element={<SereelVerified />} />
-            <Route path="/markets" element={<Markets />} />
             <Route path="/listings" element={<Listings />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
@@ -42,7 +40,6 @@ const AppRoutes = () => {
             <Route path="/fr" element={<Home />} />
             <Route path="/fr/verticals" element={<Verticals />} />
             <Route path="/fr/sereel-verified" element={<SereelVerified />} />
-            <Route path="/fr/markets" element={<Markets />} />
             <Route path="/fr/listings" element={<Listings />} />
             <Route path="/fr/about" element={<About />} />
             <Route path="/fr/contact" element={<Contact />} />

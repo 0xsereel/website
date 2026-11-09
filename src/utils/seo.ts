@@ -6,7 +6,7 @@ export const SITE_CONFIG = {
   // Keep these identical to the static tags in index.html — crawlers that do
   // not execute JS see index.html, JS-rendering crawlers see these.
   defaultTitle: 'Sereel | Verifiable, real-economy issuance',
-  defaultDescription: 'Sereel issues private credit, venture capital, fixed income and project finance investments with trustee and administrator signatures and custodian-connected NAV.',
+  defaultDescription: 'Sereel is the attestation and distribution layer for tokenized fixed income funds, automating compliance, reporting and tax on fund units.',
   defaultKeywords: [
     'real-economy issuance',
     'verifiable NAV',

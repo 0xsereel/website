@@ -46,6 +46,21 @@
       "source": "/fr/entities",
       "destination": "/fr/about",
       "permanent": true
+    },
+    {
+      "source": "/markets",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/markets",
+      "destination": "/fr",
+      "permanent": true
+    },
+    {
+      "source": "/whitepapers/:path*",
+      "destination": "/",
+      "permanent": true
     }
   ],
   "rewrites": [

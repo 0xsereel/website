@@ -1,5 +1,4 @@
 import { type MotionValue, motion } from "framer-motion";
-import { useId } from "react";
 
 /**
  * The Sereel mark drawn inline so each petal can be addressed on its own.
@@ -22,47 +21,30 @@ interface SereelMarkProps {
   className?: string;
   /** Opacity (0 to 1) of the accent fill on each petal: [top, lower left, lower right]. */
   highlight?: [Highlight, Highlight, Highlight];
-  /** Draw the soft glow around the shapes. Off for small static uses. */
+  /** Draw the green halo behind the mark (the original logo glow). Off for small glyphs. */
   glow?: boolean;
 }
 
-export const SereelMark = ({ className, highlight = [0, 0, 0], glow = true }: SereelMarkProps) => {
-  const id = useId().replace(/:/g, "");
-  const filterId = `mark-glow-${id}`;
-
-  return (
-    <svg
-      className={className}
-      viewBox={MARK_VIEWBOX}
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-      focusable="false"
-    >
-      {glow && (
-        <defs>
-          <filter id={filterId} x="-40%" y="-40%" width="180%" height="180%" colorInterpolationFilters="sRGB">
-            <feMorphology in="SourceAlpha" operator="dilate" radius="2" result="spread" />
-            <feGaussianBlur in="spread" stdDeviation="7" result="inner" />
-            <feFlood floodColor="#FFFFFF" floodOpacity="0.95" />
-            <feComposite in2="inner" operator="in" result="white" />
-            <feGaussianBlur in="SourceAlpha" stdDeviation="26" result="outer" />
-            <feFlood floodColor="#1CA36E" floodOpacity="0.9" />
-            <feComposite in2="outer" operator="in" result="green" />
-            <feMerge>
-              <feMergeNode in="green" />
-              <feMergeNode in="white" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
-      )}
-      <g filter={glow ? `url(#${filterId})` : undefined}>
-        {PETALS.map((d) => (
-          <path key={d.slice(0, 12)} d={d} fillRule="evenodd" clipRule="evenodd" fill="#000" />
-        ))}
-        <ellipse cx="558.292" cy="455.655" rx="66.0781" ry="63.7554" transform="rotate(-90 558.292 455.655)" fill="#000" />
-      </g>
+/*
+ * The halo is a pre-rendered image (public/images/Hero/mark-glow.webp) centred on the mark
+ * and 2.5 times its size. A raster layer keeps the wide glow cheap while the mark spins;
+ * a live SVG blur that wide would repaint every frame.
+ */
+export const SereelMark = ({ className, highlight = [0, 0, 0], glow = true }: SereelMarkProps) => (
+  <span className={["sereel-mark", className].filter(Boolean).join(" ")} aria-hidden="true">
+    {glow && <img className="sereel-mark-halo" src="/images/Hero/mark-glow.webp" alt="" decoding="async" draggable={false} />}
+    <svg viewBox={MARK_VIEWBOX} fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+      {PETALS.map((d) => (
+        <path key={d.slice(0, 12)} d={d} fillRule="evenodd" clipRule="evenodd" className="mark-shape" />
+      ))}
+      <ellipse
+        cx="558.292"
+        cy="455.655"
+        rx="66.0781"
+        ry="63.7554"
+        transform="rotate(-90 558.292 455.655)"
+        className="mark-shape"
+      />
       {PETALS.map((d, index) => (
         <motion.path
           key={`hl-${d.slice(0, 12)}`}
@@ -74,5 +56,5 @@ export const SereelMark = ({ className, highlight = [0, 0, 0], glow = true }: Se
         />
       ))}
     </svg>
-  );
-};
+  </span>
+);

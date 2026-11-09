@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Activity, ArrowRight, FolderOpen, Landmark, ShieldCheck, Tags, UserCheck, type LucideIcon } from "lucide-react";
 import { useLang } from "../../i18n/LanguageProvider";
-import { MarketPanel } from "../Markets/MarketPanel";
 import { ReportingFlow } from "../Verified/ReportingFlow";
 import { ListingsAccessForm } from "../Forms/ListingsAccessForm";
 
@@ -51,23 +50,6 @@ export const ReportingSection = () => {
           {t("home.flow.link")} <ArrowRight size={15} aria-hidden="true" />
         </Link>
       </div>
-    </section>
-  );
-};
-
-export const MarketsSection = () => {
-  const { t } = useTranslation();
-  const { localize } = useLang();
-  return (
-    <section className="marketing-section wrap" id="markets" aria-labelledby="markets-title">
-      <div className="section-copy compact">
-        <h2 id="markets-title">{t("home.markets.heading")}</h2>
-        <p>{t("home.markets.lede")}</p>
-      </div>
-      <MarketPanel variant="full" />
-      <Link className="text-link" to={localize("/markets")}>
-        {t("home.markets.link")} <ArrowRight size={15} aria-hidden="true" />
-      </Link>
     </section>
   );
 };

@@ -13,7 +13,6 @@
     "mobileLabel": "Navigation Sereel",
     "verticals": "Verticales",
     "verified": "Sereel Verified",
-    "markets": "Marchés",
     "about": "À propos",
     "contact": "Contact",
     "viewListings": "Voir les offres"
@@ -50,11 +49,11 @@
   "home": {
     "seo": {
       "title": "Émission vérifiable pour l'économie réelle",
-      "description": "Sereel émet des investissements en dette privée, capital-risque, revenu fixe et financement de projets, avec signatures du trustee et de l'administrateur et une VNI reliée au dépositaire."
+      "description": "Sereel est la couche d'attestation et de distribution des fonds de revenu fixe tokenisés : conformité, reporting et fiscalité automatisés sur les parts de fonds."
     },
     "hero": {
       "title": "Une émission vérifiable, au service de l'économie réelle.",
-      "subhead": "Sereel émet des investissements en dette privée, capital-risque, revenu fixe et financement de projets que les allocateurs peuvent vérifier, avec les signatures du trustee et de l'administrateur et une VNI reliée au dépositaire.",
+      "subhead": "Sereel est la couche d'attestation et de distribution des fonds de revenu fixe tokenisés. Nous automatisons la conformité, le reporting, la fiscalité et plus encore sur les parts de fonds, pour que les gérants se concentrent sur la gestion de leurs fonds et que les allocateurs y accèdent facilement et les intègrent à leurs portefeuilles.",
       "viewListings": "Voir les offres",
       "talk": "Nous contacter",
       "scroll": "Défiler"
@@ -70,10 +69,24 @@
         "body": "Le trustee et l'administrateur du fonds signent chacun la VNI, et les soldes des actifs proviennent directement du dépositaire.",
         "link": "Comment fonctionne Sereel Verified"
       },
-      "operate": {
-        "eyebrow": "Où nous opérons",
-        "heading": "Les marchés que nous couvrons.",
-        "link": "Voir toutes les données de marché"
+      "settle": {
+        "eyebrow": "Pourquoi tokeniser",
+        "heading": "Des parts de fonds qui se règlent et circulent comme il se doit.",
+        "items": {
+          "settlement": {
+            "title": "Règlement T+0",
+            "line": "Les souscriptions et les transferts se règlent le jour même, pas plusieurs jours plus tard."
+          },
+          "transfers": {
+            "title": "Transferts secondaires",
+            "line": "Les porteurs peuvent céder leurs parts à d'autres investisseurs éligibles, dans le cadre des conditions du fonds."
+          },
+          "liquidity": {
+            "title": "Liquidité instantanée limitée",
+            "line": "Lorsque le fonds le prévoit, les porteurs peuvent racheter une partie de leur position instantanément, dans des limites fixées."
+          }
+        },
+        "link": "Comment fonctionne l'accès"
       }
     },
     "benefits": {
@@ -131,11 +144,6 @@
           "sub": "Ce que voient les allocateurs"
         }
       }
-    },
-    "markets": {
-      "heading": "Les marchés que nous couvrons",
-      "lede": "Les chiffres actuels du Kenya et du Rwanda, chacun avec sa source et sa date.",
-      "link": "Ouvrir la page des marchés"
     },
     "listingsBand": {
       "heading": "Consulter les offres",
@@ -289,26 +297,6 @@
       "submit": "Engager la conversation",
       "success": "Merci. Nous reviendrons vers vous rapidement.",
       "error": "Veuillez indiquer votre nom, votre e-mail et votre société, puis réessayer."
-    }
-  },
-  "markets": {
-    "seo": {
-      "title": "Nos marchés : Kenya et Rwanda",
-      "description": "Taux directeurs, rendements des bons du Trésor, taux de change et inflation au Kenya et au Rwanda, les marchés couverts par Sereel, avec leur source officielle."
-    },
-    "eyebrow": "Marchés",
-    "heading": "Les marchés que nous couvrons.",
-    "lede": "Le Kenya et le Rwanda aujourd'hui. Chaque chiffre renvoie à sa source et indique sa date de publication.",
-    "note": "Les chiffres sont mis à jour à chaque publication de la source. Un chiffre que nous ne pouvons pas sourcer est omis plutôt qu'estimé.",
-    "countries": {
-      "kenya": "Kenya",
-      "rwanda": "Rwanda"
-    },
-    "figures": {
-      "policyRate": "Taux directeur",
-      "tbill91": "Bon du Trésor à 91 jours",
-      "fxUsd": "Taux de change en USD",
-      "inflation": "Inflation sur un an"
     }
   },
   "listings": {

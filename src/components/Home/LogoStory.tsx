@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
   type MotionValue,
+  easeInOut,
   motion,
   useMotionValueEvent,
   useReducedMotion,
   useScroll,
+  useSpring,
   useTransform,
 } from "framer-motion";
 import { ArrowDown } from "lucide-react";
@@ -14,22 +16,25 @@ import { useLang } from "../../i18n/LanguageProvider";
 import { useMediaQuery, useViewport } from "../../hooks/useViewport";
 import { emitBrandReveal } from "../../utils/brandReveal";
 import { SereelMark } from "../Brand/SereelMark";
-import { CheckPanel, IssuePanel, OperatePanel } from "./StoryPanels";
+import { CheckPanel, IssuePanel, SettlePanel } from "./StoryPanels";
 
 /*
  * Scroll map for the animated story (fractions of the section's scroll).
- * The mark spins and docks at the left edge, then turns one petal at a time
- * toward each takeaway, then spins into the nav logo.
+ * The mark spins slowly and docks at the left edge, then turns one petal at a
+ * time toward each takeaway, then spins into the nav logo. The turns are long
+ * and eased, and scroll is smoothed with a spring, so the motion glides.
  */
-const HOLD = 0.05;
-const DOCKED = 0.17;
+const HOLD = 0.03;
+const DOCKED = 0.2;
 const STAGES: [number, number][] = [
-  [0.17, 0.36],
-  [0.42, 0.6],
-  [0.66, 0.84],
+  [0.2, 0.33],
+  [0.43, 0.56],
+  [0.66, 0.79],
 ];
-const FLY_START = 0.86;
-const FLY_END = 0.95;
+const FLY_START = 0.81;
+const FLY_END = 0.97;
+const SMOOTHING = { stiffness: 55, damping: 20, mass: 0.6, restDelta: 0.0005 };
+const EASE = { ease: easeInOut };
 
 const HeroCopy = () => {
   const { t } = useTranslation();
@@ -60,7 +65,7 @@ const StoryPanel = ({
   children: ReactNode;
 }) => {
   const [start, end] = range;
-  const input = [start - 0.03, start + 0.015, end - 0.015, end + 0.03];
+  const input = [start - 0.035, start + 0.01, end - 0.01, end + 0.035];
   const opacity = useTransform(progress, input, [0, 1, 1, 0]);
   const y = useTransform(progress, input, [28, 0, 0, -28]);
   const pointerEvents = useTransform(opacity, (value) => (value > 0.5 ? "auto" : "none"));
@@ -77,10 +82,11 @@ const AnimatedStory = () => {
   const { t } = useTranslation();
   const sectionRef = useRef<HTMLElement | null>(null);
   const { width, height } = useViewport();
-  const { scrollYProgress: progress } = useScroll({
+  const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end end"],
   });
+  const progress = useSpring(scrollYProgress, SMOOTHING);
 
   // Geometry, in px, from the viewport.
   const size = Math.min(width * 0.42, height * 0.78, 680);
@@ -94,36 +100,47 @@ const AnimatedStory = () => {
   const x = useTransform(
     progress,
     [0, HOLD, DOCKED, FLY_START, FLY_END],
-    [hero.x, hero.x, docked.x, docked.x, corner.x].map((value) => value - half)
+    [hero.x, hero.x, docked.x, docked.x, corner.x].map((value) => value - half),
+    EASE
   );
   const y = useTransform(
     progress,
     [0, HOLD, DOCKED, FLY_START, FLY_END],
-    [hero.y, hero.y, docked.y, docked.y, corner.y].map((value) => value - half)
+    [hero.y, hero.y, docked.y, docked.y, corner.y].map((value) => value - half),
+    EASE
   );
   const scale = useTransform(
     progress,
     [0, HOLD, DOCKED, FLY_START, FLY_END],
-    [1, 1, docked.scale, docked.scale, corner.scale]
+    [1, 1, docked.scale, docked.scale, corner.scale],
+    EASE
   );
   // 450 turns the top petal to face right; each step of 120 brings the next petal round;
   // the last spin lands upright (1080) to match the nav logo.
   const rotate = useTransform(
     progress,
-    [0, HOLD, DOCKED, 0.36, 0.42, 0.6, 0.66, FLY_START, FLY_END],
-    [0, 0, 450, 450, 570, 570, 690, 690, 1080]
+    [0, HOLD, DOCKED, STAGES[0][1], STAGES[1][0], STAGES[1][1], STAGES[2][0], FLY_START, FLY_END],
+    [0, 0, 450, 450, 570, 570, 690, 690, 1080],
+    EASE
   );
-  const markOpacity = useTransform(progress, [0, 0.915, 0.95], [1, 1, 0]);
-  const petalTop = useTransform(progress, [0.14, 0.18, 0.36, 0.4], [0, 1, 1, 0]);
-  const petalLeft = useTransform(progress, [0.38, 0.42, 0.6, 0.64], [0, 1, 1, 0]);
-  const petalRight = useTransform(progress, [0.62, 0.66, 0.84, 0.88], [0, 1, 1, 0]);
+  const markOpacity = useTransform(progress, [0, FLY_END - 0.03, FLY_END], [1, 1, 0]);
+  // Full halo in the hero; softer while docked so the panels stay easy to read.
+  const haloOpacity = useTransform(
+    progress,
+    [0, HOLD, DOCKED, FLY_START, FLY_END - 0.03, FLY_END],
+    [1, 1, 0.55, 0.55, 0.4, 0],
+    EASE
+  );
+  const petalTop = useTransform(progress, [0.16, 0.2, 0.33, 0.37], [0, 1, 1, 0]);
+  const petalLeft = useTransform(progress, [0.39, 0.43, 0.56, 0.6], [0, 1, 1, 0]);
+  const petalRight = useTransform(progress, [0.62, 0.66, 0.79, 0.83], [0, 1, 1, 0]);
 
-  const heroOpacity = useTransform(progress, [0, 0.025, 0.08], [1, 1, 0]);
+  const heroOpacity = useTransform(progress, [0, 0.02, 0.08], [1, 1, 0]);
   const heroY = useTransform(progress, [0, 0.08], [0, -64]);
   const heroVisibility = useTransform(heroOpacity, (value) => (value > 0.01 ? "visible" : "hidden"));
-  const cueOpacity = useTransform(progress, [0, 0.02], [1, 0]);
+  const cueOpacity = useTransform(progress, [0, 0.015], [1, 0]);
 
-  const brandReveal = useTransform(progress, [0.88, 0.95], [0, 1]);
+  const brandReveal = useTransform(progress, [FLY_END - 0.06, FLY_END], [0, 1]);
   useMotionValueEvent(brandReveal, "change", (value) => emitBrandReveal(value));
   useEffect(() => {
     emitBrandReveal(brandReveal.get());
@@ -142,10 +159,18 @@ const AnimatedStory = () => {
         </motion.div>
 
         <motion.div
+          className="story-halo"
+          style={{ width: size, height: size, x, y, scale, rotate, opacity: haloOpacity }}
+          aria-hidden="true"
+        >
+          <img src="/images/Hero/mark-glow.webp" alt="" decoding="async" draggable={false} />
+        </motion.div>
+
+        <motion.div
           className="story-mark"
           style={{ width: size, height: size, x, y, scale, rotate, opacity: markOpacity }}
         >
-          <SereelMark highlight={[petalTop, petalLeft, petalRight]} />
+          <SereelMark highlight={[petalTop, petalLeft, petalRight]} glow={false} />
         </motion.div>
 
         <StoryPanel progress={progress} range={STAGES[0]}>
@@ -155,14 +180,14 @@ const AnimatedStory = () => {
           <CheckPanel />
         </StoryPanel>
         <StoryPanel progress={progress} range={STAGES[2]}>
-          <OperatePanel />
+          <SettlePanel />
         </StoryPanel>
       </div>
     </section>
   );
 };
 
-/** Small screens and reduced motion: the same three takeaways, stacked, with a still mark per petal. */
+/** Small screens and reduced motion: the same three takeaways, stacked, with a still mark. No motion. */
 const StaticStory = () => {
   useEffect(() => {
     emitBrandReveal(1);
@@ -171,7 +196,7 @@ const StaticStory = () => {
   const blocks = [
     { key: "issue", rotation: 90, highlight: [1, 0, 0] as [number, number, number], panel: <IssuePanel /> },
     { key: "check", rotation: 210, highlight: [0, 1, 0] as [number, number, number], panel: <CheckPanel /> },
-    { key: "operate", rotation: 330, highlight: [0, 0, 1] as [number, number, number], panel: <OperatePanel /> },
+    { key: "settle", rotation: 330, highlight: [0, 0, 1] as [number, number, number], panel: <SettlePanel /> },
   ];
 
   return (

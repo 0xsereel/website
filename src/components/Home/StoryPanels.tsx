@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { ArrowRight } from "lucide-react";
+import { ArrowLeftRight, ArrowRight, Droplets, Timer, type LucideIcon } from "lucide-react";
 import { useLang } from "../../i18n/LanguageProvider";
 import { VERTICALS } from "../Verticals/verticals";
 import { VerifiedCard } from "../Verified/VerifiedCard";
-import { MarketPanel } from "../Markets/MarketPanel";
 
 /** The three takeaways the logo's petals point at, shared by the animated and static story. */
 
@@ -45,21 +44,37 @@ export const CheckPanel = () => {
           {t("home.story.check.link")} <ArrowRight size={15} aria-hidden="true" />
         </Link>
       </div>
-      <VerifiedCard showNote={false} />
+      <VerifiedCard showNote={false} showSample={false} />
     </div>
   );
 };
 
-export const OperatePanel = () => {
+const SETTLEMENT: { key: string; icon: LucideIcon }[] = [
+  { key: "settlement", icon: Timer },
+  { key: "transfers", icon: ArrowLeftRight },
+  { key: "liquidity", icon: Droplets },
+];
+
+export const SettlePanel = () => {
   const { t } = useTranslation();
   const { localize } = useLang();
   return (
     <div className="story-panel-body">
-      <span className="story-eyebrow mono lit">{t("home.story.operate.eyebrow")}</span>
-      <h2>{t("home.story.operate.heading")}</h2>
-      <MarketPanel variant="compact" />
-      <Link className="text-link" to={localize("/markets")}>
-        {t("home.story.operate.link")} <ArrowRight size={15} aria-hidden="true" />
+      <span className="story-eyebrow mono lit">{t("home.story.settle.eyebrow")}</span>
+      <h2>{t("home.story.settle.heading")}</h2>
+      <ul className="settle-tiles">
+        {SETTLEMENT.map(({ key, icon: Icon }) => (
+          <li key={key} className="settle-tile">
+            <span className="vertical-tile-icon">
+              <Icon size={22} strokeWidth={1.6} aria-hidden="true" />
+            </span>
+            <strong>{t(`home.story.settle.items.${key}.title`)}</strong>
+            <small>{t(`home.story.settle.items.${key}.line`)}</small>
+          </li>
+        ))}
+      </ul>
+      <Link className="text-link" to={localize("/listings")}>
+        {t("home.story.settle.link")} <ArrowRight size={15} aria-hidden="true" />
       </Link>
     </div>
   );

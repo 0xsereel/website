@@ -16,7 +16,6 @@ export const Footer = () => {
       links: [
         { label: t("nav.verticals"), to: "/verticals" },
         { label: t("nav.verified"), to: "/sereel-verified" },
-        { label: t("nav.markets"), to: "/markets" },
         { label: t("nav.viewListings"), to: "/listings" },
       ],
     },

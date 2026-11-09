@@ -45,17 +45,19 @@ interface VerifiedCardProps {
   /** Which check, if any, is shown as late. */
   lateCheck?: CheckKey;
   showNote?: boolean;
+  /** The "Sample" label in the card head. */
+  showSample?: boolean;
 }
 
 /** A clearly marked sample of the Sereel Verified panel. Real badges live in dlala. */
-export const VerifiedCard = ({ lateCheck, showNote = true }: VerifiedCardProps) => {
+export const VerifiedCard = ({ lateCheck, showNote = true, showSample = true }: VerifiedCardProps) => {
   const { t } = useTranslation();
 
   return (
     <figure className="verified-card" aria-label={t("verified.sampleAria")}>
       <div className="verified-card-head">
         <VerifiedPill state={lateCheck ? "lapsed" : "verified"} />
-        <span className="verified-sample mono">{t("verified.sample")}</span>
+        {showSample && <span className="verified-sample mono">{t("verified.sample")}</span>}
       </div>
       <ul className="verified-checks">
         {CHECKS.map((key) => {
