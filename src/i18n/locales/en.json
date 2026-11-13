@@ -49,11 +49,11 @@
   "home": {
     "seo": {
       "title": "Verifiable, real-economy issuance",
-      "description": "Sereel is the attestation and distribution layer for tokenized fixed income funds, automating compliance, reporting and tax on fund units."
+      "description": "Sereel is the attestation and distribution layer for tokenized securities, automating compliance, reporting and tax on fund units."
     },
     "hero": {
       "title": "Verifiable, real-economy issuance.",
-      "subhead": "Sereel is the attestation and distribution layer for tokenized fixed income funds. We automate compliance, reporting, tax and more on fund units, so managers can focus on running their funds and allocators can access them easily and build them into their portfolios.",
+      "subhead": "Sereel is the attestation and distribution layer for tokenized securities. We automate compliance, reporting, tax and more on fund units, so managers can focus on running their funds and allocators can access them easily and build them into their portfolios.",
       "viewListings": "View listings",
       "talk": "Talk to us",
       "scroll": "Scroll"
