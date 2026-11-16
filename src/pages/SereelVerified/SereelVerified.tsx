@@ -1,6 +1,7 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Check, X } from "lucide-react";
+import { Check, X, ArrowRight } from "lucide-react";
 import { SEO } from "../../components/SEO";
 import { useLang } from "../../i18n/LanguageProvider";
 import { ReportingFlow } from "../../components/Verified/ReportingFlow";
@@ -161,6 +162,9 @@ export const SereelVerified = () => {
           <p className="lede">{t("verified.managers.lede")}</p>
         </div>
         <ManagerForm />
+        <Link className="text-link" to={localize("/issuers")}>
+          {t("verified.issuerLink")} <ArrowRight size={15} aria-hidden="true" />
+        </Link>
       </section>
     </main>
   );

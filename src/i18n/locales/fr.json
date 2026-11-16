@@ -298,7 +298,8 @@
       "submit": "Engager la conversation",
       "success": "Merci. Nous reviendrons vers vous rapidement.",
       "error": "Veuillez indiquer votre nom, votre e-mail et votre société, puis réessayer."
-    }
+    },
+    "issuerLink": "Vous préparez une nouvelle émission ? Découvrez comment émettre avec Sereel"
   },
   "listings": {
     "seo": {
@@ -434,6 +435,12 @@
           "body": "Votre offre n'est visible que par les investisseurs qualifiés vérifiés."
         }
       }
+    },
+    "verified": {
+      "eyebrow": "Reporting",
+      "heading": "Chaque émission reporte de la même façon.",
+      "body": "Lorsque les trois contrôles sont à jour, votre offre affiche le badge Sereel Verified. Si l'un d'eux est en retard, l'offre indique lequel et depuis quand.",
+      "link": "Comment fonctionne Sereel Verified"
     }
   },
   "about": {

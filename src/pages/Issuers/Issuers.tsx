@@ -15,10 +15,12 @@ import {
   Timer,
   FileCheck2,
   UserCheck,
+  ArrowRight,
 } from "lucide-react";
 import { SEO } from "../../components/SEO";
 import { useLang } from "../../i18n/LanguageProvider";
 import { VERTICALS } from "../../components/Verticals/verticals";
+import { ReportingFlow } from "../../components/Verified/ReportingFlow";
 
 const PROCESS_STEPS = [
   { key: "intake", icon: ClipboardList },
@@ -176,6 +178,20 @@ export const Issuers = () => {
             </li>
           ))}
         </ul>
+      </section>
+
+      <section className="section" id="verified" aria-labelledby="verified-heading">
+        <div className="sec-head">
+          <div>
+            <div className="mono eyebrow lit">[ {t("issuers.verified.eyebrow")} ]</div>
+            <h2 id="verified-heading">{t("issuers.verified.heading")}</h2>
+          </div>
+        </div>
+        <ReportingFlow />
+        <p>{t("issuers.verified.body")}</p>
+        <Link className="text-link" to={localize("/sereel-verified")}>
+          {t("issuers.verified.link")} <ArrowRight size={15} aria-hidden="true" />
+        </Link>
       </section>
     </main>
   );

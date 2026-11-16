@@ -298,7 +298,8 @@
       "submit": "Start the conversation",
       "success": "Thank you. We will be in touch shortly.",
       "error": "Please fill in your name, email and firm, then try again."
-    }
+    },
+    "issuerLink": "Planning a new issuance? See how issuing with Sereel works"
   },
   "listings": {
     "seo": {
@@ -434,6 +435,12 @@
           "body": "Your listing is shown only to reviewed qualified purchasers."
         }
       }
+    },
+    "verified": {
+      "eyebrow": "Reporting",
+      "heading": "Every issuance reports the same way.",
+      "body": "When all three checks are current, your listing shows the Sereel Verified check. If one is late, the listing says which and since when.",
+      "link": "How Sereel Verified works"
     }
   },
   "about": {
