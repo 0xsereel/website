@@ -173,7 +173,7 @@ export const Issuers = () => {
           </div>
         </div>
         <ReportingFlow />
-        <p>{t("issuers.verified.body")}</p>
+        <p style={{ marginTop: 32 }}>{t("issuers.verified.body")}</p>
         <Link className="text-link" to={localize("/sereel-verified")}>
           {t("issuers.verified.link")} <ArrowRight size={15} aria-hidden="true" />
         </Link>
