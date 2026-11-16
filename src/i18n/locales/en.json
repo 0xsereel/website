@@ -371,6 +371,36 @@
           "Access for qualified purchasers through the listings"
         ]
       }
+    },
+    "process": {
+      "eyebrow": "How it works",
+      "heading": "How an issuance runs",
+      "steps": {
+        "intake": {
+          "title": "Intake",
+          "body": "Tell us about the asset, size and timeline."
+        },
+        "structure": {
+          "title": "Structure",
+          "body": "We match a vehicle to your vertical: a note-issuing cell, a fund or SPV, or a project SPV."
+        },
+        "connect": {
+          "title": "Connect reporting",
+          "body": "Your trustee, administrator and custodian are onboarded to sign and send data."
+        },
+        "issue": {
+          "title": "Issue",
+          "body": "Units or notes are issued with eligibility and transfer rules set by your documents."
+        },
+        "list": {
+          "title": "List",
+          "body": "Qualified purchasers who pass review can see the listing."
+        },
+        "report": {
+          "title": "Report and administer",
+          "body": "Each cycle the NAV is signed, published and checked; subscriptions, redemptions and distributions run on the same record."
+        }
+      }
     }
   },
   "about": {

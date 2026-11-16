@@ -1,9 +1,18 @@
 import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Check } from "lucide-react";
+import { Check, ClipboardList, Building2, PlugZap, FileSignature, ListChecks, BarChart3 } from "lucide-react";
 import { SEO } from "../../components/SEO";
 import { useLang } from "../../i18n/LanguageProvider";
+
+const PROCESS_STEPS = [
+  { key: "intake", icon: ClipboardList },
+  { key: "structure", icon: Building2 },
+  { key: "connect", icon: PlugZap },
+  { key: "issue", icon: FileSignature },
+  { key: "list", icon: ListChecks },
+  { key: "report", icon: BarChart3 },
+] as const;
 
 /**
  * Layout.tsx resets scroll to top on every pathname change via
@@ -80,6 +89,27 @@ export const Issuers = () => {
             </ul>
           </div>
         </div>
+      </section>
+
+      <section className="section" id="process" aria-labelledby="process-heading">
+        <div className="sec-head">
+          <div>
+            <div className="mono eyebrow lit">[ {t("issuers.process.eyebrow")} ]</div>
+            <h2 id="process-heading">{t("issuers.process.heading")}</h2>
+          </div>
+        </div>
+        <ol className="access-steps">
+          {PROCESS_STEPS.map(({ key, icon: Icon }, index) => (
+            <li key={key}>
+              <span className="access-step-icon">
+                <Icon size={20} strokeWidth={1.7} aria-hidden="true" />
+              </span>
+              <span className="mono" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+              <strong>{t(`issuers.process.steps.${key}.title`)}</strong>
+              <small>{t(`issuers.process.steps.${key}.body`)}</small>
+            </li>
+          ))}
+        </ol>
       </section>
     </main>
   );

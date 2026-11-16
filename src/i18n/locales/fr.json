@@ -371,6 +371,36 @@
           "L'accès des investisseurs qualifiés via les offres"
         ]
       }
+    },
+    "process": {
+      "eyebrow": "Comment ça marche",
+      "heading": "Comment se déroule une émission",
+      "steps": {
+        "intake": {
+          "title": "Prise en charge",
+          "body": "Parlez-nous de l'actif, de sa taille et de votre calendrier."
+        },
+        "structure": {
+          "title": "Structuration",
+          "body": "Nous associons un véhicule à votre vertical : une cellule d'émission de notes, un fonds ou SPV, ou un SPV de projet."
+        },
+        "connect": {
+          "title": "Connexion du reporting",
+          "body": "Votre trustee, administrateur et dépositaire sont intégrés pour signer et transmettre les données."
+        },
+        "issue": {
+          "title": "Émission",
+          "body": "Les parts ou notes sont émises avec des règles d'éligibilité et de transfert définies par vos documents."
+        },
+        "list": {
+          "title": "Mise en ligne",
+          "body": "Les investisseurs qualifiés ayant passé la vérification peuvent consulter l'offre."
+        },
+        "report": {
+          "title": "Reporting et administration",
+          "body": "À chaque cycle, la VL est signée, publiée et vérifiée ; souscriptions, rachats et distributions s'appuient sur le même registre."
+        }
+      }
     }
   },
   "about": {
