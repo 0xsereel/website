@@ -11,7 +11,6 @@
   "nav": {
     "primary": "Navigation principale",
     "mobileLabel": "Navigation Sereel",
-    "verified": "Sereel Verified",
     "about": "À propos",
     "contact": "Contact",
     "viewListings": "Voir les offres",
@@ -61,13 +60,12 @@
     "story": {
       "issue": {
         "eyebrow": "Ce que nous émettons",
-        "heading": "Quatre verticales, une même façon de rendre compte."
+        "heading": "Distribution mondiale pour :"
       },
       "check": {
         "eyebrow": "Comment vérifier",
         "heading": "Chaque fonds Sereel Verified est signé à la source.",
-        "body": "Le trustee et l'administrateur du fonds signent chacun la VNI, et les soldes des actifs proviennent directement du dépositaire.",
-        "link": "Comment fonctionne Sereel Verified"
+        "body": "Le trustee et l'administrateur du fonds signent chacun la VNI, et les soldes des actifs proviennent directement du dépositaire."
       },
       "settle": {
         "eyebrow": "Pourquoi tokeniser",
@@ -121,7 +119,6 @@
     "flow": {
       "heading": "Comment un fonds Sereel Verified rend compte",
       "aria": "Le dépositaire, l'administrateur du fonds et le trustee transmettent des données signées à Sereel, qui les publie sur la fiche avec la mention Sereel Verified.",
-      "link": "En savoir plus sur Sereel Verified",
       "nodes": {
         "custodian": {
           "title": "Dépositaire",
@@ -171,13 +168,6 @@
     }
   },
   "verified": {
-    "seo": {
-      "title": "Sereel Verified",
-      "description": "La mention Sereel Verified indique que la VNI d'un fonds est signée par son trustee et son administrateur et reliée aux soldes du dépositaire."
-    },
-    "eyebrow": "Sereel Verified",
-    "heading": "Sachez qui se tient derrière les chiffres.",
-    "lede": "La coche verte Sereel Verified signifie que trois parties indépendantes se tiennent derrière la dernière VNI d'un fonds : le trustee et l'administrateur l'ont signée, et les soldes des actifs proviennent du dépositaire.",
     "badge": "Sereel Verified",
     "sample": "Exemple",
     "sampleAria": "Exemple du panneau Sereel Verified",
@@ -196,57 +186,12 @@
         "detail": "Soldes fournis par le dépositaire"
       }
     },
-    "how": {
-      "eyebrow": "Fonctionnement",
-      "heading": "Des données signées par trois parties, publiées sur la fiche."
-    },
     "states": {
-      "eyebrow": "États de la mention",
-      "heading": "Un contrôle en retard est affiché, jamais masqué.",
-      "verified": {
-        "body": "Les trois contrôles sont à jour pour le cycle de reporting du fonds."
-      },
       "lapsed": {
         "pill": "Vérification expirée",
-        "detail": "En retard depuis la dernière date de reporting",
-        "body": "Un contrôle est en retard. La fiche indique lequel et depuis quand."
-      },
-      "none": {
-        "pill": "Sans mention",
-        "body": "Le fonds ne rend pas compte via Sereel."
+        "detail": "En retard depuis la dernière date de reporting"
       }
-    },
-    "means": {
-      "heading": "Ce que confirme la mention",
-      "items": [
-        "Le trustee a signé la dernière VNI.",
-        "L'administrateur du fonds a signé la même VNI.",
-        "Les soldes des actifs sous-jacents proviennent du dépositaire."
-      ]
-    },
-    "notMeans": {
-      "heading": "Ce qu'elle n'est pas",
-      "items": [
-        "Une notation de crédit.",
-        "Une recommandation d'investissement.",
-        "Un conseil en investissement, juridique ou fiscal."
-      ]
-    },
-    "managers": {
-      "eyebrow": "Pour les gérants",
-      "heading": "Faites vérifier votre fonds.",
-      "lede": "Présentez-nous votre fonds, son trustee, son administrateur et son dépositaire, et nous vous accompagnerons dans l'intégration."
-    },
-    "managerForm": {
-      "name": "Votre nom",
-      "email": "E-mail professionnel",
-      "firm": "Société",
-      "fund": "Fonds ou verticale",
-      "submit": "Engager la conversation",
-      "success": "Merci. Nous reviendrons vers vous rapidement.",
-      "error": "Veuillez indiquer votre nom, votre e-mail et votre société, puis réessayer."
-    },
-    "issuerLink": "Vous préparez une nouvelle émission ? Découvrez comment émettre avec Sereel"
+    }
   },
   "listings": {
     "seo": {
@@ -382,8 +327,7 @@
     },
     "verified": {
       "eyebrow": "Reporting",
-      "body": "Lorsque les trois contrôles sont à jour, votre offre affiche le badge Sereel Verified. Si l'un d'eux est en retard, l'offre indique lequel et depuis quand.",
-      "link": "Comment fonctionne Sereel Verified"
+      "body": "Lorsque les trois contrôles sont à jour, votre offre affiche le badge Sereel Verified. Si l'un d'eux est en retard, l'offre indique lequel et depuis quand."
     },
     "readiness": {
       "eyebrow": "Préparation",

@@ -15,7 +15,6 @@ import {
   Timer,
   FileCheck2,
   UserCheck,
-  ArrowRight,
 } from "lucide-react";
 import { SEO, generateServiceSchema } from "../../components/SEO";
 import { useLang } from "../../i18n/LanguageProvider";
@@ -88,7 +87,7 @@ export const Issuers = () => {
           <Link className="market-cta primary" to={localize("/issuers#start")}>
             {t("issuers.hero.ctaPrimary")}
           </Link>
-          <Link className="market-cta secondary" to={localize("/sereel-verified")}>
+          <Link className="market-cta secondary" to={localize("/issuers#verified")}>
             {t("issuers.hero.ctaSecondary")}
           </Link>
         </div>
@@ -174,9 +173,6 @@ export const Issuers = () => {
         </div>
         <ReportingFlow />
         <p style={{ marginTop: 32 }}>{t("issuers.verified.body")}</p>
-        <Link className="text-link" to={localize("/sereel-verified")}>
-          {t("issuers.verified.link")} <ArrowRight size={15} aria-hidden="true" />
-        </Link>
       </section>
 
       <section className="section" id="readiness" aria-labelledby="readiness-heading">

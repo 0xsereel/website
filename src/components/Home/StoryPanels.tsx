@@ -32,16 +32,12 @@ export const IssuePanel = () => {
 
 export const CheckPanel = () => {
   const { t } = useTranslation();
-  const { localize } = useLang();
   return (
     <div className="story-panel-body is-check">
       <div>
         <span className="story-eyebrow mono lit">{t("home.story.check.eyebrow")}</span>
         <h2>{t("home.story.check.heading")}</h2>
         <p>{t("home.story.check.body")}</p>
-        <Link className="text-link" to={localize("/sereel-verified")}>
-          {t("home.story.check.link")} <ArrowRight size={15} aria-hidden="true" />
-        </Link>
       </div>
       <VerifiedCard showNote={false} showSample={false} />
     </div>

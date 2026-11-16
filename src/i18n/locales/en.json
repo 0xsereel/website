@@ -11,7 +11,6 @@
   "nav": {
     "primary": "Primary navigation",
     "mobileLabel": "Sereel navigation",
-    "verified": "Sereel Verified",
     "about": "About",
     "contact": "Contact",
     "viewListings": "View listings",
@@ -61,13 +60,12 @@
     "story": {
       "issue": {
         "eyebrow": "What we issue",
-        "heading": "Four verticals, each reported the same way."
+        "heading": "Global distribution for:"
       },
       "check": {
         "eyebrow": "How you can check it",
         "heading": "Every Sereel Verified fund is signed at the source.",
-        "body": "The trustee and the fund administrator each sign the NAV, and asset balances come straight from the custodian.",
-        "link": "How Sereel Verified works"
+        "body": "The trustee and the fund administrator each sign the NAV, and asset balances come straight from the custodian."
       },
       "settle": {
         "eyebrow": "Why tokenized",
@@ -121,7 +119,6 @@
     "flow": {
       "heading": "How a Sereel Verified fund reports",
       "aria": "Custodian, fund administrator and trustee send signed data to Sereel, which publishes it to the listing with the Sereel Verified check.",
-      "link": "Read about Sereel Verified",
       "nodes": {
         "custodian": {
           "title": "Custodian",
@@ -171,13 +168,6 @@
     }
   },
   "verified": {
-    "seo": {
-      "title": "Sereel Verified",
-      "description": "The Sereel Verified check shows that a fund's NAV is signed by its trustee and administrator and connected to the custodian's balances."
-    },
-    "eyebrow": "Sereel Verified",
-    "heading": "Know who stands behind the numbers.",
-    "lede": "The green Sereel Verified check means three independent parties stand behind a fund's latest NAV: the trustee and the fund administrator have signed it, and the asset balances come from the custodian.",
     "badge": "Sereel Verified",
     "sample": "Sample",
     "sampleAria": "Sample of the Sereel Verified panel",
@@ -196,57 +186,12 @@
         "detail": "Balances from the custodian"
       }
     },
-    "how": {
-      "eyebrow": "How it works",
-      "heading": "Signed data from three parties, published to the listing."
-    },
     "states": {
-      "eyebrow": "Badge states",
-      "heading": "A late check is shown, never hidden.",
-      "verified": {
-        "body": "All three checks are current for the fund's reporting cycle."
-      },
       "lapsed": {
         "pill": "Verification lapsed",
-        "detail": "Late since the last reporting date",
-        "body": "One check is late. The listing shows which one and since when."
-      },
-      "none": {
-        "pill": "No badge",
-        "body": "The fund does not report through Sereel."
+        "detail": "Late since the last reporting date"
       }
-    },
-    "means": {
-      "heading": "What the check confirms",
-      "items": [
-        "The trustee signed the latest NAV.",
-        "The fund administrator signed the same NAV.",
-        "The asset balances behind it came from the custodian."
-      ]
-    },
-    "notMeans": {
-      "heading": "What it is not",
-      "items": [
-        "A credit rating.",
-        "A recommendation to invest.",
-        "Investment, legal or tax advice."
-      ]
-    },
-    "managers": {
-      "eyebrow": "For fund managers",
-      "heading": "Get your fund verified.",
-      "lede": "Tell us about your fund and its trustee, administrator and custodian, and we will walk you through onboarding."
-    },
-    "managerForm": {
-      "name": "Your name",
-      "email": "Work email",
-      "firm": "Firm",
-      "fund": "Fund or vertical",
-      "submit": "Start the conversation",
-      "success": "Thank you. We will be in touch shortly.",
-      "error": "Please fill in your name, email and firm, then try again."
-    },
-    "issuerLink": "Planning a new issuance? See how issuing with Sereel works"
+    }
   },
   "listings": {
     "seo": {
@@ -382,8 +327,7 @@
     },
     "verified": {
       "eyebrow": "Reporting",
-      "body": "When all three checks are current, your listing shows the Sereel Verified check. If one is late, the listing says which and since when.",
-      "link": "How Sereel Verified works"
+      "body": "When all three checks are current, your listing shows the Sereel Verified check. If one is late, the listing says which and since when."
     },
     "readiness": {
       "eyebrow": "Readiness",

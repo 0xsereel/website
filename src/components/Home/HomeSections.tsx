@@ -1,7 +1,5 @@
-import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Activity, ArrowRight, FolderOpen, Landmark, ShieldCheck, Tags, UserCheck, type LucideIcon } from "lucide-react";
-import { useLang } from "../../i18n/LanguageProvider";
+import { Activity, FolderOpen, Landmark, ShieldCheck, Tags, UserCheck, type LucideIcon } from "lucide-react";
 import { ReportingFlow } from "../Verified/ReportingFlow";
 import { ListingsAccessForm } from "../Forms/ListingsAccessForm";
 
@@ -38,7 +36,6 @@ export const Benefits = () => {
 
 export const ReportingSection = () => {
   const { t } = useTranslation();
-  const { localize } = useLang();
   return (
     <section className="marketing-section reporting-section" aria-labelledby="reporting-title">
       <div className="wrap">
@@ -46,9 +43,6 @@ export const ReportingSection = () => {
           <h2 id="reporting-title">{t("home.flow.heading")}</h2>
         </div>
         <ReportingFlow />
-        <Link className="text-link" to={localize("/sereel-verified")}>
-          {t("home.flow.link")} <ArrowRight size={15} aria-hidden="true" />
-        </Link>
       </div>
     </section>
   );

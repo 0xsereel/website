@@ -6,7 +6,6 @@ import { About } from "../pages/About/About";
 import { Contact } from "../pages/Contact/Contact";
 import { Blog } from "../pages/Blog/Blog";
 import { SingleBlog } from "../pages/Blog/SingleBlog";
-import { SereelVerified } from "../pages/SereelVerified/SereelVerified";
 import { Listings } from "../pages/Listings/Listings";
 import { Issuers } from "../pages/Issuers/Issuers";
 import { Terms } from "../pages/Terms/Terms";
@@ -24,7 +23,6 @@ const AppRoutes = () => {
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
-            <Route path="/sereel-verified" element={<SereelVerified />} />
             <Route path="/listings" element={<Listings />} />
             <Route path="/issuers" element={<Issuers />} />
             <Route path="/about" element={<About />} />
@@ -38,7 +36,6 @@ const AppRoutes = () => {
 
             {/* French — same components, rendered localized via i18n + LanguageProvider */}
             <Route path="/fr" element={<Home />} />
-            <Route path="/fr/sereel-verified" element={<SereelVerified />} />
             <Route path="/fr/listings" element={<Listings />} />
             <Route path="/fr/issuers" element={<Issuers />} />
             <Route path="/fr/about" element={<About />} />

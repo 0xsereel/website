@@ -9,7 +9,6 @@ export const DEFAULT_LANG: Lang = "en";
  */
 export const TRANSLATED_PATHS: readonly string[] = [
   "/",
-  "/sereel-verified",
   "/listings",
   "/issuers",
   "/about",
