@@ -11,7 +11,6 @@
   "nav": {
     "primary": "Navigation principale",
     "mobileLabel": "Navigation Sereel",
-    "verticals": "Verticales",
     "verified": "Sereel Verified",
     "about": "À propos",
     "contact": "Contact",
@@ -152,75 +151,23 @@
     }
   },
   "verticals": {
-    "seo": {
-      "title": "Dette privée, capital-risque, revenu fixe, projets",
-      "description": "Sereel émet en dette privée, capital-risque, revenu fixe et financement de projets, chaque fonds rendant compte selon la même norme signée et reliée au dépositaire."
-    },
-    "eyebrow": "Verticales",
-    "heading": "Quatre verticales, une seule norme de reporting.",
-    "lede": "Chaque verticale utilise une structure adaptée à ses actifs. Toutes rendent compte de la même façon, avec les signatures du trustee et de l'administrateur et les soldes du dépositaire.",
-    "diagramAria": "Structure de l'investissement, de l'actif sous-jacent aux investisseurs",
-    "typical": "Structures courantes",
-    "reportingLine": "Soldes du dépositaire, signatures de l'administrateur et du trustee",
-    "steps": {
-      "asset": "Sous-jacent",
-      "vehicle": "Émis via",
-      "investors": "Détenu par",
-      "reporting": "Reporting"
-    },
     "items": {
       "privateCredit": {
         "name": "Dette privée",
-        "line": "Prêts et créances accordés à des entreprises, émis sous forme de notes.",
-        "asset": "Prêts et créances",
-        "vehicle": "Une cellule émettrice de notes",
-        "investors": "Investisseurs qualifiés",
-        "structures": [
-          "Notes senior",
-          "Notes adossées à des créances",
-          "Notes à partage de revenus"
-        ]
+        "line": "Prêts et créances accordés à des entreprises, émis sous forme de notes."
       },
       "ventureCapital": {
         "name": "Capital-risque",
-        "line": "Parts de fonds et de SPV dans des entreprises en amorçage et en croissance.",
-        "asset": "Actions d'entreprises",
-        "vehicle": "Un fonds ou un SPV",
-        "investors": "Investisseurs qualifiés",
-        "structures": [
-          "Parts de fonds",
-          "Parts de SPV",
-          "Fonds régis par un pacte d'associés"
-        ]
+        "line": "Parts de fonds et de SPV dans des entreprises en amorçage et en croissance."
       },
       "fixedIncome": {
         "name": "Revenu fixe",
-        "line": "Notes à coupon et parts de fonds obligataires et monétaires.",
-        "asset": "Obligations et instruments monétaires",
-        "vehicle": "Un fonds ou une série de notes",
-        "investors": "Investisseurs qualifiés",
-        "structures": [
-          "Parts de fonds",
-          "Notes à coupon fixe",
-          "Notes à taux variable"
-        ]
+        "line": "Notes à coupon et parts de fonds obligataires et monétaires."
       },
       "projectFinance": {
         "name": "Financement de projets",
-        "line": "Projets d'infrastructure et d'énergie aux revenus contractuels.",
-        "asset": "Projets d'infrastructure et d'énergie",
-        "vehicle": "Un SPV de projet",
-        "investors": "Investisseurs qualifiés",
-        "structures": [
-          "Obligations de projet",
-          "Notes à partage de revenus",
-          "Notes garanties"
-        ]
+        "line": "Projets d'infrastructure et d'énergie aux revenus contractuels."
       }
-    },
-    "cta": {
-      "heading": "Consultez les offres disponibles, ou confiez-nous un actif à émettre.",
-      "issuer": "Émettre avec Sereel"
     }
   },
   "verified": {
@@ -507,7 +454,7 @@
       "success": {
         "heading": "Merci.",
         "body": "Nous répondrons sous un jour ouvré.",
-        "backLink": "Retour aux verticales"
+        "backLink": "Retour à l'accueil"
       },
       "selectPlaceholder": "Sélectionner…"
     }

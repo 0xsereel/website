@@ -9,21 +9,20 @@ import { VerifiedCard } from "../Verified/VerifiedCard";
 
 export const IssuePanel = () => {
   const { t } = useTranslation();
-  const { localize } = useLang();
   return (
     <div className="story-panel-body">
       <span className="story-eyebrow mono lit">{t("home.story.issue.eyebrow")}</span>
       <h2>{t("home.story.issue.heading")}</h2>
       <ul className="vertical-tiles">
-        {VERTICALS.map(({ key, icon: Icon, slug }) => (
+        {VERTICALS.map(({ key, icon: Icon }) => (
           <li key={key}>
-            <Link to={`${localize("/verticals")}#${slug}`} className="vertical-tile">
+            <div className="vertical-tile">
               <span className="vertical-tile-icon">
                 <Icon size={22} strokeWidth={1.6} aria-hidden="true" />
               </span>
               <strong>{t(`verticals.items.${key}.name`)}</strong>
               <small>{t(`verticals.items.${key}.line`)}</small>
-            </Link>
+            </div>
           </li>
         ))}
       </ul>

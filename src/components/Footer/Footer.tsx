@@ -14,7 +14,6 @@ export const Footer = () => {
     {
       title: t("footer.groups.sereel.title"),
       links: [
-        { label: t("nav.verticals"), to: "/verticals" },
         { label: t("nav.verified"), to: "/sereel-verified" },
         { label: t("nav.issuers"), to: "/issuers" },
         { label: t("nav.viewListings"), to: "/listings" },

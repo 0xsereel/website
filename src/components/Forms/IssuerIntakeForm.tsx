@@ -180,7 +180,7 @@ export const IssuerIntakeForm = () => {
           {t("issuers.form.success.heading")}
         </h3>
         <p>{t("issuers.form.success.body")}</p>
-        <Link className="text-link" to={localize("/verticals")}>
+        <Link className="text-link" to={localize("/")}>
           {t("issuers.form.success.backLink")} <ArrowRight size={15} aria-hidden="true" />
         </Link>
       </div>

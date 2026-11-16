@@ -11,7 +11,6 @@
   "nav": {
     "primary": "Primary navigation",
     "mobileLabel": "Sereel navigation",
-    "verticals": "Verticals",
     "verified": "Sereel Verified",
     "about": "About",
     "contact": "Contact",
@@ -152,75 +151,23 @@
     }
   },
   "verticals": {
-    "seo": {
-      "title": "Private credit, VC, fixed income and project finance",
-      "description": "Sereel issues across private credit, venture capital, fixed income and project finance, with every fund reported through the same signed, custodian-connected standard."
-    },
-    "eyebrow": "Verticals",
-    "heading": "Four verticals, one reporting standard.",
-    "lede": "Each vertical uses a structure suited to its assets. Every one reports the same way, with signatures from the trustee and the administrator and balances from the custodian.",
-    "diagramAria": "How the investment is structured, from the underlying asset to investors",
-    "typical": "Typical structures",
-    "reportingLine": "Custodian balances, administrator and trustee signatures",
-    "steps": {
-      "asset": "Underlying",
-      "vehicle": "Issued through",
-      "investors": "Held by",
-      "reporting": "Reporting"
-    },
     "items": {
       "privateCredit": {
         "name": "Private credit",
-        "line": "Loans and receivables to operating businesses, issued as notes.",
-        "asset": "Loans and receivables",
-        "vehicle": "A note-issuing cell",
-        "investors": "Qualified purchasers",
-        "structures": [
-          "Senior notes",
-          "Receivables notes",
-          "Revenue-share notes"
-        ]
+        "line": "Loans and receivables to operating businesses, issued as notes."
       },
       "ventureCapital": {
         "name": "Venture capital",
-        "line": "Fund interests and SPV units in early and growth-stage companies.",
-        "asset": "Company equity",
-        "vehicle": "A fund or SPV",
-        "investors": "Qualified purchasers",
-        "structures": [
-          "Fund interests",
-          "SPV units",
-          "Partnership-agreement funds"
-        ]
+        "line": "Fund interests and SPV units in early and growth-stage companies."
       },
       "fixedIncome": {
         "name": "Fixed income",
-        "line": "Coupon-paying notes and units in bond and money-market funds.",
-        "asset": "Bonds and money-market instruments",
-        "vehicle": "A fund or note series",
-        "investors": "Qualified purchasers",
-        "structures": [
-          "Fund units",
-          "Fixed-coupon notes",
-          "Floating-rate notes"
-        ]
+        "line": "Coupon-paying notes and units in bond and money-market funds."
       },
       "projectFinance": {
         "name": "Project finance",
-        "line": "Infrastructure and energy projects with contracted revenue.",
-        "asset": "Infrastructure and energy projects",
-        "vehicle": "A project SPV",
-        "investors": "Qualified purchasers",
-        "structures": [
-          "Project bonds",
-          "Revenue-share notes",
-          "Guaranteed notes"
-        ]
+        "line": "Infrastructure and energy projects with contracted revenue."
       }
-    },
-    "cta": {
-      "heading": "See what is listed today, or bring us an asset to issue.",
-      "issuer": "Issue with Sereel"
     }
   },
   "verified": {
@@ -507,7 +454,7 @@
       "success": {
         "heading": "Thank you.",
         "body": "We will reply within one business day.",
-        "backLink": "Back to verticals"
+        "backLink": "Back to home"
       },
       "selectPlaceholder": "Select…"
     }
