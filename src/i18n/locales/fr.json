@@ -344,7 +344,10 @@
     },
     "eyebrow": "Pour les émetteurs",
     "hero": {
-      "heading": "Apportez-nous l'actif. Nous gérons l'émission."
+      "heading": "Apportez-nous l'actif. Nous gérons l'émission.",
+      "lede": "Sereel structure, émet et reporte sur le private credit, le capital-risque, les titres à revenu fixe et le financement de projet. Vous gardez l'actif et la relation investisseur. Les investisseurs obtiennent des chiffres qu'ils peuvent vérifier.",
+      "ctaPrimary": "Démarrer une émission",
+      "ctaSecondary": "Comment fonctionne Sereel Verified"
     }
   },
   "about": {

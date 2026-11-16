@@ -344,7 +344,10 @@
     },
     "eyebrow": "For issuers",
     "hero": {
-      "heading": "Bring us the asset. We run the issuance."
+      "heading": "Bring us the asset. We run the issuance.",
+      "lede": "Sereel structures, issues and reports private credit, venture capital, fixed income and project finance. You keep the asset and the investor relationship. Allocators get numbers they can check.",
+      "ctaPrimary": "Start an issuance",
+      "ctaSecondary": "How Sereel Verified works"
     }
   },
   "about": {
