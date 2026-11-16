@@ -348,6 +348,29 @@
       "lede": "Sereel structures, issues and reports private credit, venture capital, fixed income and project finance. You keep the asset and the investor relationship. Allocators get numbers they can check.",
       "ctaPrimary": "Start an issuance",
       "ctaSecondary": "How Sereel Verified works"
+    },
+    "roles": {
+      "eyebrow": "Who does what",
+      "heading": "You own the asset. We run the rails.",
+      "youBring": {
+        "heading": "You bring",
+        "items": [
+          "The asset or fund",
+          "Offering documents and disclosures",
+          "The investor relationship",
+          "Your trustee, fund administrator and custodian (or we help you appoint them)"
+        ]
+      },
+      "sereelRuns": {
+        "heading": "Sereel runs",
+        "items": [
+          "The issuing vehicle for your vertical",
+          "Issuance with eligibility and transfer rules in the contract",
+          "Subscriptions, redemptions and transfers",
+          "Signed NAV reporting through Sereel Verified",
+          "Access for qualified purchasers through the listings"
+        ]
+      }
     }
   },
   "about": {

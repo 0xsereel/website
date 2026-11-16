@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { Check } from "lucide-react";
 import { SEO } from "../../components/SEO";
 import { useLang } from "../../i18n/LanguageProvider";
 
@@ -25,6 +26,8 @@ export const Issuers = () => {
   const { t } = useTranslation();
   const { localize } = useLang();
   useHashScrollAndFocus();
+  const youBring = t("issuers.roles.youBring.items", { returnObjects: true }) as string[];
+  const sereelRuns = t("issuers.roles.sereelRuns.items", { returnObjects: true }) as string[];
 
   return (
     <main className="wrap inner-page">
@@ -45,6 +48,37 @@ export const Issuers = () => {
           <Link className="market-cta secondary" to={localize("/sereel-verified")}>
             {t("issuers.hero.ctaSecondary")}
           </Link>
+        </div>
+      </section>
+
+      <section className="section" id="roles" aria-labelledby="roles-heading">
+        <div className="sec-head">
+          <div>
+            <div className="mono eyebrow lit">[ {t("issuers.roles.eyebrow")} ]</div>
+            <h2 id="roles-heading">{t("issuers.roles.heading")}</h2>
+          </div>
+        </div>
+        <div className="means-grid">
+          <div>
+            <h3>{t("issuers.roles.youBring.heading")}</h3>
+            <ul className="means-list">
+              {youBring.map((item) => (
+                <li key={item}>
+                  <Check size={16} aria-hidden="true" /> {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3>{t("issuers.roles.sereelRuns.heading")}</h3>
+            <ul className="means-list">
+              {sereelRuns.map((item) => (
+                <li key={item}>
+                  <Check size={16} aria-hidden="true" /> {item}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
     </main>

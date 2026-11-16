@@ -348,6 +348,29 @@
       "lede": "Sereel structure, émet et reporte sur le private credit, le capital-risque, les titres à revenu fixe et le financement de projet. Vous gardez l'actif et la relation investisseur. Les investisseurs obtiennent des chiffres qu'ils peuvent vérifier.",
       "ctaPrimary": "Démarrer une émission",
       "ctaSecondary": "Comment fonctionne Sereel Verified"
+    },
+    "roles": {
+      "eyebrow": "Qui fait quoi",
+      "heading": "Vous détenez l'actif. Nous gérons les rails.",
+      "youBring": {
+        "heading": "Vous apportez",
+        "items": [
+          "L'actif ou le fonds",
+          "Les documents d'offre et les informations réglementaires",
+          "La relation investisseur",
+          "Votre trustee, administrateur de fonds et dépositaire (ou nous vous aidons à les nommer)"
+        ]
+      },
+      "sereelRuns": {
+        "heading": "Sereel gère",
+        "items": [
+          "Le véhicule d'émission adapté à votre vertical",
+          "L'émission avec des règles d'éligibilité et de transfert inscrites dans le contrat",
+          "Les souscriptions, rachats et transferts",
+          "Le reporting VL signé via Sereel Verified",
+          "L'accès des investisseurs qualifiés via les offres"
+        ]
+      }
     }
   },
   "about": {
