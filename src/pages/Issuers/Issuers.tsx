@@ -21,6 +21,7 @@ import { SEO } from "../../components/SEO";
 import { useLang } from "../../i18n/LanguageProvider";
 import { VERTICALS } from "../../components/Verticals/verticals";
 import { ReportingFlow } from "../../components/Verified/ReportingFlow";
+import { Credentials } from "../../components/Credentials/Credentials";
 
 const PROCESS_STEPS = [
   { key: "intake", icon: ClipboardList },
@@ -210,6 +211,16 @@ export const Issuers = () => {
           ))}
         </ul>
         <p>{t("issuers.readiness.footnote")}</p>
+      </section>
+
+      <section className="section" id="credentials" aria-labelledby="credentials-heading">
+        <div className="sec-head">
+          <div>
+            <div className="mono eyebrow lit">[ {t("issuers.credentials.eyebrow")} ]</div>
+            <h2 id="credentials-heading">{t("issuers.credentials.heading")}</h2>
+          </div>
+        </div>
+        <Credentials />
       </section>
     </main>
   );

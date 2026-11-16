@@ -456,6 +456,10 @@
         "A technical integration plan"
       ],
       "footnote": "Missing some of these? Tell us in the form. We can help with most of them."
+    },
+    "credentials": {
+      "eyebrow": "Credentials",
+      "heading": "Backed by recognised standards."
     }
   },
   "about": {

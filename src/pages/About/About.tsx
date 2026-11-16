@@ -1,14 +1,8 @@
 import { useTranslation } from "react-i18next";
-import { ArrowUpRight } from "lucide-react";
 import { SEO } from "../../components/SEO";
 import { useLang } from "../../i18n/LanguageProvider";
 import { SereelMark } from "../../components/Brand/SereelMark";
-
-const CREDENTIALS: { key: string; href?: string }[] = [
-  { key: "cmta", href: "https://cmta.ch/certification/recognized-experts" },
-  { key: "canton" },
-  { key: "vacc" },
-];
+import { Credentials } from "../../components/Credentials/Credentials";
 
 const LOCATIONS = ["chicago", "nairobi", "kigali"] as const;
 
@@ -57,19 +51,7 @@ export const About = () => {
             <h2>{t("about.credentials.heading")}</h2>
           </div>
         </div>
-        <ul className="credential-list">
-          {CREDENTIALS.map(({ key, href }) => (
-            <li key={key} className="credential">
-              <strong>{t(`about.credentials.items.${key}.title`)}</strong>
-              <span>{t(`about.credentials.items.${key}.detail`)}</span>
-              {href && (
-                <a href={href} target="_blank" rel="noopener noreferrer" className="text-link">
-                  {t("about.credentials.link")} <ArrowUpRight size={14} aria-hidden="true" />
-                </a>
-              )}
-            </li>
-          ))}
-        </ul>
+        <Credentials />
       </section>
 
       <section className="section">

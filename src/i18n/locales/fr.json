@@ -456,6 +456,10 @@
         "Un plan d'intégration technique"
       ],
       "footnote": "Il vous en manque certains ? Indiquez-le dans le formulaire. Nous pouvons vous aider sur la plupart d'entre eux."
+    },
+    "credentials": {
+      "eyebrow": "Accréditations",
+      "heading": "Adossé à des normes reconnues."
     }
   },
   "about": {
