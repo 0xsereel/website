@@ -703,7 +703,7 @@
         "items": {
           "whatIssuerNeedsToLaunch": {
             "question": "What does an issuer need to launch a tokenised product?",
-            "answer": "Typically, an issuer will need a defined asset or fund structure, legal and regulatory review, investor eligibility rules, custody and recovery design, a distribution plan, a reporting framework, governance approvals and a technical integration plan."
+            "answer": "Typically, an issuer will need a defined asset or fund structure, legal and regulatory review, investor eligibility rules, a distribution plan, a reporting framework, governance approvals and a technical integration plan."
           },
           "canSupportSimpleAndComplex": {
             "question": "Can Sereel support both simple and complex products?",

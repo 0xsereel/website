@@ -703,7 +703,7 @@
         "items": {
           "whatIssuerNeedsToLaunch": {
             "question": "De quoi un émetteur a-t-il besoin pour lancer un produit tokenisé ?",
-            "answer": "En règle générale, un émetteur a besoin d'une structure d'actif ou de fonds définie, d'un examen juridique et réglementaire, de règles d'éligibilité des investisseurs, d'une conception de la conservation et du recouvrement, d'un plan de distribution, d'un cadre de reporting, d'approbations de gouvernance et d'un plan d'intégration technique."
+            "answer": "En règle générale, un émetteur a besoin d'une structure d'actif ou de fonds définie, d'un examen juridique et réglementaire, de règles d'éligibilité des investisseurs, d'un plan de distribution, d'un cadre de reporting, d'approbations de gouvernance et d'un plan d'intégration technique."
           },
           "canSupportSimpleAndComplex": {
             "question": "Sereel peut-elle prendre en charge des produits aussi bien simples que complexes ?",
