@@ -404,6 +404,36 @@
     },
     "verticals": {
       "eyebrow": "Ce que vous pouvez émettre"
+    },
+    "automation": {
+      "eyebrow": "Automatisation",
+      "heading": "Ce qui tourne automatiquement",
+      "items": {
+        "eligibility": {
+          "title": "Règles d'éligibilité inscrites dans le contrat",
+          "body": "Types d'investisseurs, juridictions, périodes de détention et limites de concentration sont appliqués à chaque transfert."
+        },
+        "reporting": {
+          "title": "Reporting signé",
+          "body": "Votre VL est publiée avec les signatures du trustee et de l'administrateur, et les soldes du dépositaire."
+        },
+        "register": {
+          "title": "Un registre unique",
+          "body": "Détenteurs, transferts et distributions reposent sur un seul registre que votre administrateur peut rapprocher."
+        },
+        "settlement": {
+          "title": "Règlement le jour même",
+          "body": "Les souscriptions et transferts se règlent en T+0."
+        },
+        "compliance": {
+          "title": "Reporting réglementaire et fiscal",
+          "body": "Les rapports réglementaires et fiscaux sont générés à partir du même registre."
+        },
+        "distribution": {
+          "title": "Distribution qualifiée",
+          "body": "Votre offre n'est visible que par les investisseurs qualifiés vérifiés."
+        }
+      }
     }
   },
   "about": {

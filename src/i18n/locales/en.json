@@ -404,6 +404,36 @@
     },
     "verticals": {
       "eyebrow": "What you can issue"
+    },
+    "automation": {
+      "eyebrow": "Automation",
+      "heading": "What runs automatically",
+      "items": {
+        "eligibility": {
+          "title": "Eligibility rules in the contract",
+          "body": "Investor types, jurisdictions, holding periods and concentration limits are enforced on every transfer."
+        },
+        "reporting": {
+          "title": "Signed reporting",
+          "body": "Your NAV goes out with trustee and administrator signatures and custodian balances."
+        },
+        "register": {
+          "title": "One register",
+          "body": "Holders, transfers and distributions sit on one record your administrator can reconcile against."
+        },
+        "settlement": {
+          "title": "Same-day settlement",
+          "body": "Subscriptions and transfers settle T+0."
+        },
+        "compliance": {
+          "title": "Compliance and tax reporting",
+          "body": "Regulatory and tax reports are generated from the same record."
+        },
+        "distribution": {
+          "title": "Qualified distribution",
+          "body": "Your listing is shown only to reviewed qualified purchasers."
+        }
+      }
     }
   },
   "about": {

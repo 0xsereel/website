@@ -1,7 +1,21 @@
 import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Check, ClipboardList, Building2, PlugZap, FileSignature, ListChecks, BarChart3 } from "lucide-react";
+import {
+  Check,
+  ClipboardList,
+  Building2,
+  PlugZap,
+  FileSignature,
+  ListChecks,
+  BarChart3,
+  ShieldCheck,
+  BadgeCheck,
+  BookOpenCheck,
+  Timer,
+  FileCheck2,
+  UserCheck,
+} from "lucide-react";
 import { SEO } from "../../components/SEO";
 import { useLang } from "../../i18n/LanguageProvider";
 import { VERTICALS } from "../../components/Verticals/verticals";
@@ -13,6 +27,15 @@ const PROCESS_STEPS = [
   { key: "issue", icon: FileSignature },
   { key: "list", icon: ListChecks },
   { key: "report", icon: BarChart3 },
+] as const;
+
+const ISSUER_BENEFITS = [
+  { key: "eligibility", icon: ShieldCheck },
+  { key: "reporting", icon: BadgeCheck },
+  { key: "register", icon: BookOpenCheck },
+  { key: "settlement", icon: Timer },
+  { key: "compliance", icon: FileCheck2 },
+  { key: "distribution", icon: UserCheck },
 ] as const;
 
 /**
@@ -130,6 +153,26 @@ export const Issuers = () => {
                 <strong>{t(`verticals.items.${key}.name`)}</strong>
                 <small>{t(`verticals.items.${key}.line`)}</small>
               </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="section" id="automation" aria-labelledby="automation-heading">
+        <div className="sec-head">
+          <div>
+            <div className="mono eyebrow lit">[ {t("issuers.automation.eyebrow")} ]</div>
+            <h2 id="automation-heading">{t("issuers.automation.heading")}</h2>
+          </div>
+        </div>
+        <ul className="benefit-grid">
+          {ISSUER_BENEFITS.map(({ key, icon: Icon }) => (
+            <li key={key} className="benefit-tile">
+              <span className="benefit-icon">
+                <Icon size={22} strokeWidth={1.6} aria-hidden="true" />
+              </span>
+              <strong>{t(`issuers.automation.items.${key}.title`)}</strong>
+              <small>{t(`issuers.automation.items.${key}.body`)}</small>
             </li>
           ))}
         </ul>
