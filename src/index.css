@@ -895,7 +895,7 @@ section.end { padding: 0 0 32px }
   display: block;
   margin-bottom: 8px;
 }
-.field input, .field textarea {
+.field input, .field textarea, .field select {
   width: 100%;
   padding: 14px 16px;
   background: rgba(111,229,165,0.03);
@@ -907,7 +907,7 @@ section.end { padding: 0 0 32px }
   outline: none;
   transition: border-color .2s, box-shadow .2s;
 }
-.field input:focus, .field textarea:focus {
+.field input:focus, .field textarea:focus, .field select:focus {
   border-color: var(--accent);
   box-shadow: 0 0 0 4px rgba(111,229,165,0.08);
 }

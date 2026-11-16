@@ -5,8 +5,10 @@ export {
   generateArticleSchema,
   generateBreadcrumbSchema,
   generateWebSiteSchema,
+  generateServiceSchema,
 } from './StructuredData';
 export type {
   OrganizationSchemaProps,
   ArticleSchemaProps,
+  ServiceSchemaProps,
 } from './StructuredData';

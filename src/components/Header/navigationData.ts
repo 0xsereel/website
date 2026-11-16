@@ -1,5 +1,5 @@
 export type NavLink = {
-  key: "verticals" | "verified" | "about" | "contact";
+  key: "verticals" | "verified" | "issuers" | "about" | "contact";
   href: string;
 };
 
@@ -7,6 +7,7 @@ export type NavLink = {
 export const NAV_LINKS: NavLink[] = [
   { key: "verticals", href: "/verticals" },
   { key: "verified", href: "/sereel-verified" },
+  { key: "issuers", href: "/issuers" },
   { key: "about", href: "/about" },
   { key: "contact", href: "/contact" },
 ];

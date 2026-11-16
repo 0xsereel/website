@@ -12,6 +12,7 @@ export const TRANSLATED_PATHS: readonly string[] = [
   "/verticals",
   "/sereel-verified",
   "/listings",
+  "/issuers",
   "/about",
   "/contact",
   "/faq",

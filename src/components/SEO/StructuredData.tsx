@@ -185,6 +185,47 @@ export function generateBreadcrumbSchema(items: Array<{ name: string; url: strin
   };
 }
 
+export interface ServiceSchemaProps {
+  name?: string;
+  serviceType?: string;
+  description?: string;
+  provider?: {
+    '@type': 'Organization';
+    name: string;
+    url: string;
+  };
+  areaServed?: string;
+}
+
+export function generateServiceSchema(props: ServiceSchemaProps = {}) {
+  const {
+    name = SITE_CONFIG.name,
+    serviceType = 'Securities issuance and reporting',
+    description,
+    provider = {
+      '@type': 'Organization',
+      name: SITE_CONFIG.name,
+      url: SITE_CONFIG.url,
+    },
+    areaServed = 'Worldwide',
+  } = props;
+
+  const schema: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name,
+    serviceType,
+    provider,
+    areaServed,
+  };
+
+  if (description) {
+    schema.description = description;
+  }
+
+  return schema;
+}
+
 export function generateWebSiteSchema() {
   // No SearchAction: the site has no /search route, and declaring one that
   // does not exist is a false claim to crawlers.

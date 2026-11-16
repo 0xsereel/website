@@ -15,7 +15,8 @@
     "verified": "Sereel Verified",
     "about": "About",
     "contact": "Contact",
-    "viewListings": "View listings"
+    "viewListings": "View listings",
+    "issuers": "For issuers"
   },
   "footer": {
     "tagline": "Verifiable, real-economy issuance.",
@@ -297,7 +298,8 @@
       "submit": "Start the conversation",
       "success": "Thank you. We will be in touch shortly.",
       "error": "Please fill in your name, email and firm, then try again."
-    }
+    },
+    "issuerLink": "Planning a new issuance? See how issuing with Sereel works"
   },
   "listings": {
     "seo": {
@@ -334,6 +336,184 @@
         "required": "Please complete every field and confirm your status.",
         "network": "Something went wrong. Please try again or email team@sereel.com."
       }
+    }
+  },
+  "issuers": {
+    "seo": {
+      "title": "Issue with Sereel",
+      "description": "Issue private credit, venture capital, fixed income and project finance with Sereel: structuring, signed NAV reporting and access to qualified allocators."
+    },
+    "eyebrow": "For issuers",
+    "hero": {
+      "heading": "Bring us the asset. We run the issuance.",
+      "lede": "Sereel structures, issues and reports private credit, venture capital, fixed income and project finance. You keep the asset and the investor relationship. Allocators get numbers they can check.",
+      "ctaPrimary": "Start an issuance",
+      "ctaSecondary": "How Sereel Verified works"
+    },
+    "roles": {
+      "eyebrow": "Who does what",
+      "heading": "You own the asset. We run the rails.",
+      "youBring": {
+        "heading": "You bring",
+        "items": [
+          "The asset or fund",
+          "Offering documents and disclosures",
+          "The investor relationship",
+          "Your trustee, fund administrator and custodian (or we help you appoint them)"
+        ]
+      },
+      "sereelRuns": {
+        "heading": "Sereel runs",
+        "items": [
+          "The issuing vehicle for your vertical",
+          "Issuance with eligibility and transfer rules in the contract",
+          "Subscriptions, redemptions and transfers",
+          "Signed NAV reporting through Sereel Verified",
+          "Access for qualified purchasers through the listings"
+        ]
+      }
+    },
+    "process": {
+      "eyebrow": "How it works",
+      "heading": "How an issuance runs",
+      "steps": {
+        "intake": {
+          "title": "Intake",
+          "body": "Tell us about the asset, size and timeline."
+        },
+        "structure": {
+          "title": "Structure",
+          "body": "We match a vehicle to your vertical: a note-issuing cell, a fund or SPV, or a project SPV."
+        },
+        "connect": {
+          "title": "Connect reporting",
+          "body": "Your trustee, administrator and custodian are onboarded to sign and send data."
+        },
+        "issue": {
+          "title": "Issue",
+          "body": "Units or notes are issued with eligibility and transfer rules set by your documents."
+        },
+        "list": {
+          "title": "List",
+          "body": "Qualified purchasers who pass review can see the listing."
+        },
+        "report": {
+          "title": "Report and administer",
+          "body": "Each cycle the NAV is signed, published and checked; subscriptions, redemptions and distributions run on the same record."
+        }
+      }
+    },
+    "verticals": {
+      "eyebrow": "What you can issue"
+    },
+    "automation": {
+      "eyebrow": "Automation",
+      "heading": "What runs automatically",
+      "items": {
+        "eligibility": {
+          "title": "Eligibility rules in the contract",
+          "body": "Investor types, jurisdictions, holding periods and concentration limits are enforced on every transfer."
+        },
+        "reporting": {
+          "title": "Signed reporting",
+          "body": "Your NAV goes out with trustee and administrator signatures and custodian balances."
+        },
+        "register": {
+          "title": "One register",
+          "body": "Holders, transfers and distributions sit on one record your administrator can reconcile against."
+        },
+        "settlement": {
+          "title": "Same-day settlement",
+          "body": "Subscriptions and transfers settle T+0."
+        },
+        "compliance": {
+          "title": "Compliance and tax reporting",
+          "body": "Regulatory and tax reports are generated from the same record."
+        },
+        "distribution": {
+          "title": "Qualified distribution",
+          "body": "Your listing is shown only to reviewed qualified purchasers."
+        }
+      }
+    },
+    "verified": {
+      "eyebrow": "Reporting",
+      "heading": "Every issuance reports the same way.",
+      "body": "When all three checks are current, your listing shows the Sereel Verified check. If one is late, the listing says which and since when.",
+      "link": "How Sereel Verified works"
+    },
+    "readiness": {
+      "eyebrow": "Readiness",
+      "heading": "What to have ready.",
+      "items": [
+        "A defined asset or fund structure",
+        "Legal and regulatory review",
+        "Investor eligibility rules",
+        "Custody and recovery design",
+        "A distribution plan",
+        "A reporting framework",
+        "Governance approvals",
+        "A technical integration plan"
+      ],
+      "footnote": "Missing some of these? Tell us in the form. We can help with most of them."
+    },
+    "credentials": {
+      "eyebrow": "Credentials",
+      "heading": "Backed by recognised standards."
+    },
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "firm": "Firm",
+      "role": "Role",
+      "vertical": "Vertical",
+      "assetCountry": "Asset or fund country",
+      "size": "Deal size",
+      "timeline": "Timeline",
+      "providers": "Already appointed",
+      "message": "Message",
+      "consent": "I agree that Sereel may contact me about this enquiry.",
+      "privacyLink": "Privacy Policy",
+      "roleOptions": {
+        "fundManager": "Fund manager",
+        "assetSponsorOrDeveloper": "Asset sponsor or developer",
+        "bankOrFinancialInstitution": "Bank or financial institution",
+        "adviserOrArranger": "Adviser or arranger",
+        "other": "Other"
+      },
+      "verticalOtherOption": "Something else",
+      "sizeOptions": {
+        "under5m": "Under $5M",
+        "5to25m": "$5-25M",
+        "25to100m": "$25-100M",
+        "over100m": "Over $100M",
+        "notSure": "Not sure yet"
+      },
+      "timelineOptions": {
+        "within3Months": "Within 3 months",
+        "3to6Months": "3-6 months",
+        "6to12Months": "6-12 months",
+        "exploring": "Exploring"
+      },
+      "providerOptions": {
+        "trustee": "Trustee",
+        "fundAdministrator": "Fund administrator",
+        "custodian": "Custodian"
+      },
+      "errors": {
+        "required": "This field is required.",
+        "email": "Enter a valid email address.",
+        "consent": "Please confirm you agree to be contacted.",
+        "network": "Something went wrong. Please try again or email team@sereel.com."
+      },
+      "sending": "Sending…",
+      "submit": "Send",
+      "success": {
+        "heading": "Thank you.",
+        "body": "We will reply within one business day.",
+        "backLink": "Back to verticals"
+      },
+      "selectPlaceholder": "Select…"
     }
   },
   "about": {

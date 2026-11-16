@@ -15,7 +15,8 @@
     "verified": "Sereel Verified",
     "about": "À propos",
     "contact": "Contact",
-    "viewListings": "Voir les offres"
+    "viewListings": "Voir les offres",
+    "issuers": "Pour les émetteurs"
   },
   "footer": {
     "tagline": "Une émission vérifiable, au service de l'économie réelle.",
@@ -297,7 +298,8 @@
       "submit": "Engager la conversation",
       "success": "Merci. Nous reviendrons vers vous rapidement.",
       "error": "Veuillez indiquer votre nom, votre e-mail et votre société, puis réessayer."
-    }
+    },
+    "issuerLink": "Vous préparez une nouvelle émission ? Découvrez comment émettre avec Sereel"
   },
   "listings": {
     "seo": {
@@ -334,6 +336,184 @@
         "required": "Veuillez remplir tous les champs et confirmer votre statut.",
         "network": "Une erreur est survenue. Veuillez réessayer ou écrire à team@sereel.com."
       }
+    }
+  },
+  "issuers": {
+    "seo": {
+      "title": "Émettre avec Sereel",
+      "description": "Sereel structure et émet du private credit, du capital-risque, du revenu fixe et du financement de projet avec reporting VL pour investisseurs qualifiés."
+    },
+    "eyebrow": "Pour les émetteurs",
+    "hero": {
+      "heading": "Apportez-nous l'actif. Nous gérons l'émission.",
+      "lede": "Sereel structure, émet et reporte sur le private credit, le capital-risque, les titres à revenu fixe et le financement de projet. Vous gardez l'actif et la relation investisseur. Les investisseurs obtiennent des chiffres qu'ils peuvent vérifier.",
+      "ctaPrimary": "Démarrer une émission",
+      "ctaSecondary": "Comment fonctionne Sereel Verified"
+    },
+    "roles": {
+      "eyebrow": "Qui fait quoi",
+      "heading": "Vous détenez l'actif. Nous gérons les rails.",
+      "youBring": {
+        "heading": "Vous apportez",
+        "items": [
+          "L'actif ou le fonds",
+          "Les documents d'offre et les informations réglementaires",
+          "La relation investisseur",
+          "Votre trustee, administrateur de fonds et dépositaire (ou nous vous aidons à les nommer)"
+        ]
+      },
+      "sereelRuns": {
+        "heading": "Sereel gère",
+        "items": [
+          "Le véhicule d'émission adapté à votre vertical",
+          "L'émission avec des règles d'éligibilité et de transfert inscrites dans le contrat",
+          "Les souscriptions, rachats et transferts",
+          "Le reporting VL signé via Sereel Verified",
+          "L'accès des investisseurs qualifiés via les offres"
+        ]
+      }
+    },
+    "process": {
+      "eyebrow": "Comment ça marche",
+      "heading": "Comment se déroule une émission",
+      "steps": {
+        "intake": {
+          "title": "Prise en charge",
+          "body": "Parlez-nous de l'actif, de sa taille et de votre calendrier."
+        },
+        "structure": {
+          "title": "Structuration",
+          "body": "Nous associons un véhicule à votre vertical : une cellule d'émission de notes, un fonds ou SPV, ou un SPV de projet."
+        },
+        "connect": {
+          "title": "Connexion du reporting",
+          "body": "Votre trustee, administrateur et dépositaire sont intégrés pour signer et transmettre les données."
+        },
+        "issue": {
+          "title": "Émission",
+          "body": "Les parts ou notes sont émises avec des règles d'éligibilité et de transfert définies par vos documents."
+        },
+        "list": {
+          "title": "Mise en ligne",
+          "body": "Les investisseurs qualifiés ayant passé la vérification peuvent consulter l'offre."
+        },
+        "report": {
+          "title": "Reporting et administration",
+          "body": "À chaque cycle, la VL est signée, publiée et vérifiée ; souscriptions, rachats et distributions s'appuient sur le même registre."
+        }
+      }
+    },
+    "verticals": {
+      "eyebrow": "Ce que vous pouvez émettre"
+    },
+    "automation": {
+      "eyebrow": "Automatisation",
+      "heading": "Ce qui tourne automatiquement",
+      "items": {
+        "eligibility": {
+          "title": "Règles d'éligibilité inscrites dans le contrat",
+          "body": "Types d'investisseurs, juridictions, périodes de détention et limites de concentration sont appliqués à chaque transfert."
+        },
+        "reporting": {
+          "title": "Reporting signé",
+          "body": "Votre VL est publiée avec les signatures du trustee et de l'administrateur, et les soldes du dépositaire."
+        },
+        "register": {
+          "title": "Un registre unique",
+          "body": "Détenteurs, transferts et distributions reposent sur un seul registre que votre administrateur peut rapprocher."
+        },
+        "settlement": {
+          "title": "Règlement le jour même",
+          "body": "Les souscriptions et transferts se règlent en T+0."
+        },
+        "compliance": {
+          "title": "Reporting réglementaire et fiscal",
+          "body": "Les rapports réglementaires et fiscaux sont générés à partir du même registre."
+        },
+        "distribution": {
+          "title": "Distribution qualifiée",
+          "body": "Votre offre n'est visible que par les investisseurs qualifiés vérifiés."
+        }
+      }
+    },
+    "verified": {
+      "eyebrow": "Reporting",
+      "heading": "Chaque émission reporte de la même façon.",
+      "body": "Lorsque les trois contrôles sont à jour, votre offre affiche le badge Sereel Verified. Si l'un d'eux est en retard, l'offre indique lequel et depuis quand.",
+      "link": "Comment fonctionne Sereel Verified"
+    },
+    "readiness": {
+      "eyebrow": "Préparation",
+      "heading": "Ce qu'il faut avoir prêt.",
+      "items": [
+        "Une structure d'actif ou de fonds définie",
+        "Une revue juridique et réglementaire",
+        "Des règles d'éligibilité des investisseurs",
+        "Une conception de la conservation et du recouvrement",
+        "Un plan de distribution",
+        "Un cadre de reporting",
+        "Les approbations de gouvernance",
+        "Un plan d'intégration technique"
+      ],
+      "footnote": "Il vous en manque certains ? Indiquez-le dans le formulaire. Nous pouvons vous aider sur la plupart d'entre eux."
+    },
+    "credentials": {
+      "eyebrow": "Accréditations",
+      "heading": "Adossé à des normes reconnues."
+    },
+    "form": {
+      "name": "Nom",
+      "email": "E-mail",
+      "firm": "Société",
+      "role": "Rôle",
+      "vertical": "Vertical",
+      "assetCountry": "Pays de l'actif ou du fonds",
+      "size": "Taille de l'opération",
+      "timeline": "Calendrier",
+      "providers": "Déjà nommés",
+      "message": "Message",
+      "consent": "J'accepte que Sereel me contacte au sujet de cette demande.",
+      "privacyLink": "Politique de confidentialité",
+      "roleOptions": {
+        "fundManager": "Gestionnaire de fonds",
+        "assetSponsorOrDeveloper": "Promoteur ou développeur d'actifs",
+        "bankOrFinancialInstitution": "Banque ou institution financière",
+        "adviserOrArranger": "Conseiller ou arrangeur",
+        "other": "Autre"
+      },
+      "verticalOtherOption": "Autre chose",
+      "sizeOptions": {
+        "under5m": "Moins de 5 M$",
+        "5to25m": "5-25 M$",
+        "25to100m": "25-100 M$",
+        "over100m": "Plus de 100 M$",
+        "notSure": "Pas encore déterminé"
+      },
+      "timelineOptions": {
+        "within3Months": "Dans les 3 mois",
+        "3to6Months": "3-6 mois",
+        "6to12Months": "6-12 mois",
+        "exploring": "En phase d'exploration"
+      },
+      "providerOptions": {
+        "trustee": "Trustee",
+        "fundAdministrator": "Administrateur de fonds",
+        "custodian": "Dépositaire"
+      },
+      "errors": {
+        "required": "Ce champ est obligatoire.",
+        "email": "Saisissez une adresse e-mail valide.",
+        "consent": "Veuillez confirmer que vous acceptez d'être contacté(e).",
+        "network": "Une erreur s'est produite. Veuillez réessayer ou écrire à team@sereel.com."
+      },
+      "sending": "Envoi en cours…",
+      "submit": "Envoyer",
+      "success": {
+        "heading": "Merci.",
+        "body": "Nous répondrons sous un jour ouvré.",
+        "backLink": "Retour aux verticales"
+      },
+      "selectPlaceholder": "Sélectionner…"
     }
   },
   "about": {
