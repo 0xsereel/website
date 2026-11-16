@@ -79,7 +79,7 @@ export const Verticals = () => {
           <Link className="market-cta primary" to={localize("/listings")}>
             {t("home.hero.viewListings")}
           </Link>
-          <Link className="market-cta secondary" to={localize("/contact")}>
+          <Link className="market-cta secondary" to={localize("/issuers#start")}>
             {t("verticals.cta.issuer")}
           </Link>
         </div>
