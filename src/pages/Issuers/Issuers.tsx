@@ -17,7 +17,7 @@ import {
   UserCheck,
   ArrowRight,
 } from "lucide-react";
-import { SEO } from "../../components/SEO";
+import { SEO, generateServiceSchema } from "../../components/SEO";
 import { useLang } from "../../i18n/LanguageProvider";
 import { VERTICALS } from "../../components/Verticals/verticals";
 import { ReportingFlow } from "../../components/Verified/ReportingFlow";
@@ -73,6 +73,12 @@ export const Issuers = () => {
         description={t("issuers.seo.description")}
         canonical={localize("/issuers")}
         hreflangPath="/issuers"
+        structuredData={[
+          generateServiceSchema({
+            name: t("issuers.seo.title"),
+            description: t("issuers.seo.description"),
+          }),
+        ]}
       />
       <section className="page-hero">
         <div className="mono eyebrow lit">[ {t("issuers.eyebrow")} ]</div>
