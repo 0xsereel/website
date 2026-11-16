@@ -15,7 +15,8 @@
     "verified": "Sereel Verified",
     "about": "À propos",
     "contact": "Contact",
-    "viewListings": "Voir les offres"
+    "viewListings": "Voir les offres",
+    "issuers": "Pour les émetteurs"
   },
   "footer": {
     "tagline": "Une émission vérifiable, au service de l'économie réelle.",
@@ -334,6 +335,16 @@
         "required": "Veuillez remplir tous les champs et confirmer votre statut.",
         "network": "Une erreur est survenue. Veuillez réessayer ou écrire à team@sereel.com."
       }
+    }
+  },
+  "issuers": {
+    "seo": {
+      "title": "Émettre avec Sereel",
+      "description": "Sereel structure et émet du private credit, du capital-risque, du revenu fixe et du financement de projet avec reporting VL pour investisseurs qualifiés."
+    },
+    "eyebrow": "Pour les émetteurs",
+    "hero": {
+      "heading": "Apportez-nous l'actif. Nous gérons l'émission."
     }
   },
   "about": {

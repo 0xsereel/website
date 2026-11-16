@@ -15,7 +15,8 @@
     "verified": "Sereel Verified",
     "about": "About",
     "contact": "Contact",
-    "viewListings": "View listings"
+    "viewListings": "View listings",
+    "issuers": "For issuers"
   },
   "footer": {
     "tagline": "Verifiable, real-economy issuance.",
@@ -334,6 +335,16 @@
         "required": "Please complete every field and confirm your status.",
         "network": "Something went wrong. Please try again or email team@sereel.com."
       }
+    }
+  },
+  "issuers": {
+    "seo": {
+      "title": "Issue with Sereel",
+      "description": "Issue private credit, venture capital, fixed income and project finance with Sereel: structuring, signed NAV reporting and access to qualified allocators."
+    },
+    "eyebrow": "For issuers",
+    "hero": {
+      "heading": "Bring us the asset. We run the issuance."
     }
   },
   "about": {
