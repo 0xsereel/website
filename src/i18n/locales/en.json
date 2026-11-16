@@ -441,6 +441,21 @@
       "heading": "Every issuance reports the same way.",
       "body": "When all three checks are current, your listing shows the Sereel Verified check. If one is late, the listing says which and since when.",
       "link": "How Sereel Verified works"
+    },
+    "readiness": {
+      "eyebrow": "Readiness",
+      "heading": "What to have ready.",
+      "items": [
+        "A defined asset or fund structure",
+        "Legal and regulatory review",
+        "Investor eligibility rules",
+        "Custody and recovery design",
+        "A distribution plan",
+        "A reporting framework",
+        "Governance approvals",
+        "A technical integration plan"
+      ],
+      "footnote": "Missing some of these? Tell us in the form. We can help with most of them."
     }
   },
   "about": {

@@ -63,6 +63,7 @@ export const Issuers = () => {
   useHashScrollAndFocus();
   const youBring = t("issuers.roles.youBring.items", { returnObjects: true }) as string[];
   const sereelRuns = t("issuers.roles.sereelRuns.items", { returnObjects: true }) as string[];
+  const readinessItems = t("issuers.readiness.items", { returnObjects: true }) as string[];
 
   return (
     <main className="wrap inner-page">
@@ -192,6 +193,23 @@ export const Issuers = () => {
         <Link className="text-link" to={localize("/sereel-verified")}>
           {t("issuers.verified.link")} <ArrowRight size={15} aria-hidden="true" />
         </Link>
+      </section>
+
+      <section className="section" id="readiness" aria-labelledby="readiness-heading">
+        <div className="sec-head">
+          <div>
+            <div className="mono eyebrow lit">[ {t("issuers.readiness.eyebrow")} ]</div>
+            <h2 id="readiness-heading">{t("issuers.readiness.heading")}</h2>
+          </div>
+        </div>
+        <ul className="means-list">
+          {readinessItems.map((item) => (
+            <li key={item}>
+              <Check size={16} aria-hidden="true" /> {item}
+            </li>
+          ))}
+        </ul>
+        <p>{t("issuers.readiness.footnote")}</p>
       </section>
     </main>
   );

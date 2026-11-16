@@ -441,6 +441,21 @@
       "heading": "Chaque émission reporte de la même façon.",
       "body": "Lorsque les trois contrôles sont à jour, votre offre affiche le badge Sereel Verified. Si l'un d'eux est en retard, l'offre indique lequel et depuis quand.",
       "link": "Comment fonctionne Sereel Verified"
+    },
+    "readiness": {
+      "eyebrow": "Préparation",
+      "heading": "Ce qu'il faut avoir prêt.",
+      "items": [
+        "Une structure d'actif ou de fonds définie",
+        "Une revue juridique et réglementaire",
+        "Des règles d'éligibilité des investisseurs",
+        "Une conception de la conservation et du recouvrement",
+        "Un plan de distribution",
+        "Un cadre de reporting",
+        "Les approbations de gouvernance",
+        "Un plan d'intégration technique"
+      ],
+      "footnote": "Il vous en manque certains ? Indiquez-le dans le formulaire. Nous pouvons vous aider sur la plupart d'entre eux."
     }
   },
   "about": {
