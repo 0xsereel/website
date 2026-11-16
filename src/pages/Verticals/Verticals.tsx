@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { ArrowRight } from "lucide-react";
 import { SEO } from "../../components/SEO";
 import { useLang } from "../../i18n/LanguageProvider";
+import { track } from "../../utils/track";
 import { VERTICALS } from "../../components/Verticals/verticals";
 
 const Structure = ({ verticalKey }: { verticalKey: string }) => {
@@ -79,7 +80,11 @@ export const Verticals = () => {
           <Link className="market-cta primary" to={localize("/listings")}>
             {t("home.hero.viewListings")}
           </Link>
-          <Link className="market-cta secondary" to={localize("/issuers#start")}>
+          <Link
+            className="market-cta secondary"
+            to={localize("/issuers#start")}
+            onClick={() => track("issuer_cta_click", { from: "verticals" })}
+          >
             {t("verticals.cta.issuer")}
           </Link>
         </div>

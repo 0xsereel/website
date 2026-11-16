@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useLang } from "../../i18n/LanguageProvider";
+import { track } from "../../utils/track";
 
 type FooterLink = { label: string; to?: string; href?: string };
 type FooterGroup = { title: string; links: FooterLink[] };
@@ -56,7 +57,16 @@ export const Footer = () => {
               <ul>
                 {group.links.map((link) => (
                   <li key={link.label}>
-                    {link.to ? <Link to={localize(link.to)}>{link.label}</Link> : <a href={link.href}>{link.label}</a>}
+                    {link.to ? (
+                      <Link
+                        to={localize(link.to)}
+                        onClick={link.to === "/issuers" ? () => track("issuer_cta_click", { from: "footer" }) : undefined}
+                      >
+                        {link.label}
+                      </Link>
+                    ) : (
+                      <a href={link.href}>{link.label}</a>
+                    )}
                   </li>
                 ))}
               </ul>

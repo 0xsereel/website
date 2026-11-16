@@ -6,6 +6,7 @@ import { SEO } from "../../components/SEO";
 import { useLang } from "../../i18n/LanguageProvider";
 import { ReportingFlow } from "../../components/Verified/ReportingFlow";
 import { VerifiedCard, VerifiedPill } from "../../components/Verified/VerifiedCard";
+import { track } from "../../utils/track";
 
 const ManagerForm = () => {
   const { t } = useTranslation();
@@ -162,7 +163,11 @@ export const SereelVerified = () => {
           <p className="lede">{t("verified.managers.lede")}</p>
         </div>
         <ManagerForm />
-        <Link className="text-link" to={localize("/issuers")}>
+        <Link
+          className="text-link"
+          to={localize("/issuers")}
+          onClick={() => track("issuer_cta_click", { from: "verified" })}
+        >
           {t("verified.issuerLink")} <ArrowRight size={15} aria-hidden="true" />
         </Link>
       </section>

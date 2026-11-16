@@ -5,6 +5,7 @@ import { useGlobal } from "../../contexts/globals";
 import { useLang } from "../../i18n/LanguageProvider";
 import { stripLangPrefix } from "../../i18n/routes";
 import { BRAND_REVEAL_EVENT } from "../../utils/brandReveal";
+import { track } from "../../utils/track";
 import { NAV_LINKS } from "./navigationData";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { ThemeToggle } from "./ThemeToggle";
@@ -46,6 +47,7 @@ export const Header = () => {
                 key={link.key}
                 to={localize(link.href)}
                 className={({ isActive }) => `institutional-nav-trigger${isActive ? " active" : ""}`}
+                onClick={link.key === "issuers" ? () => track("issuer_cta_click", { from: "nav" }) : undefined}
               >
                 {t(`nav.${link.key}`)}
               </RouterNavLink>

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useGlobal } from "../../contexts/globals";
 import { useLang } from "../../i18n/LanguageProvider";
+import { track } from "../../utils/track";
 import { NAV_LINKS } from "./navigationData";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
@@ -54,7 +55,14 @@ export const MobileMenu = () => {
 
         <nav className="mobile-flat-links" aria-label={t("nav.primary")}>
           {NAV_LINKS.map((link) => (
-            <Link key={link.key} to={localize(link.href)} onClick={closeMenu}>
+            <Link
+              key={link.key}
+              to={localize(link.href)}
+              onClick={() => {
+                if (link.key === "issuers") track("issuer_cta_click", { from: "nav" });
+                closeMenu();
+              }}
+            >
               {t(`nav.${link.key}`)}
             </Link>
           ))}
