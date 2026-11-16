@@ -19,7 +19,6 @@ import {
 } from "lucide-react";
 import { SEO, generateServiceSchema } from "../../components/SEO";
 import { useLang } from "../../i18n/LanguageProvider";
-import { VERTICALS } from "../../components/Verticals/verticals";
 import { ReportingFlow } from "../../components/Verified/ReportingFlow";
 import { Credentials } from "../../components/Credentials/Credentials";
 import { IssuerIntakeForm } from "../../components/Forms/IssuerIntakeForm";
@@ -147,28 +146,6 @@ export const Issuers = () => {
         </ol>
       </section>
 
-      <section className="section" id="verticals" aria-labelledby="verticals-heading">
-        <div className="sec-head">
-          <div>
-            <div className="mono eyebrow lit">[ {t("issuers.verticals.eyebrow")} ]</div>
-            <h2 id="verticals-heading">{t("verticals.heading")}</h2>
-          </div>
-        </div>
-        <ul className="vertical-tiles">
-          {VERTICALS.map(({ key, icon: Icon, slug }) => (
-            <li key={key}>
-              <Link to={`${localize("/verticals")}#${slug}`} className="vertical-tile">
-                <span className="vertical-tile-icon">
-                  <Icon size={22} strokeWidth={1.6} aria-hidden="true" />
-                </span>
-                <strong>{t(`verticals.items.${key}.name`)}</strong>
-                <small>{t(`verticals.items.${key}.line`)}</small>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </section>
-
       <section className="section" id="automation" aria-labelledby="automation-heading">
         <div className="sec-head">
           <div>
@@ -192,8 +169,7 @@ export const Issuers = () => {
       <section className="section" id="verified" aria-labelledby="verified-heading">
         <div className="sec-head">
           <div>
-            <div className="mono eyebrow lit">[ {t("issuers.verified.eyebrow")} ]</div>
-            <h2 id="verified-heading">{t("issuers.verified.heading")}</h2>
+            <div className="mono eyebrow lit" id="verified-heading">[ {t("issuers.verified.eyebrow")} ]</div>
           </div>
         </div>
         <ReportingFlow />
@@ -217,7 +193,7 @@ export const Issuers = () => {
             </li>
           ))}
         </ul>
-        <p>{t("issuers.readiness.footnote")}</p>
+        <p style={{ marginTop: 32 }}>{t("issuers.readiness.footnote")}</p>
       </section>
 
       <section className="section" id="credentials" aria-labelledby="credentials-heading">

@@ -345,14 +345,14 @@
     },
     "eyebrow": "For issuers",
     "hero": {
-      "heading": "Bring us the asset. We run the issuance.",
+      "heading": "Your go-to global issuance partner",
       "lede": "Sereel structures, issues and reports private credit, venture capital, fixed income and project finance. You keep the asset and the investor relationship. Allocators get numbers they can check.",
       "ctaPrimary": "Start an issuance",
       "ctaSecondary": "How Sereel Verified works"
     },
     "roles": {
       "eyebrow": "Who does what",
-      "heading": "You own the asset. We run the rails.",
+      "heading": "You issue the asset, we give allocators real-time data",
       "youBring": {
         "heading": "You bring",
         "items": [
@@ -383,11 +383,11 @@
         },
         "structure": {
           "title": "Structure",
-          "body": "We match a vehicle to your vertical: a note-issuing cell, a fund or SPV, or a project SPV."
+          "body": "We match a vehicle to your vertical."
         },
         "connect": {
           "title": "Connect reporting",
-          "body": "Your trustee, administrator and custodian are onboarded to sign and send data."
+          "body": "Your trustee, administrator, auditor and custodian are onboarded to sign and send data."
         },
         "issue": {
           "title": "Issue",
@@ -402,9 +402,6 @@
           "body": "Each cycle the NAV is signed, published and checked; subscriptions, redemptions and distributions run on the same record."
         }
       }
-    },
-    "verticals": {
-      "eyebrow": "What you can issue"
     },
     "automation": {
       "eyebrow": "Automation",
@@ -438,7 +435,6 @@
     },
     "verified": {
       "eyebrow": "Reporting",
-      "heading": "Every issuance reports the same way.",
       "body": "When all three checks are current, your listing shows the Sereel Verified check. If one is late, the listing says which and since when.",
       "link": "How Sereel Verified works"
     },

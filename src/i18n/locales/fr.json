@@ -345,14 +345,14 @@
     },
     "eyebrow": "Pour les émetteurs",
     "hero": {
-      "heading": "Apportez-nous l'actif. Nous gérons l'émission.",
+      "heading": "Votre partenaire mondial de référence pour l'émission",
       "lede": "Sereel structure, émet et reporte sur le private credit, le capital-risque, les titres à revenu fixe et le financement de projet. Vous gardez l'actif et la relation investisseur. Les investisseurs obtiennent des chiffres qu'ils peuvent vérifier.",
       "ctaPrimary": "Démarrer une émission",
       "ctaSecondary": "Comment fonctionne Sereel Verified"
     },
     "roles": {
       "eyebrow": "Qui fait quoi",
-      "heading": "Vous détenez l'actif. Nous gérons les rails.",
+      "heading": "Vous émettez l'actif, nous donnons aux allocateurs des données en temps réel",
       "youBring": {
         "heading": "Vous apportez",
         "items": [
@@ -383,11 +383,11 @@
         },
         "structure": {
           "title": "Structuration",
-          "body": "Nous associons un véhicule à votre vertical : une cellule d'émission de notes, un fonds ou SPV, ou un SPV de projet."
+          "body": "Nous associons un véhicule à votre vertical."
         },
         "connect": {
           "title": "Connexion du reporting",
-          "body": "Votre trustee, administrateur et dépositaire sont intégrés pour signer et transmettre les données."
+          "body": "Votre trustee, administrateur, auditeur et dépositaire sont intégrés pour signer et transmettre les données."
         },
         "issue": {
           "title": "Émission",
@@ -402,9 +402,6 @@
           "body": "À chaque cycle, la VNI est signée, publiée et vérifiée ; souscriptions, rachats et distributions s'appuient sur le même registre."
         }
       }
-    },
-    "verticals": {
-      "eyebrow": "Ce que vous pouvez émettre"
     },
     "automation": {
       "eyebrow": "Automatisation",
@@ -438,7 +435,6 @@
     },
     "verified": {
       "eyebrow": "Reporting",
-      "heading": "Chaque émission reporte de la même façon.",
       "body": "Lorsque les trois contrôles sont à jour, votre offre affiche le badge Sereel Verified. Si l'un d'eux est en retard, l'offre indique lequel et depuis quand.",
       "link": "Comment fonctionne Sereel Verified"
     },
