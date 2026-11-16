@@ -341,7 +341,7 @@
   "issuers": {
     "seo": {
       "title": "Émettre avec Sereel",
-      "description": "Sereel structure et émet du private credit, du capital-risque, du revenu fixe et du financement de projet avec reporting VL pour investisseurs qualifiés."
+      "description": "Sereel structure et émet du private credit, du capital-risque, du revenu fixe et du financement de projet avec reporting VNI pour investisseurs qualifiés."
     },
     "eyebrow": "Pour les émetteurs",
     "hero": {
@@ -368,7 +368,7 @@
           "Le véhicule d'émission adapté à votre vertical",
           "L'émission avec des règles d'éligibilité et de transfert inscrites dans le contrat",
           "Les souscriptions, rachats et transferts",
-          "Le reporting VL signé via Sereel Verified",
+          "Le reporting VNI signé via Sereel Verified",
           "L'accès des investisseurs qualifiés via les offres"
         ]
       }
@@ -399,7 +399,7 @@
         },
         "report": {
           "title": "Reporting et administration",
-          "body": "À chaque cycle, la VL est signée, publiée et vérifiée ; souscriptions, rachats et distributions s'appuient sur le même registre."
+          "body": "À chaque cycle, la VNI est signée, publiée et vérifiée ; souscriptions, rachats et distributions s'appuient sur le même registre."
         }
       }
     },
@@ -416,7 +416,7 @@
         },
         "reporting": {
           "title": "Reporting signé",
-          "body": "Votre VL est publiée avec les signatures du trustee et de l'administrateur, et les soldes du dépositaire."
+          "body": "Votre VNI est publiée avec les signatures du trustee et de l'administrateur, et les soldes du dépositaire."
         },
         "register": {
           "title": "Un registre unique",
