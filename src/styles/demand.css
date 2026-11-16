@@ -430,6 +430,16 @@ body::before {
 .access-status.is-success { color: var(--accent) }
 .access-status.is-error { color: #D14343 }
 
+/* Issuer intake form only — scoped under .intake-form so these never affect
+   ListingsAccessForm, ManagerForm, or Contact's form. */
+.intake-checkbox-group { display: flex; flex-wrap: wrap; gap: 10px 20px }
+.intake-checkbox-group label { display: flex; align-items: center; gap: 8px; font-size: 14.5px; color: var(--ink-2); cursor: pointer }
+.intake-checkbox-group input { width: 18px; height: 18px; accent-color: var(--accent); flex: 0 0 auto }
+.intake-field-error { margin-top: 6px; font-size: 13px; color: #D14343 }
+.intake-form .field input[aria-invalid="true"],
+.intake-form .field select[aria-invalid="true"],
+.intake-form .field textarea[aria-invalid="true"] { border-color: #D14343 }
+
 .access-steps {
   list-style: none;
   display: grid;

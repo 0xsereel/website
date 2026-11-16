@@ -460,6 +460,60 @@
     "credentials": {
       "eyebrow": "Accréditations",
       "heading": "Adossé à des normes reconnues."
+    },
+    "form": {
+      "name": "Nom",
+      "email": "E-mail",
+      "firm": "Société",
+      "role": "Rôle",
+      "vertical": "Vertical",
+      "assetCountry": "Pays de l'actif ou du fonds",
+      "size": "Taille de l'opération",
+      "timeline": "Calendrier",
+      "providers": "Déjà nommés",
+      "message": "Message",
+      "consent": "J'accepte que Sereel me contacte au sujet de cette demande.",
+      "privacyLink": "Politique de confidentialité",
+      "roleOptions": {
+        "fundManager": "Gestionnaire de fonds",
+        "assetSponsorOrDeveloper": "Promoteur ou développeur d'actifs",
+        "bankOrFinancialInstitution": "Banque ou institution financière",
+        "adviserOrArranger": "Conseiller ou arrangeur",
+        "other": "Autre"
+      },
+      "verticalOtherOption": "Autre chose",
+      "sizeOptions": {
+        "under5m": "Moins de 5 M$",
+        "5to25m": "5-25 M$",
+        "25to100m": "25-100 M$",
+        "over100m": "Plus de 100 M$",
+        "notSure": "Pas encore déterminé"
+      },
+      "timelineOptions": {
+        "within3Months": "Dans les 3 mois",
+        "3to6Months": "3-6 mois",
+        "6to12Months": "6-12 mois",
+        "exploring": "En phase d'exploration"
+      },
+      "providerOptions": {
+        "trustee": "Trustee",
+        "fundAdministrator": "Administrateur de fonds",
+        "custodian": "Dépositaire"
+      },
+      "errors": {
+        "required": "Ce champ est obligatoire.",
+        "email": "Saisissez une adresse e-mail valide.",
+        "consent": "Veuillez confirmer que vous acceptez d'être contacté(e).",
+        "network": "Une erreur s'est produite. Veuillez réessayer ou écrire à team@sereel.com."
+      },
+      "sending": "Envoi en cours…",
+      "submit": "Envoyer",
+      "success": {
+        "heading": "Merci.",
+        "body": "Nous répondrons sous un jour ouvré.",
+        "backLink": "Retour aux verticales"
+      },
+      "selectPlaceholder": "Sélectionner…"
     }
   },
   "about": {

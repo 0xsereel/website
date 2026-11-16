@@ -460,6 +460,60 @@
     "credentials": {
       "eyebrow": "Credentials",
       "heading": "Backed by recognised standards."
+    },
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "firm": "Firm",
+      "role": "Role",
+      "vertical": "Vertical",
+      "assetCountry": "Asset or fund country",
+      "size": "Deal size",
+      "timeline": "Timeline",
+      "providers": "Already appointed",
+      "message": "Message",
+      "consent": "I agree that Sereel may contact me about this enquiry.",
+      "privacyLink": "Privacy Policy",
+      "roleOptions": {
+        "fundManager": "Fund manager",
+        "assetSponsorOrDeveloper": "Asset sponsor or developer",
+        "bankOrFinancialInstitution": "Bank or financial institution",
+        "adviserOrArranger": "Adviser or arranger",
+        "other": "Other"
+      },
+      "verticalOtherOption": "Something else",
+      "sizeOptions": {
+        "under5m": "Under $5M",
+        "5to25m": "$5-25M",
+        "25to100m": "$25-100M",
+        "over100m": "Over $100M",
+        "notSure": "Not sure yet"
+      },
+      "timelineOptions": {
+        "within3Months": "Within 3 months",
+        "3to6Months": "3-6 months",
+        "6to12Months": "6-12 months",
+        "exploring": "Exploring"
+      },
+      "providerOptions": {
+        "trustee": "Trustee",
+        "fundAdministrator": "Fund administrator",
+        "custodian": "Custodian"
+      },
+      "errors": {
+        "required": "This field is required.",
+        "email": "Enter a valid email address.",
+        "consent": "Please confirm you agree to be contacted.",
+        "network": "Something went wrong. Please try again or email team@sereel.com."
+      },
+      "sending": "Sending…",
+      "submit": "Send",
+      "success": {
+        "heading": "Thank you.",
+        "body": "We will reply within one business day.",
+        "backLink": "Back to verticals"
+      },
+      "selectPlaceholder": "Select…"
     }
   },
   "about": {

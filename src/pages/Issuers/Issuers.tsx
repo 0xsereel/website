@@ -22,6 +22,7 @@ import { useLang } from "../../i18n/LanguageProvider";
 import { VERTICALS } from "../../components/Verticals/verticals";
 import { ReportingFlow } from "../../components/Verified/ReportingFlow";
 import { Credentials } from "../../components/Credentials/Credentials";
+import { IssuerIntakeForm } from "../../components/Forms/IssuerIntakeForm";
 
 const PROCESS_STEPS = [
   { key: "intake", icon: ClipboardList },
@@ -227,6 +228,10 @@ export const Issuers = () => {
           </div>
         </div>
         <Credentials />
+      </section>
+
+      <section className="section" id="start">
+        <IssuerIntakeForm />
       </section>
     </main>
   );
