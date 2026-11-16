@@ -401,6 +401,9 @@
           "body": "À chaque cycle, la VL est signée, publiée et vérifiée ; souscriptions, rachats et distributions s'appuient sur le même registre."
         }
       }
+    },
+    "verticals": {
+      "eyebrow": "Ce que vous pouvez émettre"
     }
   },
   "about": {

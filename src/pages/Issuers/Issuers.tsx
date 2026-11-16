@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Check, ClipboardList, Building2, PlugZap, FileSignature, ListChecks, BarChart3 } from "lucide-react";
 import { SEO } from "../../components/SEO";
 import { useLang } from "../../i18n/LanguageProvider";
+import { VERTICALS } from "../../components/Verticals/verticals";
 
 const PROCESS_STEPS = [
   { key: "intake", icon: ClipboardList },
@@ -110,6 +111,28 @@ export const Issuers = () => {
             </li>
           ))}
         </ol>
+      </section>
+
+      <section className="section" id="verticals" aria-labelledby="verticals-heading">
+        <div className="sec-head">
+          <div>
+            <div className="mono eyebrow lit">[ {t("issuers.verticals.eyebrow")} ]</div>
+            <h2 id="verticals-heading">{t("verticals.heading")}</h2>
+          </div>
+        </div>
+        <ul className="vertical-tiles">
+          {VERTICALS.map(({ key, icon: Icon, slug }) => (
+            <li key={key}>
+              <Link to={`${localize("/verticals")}#${slug}`} className="vertical-tile">
+                <span className="vertical-tile-icon">
+                  <Icon size={22} strokeWidth={1.6} aria-hidden="true" />
+                </span>
+                <strong>{t(`verticals.items.${key}.name`)}</strong>
+                <small>{t(`verticals.items.${key}.line`)}</small>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </section>
     </main>
   );

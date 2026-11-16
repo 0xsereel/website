@@ -401,6 +401,9 @@
           "body": "Each cycle the NAV is signed, published and checked; subscriptions, redemptions and distributions run on the same record."
         }
       }
+    },
+    "verticals": {
+      "eyebrow": "What you can issue"
     }
   },
   "about": {
